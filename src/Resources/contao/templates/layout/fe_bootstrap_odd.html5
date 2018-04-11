@@ -20,9 +20,8 @@
     $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/scss/odd.scss');
     echo $combiner->getCombinedFile(); ?>">
 
-    <?= $this->framework ?>
+
     <?= $this->stylesheets ?>
-    <?= $this->mooScripts ?>
     <?= $this->head ?>
 
     <!--[if lt IE 9]><script src="<?= TL_ASSETS_URL ?>assets/html5shiv/js/html5shiv-printshiv.min.js"></script><![endif]-->
@@ -33,9 +32,22 @@
 
     <?php $this->parent(); ?>
 
+    <?= $this->framework ?>
+    <?= $this->mooScripts ?>
 
+    <!-- Bootstrap 4 -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap 4 -->
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+    <script charset="utf-8" src="<?php
+    // add javascripts
+    $combiner = new Combiner();
+    $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/js/scripts.js');
+    echo $combiner->getCombinedFile();
+    ?>"></script>
 
 <?php $this->endblock(); ?>
