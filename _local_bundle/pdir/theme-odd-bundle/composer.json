@@ -1,0 +1,39 @@
+{
+  "name": "pdir/theme-odd-bundle",
+  "type":"contao-bundle",
+  "description": "theme odd bundle for Contao 4",
+  "authors": [
+    {
+      "name": "Webdesign für Dresden",
+      "homepage": "https://pdir.de",
+      "email" : "develop@pdir.de",
+      "role" : "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "contao/core-bundle": "^4.4",
+    "contao-bootstrap/bundle": "~2.0",
+    "madeyourday/contao-rocksolid-frontend-helper": "~2.0"
+  },
+  "conflict": {
+    "contao/core": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pdir\\ThemeOddBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Resources/contao/"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config/",
+      "src/Resources/contao/dca/",
+      "src/Resources/contao/languages/",
+      "src/Resources/contao/templates/"
+    ]
+  },
+  "extra": {
+    "contao-manager-plugin": "Pdir\\ThemeOddBundle\\ContaoManagerPlugin"
+  }
+}
