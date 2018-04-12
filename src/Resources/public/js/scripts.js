@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
-    $("#main .inside > div").each( function() {
-        console.log($(this));
+    $("#main .inside > div:not(.fullwidth)").each( function() {
         $(this).wrapInner("<div class='container'></div>");
     });
 

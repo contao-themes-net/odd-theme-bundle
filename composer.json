@@ -14,7 +14,10 @@
     "php": ">=7.1.0",
     "contao/core-bundle": "^4.4",
     "contao-bootstrap/bundle": "~2.0",
-    "madeyourday/contao-rocksolid-frontend-helper": "~2.0"
+    "madeyourday/contao-rocksolid-frontend-helper": "~2.0",
+    "contao-dd/advanced-classes-bundle": "^0.5",
+    "terminal42/contao-folderpage": "^2.0",
+    "pdir/contao-theme-helper-bundle": "^1.0"
   },
   "conflict": {
     "contao/core": "*"

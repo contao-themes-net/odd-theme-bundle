@@ -1,7 +1,7 @@
 <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
     <div class="icon">
-        <i class="fas fa-<?= $this->featureIcon ?>"></i>
+        <i class="<?= $this->featureIcon ?>"></i>
     </div>
     <div class="feature-text">
         <div class="headline"><?= $this->headline ?></div>
