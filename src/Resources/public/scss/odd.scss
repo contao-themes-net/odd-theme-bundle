@@ -5,7 +5,6 @@
 body {
   font-family: $mainFont;
   color: $black;
-  background: #f2f2f2;
 }
 
 a {
@@ -44,6 +43,10 @@ img {
 
       &.slider {
         padding-top: 0;
+      }
+
+      &.slope-section {
+        padding-bottom: 100px;
       }
     }
   }
@@ -207,7 +210,7 @@ footer {
     }
 
     .feature-text {
-      width: inherit;
+      width: calc(100% - 30px);
       display: inline-block;
       float: left;
     }
@@ -269,6 +272,156 @@ footer {
 }
 #wrapper .ce_featureElement svg {
   width: 40px;
+}
+
+.ce_priceBox {
+  padding: 0;
+
+  .inside {
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    text-align: center;
+  }
+
+  &:nth-of-type(1) .inside {
+    border-top: 8px solid $color1;
+
+    .amount {
+      color: $color1;
+    }
+
+    .first-link {
+      background: $color1;
+      color: $black;
+
+      &:hover {
+        background: #ffa500;
+      }
+    }
+
+    .second-link {
+      color: $color1;
+    }
+
+    .popular-label {
+      background: $color1;
+      color: $black;
+    }
+  }
+
+  &:nth-of-type(2) .inside {
+    border-top: 8px solid #00b8ff;
+
+    .amount {
+      color: #00b8ff;
+    }
+
+    .first-link {
+      background: #00b8ff;
+      color: #fff;
+
+      &:hover {
+        background: #00a8ff;
+      }
+    }
+
+    .second-link {
+      color: #00b8ff;
+    }
+
+    .popular-label {
+      background: #00b8ff;
+      color: #fff;
+    }
+  }
+
+  &:nth-of-type(3) .inside {
+    border-top: 8px solid #d74200;
+
+    .amount {
+      color: #d74200;
+    }
+
+    .first-link {
+      background: #d74200;
+      color: #fff;
+
+      &:hover {
+        background: #d70009;
+      }
+    }
+
+    .second-link {
+      color: #d74200;
+    }
+
+    .popular-label {
+      background: #d74200;
+      color: #fff;
+    }
+  }
+
+  &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3) {
+    .inside .second-link:hover {
+      color: #000;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  .price {
+    padding: 0 0 20px;
+
+    .amount {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: $headingFont;
+    }
+
+    .label {
+      color: $darkGrey;
+    }
+  }
+
+  .text {
+    padding: 10px 0;
+
+    p {
+      border-bottom: 2px solid $grey;
+      padding: 0 0 5px;
+      margin: 0 0 5px;
+    }
+  }
+
+  .first-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 700;
+    margin: 15px 0;
+  }
+
+  .second-link {
+    font-weight: 700;
+  }
+
+  .popular-label {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "Cabin";
+  }
+
+  &.popular-box {
+    margin-top: -20px;
+  }
 }
 
 /* ======================== */
@@ -345,7 +498,7 @@ footer {
 /* ======================== */
 /* Startseite               */
 /* ======================== */
-.intro, .features-bild {
+.price-table, .anfragen {
   background: $grey;
 }
 
@@ -395,6 +548,14 @@ footer {
 /*     Responsive           */
 /* ======================== */
 
+@media (max-width:1180px) {
+  footer {
+    .main-footer .mod_article {
+      padding: 0;
+    }
+  }
+}
+
 @media (max-width:1024px) {
   .ce_sliderElement {
     .text {
@@ -409,7 +570,34 @@ footer {
 
 }
 
-@media (max-width:768px) {
+@media (min-width:768px) and (max-width:991px) {
+  .ce_featureElement {
+    .feature-text {
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .container {
+    max-width: 90%;
+  }
+
+  footer h2 {
+    font-size: 1rem;
+    height: 30px;
+  }
+}
+
+@media (max-width:767px) {
+  .ce_priceBox {
+    margin-bottom: 30px;
+
+    &.popular-box {
+      margin-top: 0;
+    }
+  }
+
   .ce_sliderElement {
     height: 550px;
 
@@ -429,6 +617,25 @@ footer {
     h1, h2, h3, h4, h5, h6 {
       font-size: 1.2rem;
     }
+  }
+
+  footer {
+    .row > div {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .main-footer {
+      padding-bottom: 0;
+    }
+
+    .ce_featureElement {
+      margin: 0 auto;
+    }
+  }
+
+  #main .inside > .mod_article {
+    padding: 20px 0;
   }
 
   .navbar {

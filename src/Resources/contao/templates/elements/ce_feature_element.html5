@@ -1,8 +1,11 @@
 <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
-    <div class="icon">
-        <i class="<?= $this->featureIcon ?>"></i>
-    </div>
+    <?php if($this->featureIcon != ""): ?>
+        <div class="icon">
+            <i class="<?= $this->featureIcon ?>"></i>
+        </div>
+    <?php endif; ?>
+
     <div class="feature-text">
         <div class="headline"><?= $this->headline ?></div>
         <div class="text"><?= $this->text ?></div>

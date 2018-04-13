@@ -16,6 +16,13 @@ class WrapperStartElement extends \ContentElement
      */
     protected function compile()
     {
-
+        if (TL_MODE == 'BE')
+        {
+            $this->strTemplate = 'be_wildcard';
+            /** @var BackendTemplate|object $objTemplate */
+            $objTemplate = new \BackendTemplate($this->strTemplate);
+            $this->Template = $objTemplate;
+            if($this->odd_name != "") $this->Template->wildcard = "### " . $this->odd_name. " ###";
+        }
     }
 }
