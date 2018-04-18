@@ -22,6 +22,12 @@
 <?php else: ?>
 
     <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+        <?php if(strpos($this->class,"skw-t")): ?>
+            <?php if(strpos($this->class,"skw-tr")) { $skw = "skewed-right"; } else if(strpos($this->class,"skw-tl")) { $skw = "skewed-left"; } ?>
+            <div class="skewed-bg skewed-top <?= $skw ?>"></div>
+        <?php endif; ?>
+
         <div class="container">
             <?php if ($this->printable): ?>
                 <?php $this->block('syndication'); ?>
@@ -59,6 +65,11 @@
                 <?php $this->endblock(); ?>
             <?php endif; ?>
         </div>
+
+        <?php if(strpos($this->class,"skw-b")): ?>
+            <?php if(strpos($this->class,"skw-br")) { $skw = "skewed-right"; } else if(strpos($this->class,"skw-bl")) { $skw = "skewed-left"; } ?>
+            <div class="skewed-bg skewed-bottom <?= $skw ?>"></div>
+        <?php endif; ?>
     </div>
 
 <?php endif; ?>

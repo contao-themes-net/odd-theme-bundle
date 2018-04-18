@@ -4,11 +4,19 @@
  ****
  */
 
-$mainFont: 'Muli', sans-serif;
-$headingFont: 'Cabin', sans-serif;
+$mainFont: 'Muli', sans-serif !default;
+$headingFont: 'Cabin', sans-serif !default;
 
-$grey: #f2f2f2;
-$darkGrey: #808080;
-$black: #333;
+$grey: #f2f2f2 !default;
+$darkGrey: #808080 !default;
+$black: #333 !default;
 
-$color1: #f7b733;
+$primaryColor: #457cb6 !default;
+
+/* ======================== */
+/*        Gradient          */
+/* ======================== */
+$gradientPrimaryColor1: #31968f !default;
+$gradientPrimaryColor2: #2898aa !default;
+$gradientSecondaryColor1: #efefef !default;
+$gradientSecondaryColor2: #ebebeb !default;
