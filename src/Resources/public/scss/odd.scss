@@ -2,6 +2,16 @@
 
 @import "odd_variables";
 
+@font-face {
+  font-family: "Cabin";
+  src: url("/bundles/pdirthemeodd/fonts/Cabin/Cabin-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Muli";
+  src: url("/bundles/pdirthemeodd/fonts/Muli/Muli-Regular.ttf");
+}
+
 body {
   font-family: $mainFont;
   color: $black;
