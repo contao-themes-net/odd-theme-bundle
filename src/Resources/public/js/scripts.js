@@ -35,4 +35,23 @@ $(document).ready(function() {
         }
     });
 
+    /* ===================== *
+     *   Navigation			 *
+     * ====================== */
+    var scrollPos = $(window).scrollTop();
+    if(scrollPos > 0) {
+        $('.nav-container').addClass('stuck');
+    } else {
+        $('.nav-container').removeClass('stuck');
+    }
+
+    $(window).scroll(function () {
+        var scrollPos = $(window).scrollTop();
+        if(scrollPos > 0) {
+            $('.nav-container').addClass('stuck');
+        } else {
+            $('.nav-container').removeClass('stuck');
+        }
+    });
+
 });

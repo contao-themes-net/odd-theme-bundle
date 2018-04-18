@@ -12,3 +12,4 @@ $GLOBALS['TL_LANG']['tl_content']['odd_priceBox_link2'] = ['link 2','Select the 
 $GLOBALS['TL_LANG']['tl_content']['odd_priceBox_linkText1'] = ['link text 1',''];
 $GLOBALS['TL_LANG']['tl_content']['odd_priceBox_linkText1'] = ['link text 2',''];
 $GLOBALS['TL_LANG']['tl_content']['odd_popularPriceBox'] = ['text for highlighted box','Here you can enter a text for a highlighted box.'];
+$GLOBALS['TL_LANG']['tl_content']['odd_iconLink'] = ['icon link','Here you can choose a page if the icon should be a link.'];

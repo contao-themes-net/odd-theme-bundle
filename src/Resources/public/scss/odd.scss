@@ -270,35 +270,6 @@ h6 {
   @extend .secondary-bg;
 }
 
-.slider {
-  &.skw-tr, &.skw-tl {
-    .skewed-bg {
-      top: 0;
-    }
-  }
-
-  &.skw-bl .skewed-bg {
-    bottom: -50px;
-  }
-
-  &.skw-br .skewed-bg {
-    bottom: 0;
-  }
-
-  &.skw-tr, &.skw-tl, &.skw-br, &.skw-bl {
-    .ce_sliderElement {
-      height: 800px;
-    }
-
-    .slider-control {
-      z-index: 1;
-      position: absolute;
-      width: 100%;
-      bottom: 150px;
-    }
-  }
-}
-
 // Feature-Element
 .ce_featureElement {
   clear: both;
@@ -597,12 +568,12 @@ h6 {
 .ce_sliderElement {
   position: relative;
   background: #000;
-  height: 600px;
+  height: calc(100vh - 155px);
 
   .text {
     position: absolute;
     top: 150px;
-    right: 15%;
+    left: 8%;
     width: 600px;
     background: rgba(255,255,255,0.5);
     padding: 30px;
@@ -629,7 +600,7 @@ h6 {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     opacity: 0.8;
   }
 }
@@ -652,12 +623,82 @@ h6 {
   }
 }
 
+.slider {
+  &.skw-tr, &.skw-tl {
+    .skewed-bg {
+      top: 0;
+    }
+  }
+
+  &.skw-bl .skewed-bg {
+    bottom: -75px;
+  }
+
+  &.skw-br .skewed-bg {
+    bottom: 0;
+  }
+
+  &.skw-tr, &.skw-tl, &.skw-br, &.skw-bl {
+    .ce_sliderElement {
+      height: calc(100vh - 155px);
+    }
+
+    .slider-control {
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      bottom: 150px;
+    }
+  }
+}
+
+// Jetzt Bestellen Bereich
+.invitation {
+  p {
+    color: $grey;
+    font-size: 1.5rem;
+    font-family: $headingFont;
+    font-weight: 700;
+  }
+
+  .ce_hyperlink {
+    margin-top: 15px;
+
+    &.btn a {
+      background: $black;
+
+      &:hover {
+        background: $primaryColor;
+      }
+    }
+  }
+}
+
 /* ======================== */
 /* Header                   */
 /* ======================== */
 
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+
+  &.stuck .navbar {
+    height: 60px;
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+#wrapper {
+  padding-top: 155px;
+}
+
 .navbar {
-  height: 120px;
+  height: 100px;
   background: $grey !important;
 
   .navbar-toggler {
@@ -688,7 +729,6 @@ h6 {
 
   a, strong {
     padding: 15px;
-    text-transform: uppercase;
     font-size: 18px;
     font-weight: 700;
     color: $black;
@@ -707,8 +747,6 @@ h6 {
     margin-right: 10px;
     margin-left: -5px;
   }
-
-
 }
 
 header {
@@ -717,7 +755,101 @@ header {
   }
 }
 
-@media (min-width:768px) {
+header, footer {
+  .container .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.navbar-top {
+  background: $primaryColor;
+  padding: 15px 0;
+  color: $grey;
+  font-size: 1rem;
+  font-family: $headingFont;
+  font-weight: 700;
+  height: 55px;
+
+  > .container {
+    overflow: hidden;
+  }
+
+  .mod_article {
+    .container {
+      display: table;
+      width: 100%;
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .ce_featureElement {
+        display: inline-block;
+      }
+    }
+  }
+
+  a {
+    color: $grey;
+  }
+
+  .ce_text, .social-media {
+    display: inline-block;
+    font-size: 1.1rem;
+  }
+
+  .tel {
+    margin-right: 30px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .ce_featureElement {
+    padding: 0;
+    vertical-align: middle;
+
+    .feature-text {
+      display: inherit;
+      width: inherit;
+      margin-right: 30px;
+    }
+
+    .icon {
+      float: left;
+      width: inherit;
+    }
+  }
+
+  .social-media {
+    float: right;
+    border-left: 1px solid rgba(255,255,255,0.5);
+    padding-left: 15px;
+
+    .feature-text {
+      display: none;
+    }
+  }
+
+  svg {
+    color: #f2f2f2;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  .facebook a:before {
+    content: "\f39e";
+    font-family: "Font Awesome 5 Brands";
+    display: none;
+  }
+}
+
+@media (min-width:992px) {
   .mod_navigation {
     ul {
       &.level_1 > li:hover .level_2 {
@@ -797,8 +929,9 @@ footer {
     }
   }
 
-  a, p, h1, h2, h3, h4, h5, h6 {
+  a, strong, p, h1, h2, h3, h4, h5, h6 {
     color: #fff;
+    font-weight: 400;
   }
 
   h2 {
@@ -890,6 +1023,17 @@ footer {
       right: 50px;
       margin: 0;
     }
+
+    .bg-image {
+      background-position: center right;
+    }
+  }
+
+  .mod_navigation {
+    a, strong {
+      font-size: 16px;
+      padding: 15px 10px;
+    }
   }
 }
 
@@ -899,6 +1043,103 @@ footer {
       padding: 0;
     }
   }
+
+  #wrapper {
+    padding-top: 134px;
+  }
+
+  /* Mobile Navigation Start */
+  .navbar {
+    height: 100% !important;
+    padding: 0;
+
+    .navbar-brand, .navbar-toggler {
+      margin: 15px;
+    }
+
+    .navbar-toggler {
+      z-index: 2;
+    }
+
+    .collapse.show {
+      width: 100%;
+      border-top: 2px solid $primaryColor;
+      border-bottom: 2px solid $primaryColor;
+      background: #fff;
+      padding-bottom: 15px;
+      position: fixed;
+      top: 134px;
+
+      .mod_navigation {
+        height: calc(100vh - 80px);
+        overflow: scroll;
+      }
+    }
+
+    ul {
+      padding-top: 15px;
+      margin-bottom: 30px;
+
+      li {
+        display: block;
+        text-align: center;
+
+        a, strong {
+          display: inline-block;
+        }
+      }
+    }
+
+    .container {
+      max-width: 100%;
+    }
+  }
+
+  .mod_navigation {
+    .dropdown-toggle {
+      position: absolute;
+      top: 8px;
+      right: 15px;
+      background: #f2f2f2;
+      height: 41px;
+      width: 41px;
+
+      &:after {
+        border-top: .6em solid;
+        border-right: .6em solid transparent;
+        border-left: .6em solid transparent;
+        vertical-align: -0.55em;
+      }
+    }
+
+    .dropdown-menu {
+      position: relative;
+      width: 100%;
+      border: none;
+      background: #f2f2f2;
+      padding-top: 0;
+      border-radius: 0;
+    }
+  }
+
+  .navbar-light .navbar-toggler-icon {
+    background-image: none;
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 100%;
+      font-size: 1.7rem;
+      color: $grey;
+    }
+  }
+
+  .navbar-top {
+    .container {
+      max-width: 100%;
+    }
+  }
+  /* Mobile Navigation End */
 }
 
 @media (min-width:768px) and (max-width:991px) {
@@ -942,7 +1183,10 @@ footer {
       right: 0;
       top: 0;
       height: 100%;
-      background: #f2f2f2;
+      background: $grey;
+      left: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -987,80 +1231,51 @@ footer {
     padding: 20px 0;
   }
 
+  .slider {
+    &.skw-tr, &.skw-tl, &.skw-br, &.skw-bl {
+      .ce_sliderElement {
+        height: 720px;
+      }
+    }
+  }
+
+  .slider-control .slider-menu {
+    margin-top: 20px;
+  }
+
+  /* Mobile Navigation Start */
+  #wrapper {
+    padding-top: 78px;
+  }
+
+  .navbar-top {
+    display: none;
+  }
+
   .navbar {
-    height: inherit;
-    padding: 0;
-
-    .navbar-brand, .navbar-toggler {
-      margin: 15px;
-    }
-
-    .navbar-toggler {
-      z-index: 2;
-    }
-
     .collapse.show {
+      top: 78px;
+    }
+  }
+  /* Mobile Navigation End */
+
+  .skw-tr, .skw-tl, .skw-br, .skw-bl {
+    margin-top: 0;
+  }
+
+  .ce_form {
+    label {
       width: 100%;
-      border-top: 2px solid $primaryColor;
-      border-bottom: 2px solid $primaryColor;
-      background: #fff;
-      padding-bottom: 15px;
+      text-align: center;
     }
 
-    ul {
-      padding-top: 15px;
-
-      li {
-        display: block;
-        text-align: center;
-
-        a, strong {
-          display: inline-block;
-        }
-      }
-    }
-
-    .container {
-      max-width: 100%;
-    }
-  }
-
-  .mod_navigation {
-    .dropdown-toggle {
-      position: absolute;
-      top: 8px;
-      right: 15px;
-      background: #f2f2f2;
-      height: 41px;
-      width: 41px;
-
-      &:after {
-        border-top: .6em solid;
-        border-right: .6em solid transparent;
-        border-left: .6em solid transparent;
-        vertical-align: -0.55em;
-      }
-    }
-
-    .dropdown-menu {
-      position: relative;
+    input, textarea {
       width: 100%;
-      border: none;
-      background: #f2f2f2;
-      padding-top: 0;
-      border-radius: 0;
     }
   }
 
-  &.skw-tr, &.skw-tl, &.skw-br, &.skw-bl {
-    .ce_sliderElement {
-      height: 720px;
-    }
+  #anfragen button {
+    margin: 0;
+    float: none;
   }
-
-  .slope-section:before {
-    top: -100px;
-    height: 100px;
-  }
-
 }

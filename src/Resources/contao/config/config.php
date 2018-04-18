@@ -30,6 +30,7 @@ $GLOBALS['TL_WRAPPERS']['stop'][] = 'wrapperStop';
 $GLOBALS['tl_config']['theme_tags'] = array(
     '-',
     'ODD01/01',
+    'ODD01/02',
     'ODD02/01',
     'ODD02/02',
     'ODD02/03',

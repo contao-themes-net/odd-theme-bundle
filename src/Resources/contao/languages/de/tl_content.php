@@ -11,3 +11,4 @@ $GLOBALS['TL_LANG']['tl_content']['odd_priceBox_link2'] = ['Link 2','Sie können
 $GLOBALS['TL_LANG']['tl_content']['odd_priceBox_linkText1'] = ['Link-Text 1','Geben Sie einen Link-Text ein, der anstelle der Link-Adresse angezeigt wird.'];
 $GLOBALS['TL_LANG']['tl_content']['odd_priceBox_linkText1'] = ['Link-Text 2','Geben Sie einen Link-Text ein, der anstelle der Link-Adresse angezeigt wird.'];
 $GLOBALS['TL_LANG']['tl_content']['odd_popularPriceBox'] = ['Bezeichnung für Hervorgehobene Box','Geben Sie hier eine Bezeichnung ein, wenn die Box hervorgehoben dargestellt werden soll.'];
+$GLOBALS['TL_LANG']['tl_content']['odd_iconLink'] = ['Icon-Link','Wählen Sie eine neue Seite aus, wenn das Icon verlinkt werden soll.'];

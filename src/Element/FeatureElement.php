@@ -16,5 +16,6 @@ class FeatureElement extends \ContentElement
     protected function compile()
     {
         $this->Template->featureIcon = $this->odd_featureIcon;
+        $this->Template->iconLink = $this->odd_iconLink;
     }
 }

@@ -1,0 +1,41 @@
+<!-- indexer::stop -->
+<div class="nav-container">
+    <div class="navbar-top">
+        <div class="container">
+            {{theme::content::ODD01/02}}
+        </div>
+    </div>
+
+    <nav class="navbar <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
+        <?php $this->block('content'); ?>
+        <?php if($this->bs_addBrand): ?>
+            <?php $this->insert($this->bs_navbarBrandTemplate); ?>
+        <?php endif; ?>
+        <?php if($this->bs_isResponsive): ?>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar-responsive-<?= $this->id ?>"
+                aria-controls="navbar-responsive-<?= $this->id ?>"
+                aria-expanded="false"
+                aria-label="<?= $this->togglerLabel ?>">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+        <?php endif; ?>
+
+        <?php if($this->bs_isResponsive): ?>
+        <div class="collapse navbar-collapse" id="navbar-responsive-<?php echo $this->id; ?>">
+            <?php endif; ?>
+
+            <?php foreach($this->modules as $module): ?>
+                <?php if($module['class']): ?><div class="<?php echo $module['class']; ?>"><?php endif; ?>
+                <?php echo $module['module']; ?>
+                <?php if($module['class']): ?></div><?php endif; ?>
+            <?php endforeach; ?>
+
+            <?php if($this->bs_isResponsive): ?></div><?php endif; ?>
+        <?php $this->endblock(); ?>
+    </nav>
+</div>
+<!-- indexer::continue -->
