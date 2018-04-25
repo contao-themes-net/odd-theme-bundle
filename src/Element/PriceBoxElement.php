@@ -23,6 +23,10 @@ class PriceBoxElement extends \ContentElement
             $this->Template->text = \StringUtil::toHtml5($this->text);
         }
 
+        if($this->odd_priceBox_customTpl != "") {
+            $this->Template->setName($this->odd_priceBox_customTpl);
+        }
+
         $this->Template->price = $this->odd_price;
         $this->Template->priceLabel = $this->odd_priceLabel;
         $this->Template->link1 = $this->odd_priceBox_link1;

@@ -23,8 +23,9 @@
             <?= $this->text ?>
         </div>
 
-        <div><a href="{{link_url::<?= $this->link1 ?>}}" class="first-link"><?= $this->linkText1 ?></a></div>
-        <div><a href="{{link_url::<?= $this->link2 ?>}}" class="second-link"><?= $this->linkText2 ?></a></div>
+        <div class="first-link"><a href="{{link_url::<?= $this->link1 ?>}}"><?= $this->linkText1 ?></a></div>
+        <div class="second-link"><a href="{{link_url::<?= $this->link2 ?>}}"><?= $this->linkText2 ?></a></div>
+
     </div>
 
 </div>

@@ -338,11 +338,11 @@ h6 {
       color: $primaryColor;
     }
 
-    .first-link {
+    .first-link a {
       @extend .btn;
     }
 
-    .second-link {
+    .second-link a {
       color: $primaryColor;
     }
 
@@ -359,7 +359,7 @@ h6 {
       color: #00b8ff;
     }
 
-    .first-link {
+    .first-link a {
       background: #00b8ff;
       color: #fff;
 
@@ -368,7 +368,7 @@ h6 {
       }
     }
 
-    .second-link {
+    .second-link a {
       color: #00b8ff;
     }
 
@@ -385,7 +385,7 @@ h6 {
       color: #d74200;
     }
 
-    .first-link {
+    .first-link a {
       background: #d74200;
       color: #fff;
 
@@ -394,7 +394,7 @@ h6 {
       }
     }
 
-    .second-link {
+    .second-link a {
       color: #d74200;
     }
 
@@ -438,7 +438,7 @@ h6 {
     }
   }
 
-  .first-link {
+  .first-link a {
     display: inline-block;
     padding: 10px 20px;
     font-weight: 700;
@@ -448,7 +448,7 @@ h6 {
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
   }
 
-  .second-link {
+  .second-link a {
     font-weight: 700;
   }
 
@@ -525,18 +525,27 @@ h6 {
     text-align: left;
   }
 
-  input, textarea {
+  input, textarea, select {
     display: inline-block;
     width: calc(100% - 150px);
     border-radius: 5px;
     border: none;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    max-width: 400px;
 
     &:focus {
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
+  }
+
+  textarea {
+    max-width: 500px;
+  }
+
+  .widget-checkbox label {
+    width: 100%;
   }
 }
 
@@ -1289,3 +1298,5 @@ footer {
     float: none;
   }
 }
+
+@import '../../../../../../../files/odd/scss/custom';
