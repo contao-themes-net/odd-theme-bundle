@@ -35,6 +35,19 @@ $(document).ready(function() {
         }
     });
 
+    /* =================== *
+     * Scroll Fade   	   *
+     * =================== */
+    $('input').focus(function () {
+        var element = $(this);
+        if (element.offset().top - $(window).scrollTop() < 115)
+        {
+            $('html, body').animate({
+                scrollTop: element.offset().top - 130
+            }, 500);
+        }
+    });
+
     /* ===================== *
      *   Navigation			 *
      * ====================== */
