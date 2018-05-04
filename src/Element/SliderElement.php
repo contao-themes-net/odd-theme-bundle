@@ -41,6 +41,7 @@ class SliderElement extends \ContentElement
         $this->Template->page = $this->odd_page;
         $this->Template->linkText = $this->odd_linkText;
         $this->Template->href = \FilesModel::findByUuid($this->singleSRC)->path;
+        $this->Template->metaImg = unserialize(\FilesModel::findByUuid($this->singleSRC)->meta);
         $this->Template->picture = $this->singleSRC;
     }
 }

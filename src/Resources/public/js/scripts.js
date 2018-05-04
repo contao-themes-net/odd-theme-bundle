@@ -58,6 +58,15 @@ $(document).ready(function() {
         $('.nav-container').removeClass('stuck');
     }
 
+    var mobile = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if(mobile) {
+        var myElement = document.querySelector("#header .nav-container");
+        var headroom  = new Headroom(myElement, {
+            "offset": 600
+        });
+        headroom.init();
+    }
+
     $(window).scroll(function () {
         var scrollPos = $(window).scrollTop();
         if(scrollPos > 0) {
@@ -67,4 +76,7 @@ $(document).ready(function() {
         }
     });
 
+    $('#header .navbar ul li a').on('click', function() {
+        $('.navbar .collapse.show').removeClass('show');
+    });
 });

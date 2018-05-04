@@ -1,6 +1,8 @@
 <div class="<?= $this->class ?> block"<?= $this->cssID ?> <?php if ($this->style): ?>style="<?= $this->style ?>"<?php endif; ?>>
 
-    <div class="bg-image" style="background-image:url('<?= $this->href ?>');"></div>
+    <div class="image">
+        {{picture::<?= $this->href ?>?size=6&alt=<?= $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt'] ?>}}
+    </div>
 
     <div class="text">
 

@@ -41,6 +41,7 @@
     $combiner = new Combiner();
     $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/bootstrap/dist/js/bootstrap.min.js');
     $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/fontawesome/svg-with-js/js/fontawesome-all.min.js');
+    $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/js/headroom.min.js');
     $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/js/scripts.js');
     echo $combiner->getCombinedFile();
     ?>"></script>

@@ -7,7 +7,7 @@
     }
     ?>
 
-    {{picture::<?= $this->picture['img']['src'] ?>?size=<?= $size ?> }}
+    {{picture::<?= $this->picture['img']['src'] ?>?size=<?= $size ?>&alt=<?= $this->picture['alt'] ?> }}
 
     <div class="caption">
         <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
