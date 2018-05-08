@@ -209,6 +209,16 @@ h6 {
 /* Theme Elemente           */
 /* ======================== */
 
+// Buttons
+.btn {
+    background: $primaryColor;
+    color: $grey;
+    border-radius: 0;
+    padding: 8px 15px;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
 // Farben
 .secondary-bg {
   background: $gradientSecondaryColor2;  /* fallback for old browsers */
@@ -709,6 +719,20 @@ h6 {
       }
     }
   }
+}
+
+// Teaserbox
+.ce_oddTeaserBox {
+    h2, h3, h4, h5, h6 {
+        margin-bottom: 10px;
+        word-wrap: break-word;
+    }
+
+    .pageLink {
+        a {
+            @extend .btn;
+        }
+    }
 }
 
 /* ======================== */
@@ -1301,6 +1325,12 @@ footer {
     margin: 0;
     float: none;
   }
+
+    .ce_oddTeaserBox {
+        .inside {
+            margin-bottom: 20px;
+        }
+    }
 }
 
 @import '../../../../../../../files/odd/scss/custom';

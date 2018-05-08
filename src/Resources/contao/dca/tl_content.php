@@ -9,6 +9,8 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['wrapperStop'] = '{type_legend},typ
 $GLOBALS['TL_DCA']['tl_content']['palettes']['featureElement'] = '{type_legend},type,headline;{text_legend},text,odd_featureIcon,odd_iconLink;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['sliderElement'] = '{type_legend},type,headline;{text_legend},text,odd_page,odd_linkText;{image_legend},addImage;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['priceBox'] = '{type_legend},type,headline;{text_legend},text,odd_price,odd_priceLabel,odd_priceBox_link1,odd_priceBox_linkText1,odd_priceBox_link2,odd_priceBox_linkText2,odd_popularPriceBox;{template_legend:hide},odd_priceBox_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['oddTeaserBox'] = $GLOBALS['TL_DCA']['tl_content']['palettes']['text'];
+//'{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{oddTeaserBoxSettings},oddTeaserBox_page,oddTeaserBox_pageText;{expert_legend:hide},cssID,space';
 
 /**
  * Add fields to tl_content
@@ -142,6 +144,27 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['odd_priceBox_customTpl'] = array
     'options_callback' => array('tl_content_odd', 'getPriceBoxTemplates'),
     'eval' => array('includeBlankOption'=>true, 'chosen'=>true, 'tl_class'=>'w50'),
     'sql' => "varchar(64) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['oddTeaserBox_page'] = array
+(
+    'label' => & $GLOBALS['TL_LANG']['tl_content']['oddTeaserBox_page'],
+    'exclude' => true,
+    'inputType' => 'pageTree',
+    'eval' => array (
+        'fieldType' => 'radio',
+        'tl_class'=>'w50'
+    ),
+    'sql' => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['oddTeaserBox_pageText'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['oddTeaserBox_pageText'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => array('tl_class'=>'w50'),
+    'sql' => "varchar(255) NOT NULL default ''"
 );
 
 class tl_content_odd extends Backend {

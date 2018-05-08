@@ -5,6 +5,7 @@ use Pdir\ThemeOddBundle\Element\WrapperStopElement;
 use Pdir\ThemeOddBundle\Element\FeatureElement;
 use Pdir\ThemeOddBundle\Element\SliderElement;
 use Pdir\ThemeOddBundle\Element\PriceBoxElement;
+use Pdir\ThemeOddBundle\Element\TeaserBoxElement;
 
 // Insert the mate theme category
 array_insert($GLOBALS['TL_CTE'], 1, array('themeOdd' => array()));
@@ -17,6 +18,7 @@ $GLOBALS['TL_CTE']['themeOdd']['wrapperStop'] = WrapperStopElement::class;
 $GLOBALS['TL_CTE']['themeOdd']['featureElement'] = FeatureElement::class;
 $GLOBALS['TL_CTE']['themeOdd']['sliderElement'] = SliderElement::class;
 $GLOBALS['TL_CTE']['themeOdd']['priceBox'] = PriceBoxElement::class;
+$GLOBALS['TL_CTE']['themeOdd']['oddTeaserBox'] = TeaserBoxElement::class;
 
 /**
  * Wrapper elements
