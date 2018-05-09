@@ -12,6 +12,8 @@
 
     <?= $this->viewport ?>
 
+    <?= $this->stylesheets ?>
+
     <link rel="stylesheet" type="text/css" media="all" href="<?php
     // add stylesheets
     $combiner = new Combiner();
@@ -20,7 +22,7 @@
     echo $combiner->getCombinedFile(); ?>">
 
 
-    <?= $this->stylesheets ?>
+
     <?= $this->head ?>
 
     <meta name="keywords" content="<?= $this->keywords ?>">

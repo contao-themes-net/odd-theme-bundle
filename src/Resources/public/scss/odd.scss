@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+@import '../../../../../../../files/odd/scss/_custom_variables';
 @import "odd_variables";
 
 @font-face {
@@ -36,7 +37,7 @@ a {
   padding: 10px 20px;
   display: inline-block;
   font-weight: 700;
-  border-radius: 5px;
+  border-radius: $borderRadius;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
   border: none;
@@ -125,6 +126,22 @@ img {
   }
 }
 
+.mod_article.primary-bg {
+    h1, h2, h3, h4, h5, h6 {
+        &.ce_headline:after {
+            border-color: $grey;
+        }
+    }
+
+    .ce_text {
+        h1&, h2&, h3&, h4&, h5&, h6& {
+            &:after {
+                border-color: $grey;
+            }
+        }
+    }
+}
+
 .center .bordered-heading, .bordered-heading.center {
   h1, h2, h3, h4, h5, h6, h1&, h2&, h3&, h4&, h5&, h6& {
     &:after {
@@ -166,6 +183,20 @@ h5 {
 }
 h6 {
   font-size: 1rem;
+}
+
+.mod_article.primary-bg {
+    h1, h2, h3, h4, h5, h6 {
+        &.ce_headline {
+            color: $grey;
+        }
+    }
+
+    .ce_text {
+        h1, h2, h3, h4, h5, h6 {
+            color: $grey;
+        }
+    }
 }
 
 .ce_accordion {
@@ -350,7 +381,7 @@ h6 {
   .inside {
     background: #fff;
     padding: 30px;
-    border-radius: 5px;
+    border-radius: $borderRadius;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     text-align: center;
@@ -468,7 +499,7 @@ h6 {
     padding: 10px 20px;
     font-weight: 700;
     margin: 15px 0;
-    border-radius: 5px;
+    border-radius: $borderRadius;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
   }
@@ -485,7 +516,7 @@ h6 {
     text-transform: uppercase;
     font-weight: 700;
     font-family: $headingFont;
-    border-radius: 5px;
+    border-radius: $borderRadius;
   }
 
   &.popular-box {
@@ -513,7 +544,7 @@ h6 {
     height: 100%;
     text-align: center;
     align-items: center;
-    border-radius: 5px;
+    border-radius: $borderRadius;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
 
@@ -533,7 +564,7 @@ h6 {
   }
 
   .img-thumbnail {
-    border-radius: 5px;
+    border-radius: $borderRadius;
     padding: 0;
     border: none;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
@@ -553,7 +584,7 @@ h6 {
   input, textarea, select {
     display: inline-block;
     width: calc(100% - 150px);
-    border-radius: 5px;
+    border-radius: $borderRadius;
     border: none;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -629,7 +660,7 @@ h6 {
     background: rgba(255,255,255,.8);
     padding: 30px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: $borderRadius;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
 
@@ -926,7 +957,7 @@ header, footer {
       width: 250px;
       background: $primaryColor;
       z-index: 10;
-      border-radius: 5px;
+      border-radius: $borderRadius;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
       -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
       border: none;
