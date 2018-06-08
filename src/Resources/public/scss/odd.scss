@@ -48,6 +48,10 @@ a {
   }
 }
 
+.ce_hyperlink.btn {
+    display: block;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -142,7 +146,7 @@ img {
     }
 }
 
-.center .bordered-heading, .bordered-heading.center {
+.text-center .bordered-heading, .bordered-heading.text-center {
   h1, h2, h3, h4, h5, h6, h1&, h2&, h3&, h4&, h5&, h6& {
     &:after {
       left: 50%;
@@ -150,7 +154,7 @@ img {
     }
   }
 }
-.center {
+.text-center {
   h1, h2, h3, h4, h5, h6 {
     &.bordered-heading:after {
       left: 50%;
@@ -239,16 +243,6 @@ h6 {
 /* ======================== */
 /* Theme Elemente           */
 /* ======================== */
-
-// Buttons
-.btn {
-    background: $primaryColor;
-    color: $grey;
-    border-radius: 0;
-    padding: 8px 15px;
-    font-weight: 400;
-    font-size: 0.9rem;
-}
 
 // Farben
 .secondary-bg {
@@ -1026,9 +1020,10 @@ footer {
     font-weight: 400;
   }
 
-  h2 {
+  h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+    text-transform: uppercase;
   }
 
   .ce_featureElement {
@@ -1237,6 +1232,7 @@ footer {
       background: #f2f2f2;
       padding-top: 0;
       border-radius: 0;
+      margin: 0;
     }
   }
 
