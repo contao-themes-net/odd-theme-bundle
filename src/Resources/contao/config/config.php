@@ -21,6 +21,12 @@ $GLOBALS['TL_CTE']['themeOdd']['priceBox'] = PriceBoxElement::class;
 $GLOBALS['TL_CTE']['themeOdd']['oddTeaserBox'] = TeaserBoxElement::class;
 
 /**
+ * If Contao Slick is used
+ */
+$GLOBALS['TL_JAVASCRIPT']['google_charts_loader'] = '';
+$GLOBALS['TL_JAVASCRIPT']['google_charts'] = '';
+
+/**
  * Wrapper elements
  */
 $GLOBALS['TL_WRAPPERS']['start'][] = 'wrapperStart';
