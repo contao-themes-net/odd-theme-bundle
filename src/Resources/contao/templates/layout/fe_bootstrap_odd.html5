@@ -21,8 +21,6 @@
     $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/scss/odd.scss');
     echo $combiner->getCombinedFile(); ?>">
 
-
-
     <?= $this->head ?>
 
     <meta name="keywords" content="<?= $this->keywords ?>">
@@ -30,13 +28,11 @@
     <!--[if lt IE 9]><script src="<?= TL_ASSETS_URL ?>assets/html5shiv/js/html5shiv-printshiv.min.js"></script><![endif]-->
 <?php $this->endblock(); ?>
 
-
 <?php $this->block('body'); ?>
 
     <?php $this->parent(); ?>
 
     <?= $this->framework ?>
-    <?= $this->mooScripts ?>
 
     <script charset="utf-8" src="<?php
     // add javascripts
@@ -47,5 +43,7 @@
     $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/js/scripts.js');
     echo $combiner->getCombinedFile();
     ?>"></script>
+
+    <?= $this->mooScripts ?>
 
 <?php $this->endblock(); ?>
