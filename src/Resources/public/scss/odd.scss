@@ -105,6 +105,10 @@ img {
   }
 }
 
+#left .inside {
+  padding: 80px 0;
+}
+
 .center {
   text-align: center;
 }
@@ -987,6 +991,41 @@ header, footer {
 
   .dropdown-toggle {
     display: inline;
+  }
+}
+
+.mod_navigation.subnav {
+  ul li {
+    display: block;
+
+    a, strong {
+      color: #fff;
+      background: $subnavBackgroundColor;
+      display: block;
+      text-align: center;
+      padding: 8px 15px;
+      font-weight: 400;
+      position: relative;
+      font-size: 1rem;
+
+      &:not(.first):after {
+        position: absolute;
+        content: "";
+        border-bottom: 1px solid #444;
+        width: calc(100% - 60px);
+        left: 30px;
+        top: -1px;
+      }
+
+      &.active, &:hover {
+        background: #444;
+        color: #fff;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
   }
 }
 
