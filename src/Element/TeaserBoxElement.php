@@ -19,7 +19,7 @@ class TeaserBoxElement extends \ContentElement
         {
             $this->strTemplate = 'be_wildcard';
             $this->Template = new \BackendTemplate($this->strTemplate);
-            $this->Template->wildcard = "### ".$this->headline." ###";
+            $this->Template->title = $this->headline;
             $this->Template->text = \StringUtil::toHtml5($this->text);
         }
 

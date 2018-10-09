@@ -18,6 +18,10 @@ body {
   color: $black;
 }
 
+body, .skewed-bg {
+  background: $page_background;
+}
+
 a {
   color: $primaryColor;
 
@@ -92,6 +96,7 @@ img {
 
       &.slider {
         padding-top: 0;
+        padding-bottom: 0;
       }
 
       &.slope-section {
@@ -175,22 +180,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: $h1-font-size;
 }
 h2 {
-  font-size: 1.8rem;
+  font-size: $h2-font-size;
 }
 h3 {
-  font-size: 1.6rem;
+  font-size: $h3-font-size;
 }
 h4 {
-  font-size: 1.4rem;
+  font-size: $h4-font-size;
 }
 h5 {
-  font-size: 1.2rem;
+  font-size: $h5-font-size;
 }
 h6 {
-  font-size: 1rem;
+  font-size: $h6-font-size;
 }
 
 .mod_article.primary-bg {
@@ -244,6 +249,53 @@ h6 {
   }
 }
 
+.layout_latest {
+  margin-bottom: 30px;
+
+  .content {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+    position: relative;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    text-transform: none;
+  }
+
+  .image_container {
+    margin: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .info {
+    position: absolute;
+    top: -35px;
+
+    time {
+      background: rgba(255,255,255,.5);
+      color: #000;
+      font-size: 0.7rem;
+      padding: 2px 5px;
+      font-weight: 700;
+    }
+  }
+
+  .more {
+    margin-bottom: 10px;
+
+    a {
+      background: #457cb6;
+      color: #fff;
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
 /* ======================== */
 /* Theme Elemente           */
 /* ======================== */
@@ -284,7 +336,6 @@ h6 {
 }
 
 .skewed-bg {
-  background: #fff;
   height: 230px;
   position: absolute;
   -webkit-transform: rotate(5deg);
@@ -652,26 +703,35 @@ h6 {
 
   .text {
     position: absolute;
-    top: 10%;
-    left: 7%;
-    width: 600px;
-    background: rgba(255,255,255,.8);
-    padding: 30px;
+    top: 80px;
+    background: none;
+    padding: 0;
+    width: 100%;
+    left: 0;
+    box-shadow: none;
     text-align: center;
-    border-radius: $borderRadius;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 0;
+
+    .inside {
+      background: $slider-background;
+      padding: 30px;
+      max-width: 600px;
+      border-radius: 0;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+      margin-bottom: 5px;
+    }
 
     h1, h2, h3, h4, h5, h6 {
       &, a {
-        color: #1b4673;
+        color: $slider-headline-color;
       }
     }
 
     p {
       font-size: 1.1rem;
       padding: 10px 0;
-      color: #1b4673;
+      color: $slider-text-color;
     }
   }
 
@@ -683,6 +743,38 @@ h6 {
     background-position: center;
     opacity: 0.8;
   }
+
+  &.top-right .inside {
+    float: right;
+  }
+  &.bottom-left .text {
+    bottom: 80px;
+    top: inherit;
+  }
+  &.bottom-right {
+    .text {
+      bottom: 80px;
+      top: inherit;
+    }
+
+    .inside {
+      float: right;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .readmore {
+    background: $slider-button-background;
+    color: $slider-button-color;
+
+    &:hover {
+      background: $slider-button-background-hover;
+      color: $slider-button-color-hover;
+    }
+  }
 }
 
 .ce_sliderStart {
@@ -692,12 +784,12 @@ h6 {
 
   .slider-control {
     .slider-menu b {
-      color: $black;
+      color: $slider-control-color;
       font-size: 2rem;
       padding: 3px;
 
       &.active {
-        color: $primaryColor;
+        color: $slider-control-color-active;
       }
     }
   }

@@ -4,6 +4,8 @@
  ****
  */
 
+$page_background: #f5faff;
+
 $mainFont: 'Muli', sans-serif !default;
 $headingFont: 'Cabin', sans-serif !default;
 
@@ -12,6 +14,16 @@ $darkGrey: #808080 !default;
 $black: #333 !default;
 
 $primaryColor: #457cb6 !default;
+
+/* ======================== */
+/*        Headlines         */
+/* ======================== */
+$h1-font-size: 2rem;
+$h2-font-size: 1.7rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.3rem;
+$h5-font-size: 1.1rem;
+$h6-font-size: 0.9rem;
 
 /* ======================== */
 /*        Gradient          */
@@ -24,6 +36,18 @@ $gradientSecondaryColor2: #ebebeb !default;
 /* ======================== */
 /*        Styles            */
 /* ======================== */
-$borderRadius: 5px !default;
-
+$borderRadius: 0px !default;
 $subnavBackgroundColor: #333 !default;
+
+/* ======================== */
+/*     Content Slider       */
+/* ======================== */
+$slider-background: rgba(255, 255, 255, 0.8);
+$slider-headline-color: #1b4673;
+$slider-text-color: #1b4673;
+$slider-button-background: #457cb6;
+$slider-button-color: #f2f2f2;
+$slider-button-background-hover: #3e71b6;
+$slider-button-color-hover: #f2f2f2;
+$slider-control-color: #333;
+$slider-control-color-active: #457cb6;

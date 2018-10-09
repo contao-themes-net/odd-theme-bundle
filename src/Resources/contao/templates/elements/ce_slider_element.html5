@@ -1,24 +1,33 @@
 <div class="<?= $this->class ?> block"<?= $this->cssID ?> <?php if ($this->style): ?>style="<?= $this->style ?>"<?php endif; ?>>
 
+    <?php
+    $size = unserialize($this->size)[2];
+    if($size == "") {
+        $size = '18';
+    }
+    ?>
+
     <div class="image">
-        {{picture::<?= $this->href ?>?size=6&alt=<?= $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt'] ?>}}
+        {{picture::<?= $this->href ?>?size=<?= $size ?>&alt=<?= $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt'] ?>}}
     </div>
 
     <div class="text">
+        <div class="container">
+            <div class="inside">
+                <?php if ($this->headline): ?>
+                <<?= $this->hl ?>>
+                <?php if($this->page != ""): ?><a href="{{link_url::<?= $this->page ?>}}"><?php endif; ?>
+                    <?= $this->headline ?>
+                        <?php if($this->page != ""): ?></a><?php endif; ?>
+                    </<?= $this->hl ?>>
+                <?php endif; ?>
 
-        <?php if ($this->headline): ?>
-        <<?= $this->hl ?>>
-        <?php if($this->page != ""): ?><a href="{{link_url::<?= $this->page ?>}}"><?php endif; ?>
-            <?= $this->headline ?>
-                <?php if($this->page != ""): ?></a><?php endif; ?>
-            </<?= $this->hl ?>>
-		<?php endif; ?>
+                <?= $this->text ?>
 
-        <?= $this->text ?>
-
-        <?php if($this->page): ?>
-            <a href="{{link_url::<?= $this->page ?>}}" class="readmore"><?= $this->linkText ?></a>
-        <?php endif; ?>
-
+                <?php if($this->page): ?>
+                    <a href="{{link_url::<?= $this->page ?>}}" class="readmore"><?= $this->linkText ?></a>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 </div>
