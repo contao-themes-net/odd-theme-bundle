@@ -155,7 +155,8 @@ img {
     }
 }
 
-.text-center .bordered-heading, .bordered-heading.text-center {
+.text-center .bordered-heading, .bordered-heading.text-center,
+.text-sm-center .bordered-heading, .bordered-heading.text-sm-center {
   h1, h2, h3, h4, h5, h6, h1&, h2&, h3&, h4&, h5&, h6& {
     &:after {
       left: 50%;
@@ -179,8 +180,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
 }
 
+h2, h3, h4, h5, h6 {
+  margin-top: 50px;
+}
+
 h1 {
   font-size: $h1-font-size;
+  color: $primaryColor;
 }
 h2 {
   font-size: $h2-font-size;
@@ -249,7 +255,9 @@ h6 {
   }
 }
 
-.layout_latest {
+/* News */
+
+.layout_latest, .layout_short {
   margin-bottom: 30px;
 
   .content {
@@ -275,7 +283,7 @@ h6 {
     top: -35px;
 
     time {
-      background: rgba(255,255,255,.5);
+      background: rgba(214, 214, 214, 0.5);
       color: #000;
       font-size: 0.7rem;
       padding: 2px 5px;
@@ -293,6 +301,120 @@ h6 {
       padding: 5px 10px;
       font-size: 0.9rem;
     }
+  }
+}
+
+.layout_short .info {
+  position: relative;
+  top: 0;
+}
+
+.layout_simple {
+  background: #fff;
+  margin: 5px 0;
+  padding: 5px 15px;
+
+  time {
+    padding-right: 15px;
+  }
+
+  a {
+    font-family: $headingFont;
+    font-weight: 700;
+  }
+}
+
+.layout_full {
+  time {
+    background: $primaryColor;
+    color: #fff;
+    padding: 5px 15px;
+    display: inline-block;
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin-top: 30px;
+  }
+}
+
+.mod_newslist {
+  &.row nav {
+    padding: 0 15px;
+  }
+
+  nav {
+    margin-top: 20px;
+  }
+}
+
+.pagination {
+  li {
+    strong, a {
+      background: $primaryColor;
+      color: #fff;
+
+      &:hover {
+        background: #3e71b6;
+        color: #fff;
+      }
+    }
+  }
+
+  .page-item:first-child, .page-item:last-child {
+    .page-link {
+      border-radius: 0;
+    }
+  }
+}
+
+/* Events / Calendar */
+.calendar {
+  width: 100%;
+}
+
+.calendar, .minicalendar {
+
+  th, td {
+    padding: 5px;
+    font-weight: 400;
+    text-align: center;
+    border: 2px solid $page_background;
+  }
+
+  th {
+    background: $primaryColor;
+    color: #fff;
+
+    a {
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+
+  td {
+    background: #f2f2f2;
+    color: #333;
+    max-width: 100px;
+
+    a {
+      font-size: 0.8rem;
+      padding: 0 10px;
+      display: inline-block;
+    }
+
+    &.active {
+      background: #e4e4e4;
+    }
+  }
+}
+
+.minicalendar {
+  td, th {
+    padding: 5px 15px;
+  }
+
+  td a {
+    font-size: 1rem;
   }
 }
 
@@ -338,18 +460,18 @@ h6 {
 .skewed-bg {
   height: 230px;
   position: absolute;
-  -webkit-transform: rotate(5deg);
-  -ms-transform: rotate(5deg);
-  transform: rotate(5deg);
+  -webkit-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
   width: 150%;
   left: -5%;
   z-index: 0;
 
   &.skewed-top {
     &.skewed-right {
-      -webkit-transform: rotate(-5deg);
-      -ms-transform: rotate(-5deg);
-      transform: rotate(-5deg);
+      -webkit-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg);
       top: -170px;
     }
 
@@ -360,9 +482,9 @@ h6 {
 
   &.skewed-bottom {
     &.skewed-right {
-      -webkit-transform: rotate(-5deg);
-      -ms-transform: rotate(-5deg);
-      transform: rotate(-5deg);
+      -webkit-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg);
       bottom: -100px;
     }
 
@@ -666,6 +788,12 @@ h6 {
   }
 }
 
+input, button {
+  &:focus {
+    outline: 0;
+  }
+}
+
 // Kopfbild
 .headerImage {
   position: relative;
@@ -681,10 +809,11 @@ h6 {
     align-items: center;
 
     h1 {
-      background: rgba(255, 255, 255, 0.5);
+      background: $header-image-background;
       padding: 15px 30px;
       text-align: center;
       margin: 0 auto;
+      color: $header-image-color;
     }
   }
 }
@@ -723,6 +852,7 @@ h6 {
     }
 
     h1, h2, h3, h4, h5, h6 {
+      margin-top: 0;
       &, a {
         color: $slider-headline-color;
       }
@@ -935,6 +1065,10 @@ header {
   figure {
     margin: 0;
   }
+
+  .back {
+    display: none;
+  }
 }
 
 header, footer {
@@ -1134,6 +1268,12 @@ footer {
       position: relative;
       border-right: 1px solid #484848;
     }
+
+    h2, h3, h4, h5, h6 {
+      font-size: 1.2rem;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+    }
   }
 
   .copyright-footer {
@@ -1144,17 +1284,17 @@ footer {
     p {
       margin: 0;
     }
+
+    .container {
+      padding: 0;
+    }
   }
 
-  a, strong, p, h1, h2, h3, h4, h5, h6 {
-    color: #fff;
-    font-weight: 400;
-  }
-
-  h2, h3, h4, h5, h6 {
-    font-size: 1.2rem;
-    margin: 0 0 20px;
-    text-transform: uppercase;
+  .main-footer, .copyright-footer {
+    a, strong, p, h1, h2, h3, h4, h5, h6 {
+      color: #fff;
+      font-weight: 400;
+    }
   }
 
   .ce_featureElement {
@@ -1216,10 +1356,69 @@ footer {
       opacity: 1;
     }
   }
+
+  .skewed-bg {
+    background: $newsletter-background;
+  }
 }
 
 #wrapper footer .ce_featureElement svg {
   width: 16px;
+}
+
+.nl-footer {
+  &, .skewed-bg.skewed-bottom {
+    background: $newsletter-background;
+  }
+
+  .skewed-top {
+    background: $page-background;
+  }
+
+  .container {
+    padding: 150px 0 50px;
+    z-index: 2;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: $newsletter-color;
+    margin: 0;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .widget-text, .widget-submit {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  input {
+    height: 50px;
+    font-size: 1.1rem;
+    padding: 0 15px;
+    border: none;
+    background: $newsletter-input-background;
+
+    &, &::placeholder {
+      color: $newsletter-input-color;
+    }
+  }
+
+  button {
+    height: 50px;
+    background: $newsletter-button-background;
+    color: $newsletter-button-color;
+    cursor: pointer;
+
+    &:hover {
+      background: $newsletter-button-background-hover;
+      color: $newsletter-button-color-hover;
+    }
+  }
 }
 
 /* ======================== */

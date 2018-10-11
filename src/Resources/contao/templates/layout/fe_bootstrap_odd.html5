@@ -47,3 +47,11 @@
     <?= $this->mooScripts ?>
 
 <?php $this->endblock(); ?>
+
+<?php $this->block('footer'); ?>
+<?php if ($this->footer): ?>
+    <footer id="footer" class="">
+        <?= $this->footer ?>
+    </footer>
+<?php endif; ?>
+<?php $this->endblock(); ?>

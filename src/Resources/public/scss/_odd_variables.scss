@@ -4,16 +4,23 @@
  ****
  */
 
+/* ======================== */
+/*        Fonts             */
+/* ======================== */
+
+$mainFont: 'Muli', sans-serif;
+$headingFont: 'Cabin', sans-serif;
+
+/* ======================== */
+/*         Colors           */
+/* ======================== */
+
 $page_background: #f5faff;
 
-$mainFont: 'Muli', sans-serif !default;
-$headingFont: 'Cabin', sans-serif !default;
-
-$grey: #f2f2f2 !default;
-$darkGrey: #808080 !default;
-$black: #333 !default;
-
-$primaryColor: #457cb6 !default;
+$grey: #f2f2f2;
+$darkGrey: #808080;
+$black: #333;
+$primaryColor: #457cb6;
 
 /* ======================== */
 /*        Headlines         */
@@ -25,19 +32,22 @@ $h4-font-size: 1.3rem;
 $h5-font-size: 1.1rem;
 $h6-font-size: 0.9rem;
 
+$header-image-background: rgba(25, 25, 25, 0.8);
+$header-image-color: rgba(255, 255, 255, 0.9);
+
 /* ======================== */
 /*        Gradient          */
 /* ======================== */
-$gradientPrimaryColor1: #1e5380 !default;
-$gradientPrimaryColor2: #2898aa !default;
-$gradientSecondaryColor1: #efefef !default;
-$gradientSecondaryColor2: #ebebeb !default;
+$gradientPrimaryColor1: #1e5380;
+$gradientPrimaryColor2: #2898aa;
+$gradientSecondaryColor1: #efefef;
+$gradientSecondaryColor2: #ebebeb;
 
 /* ======================== */
 /*        Styles            */
 /* ======================== */
-$borderRadius: 0px !default;
-$subnavBackgroundColor: #333 !default;
+$borderRadius: 0px;
+$subnavBackgroundColor: #333;
 
 /* ======================== */
 /*     Content Slider       */
@@ -45,9 +55,21 @@ $subnavBackgroundColor: #333 !default;
 $slider-background: rgba(255, 255, 255, 0.8);
 $slider-headline-color: #1b4673;
 $slider-text-color: #1b4673;
-$slider-button-background: #457cb6;
-$slider-button-color: #f2f2f2;
+$slider-button-background: $primaryColor;
+$slider-button-color: $grey;
 $slider-button-background-hover: #3e71b6;
-$slider-button-color-hover: #f2f2f2;
-$slider-control-color: #333;
-$slider-control-color-active: #457cb6;
+$slider-button-color-hover: $grey;
+$slider-control-color: $black;
+$slider-control-color-active: $primaryColor;
+
+/* ======================== */
+/*  Newsletter / Footer     */
+/* ======================== */
+$newsletter-background: #efefef;
+$newsletter-color: $black;
+$newsletter-input-background: $black;
+$newsletter-input-color: #fff;
+$newsletter-button-background: $primaryColor;
+$newsletter-button-color: #fff;
+$newsletter-button-background-hover: #3e71b6;
+$newsletter-button-color-hover: #fff;

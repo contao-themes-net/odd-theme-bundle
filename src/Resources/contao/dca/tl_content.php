@@ -9,8 +9,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['wrapperStop'] = '{type_legend},typ
 $GLOBALS['TL_DCA']['tl_content']['palettes']['featureElement'] = '{type_legend},type,headline;{text_legend},text,odd_featureIcon,odd_iconLink;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['sliderElement'] = '{type_legend},type,headline;{text_legend},text,odd_page,odd_linkText;{image_legend},addImage;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['priceBox'] = '{type_legend},type,headline;{text_legend},text,odd_price,odd_priceLabel,odd_priceBox_link1,odd_priceBox_linkText1,odd_priceBox_link2,odd_priceBox_linkText2,odd_popularPriceBox;{template_legend:hide},odd_priceBox_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['oddTeaserBox'] = $GLOBALS['TL_DCA']['tl_content']['palettes']['text'];
-//'{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{oddTeaserBoxSettings},oddTeaserBox_page,oddTeaserBox_pageText;{expert_legend:hide},cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['oddTeaserBox'] = '{type_legend},type,headline;{text_legend},text,oddTeaserBox_page,oddTeaserBox_pageText;{image_legend},addImage;{expert_legend:hide},cssID;{advanced_classes_legend};space';
 
 /**
  * Add fields to tl_content
