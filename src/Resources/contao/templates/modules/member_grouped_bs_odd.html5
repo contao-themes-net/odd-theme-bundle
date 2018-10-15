@@ -1,0 +1,37 @@
+<?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->prepare($this) ?>
+
+<!-- indexer::stop -->
+<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+    <?php if ($this->headline): ?>
+    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+  <?php endif; ?>
+
+<?php if ($this->message): ?>
+    <p class="tl_confirm"><?= $this->message ?></p>
+<?php endif; ?>
+
+<form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> id="<?= $this->formId ?>" method="post" enctype="<?= $this->enctype ?>">
+    <div class="formbody">
+        <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formId ?>">
+        <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+
+        <?php foreach ($this->categories as $legend=>$category): ?>
+            <?php if (!empty($category)): ?>
+                <fieldset>
+                    <?php if($legend != ""): ?><legend><?= $legend ?></legend><?php endif; ?>
+                    <?= implode('', $category) ?>
+                </fieldset>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <div class="widget widget-submit <?= $this->rowClass ?>">
+            <?php if ($this->isHorizontal): ?><div class="<?= $this->colOffsetClass ?>"><?php endif ?>
+                <button type="submit" class="submit <?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->getButtonClass() ?>"><?= $this->slabel ?></button>
+                <?php if ($this->isHorizontal): ?></div><?php endif ?>
+        </div>
+    </div>
+</form>
+
+</div>
+<!-- indexer::continue -->

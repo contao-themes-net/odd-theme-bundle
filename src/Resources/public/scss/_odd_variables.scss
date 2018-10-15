@@ -22,6 +22,11 @@ $darkGrey: #808080;
 $black: #333;
 $primaryColor: #457cb6;
 
+$button-background: $primaryColor;
+$button-color: #fff;
+$button-background-hover: #3e71b6;
+$button-color-hover: $grey;
+
 /* ======================== */
 /*        Headlines         */
 /* ======================== */
@@ -52,24 +57,32 @@ $subnavBackgroundColor: #333;
 /* ======================== */
 /*     Content Slider       */
 /* ======================== */
-$slider-background: rgba(255, 255, 255, 0.8);
-$slider-headline-color: #1b4673;
-$slider-text-color: #1b4673;
-$slider-button-background: $primaryColor;
-$slider-button-color: $grey;
-$slider-button-background-hover: #3e71b6;
-$slider-button-color-hover: $grey;
-$slider-control-color: $black;
-$slider-control-color-active: $primaryColor;
+$slider-background:                   rgba(255, 255, 255, 0.8);
+$slider-headline-color:               #1b4673;
+$slider-text-color:                   #1b4673;
+$slider-button-background:            $primaryColor;
+$slider-button-color:                 $grey;
+$slider-button-background-hover:      #3e71b6;
+$slider-button-color-hover:           $grey;
+$slider-control-color:                $black;
+$slider-control-color-active:         $primaryColor;
 
 /* ======================== */
 /*  Newsletter / Footer     */
 /* ======================== */
-$newsletter-background: #efefef;
-$newsletter-color: $black;
-$newsletter-input-background: $black;
-$newsletter-input-color: #fff;
-$newsletter-button-background: $primaryColor;
-$newsletter-button-color: #fff;
-$newsletter-button-background-hover: #3e71b6;
-$newsletter-button-color-hover: #fff;
+$newsletter-background:               #efefef;
+$newsletter-color:                    $black;
+$newsletter-input-background:         $black;
+$newsletter-input-color:              #fff;
+$newsletter-button-background:        none;
+$newsletter-button-color:             $black;
+$newsletter-button-background-hover:  $black;
+$newsletter-button-color-hover:       #fff;
+$newsletter-button-border:            3px solid $black;
+$newsletter-button-border-hover:      3px solid $black;
+
+$main-footer-background:              $black;
+$main-footer-color:                   #fff;
+$main-footer-border-color:            #484848;
+$copyright-footer-background:         #1f1f1f;
+$copyright-footer-color:              #fff;

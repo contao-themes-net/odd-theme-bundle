@@ -1,0 +1,33 @@
+<div class="event layout_teaser<?= $this->classList ?> row" itemscope itemtype="http://schema.org/Event">
+
+    <div class="datetime col-sm-2 order-2 order-lg-1">
+        <?php $timestamp = strtotime($this->datetime) ?>
+        <div class="month"><?php echo $this->parseDate("M", $timestamp); ?></div>
+        <div class="day"><?php echo $this->parseDate("d", $timestamp); ?></div>
+    </div>
+
+    <div class="image col-12 order-1 order-lg-2 col-lg-5">
+        <?php if ($this->addImage): ?>
+            <?php $this->insert('image', $this->arrData); ?>
+        <?php endif; ?>
+    </div>
+
+    <div class="content col-12 col-sm-10 order-3 col-lg-5">
+        <?php if ($this->hasDetails): ?>
+            <h3 itemprop="name"><a href="<?= $this->href ?>" title="<?= $this->title ?> (<?php if ($this->day) echo $this->day . ', '; ?><?= $this->date ?><?php if ($this->time) echo ', ' . $this->time; ?>)"<?= $this->target ?> itemprop="url"><?= $this->link ?></a></h3>
+        <?php else: ?>
+            <h3 itemprop="name"><?= $this->title ?></h3>
+        <?php endif; ?>
+
+        <p class="time"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?= $this->date ?><?php if ($this->time): ?>, <?= $this->time ?><?php endif; ?></time></p>
+
+        <div class="ce_text block" itemprop="description">
+            <?= $this->teaser ?>
+        </div>
+
+        <?php if ($this->hasDetails): ?>
+            <p class="more"><a href="<?= $this->href ?>" title="<?= $this->readMore ?>"<?= $this->target ?> itemprop="url">Event-Details ansehen <i class="fas fa-arrow-right"></i><span class="invisible"> <?= $this->link ?></span></a></p>
+        <?php endif; ?>
+    </div>
+
+</div>

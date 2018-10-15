@@ -1,0 +1,91 @@
+@import '../../../../../../../files/odd/scss/_custom_variables';
+@import "odd_variables";
+
+@media (max-width: 991px) {
+  .calendar {
+    td a {
+      font-size: 0.7rem;
+      max-width: 100%;
+      word-break: break-word;
+    }
+
+    th, td {
+      font-size: 0.8rem;
+    }
+  }
+
+  .layout_teaser, .layout_list {
+    .datetime, .content {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .calendar {
+    thead {
+      tr {
+        &:first-child th {
+          display: block;
+          font-size: 1rem;
+        }
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+
+    tbody {
+      display: none;
+    }
+  }
+
+  .layout_teaser, .layout_list {
+    .datetime {
+      display: none;
+    }
+  }
+
+  .layout_simple, .layout_upcoming {
+    time {
+      display: block;
+    }
+  }
+
+  .mod_newslist, .mod_eventlist {
+    nav p {
+      float: none;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .minicalendar {
+    td, th {
+      font-size: 0.8rem;
+      padding: 5px;
+
+      a {
+        font-size: 0.8rem;
+        padding: 5px;
+      }
+    }
+  }
+
+  .nl-footer {
+    .widget-text {
+      display: block;
+    }
+
+    .widget-submit {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
