@@ -1,12 +1,7 @@
 <?php
 
 $GLOBALS['TL_LANG']['CTE']['themeOdd'] = 'ODD Theme';
-$GLOBALS['TL_LANG']['CTE']['wrapperStart'][0] = 'Content Container Start';
-$GLOBALS['TL_LANG']['CTE']['wrapperStop'][0] = 'Content Container Stop';
-$GLOBALS['TL_LANG']['CTE']['featureElement'][0] = 'Text and Icon';
 $GLOBALS['TL_LANG']['CTE']['sliderElement'][0] = 'Slider Element';
-$GLOBALS['TL_LANG']['CTE']['priceBox'][0] = 'Price Box';
-$GLOBALS['TL_LANG']['CTE']['oddTeaserBox'][0] = 'Teaser-Box';
 
 $GLOBALS['TL_LANG']['tl_article']['th_tags']['ODD01/01'] = 'Header / 01';
 $GLOBALS['TL_LANG']['tl_article']['th_tags']['ODD01/02'] = 'Header / 02';

@@ -1,11 +1,6 @@
 <?php
 
-use Pdir\ThemeOddBundle\Element\WrapperStartElement;
-use Pdir\ThemeOddBundle\Element\WrapperStopElement;
-use Pdir\ThemeOddBundle\Element\FeatureElement;
 use Pdir\ThemeOddBundle\Element\SliderElement;
-use Pdir\ThemeOddBundle\Element\PriceBoxElement;
-use Pdir\ThemeOddBundle\Element\TeaserBoxElement;
 
 // Insert the mate theme category
 array_insert($GLOBALS['TL_CTE'], 1, array('themeOdd' => array()));
@@ -13,24 +8,13 @@ array_insert($GLOBALS['TL_CTE'], 1, array('themeOdd' => array()));
 /**
  * Add content element
  */
-$GLOBALS['TL_CTE']['themeOdd']['wrapperStart'] = WrapperStartElement::class;
-$GLOBALS['TL_CTE']['themeOdd']['wrapperStop'] = WrapperStopElement::class;
-$GLOBALS['TL_CTE']['themeOdd']['featureElement'] = FeatureElement::class;
 $GLOBALS['TL_CTE']['themeOdd']['sliderElement'] = SliderElement::class;
-$GLOBALS['TL_CTE']['themeOdd']['priceBox'] = PriceBoxElement::class;
-$GLOBALS['TL_CTE']['themeOdd']['oddTeaserBox'] = TeaserBoxElement::class;
 
 /**
  * If Contao Slick is used
  */
 $GLOBALS['TL_JAVASCRIPT']['google_charts_loader'] = '';
 $GLOBALS['TL_JAVASCRIPT']['google_charts'] = '';
-
-/**
- * Wrapper elements
- */
-$GLOBALS['TL_WRAPPERS']['start'][] = 'wrapperStart';
-$GLOBALS['TL_WRAPPERS']['stop'][] = 'wrapperStop';
 
 /**
  * Available tags for MATE theme

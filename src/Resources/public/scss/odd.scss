@@ -94,6 +94,10 @@ img {
     transform: translateY(-100%);
 }
 
+.row.no-margin {
+  margin: 0;
+}
+
 /* ======================== */
 /* Layout                   */
 /* ======================== */
@@ -968,7 +972,7 @@ blockquote {
 }
 
 // Feature-Element
-.ce_featureElement {
+.ce_ct_featureElement {
   clear: both;
   display: table;
   padding: 10px 0;
@@ -1001,13 +1005,14 @@ blockquote {
     color: $darkGrey;
   }
 }
-#wrapper .ce_featureElement svg {
+#wrapper .ce_ct_featureElement svg {
   width: 40px;
 }
 
 // Preisbox
-.ce_priceBox {
+.ce_ct_priceBox {
   padding: 0;
+  margin: 50px 0;
 
   .inside {
     background: #fff;
@@ -1027,6 +1032,7 @@ blockquote {
 
     .first-link a {
       @extend .btn;
+      margin: 15px 0;
     }
 
     .second-link a {
@@ -1035,7 +1041,7 @@ blockquote {
 
     .popular-label {
       background: $primaryColor;
-      color: $black;
+      color: #fff;
     }
   }
 
@@ -1151,7 +1157,7 @@ blockquote {
   }
 
   &.popular-box {
-    margin-top: -20px;
+    margin-top: 10px;
   }
 }
 
@@ -1398,18 +1404,60 @@ input, button {
   }
 }
 
-// Teaserbox
-.ce_oddTeaserBox {
-    h2, h3, h4, h5, h6 {
-        margin-bottom: 10px;
-        word-wrap: break-word;
+// Teaser Box
+.ce_ct_teaserBox {
+  h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+    margin-top: 0;
+    word-wrap: break-word;
+  }
+
+  .pageLink {
+      a {
+        @extend .btn;
+        margin-top: 0;
+      }
+  }
+}
+
+// Content Box
+.ce_ct_contentBox {
+  padding: 30px;
+
+  .pageLink a {
+    @extend .btn;
+  }
+
+  &:nth-child(odd) {
+    background: $contentbox-color-odd;
+
+    h2, h3, h4, h5, h6, a, p {
+      color: $contentbox-color-even;
     }
 
-    .pageLink {
-        a {
-            @extend .btn;
-        }
+    .pageLink a {
+      background: $contentbox-color-even;
+      color: $contentbox-color-odd;
     }
+  }
+
+  &:nth-child(even) {
+    background: $contentbox-color-even;
+
+    h2, h3, h4, h5, h6, a, p {
+      color: $contentbox-color-odd;
+    }
+
+    .pageLink a {
+      background: $contentbox-color-odd;
+      color: $contentbox-color-even;
+    }
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin: 0 0 15px 0;
+    text-transform: none;
+  }
 }
 
 /* ======================== */
@@ -1528,7 +1576,7 @@ header, footer {
         vertical-align: middle;
       }
 
-      .ce_featureElement {
+      .ce_ct_featureElement {
         display: inline-block;
       }
     }
@@ -1551,7 +1599,7 @@ header, footer {
     margin: 0;
   }
 
-  .ce_featureElement {
+  .ce_ct_featureElement {
     padding: 0;
     vertical-align: middle;
 
@@ -1734,7 +1782,7 @@ footer {
     }
   }
 
-  .ce_featureElement {
+  .ce_ct_featureElement {
     padding: 5px;
 
     .icon {
@@ -1799,7 +1847,7 @@ footer {
   }
 }
 
-#wrapper footer .ce_featureElement svg {
+#wrapper footer .ce_ct_featureElement svg {
   width: 16px;
 }
 
@@ -2028,7 +2076,7 @@ footer {
 }
 
 @media (min-width:768px) and (max-width:991px) {
-  .ce_featureElement {
+  .ce_ct_featureElement {
     .feature-text {
       p {
         font-size: 0.8rem;
@@ -2047,7 +2095,7 @@ footer {
 }
 
 @media (max-width:767px) {
-  .ce_priceBox {
+  .ce_ct_priceBox {
     margin-bottom: 30px;
 
     &.popular-box {
@@ -2067,7 +2115,7 @@ footer {
       padding-bottom: 0;
     }
 
-    .ce_featureElement {
+    .ce_ct_featureElement {
       margin: 0 auto;
     }
 
@@ -2124,7 +2172,7 @@ footer {
     float: none;
   }
 
-    .ce_oddTeaserBox {
+    .ce_ct_teaserBox {
         .inside {
             margin-bottom: 20px;
         }
