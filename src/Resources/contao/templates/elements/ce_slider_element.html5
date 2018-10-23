@@ -25,7 +25,7 @@
                 <?= $this->text ?>
 
                 <?php if($this->page): ?>
-                    <a href="{{link_url::<?= $this->page ?>}}" class="readmore"><?= $this->linkText ?></a>
+                    <a href="{{link_url::<?= $this->page ?>}}" class="readmore"<?= $this->target ?><?= $this->rel ?>><?= $this->linkText ?></a>
                 <?php endif; ?>
             </div>
         </div>

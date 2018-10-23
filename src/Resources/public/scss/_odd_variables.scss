@@ -90,5 +90,37 @@ $copyright-footer-color:              #fff;
 /* ======================== */
 /*       Content Box        */
 /* ======================== */
-$contentbox-color-odd:                $black;
-$contentbox-color-even:               #fff;
+$contentbox-odd-background:               #efefef;
+$contentbox-odd-color:                    $black;
+$contentbox-odd-button-background:        $button-background;
+$contentbox-odd-button-color:             $button-color;
+$contentbox-odd-button-background-hover:  $button-background-hover;
+$contentbox-odd-button-color-hover:       $button-color-hover;
+
+$contentbox-even-background:              #fff;
+$contentbox-even-color:                   $black;
+$contentbox-even-button-background:       $button-background;
+$contentbox-even-button-color:            $button-color;
+$contentbox-even-button-background-hover: $button-background-hover;
+$contentbox-even-button-color-hover:      $button-color-hover;
+
+/* ======================== */
+/*       Simple Box         */
+/* ======================== */
+$simplebox_background:                #efefef;
+$simplebox_color:                     $black;
+
+/* ======================== */
+/*       Price Box          */
+/* ======================== */
+$pricebox_background:                 #fff;
+$pricebox_text_color:                 $black;
+
+$pricebox_1_color:                    $primaryColor;
+$pricebox_1_button_background_hover:  $button-background-hover;
+
+$pricebox_2_color:                    #00b8ff;
+$pricebox_2_button_background_hover:  #00a8ff;
+
+$pricebox_3_color:                    #d74200;
+$pricebox_3_button_background_hover:  #d70009;

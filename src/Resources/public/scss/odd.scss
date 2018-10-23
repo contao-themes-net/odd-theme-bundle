@@ -289,7 +289,7 @@ h6 {
 
   .content {
     background: #fff;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
     position: relative;
   }
@@ -322,11 +322,7 @@ h6 {
     margin-bottom: 10px;
 
     a {
-      background: #457cb6;
-      color: #fff;
-      display: inline-block;
-      padding: 5px 10px;
-      font-size: 0.9rem;
+      @extend .btn;
     }
   }
 }
@@ -1015,7 +1011,7 @@ blockquote {
   margin: 50px 0;
 
   .inside {
-    background: #fff;
+    background: $pricebox_background;
     padding: 30px;
     border-radius: $borderRadius;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
@@ -1024,75 +1020,80 @@ blockquote {
   }
 
   &:nth-of-type(1) .inside {
-    border-top: 8px solid $primaryColor;
+    border-top: 8px solid $pricebox_1_color;
 
     .amount {
-      color: $primaryColor;
+      color: $pricebox_1_color;
     }
 
     .first-link a {
       @extend .btn;
       margin: 15px 0;
+      background: $pricebox_1_color;
+
+      &:hover {
+        background: $pricebox_1_button_background_hover;
+      }
     }
 
     .second-link a {
-      color: $primaryColor;
+      color: $pricebox_1_color;
     }
 
     .popular-label {
-      background: $primaryColor;
+      background: $pricebox_1_color;
       color: #fff;
     }
   }
 
   &:nth-of-type(2) .inside {
-    border-top: 8px solid #00b8ff;
+    border-top: 8px solid $pricebox_2_color;
 
     .amount {
-      color: #00b8ff;
+      color: $pricebox_2_color;
     }
 
     .first-link a {
-      background: #00b8ff;
+      background: $pricebox_2_color;
       color: #fff;
 
       &:hover {
-        background: #00a8ff;
+        background: $pricebox_2_button_background_hover;
       }
     }
 
     .second-link a {
-      color: #00b8ff;
+      color: $pricebox_2_color;
     }
 
     .popular-label {
-      background: #00b8ff;
+      background: $pricebox_2_color;
       color: #fff;
     }
   }
 
   &:nth-of-type(3) .inside {
-    border-top: 8px solid #d74200;
+    border-top: 8px solid $pricebox_3_color;
 
     .amount {
-      color: #d74200;
+      color: $pricebox_3_color;
     }
 
     .first-link a {
-      background: #d74200;
+      background: $pricebox_3_color;
       color: #fff;
 
       &:hover {
-        background: #d70009;
+        background: $pricebox_3_button_background_hover;
       }
     }
 
     .second-link a {
-      color: #d74200;
+      color: $pricebox_3_color;
     }
 
     .popular-label {
-      background: #d74200;
+      background: $pricebox_3_color;
       color: #fff;
     }
   }
@@ -1105,6 +1106,7 @@ blockquote {
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
+    color: $pricebox_text_color;
   }
 
   .price {
@@ -1128,6 +1130,7 @@ blockquote {
       border-bottom: 2px solid $grey;
       padding: 0 0 5px;
       margin: 0 0 5px;
+      color: $pricebox_text_color;
     }
   }
 
@@ -1429,34 +1432,63 @@ input, button {
   }
 
   &:nth-child(odd) {
-    background: $contentbox-color-odd;
+    background: $contentbox-odd-background;
 
     h2, h3, h4, h5, h6, a, p {
-      color: $contentbox-color-even;
+      color: $contentbox-odd-color;
     }
 
     .pageLink a {
-      background: $contentbox-color-even;
-      color: $contentbox-color-odd;
+      background: $contentbox-odd-button-background;
+      color: $contentbox-odd-button-color;
+
+      &:hover {
+        background: $contentbox-odd-button-background-hover;
+        color: $contentbox-odd-button-color-hover;
+      }
     }
   }
 
   &:nth-child(even) {
-    background: $contentbox-color-even;
+    background: $contentbox-even-background;
 
     h2, h3, h4, h5, h6, a, p {
-      color: $contentbox-color-odd;
+      color: $contentbox-even-color;
     }
 
     .pageLink a {
-      background: $contentbox-color-odd;
-      color: $contentbox-color-even;
+      background: $contentbox-even-button-background;
+      color: $contentbox-even-button-color;
+
+      &:hover {
+        background: $contentbox-odd-button-background-hover;
+        color: $contentbox-odd-button-color-hover;
+      }
     }
   }
 
   h2, h3, h4, h5, h6 {
     margin: 0 0 15px 0;
     text-transform: none;
+  }
+}
+
+// Simple Box
+.simplebox {
+  margin-bottom: 30px;
+
+  .inside {
+    padding: 15px;
+    background: $simplebox_background;
+    height: 100%;
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin-top: 0;
+  }
+
+  h2, h3, h4, h5, h6, p, a {
+    color: $simplebox_color;
   }
 }
 
@@ -1845,6 +1877,10 @@ footer {
   .skewed-bg {
     background: $newsletter-background;
   }
+
+  .mod_subscribe .row > div {
+    z-index: 10;
+  }
 }
 
 #wrapper footer .ce_ct_featureElement svg {
@@ -1877,8 +1913,12 @@ footer {
   }
 
   .widget-text, .widget-submit {
-    display: inline-block;
+    display: table-cell;
     vertical-align: top;
+  }
+
+  .widget-text {
+    padding-right: 10px;
   }
 
   input {
@@ -1887,6 +1927,7 @@ footer {
     padding: 0 15px;
     border: none;
     background: $newsletter-input-background;
+    border-radius: 0;
 
     &, &::placeholder {
       color: $newsletter-input-color;
@@ -2089,7 +2130,7 @@ footer {
   }
 
   footer h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     height: 30px;
   }
 }
@@ -2102,8 +2143,6 @@ footer {
       margin-top: 0;
     }
   }
-
-
 
   footer {
     .row > div {
@@ -2172,11 +2211,15 @@ footer {
     float: none;
   }
 
-    .ce_ct_teaserBox {
-        .inside {
-            margin-bottom: 20px;
-        }
-    }
+  .ce_ct_teaserBox {
+      .inside {
+          margin-bottom: 20px;
+      }
+  }
+
+  .nl-footer .widget-text, .nl-footer .widget-submit {
+    display: inline-block;
+  }
 }
 
 @import 'responsive';
