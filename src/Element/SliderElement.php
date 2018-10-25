@@ -43,6 +43,7 @@ class SliderElement extends \ContentElement
         $this->Template->href = \FilesModel::findByUuid($this->singleSRC)->path;
         $this->Template->metaImg = unserialize(\FilesModel::findByUuid($this->singleSRC)->meta);
         $this->Template->picture = $this->singleSRC;
+        $this->Template->subheadline = $this->odd_subHeadline;
 
         // overwrite link target
         $this->Template->target = '';

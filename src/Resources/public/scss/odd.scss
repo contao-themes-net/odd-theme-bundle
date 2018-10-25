@@ -1340,21 +1340,57 @@ input, button {
       color: $slider-button-color-hover;
     }
   }
+
+  .subheadline {
+    text-transform: uppercase;
+    color: $slider-subheadline-color;
+    font-family: $headingFont;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
 }
 
 .ce_sliderStart {
-  .slider-next, .slider-prev {
-    display: none;
-  }
+  position: relative;
 
   .slider-control {
-    .slider-menu b {
-      color: $slider-control-color;
-      font-size: 2rem;
-      padding: 3px;
+    z-index: 10;
+    position: static;
 
-      &.active {
-        color: $slider-control-color-active;
+    .slider-prev, .slider-next {
+      background: rgba(51, 51, 51, 0.73);
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      margin-top: -25px;
+    }
+
+    .slider-prev {
+      left: 15px;
+    }
+
+    .slider-next {
+      right: 15px;
+    }
+
+    .slider-menu {
+      bottom: -15px;
+      top: inherit;
+
+      b {
+        color: $slider-control-color;
+        font-size: 2rem;
+        padding: 3px;
+
+        &.active {
+          color: $slider-control-color-active;
+        }
       }
     }
   }
@@ -1517,10 +1553,10 @@ input, button {
 
 .navbar {
   height: 100px;
-  background: $grey !important;
+  background: $navbar-background !important;
 
   .navbar-toggler {
-    background: $primaryColor;
+    background: $navbar-toggler-background;
     border-radius: 0;
     border: none;
 
@@ -1549,21 +1585,29 @@ input, button {
     padding: 15px;
     font-size: 18px;
     font-weight: 700;
-    color: $black;
+    color: $nav-color;
     display: inline-block;
 
     &:hover {
-      color: $primaryColor;
+      color: $nav-hover-color;
+
+      & + .dropdown-toggle {
+        color: $nav-hover-color;
+      }
     }
   }
 
   strong {
-    color: $primaryColor;
+    color: $nav-active-color;
   }
 
   svg {
     margin-right: 10px;
     margin-left: -5px;
+  }
+
+  .dropdown-toggle {
+    color: $nav-color;
   }
 }
 
@@ -1586,9 +1630,9 @@ header, footer {
 }
 
 .navbar-top {
-  background: $primaryColor;
+  background: $navbar-top-background;
   padding: 15px 0;
-  color: $grey;
+  color: $navbar-top-color;
   font-size: 1rem;
   font-family: $headingFont;
   font-weight: 700;
@@ -1615,7 +1659,7 @@ header, footer {
   }
 
   a {
-    color: $grey;
+    color: $navbar-top-color;
   }
 
   .ce_text, .social-media {
@@ -1649,7 +1693,7 @@ header, footer {
 
   .social-media {
     float: right;
-    border-left: 1px solid rgba(255,255,255,0.5);
+    border-left: 1px solid $navbar-top-color;
     padding-left: 15px;
 
     .feature-text {
@@ -1658,7 +1702,7 @@ header, footer {
   }
 
   svg {
-    color: #f2f2f2;
+    color: $navbar-top-color;
     border: none;
     padding: 0;
     font-size: inherit;
@@ -1685,7 +1729,7 @@ header, footer {
       top: 57px;
       left: 0;
       width: 250px;
-      background: $primaryColor;
+      background: $nav-dropdown-background;
       z-index: 10;
       border-radius: $borderRadius;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
@@ -1702,12 +1746,12 @@ header, footer {
           text-transform: inherit;
           display: block;
           padding: 10px 15px;
-          color: $grey;
+          color: $nav-dropdown-color;
         }
 
         a:hover {
-          color: $grey;
-          background: #3e71b6;
+          color: $nav-dropdown-hover-color;
+          background: $nav-dropdown-hover-background;
         }
 
         strong {
@@ -1731,8 +1775,8 @@ header, footer {
     display: block;
 
     a, strong {
-      color: #fff;
-      background: $subnavBackgroundColor;
+      color: $subnav-color;
+      background: $subnav-background;
       display: block;
       text-align: center;
       padding: 8px 15px;
@@ -2036,9 +2080,9 @@ footer {
 
     .collapse.show {
       width: 100%;
-      border-top: 2px solid $primaryColor;
-      border-bottom: 2px solid $primaryColor;
-      background: #fff;
+      border-top: 2px solid $navbar-mobile-border-color;
+      border-bottom: 2px solid $navbar-mobile-border-color;
+      background: $navbar-mobile-background;
       padding-bottom: 15px;
       top: 0;
       position: relative;
@@ -2073,7 +2117,7 @@ footer {
       position: absolute;
       top: 8px;
       right: 15px;
-      background: #f2f2f2;
+      background: $navbar-mobile-dropdown-toggle-color;
       height: 41px;
       width: 41px;
 
@@ -2089,7 +2133,7 @@ footer {
       position: relative;
       width: 100%;
       border: none;
-      background: #f2f2f2;
+      background: $navbar-mobile-dropdown-background;
       padding-top: 0;
       border-radius: 0;
       margin: 0;
@@ -2104,7 +2148,7 @@ footer {
     svg {
       width: 100%;
       font-size: 1.7rem;
-      color: $grey;
+      color: $navbar-toggler-color;
     }
   }
 

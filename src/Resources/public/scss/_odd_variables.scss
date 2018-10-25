@@ -52,13 +52,13 @@ $gradientSecondaryColor2: #ebebeb;
 /*        Styles            */
 /* ======================== */
 $borderRadius: 0px;
-$subnavBackgroundColor: #333;
 
 /* ======================== */
 /*     Content Slider       */
 /* ======================== */
 $slider-background:                   rgba(255, 255, 255, 0.8);
 $slider-headline-color:               #1b4673;
+$slider-subheadline-color:            #808080;
 $slider-text-color:                   #1b4673;
 $slider-button-background:            $primaryColor;
 $slider-button-color:                 $grey;
@@ -66,6 +66,32 @@ $slider-button-background-hover:      #3e71b6;
 $slider-button-color-hover:           $grey;
 $slider-control-color:                $black;
 $slider-control-color-active:         $primaryColor;
+
+/* ======================== */
+/*  Header / Navigation     */
+/* ======================== */
+$navbar-top-background:               $primaryColor;
+$navbar-top-color:                    #fff;
+$navbar-background:                   #f2f2f2;
+
+$nav-color:                           #333;
+$nav-active-color:                    $primaryColor;
+$nav-hover-color:                     $primaryColor;
+
+$nav-dropdown-background:             $primaryColor;
+$nav-dropdown-color:                  #fff;
+$nav-dropdown-hover-background:       #3e71b6;
+$nav-dropdown-hover-color:            #fff;
+
+$navbar-toggler-background:           $primaryColor;
+$navbar-toggler-color:                #fff;
+$navbar-mobile-background:            #fff;
+$navbar-mobile-border-color:          $primaryColor;
+$navbar-mobile-dropdown-toggle-color: #f2f2f2;
+$navbar-mobile-dropdown-background  : #f2f2f2;
+
+$subnav-background:                   #333;
+$subnav-color:                        #fff;
 
 /* ======================== */
 /*  Newsletter / Footer     */

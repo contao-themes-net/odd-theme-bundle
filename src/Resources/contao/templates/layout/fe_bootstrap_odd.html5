@@ -34,6 +34,12 @@
 
     <?= $this->framework ?>
 
+    <script>
+        window.FontAwesomeConfig = {
+            searchPseudoElements: true
+        }
+    </script>
+
     <script charset="utf-8" src="<?php
     // add javascripts
     $combiner = new Combiner();

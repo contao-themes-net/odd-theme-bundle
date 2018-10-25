@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     /* ===================== *
      *   Toplink  			 *
-     * ====================== */
+     * ===================== */
     $(window).scroll(function () {
         scrollPos = $(document).scrollTop();
 
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
     /* ===================== *
      *   Navigation			 *
-     * ====================== */
+     * ===================== */
     var scrollPos = $(window).scrollTop();
     if(scrollPos > 0) {
         $('.nav-container').addClass('stuck');
@@ -79,4 +79,11 @@ $(document).ready(function() {
     $('#header .navbar ul li a').on('click', function() {
         $('.navbar .collapse.show').removeClass('show');
     });
-});
+
+    /* ===================== *
+     *   Content Slider 	 *
+     * ===================== */
+    $(".slider-control .slider-prev").html('<i class="fas fa-chevron-left"></i>');
+    $(".slider-control .slider-next").html('<i class="fas fa-chevron-right"></i>');
+
+ });
