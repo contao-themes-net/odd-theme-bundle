@@ -17,7 +17,8 @@
     "madeyourday/contao-rocksolid-frontend-helper": "~2.0",
     "contao-dd/advanced-classes-bundle": "^0.5",
     "terminal42/contao-folderpage": "^2.0",
-    "pdir/contao-theme-helper-bundle": "^1.0"
+    "pdir/contao-theme-helper-bundle": "^1.0",
+    "contao-themes-net/theme-components-bundle": "^0.1.0"
   },
   "conflict": {
     "contao/core": "*"
