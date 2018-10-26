@@ -1,22 +1,152 @@
 /****
- **** mate theme files / mate_variables
- **** overrides materialize variables
+ **** odd theme files / _custom_variables
+ **** overrides odd variables
  ****
  */
 
-//$mainFont: 'Muli', sans-serif !default;
-//$headingFont: 'Cabin', sans-serif !default;
+/* ======================== */
+/*        Fonts             */
+/* ======================== */
 
-//$grey: #f2f2f2 !default;
-//$darkGrey: #808080 !default;
-//$black: #333 !default;
+//$mainFont: 'Muli', sans-serif;
+//$headingFont: 'Cabin', sans-serif;
 
-//$primaryColor: #457cb6 !default;
+/* ======================== */
+/*         Colors           */
+/* ======================== */
+
+//$page_background: #f5faff;
+
+//$grey: #f2f2f2;
+//$darkGrey: #808080;
+//$black: #333;
+//$primaryColor: #457cb6;
+
+//$button-background: $primaryColor;
+//$button-color: #fff;
+//$button-background-hover: #3e71b6;
+//$button-color-hover: $grey;
+
+/* ======================== */
+/*        Headlines         */
+/* ======================== */
+//$h1-font-size: 2rem;
+//$h2-font-size: 1.7rem;
+//$h3-font-size: 1.5rem;
+//$h4-font-size: 1.3rem;
+//$h5-font-size: 1.1rem;
+//$h6-font-size: 0.9rem;
+
+//$header-image-background: rgba(25, 25, 25, 0.8);
+//$header-image-color: rgba(255, 255, 255, 0.9);
 
 /* ======================== */
 /*        Gradient          */
 /* ======================== */
-//$gradientPrimaryColor1: #1e5380 !default;
-//$gradientPrimaryColor2: #2898aa !default;
-//$gradientSecondaryColor1: #efefef !default;
-//$gradientSecondaryColor2: #ebebeb !default;
+//$gradientPrimaryColor1: #1e5380;
+//$gradientPrimaryColor2: #2898aa;
+//$gradientSecondaryColor1: #efefef;
+//$gradientSecondaryColor2: #ebebeb;
+
+/* ======================== */
+/*        Styles            */
+/* ======================== */
+//$borderRadius: 0px;
+
+/* ======================== */
+/*     Content Slider       */
+/* ======================== */
+//$slider-background:                   rgba(255, 255, 255, 0.8);
+//$slider-headline-color:               #1b4673;
+//$slider-subheadline-color:            #808080;
+//$slider-text-color:                   #1b4673;
+//$slider-button-background:            $primaryColor;
+//$slider-button-color:                 $grey;
+//$slider-button-background-hover:      #3e71b6;
+//$slider-button-color-hover:           $grey;
+//$slider-control-color:                $black;
+//$slider-control-color-active:         $primaryColor;
+
+/* ======================== */
+/*  Header / Navigation     */
+/* ======================== */
+//$navbar-top-background:               $primaryColor;
+//$navbar-top-color:                    #fff;
+//$navbar-background:                   #f2f2f2;
+
+//$nav-color:                           #333;
+//$nav-active-color:                    $primaryColor;
+//$nav-hover-color:                     $primaryColor;
+
+//$nav-dropdown-background:             $primaryColor;
+//$nav-dropdown-color:                  #fff;
+//$nav-dropdown-hover-background:       #3e71b6;
+//$nav-dropdown-hover-color:            #fff;
+
+//$navbar-toggler-background:           $primaryColor;
+//$navbar-toggler-color:                #fff;
+//$navbar-mobile-background:            #fff;
+//$navbar-mobile-border-color:          $primaryColor;
+//$navbar-mobile-dropdown-toggle-color: #f2f2f2;
+//$navbar-mobile-dropdown-background  : #f2f2f2;
+
+//$subnav-background:                   #333;
+//$subnav-color:                        #fff;
+
+/* ======================== */
+/*  Newsletter / Footer     */
+/* ======================== */
+//$newsletter-background:               #efefef;
+//$newsletter-color:                    $black;
+//$newsletter-input-background:         $black;
+//$newsletter-input-color:              #fff;
+//$newsletter-button-background:        none;
+//$newsletter-button-color:             $black;
+//$newsletter-button-background-hover:  $black;
+//$newsletter-button-color-hover:       #fff;
+//$newsletter-button-border:            3px solid $black;
+//$newsletter-button-border-hover:      3px solid $black;
+
+//$main-footer-background:              $black;
+//$main-footer-color:                   #fff;
+//$main-footer-border-color:            #484848;
+//$copyright-footer-background:         #1f1f1f;
+//$copyright-footer-color:              #fff;
+
+/* ======================== */
+/*       Content Box        */
+/* ======================== */
+//$contentbox-odd-background:               #efefef;
+//$contentbox-odd-color:                    $black;
+//$contentbox-odd-button-background:        $button-background;
+//$contentbox-odd-button-color:             $button-color;
+//$contentbox-odd-button-background-hover:  $button-background-hover;
+//$contentbox-odd-button-color-hover:       $button-color-hover;
+
+//$contentbox-even-background:              #fff;
+//$contentbox-even-color:                   $black;
+//$contentbox-even-button-background:       $button-background;
+//$contentbox-even-button-color:            $button-color;
+//$contentbox-even-button-background-hover: $button-background-hover;
+//$contentbox-even-button-color-hover:      $button-color-hover;
+
+/* ======================== */
+/*       Simple Box         */
+/* ======================== */
+//$simplebox_background:                #efefef;
+//$simplebox_color:                     $black;
+
+/* ======================== */
+/*       Price Box          */
+/* ======================== */
+//$pricebox_background:                 #fff;
+//$pricebox_text_color:                 $black;
+
+//$pricebox_1_color:                    $primaryColor;
+//$pricebox_1_button_background_hover:  $button-background-hover;
+
+//$pricebox_2_color:                    #00b8ff;
+//$pricebox_2_button_background_hover:  #00a8ff;
+
+//$pricebox_3_color:                    #d74200;
+//$pricebox_3_button_background_hover:  #d70009;
