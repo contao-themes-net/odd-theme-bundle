@@ -1,0 +1,52 @@
+.be_oddtheme_setup .left {
+    width: 60%;
+    float: left;
+}
+
+.be_oddtheme_setup .right {
+    width: 40%;
+    float: right;
+}
+
+.be_oddtheme_setup .right .inner {
+    padding: 30px 0 30px 15px;
+}
+
+.be_oddtheme_setup .left .inner {
+    padding: 30px 15px 30px 0;
+}
+
+.be_oddtheme_setup h2 {
+    margin-bottom: 15px;
+}
+
+.be_oddtheme_setup img.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.be_oddtheme_setup .link-list a {
+    padding: 5px 0;
+    display: inline-block;
+}
+
+.be_oddtheme_setup a {
+    color: #457cb6;
+}
+
+.be_oddtheme_setup a:hover {
+    color: #333;
+}
+
+.be_oddtheme_setup .button a {
+    background: #457cb6;
+    color: #fff;
+    padding: 15px;
+    display: inline-block;
+    margin: 5px 0 15px;
+}
+
+.be_oddtheme_setup .button a:hover {
+    background: #333;
+}

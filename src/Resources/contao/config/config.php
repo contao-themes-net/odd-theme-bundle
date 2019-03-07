@@ -29,3 +29,16 @@ $GLOBALS['tl_config']['theme_tags'] = array(
     'ODD02/04',
     'ODD02/05'
 );
+
+/**
+ * Backend Modules
+ */
+array_insert($GLOBALS['BE_MOD']['oddTheme'], 1, array
+(
+    'oddThemeSetup' => array
+    (
+        'callback'          => 'Pdir\\ThemeOddBundle\\Module\\OddThemeSetup',
+        'tables'            => array(),
+        'stylesheet'		=> 'bundles/pdirthemeodd/scss/backend.css'
+    ),
+));

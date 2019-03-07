@@ -1,8 +1,5 @@
 @charset "UTF-8";
 
-@import '../../../../../../../files/odd/scss/_custom_variables';
-@import "odd_variables";
-
 @font-face {
   font-family: "Cabin";
   src: url("/bundles/pdirthemeodd/fonts/Cabin/Cabin-Regular.ttf");
@@ -12,6 +9,11 @@
   font-family: "Muli";
   src: url("/bundles/pdirthemeodd/fonts/Muli/Muli-Regular.ttf");
 }
+
+@import "_odd_colors";
+@import "../../../../../../../files/odd/scss/_custom_colors";
+@import "_odd_variables";
+@import "../../../../../../../files/odd/scss/_custom_variables";
 
 body {
   font-family: $mainFont;
