@@ -17,7 +17,7 @@
 
 body {
   font-family: $mainFont;
-  color: $black;
+  color: $oddColor5;
 }
 
 body, .skewed-bg {
@@ -25,10 +25,10 @@ body, .skewed-bg {
 }
 
 a {
-  color: $primaryColor;
+  color: $oddColor2;
 
   &:hover {
-    color: #3e71b6;
+    color: $oddColor3;
     text-decoration: none;
   }
 
@@ -160,7 +160,7 @@ img {
       bottom: 0;
       content: "";
       left: 0;
-      border-bottom: 3px solid $primaryColor;
+      border-bottom: 3px solid $oddColor2;
       width: 100px;
     }
   }
@@ -169,14 +169,14 @@ img {
 .mod_article.primary-bg {
     h1, h2, h3, h4, h5, h6 {
         &.ce_headline:after {
-            border-color: $grey;
+            border-color: $oddColor6;
         }
     }
 
     .ce_text {
         h1&, h2&, h3&, h4&, h5&, h6& {
             &:after {
-                border-color: $grey;
+                border-color: $oddColor6;
             }
         }
     }
@@ -204,9 +204,10 @@ img {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $headingFont;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 h2, h3, h4, h5, h6 {
@@ -215,34 +216,39 @@ h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: $h1-font-size;
-  color: $primaryColor;
+  color: $h1-color;
 }
 h2 {
   font-size: $h2-font-size;
+  color: $h2-color;
 }
 h3 {
   font-size: $h3-font-size;
+  color: $h3-color;
 }
 h4 {
   font-size: $h4-font-size;
+  color: $h4-color;
 }
 h5 {
   font-size: $h5-font-size;
+  color: $h5-color;
 }
 h6 {
   font-size: $h6-font-size;
+  color: $h6-color;
 }
 
 .mod_article.primary-bg {
     h1, h2, h3, h4, h5, h6 {
         &.ce_headline {
-            color: $grey;
+            color: $oddColor6;
         }
     }
 
     .ce_text {
         h1, h2, h3, h4, h5, h6 {
-            color: $grey;
+            color: $oddColor6;
         }
     }
 }
@@ -251,10 +257,10 @@ h6 {
   margin-bottom: 15px;
 
   .toggler {
-    background: $primaryColor;
+    background: $oddColor2;
     padding: 10px 15px;
     cursor: pointer;
-    color: $grey;
+    color: $oddColor6;
 
     &:focus {
       outline: 0;
@@ -262,7 +268,7 @@ h6 {
   }
 
   .accordion {
-    background: $grey;
+    background: $oddColor6;
     padding: 15px;
 
     p {
@@ -290,7 +296,7 @@ h6 {
   margin-bottom: 30px;
 
   .content {
-    background: #fff;
+    background: $oddColor6;
     padding: 20px;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
     position: relative;
@@ -335,7 +341,7 @@ h6 {
 }
 
 .layout_simple, .layout_upcoming {
-  background: #fff;
+  background: $oddColor6;
   margin: 5px 0;
   padding: 5px 15px;
 
@@ -351,8 +357,8 @@ h6 {
 
 .layout_full {
   time {
-    background: $primaryColor;
-    color: #fff;
+    background: $oddColor2;
+    color: $oddColor6;
     padding: 5px 15px;
     display: inline-block;
   }
@@ -391,16 +397,18 @@ h6 {
 .pagination {
   li {
     strong, a {
-      background: $primaryColor;
-      color: #fff;
+      background: $oddColor2;
+      color: $oddColor6;
+      font-weight: 400;
 
       &.active {
-        background: $black;
+        background: $oddColor6;
+        color: $oddColor2;
       }
 
       &:hover {
-        background: #3e71b6;
-        color: #fff;
+        background: $oddColor6;
+        color: $oddColor2;
       }
     }
   }
@@ -426,17 +434,17 @@ h6 {
   }
 
   th {
-    background: $primaryColor;
-    color: #fff;
+    background: $oddColor2;
+    color: $oddColor6;
 
     a {
-      color: #fff;
+      color: $oddColor6;
       font-weight: 700;
     }
   }
 
   td {
-    background: #f2f2f2;
+    background: $oddColor6;
     color: #333;
     max-width: 100px;
 
@@ -451,7 +459,7 @@ h6 {
     }
 
     &.weekend {
-      color: $darkGrey;
+      color: $oddColor2;
     }
   }
 }
@@ -511,7 +519,7 @@ h6 {
     a {
       display: inline-block;
       color: #333;
-      font-family: Cabin;
+      font-family: $headingFont;
       font-weight: 700;
       letter-spacing: 1px;
 
@@ -557,7 +565,7 @@ h6 {
   border-radius: 0;
 
   &:focus {
-    border: 1px solid $primaryColor;
+    border: 1px solid $oddColor2;
     box-shadow: none;
   }
 }
@@ -568,7 +576,7 @@ h6 {
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before,
 .custom-radio .custom-control-input:checked~.custom-control-label::before {
-  background-color: $primaryColor;
+  background-color: $oddColor2;
 }
 
 input {
@@ -578,7 +586,7 @@ input {
   font-size: 1rem;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color: $oddColor6;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: .25rem;
@@ -614,7 +622,7 @@ input {
     &:after {
       position: absolute;
       content: "";
-      border-bottom: 2px solid #457cb6;
+      border-bottom: 2px solid $oddColor2;
       left: 15px;
       bottom: 0;
       width: 100px;
@@ -679,15 +687,15 @@ p.confirm {
 
     li {
       list-style-type: none;
-      border-bottom: 2px solid $black;
+      border-bottom: 2px solid $oddColor5;
       padding: 0;
 
       &:first-child {
-        border-top: 2px solid $black;
+        border-top: 2px solid $oddColor5;
       }
 
       a {
-        color: $black;
+        color: $oddColor5;
         font-family: $headingFont;
         font-size: 1rem;
         font-weight: 700;
@@ -695,8 +703,8 @@ p.confirm {
         display: block;
 
         &:hover {
-          background: $black;
-          color: #fff;
+          background: $oddColor5;
+          color: $oddColor6;
         }
       }
     }
@@ -713,21 +721,21 @@ p.confirm {
   h3 {
     text-transform: none;
     font-size: 1.2rem;
-    border-top: 2px solid $black;
-    border-bottom: 2px solid $black;
+    border-top: 2px solid $oddColor5;
+    border-bottom: 2px solid $oddColor5;
     position: relative;
 
     a {
-      color: $black;
+      color: $oddColor5;
       padding: 5px 15px;
       display: block;
 
       &:hover {
-        background: $black;
-        color: #fff;
+        background: $oddColor5;
+        color: $oddColor6;
 
         + .relevance {
-          color: #fff;
+          color: $oddColor6;
         }
       }
     }
@@ -744,7 +752,7 @@ p.confirm {
   }
 
   .mark, mark {
-    color: $black;
+    color: $oddColor5;
     background: none;
     display: inline-block;
     margin: 2px 0;
@@ -770,23 +778,23 @@ p.confirm {
   }
 
   th {
-    background: #457cb6;
-    color: #fff;
+    background: $oddColor2;
+    color: $oddColor6;
   }
 
   td {
-    background: #efefef;
+    background: $oddColor6;
   }
 }
 
 pre code {
-  background: #f2f2f2;
+  background: $oddColor6;
   padding: 20px;
   display: block;
 }
 
 blockquote {
-  background: #f2f2f2;
+  background: $oddColor6;
   padding: 15px;
 
   p:last-child {
@@ -797,20 +805,20 @@ blockquote {
 .ce_accordion {
   .toggler {
     background: none;
-    color: $black;
-    border-top: 2px solid $black;
-    border-bottom: 2px solid $black;
+    color: $oddColor5;
+    border-top: 2px solid $oddColor5;
+    border-bottom: 2px solid $oddColor5;
     position: relative;
     font-family: $headingFont;
     font-weight: 700;
     padding: 10px 15px;
 
     &:hover {
-      background: $black;
-      color: #fff;
+      background: $oddColor5;
+      color: $oddColor6;
 
       &:after {
-        color: #fff;
+        color: $oddColor6;
       }
     }
 
@@ -818,7 +826,7 @@ blockquote {
       position: absolute;
       right: 15px;
       top: 0;
-      color: $black;
+      color: $oddColor5;
       font-family: $headingFont;
       font-weight: 700;
       display: flex;
@@ -848,7 +856,7 @@ blockquote {
   a {
     padding: 5px 10px;
     display: block;
-    background: #efefef;
+    background: $oddColor6;
     font-family: $headingFont;
     font-weight: 700;
   }
@@ -870,11 +878,11 @@ blockquote {
       }
 
       &:nth-child(even) a {
-        background: #fff;
+        background: $oddColor6;
       }
 
       &:nth-child(odd) a {
-        background: #efefef;
+        background: rgba($oddColor2, .1);
       }
     }
   }
@@ -885,11 +893,6 @@ blockquote {
 /* ======================== */
 
 // Farben
-.secondary-bg {
-  background: $gradientSecondaryColor2;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, $gradientSecondaryColor1, $gradientSecondaryColor2);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, $gradientSecondaryColor1, $gradientSecondaryColor2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 .primary-bg {
   background: $gradientPrimaryColor2;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, $gradientPrimaryColor1, $gradientPrimaryColor2);  /* Chrome 10-25, Safari 5.1-6 */
@@ -962,12 +965,6 @@ blockquote {
 .skw-btm-primary .skewed-bottom.skewed-bg {
   @extend .primary-bg;
 }
-.skw-top-secondary .skewed-top.skewed-bg {
-  @extend .secondary-bg;
-}
-.skw-btm-secondary .skewed-bottom.skewed-bg {
-  @extend .secondary-bg;
-}
 
 // Feature-Element
 .ce_ct_featureElement {
@@ -996,11 +993,11 @@ blockquote {
   }
 
   svg {
-    border: 2px solid $darkGrey;
+    border: 2px solid $oddColor2;
     border-radius: 100%;
     font-size: 2.5rem;
     padding: 10px;
-    color: $darkGrey;
+    color: $oddColor2;
   }
 }
 #wrapper .ce_ct_featureElement svg {
@@ -1044,7 +1041,7 @@ blockquote {
 
     .popular-label {
       background: $pricebox_1_color;
-      color: #fff;
+      color: $oddColor6;
     }
   }
 
@@ -1057,7 +1054,7 @@ blockquote {
 
     .first-link a {
       background: $pricebox_2_color;
-      color: #fff;
+      color: $oddColor6;
 
       &:hover {
         background: $pricebox_2_button_background_hover;
@@ -1070,7 +1067,7 @@ blockquote {
 
     .popular-label {
       background: $pricebox_2_color;
-      color: #fff;
+      color: $oddColor6;
     }
   }
 
@@ -1083,7 +1080,7 @@ blockquote {
 
     .first-link a {
       background: $pricebox_3_color;
-      color: #fff;
+      color: $oddColor6;
 
       &:hover {
         background: $pricebox_3_button_background_hover;
@@ -1096,7 +1093,7 @@ blockquote {
 
     .popular-label {
       background: $pricebox_3_color;
-      color: #fff;
+      color: $oddColor6;
     }
   }
 
@@ -1121,7 +1118,7 @@ blockquote {
     }
 
     .label {
-      color: $darkGrey;
+      color: #808080;
     }
   }
 
@@ -1129,7 +1126,7 @@ blockquote {
     padding: 10px 0;
 
     p {
-      border-bottom: 2px solid $grey;
+      border-bottom: 2px solid $oddColor6;
       padding: 0 0 5px;
       margin: 0 0 5px;
       color: $pricebox_text_color;
@@ -1253,6 +1250,11 @@ input, button {
       color: $header-image-color;
     }
   }
+
+  img {
+    max-width: inherit;
+    width: 100%;
+  }
 }
 
 .skw-bl, .skw-br, .skw-tl, .skw-tr {
@@ -1361,7 +1363,7 @@ input, button {
 
     .slider-prev, .slider-next {
       background: rgba(51, 51, 51, 0.73);
-      color: #fff;
+      color: $oddColor6;
       width: 50px;
       height: 50px;
       font-size: 1.5rem;
@@ -1438,7 +1440,7 @@ input, button {
 // Jetzt Bestellen Bereich
 .invitation {
   p {
-    color: $grey;
+    color: $oddColor6;
     font-size: 1.5rem;
     font-family: $headingFont;
     font-weight: 700;
@@ -1448,10 +1450,10 @@ input, button {
     margin-top: 15px;
 
     &.btn a {
-      background: $black;
+      background: $oddColor5;
 
       &:hover {
-        background: $primaryColor;
+        background: $oddColor2;
       }
     }
   }
@@ -1463,6 +1465,11 @@ input, button {
     margin-bottom: 10px;
     margin-top: 0;
     word-wrap: break-word;
+  }
+
+  .inside {
+    background: $teaserbox-background;
+    padding: 20px;
   }
 
   .pageLink {
@@ -1605,7 +1612,6 @@ input, button {
   a, strong {
     padding: 15px;
     font-size: 18px;
-    font-weight: 700;
     color: $nav-color;
     display: inline-block;
 
@@ -1651,12 +1657,13 @@ header, footer {
 }
 
 .navbar-top {
-  background: $navbar-top-background;
+  background: $gradientPrimaryColor2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, $navbar-top-background1, $navbar-top-background2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, $navbar-top-background1, $navbar-top-background2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 15px 0;
   color: $navbar-top-color;
   font-size: 1rem;
   font-family: $headingFont;
-  font-weight: 700;
   height: 55px;
 
   > .container {
@@ -1792,12 +1799,14 @@ header, footer {
 }
 
 .mod_navigation.subnav {
+  background: $subnav-background;
+
   ul li {
     display: block;
 
     a, strong {
       color: $subnav-color;
-      background: $subnav-background;
+      background: none;
       display: block;
       text-align: center;
       padding: 8px 15px;
@@ -1808,15 +1817,15 @@ header, footer {
       &:not(.first):after {
         position: absolute;
         content: "";
-        border-bottom: 1px solid #444;
+        border-bottom: 1px solid $subnav-border-color;
         width: calc(100% - 60px);
         left: 30px;
         top: -1px;
       }
 
       &.active, &:hover {
-        background: #444;
-        color: #fff;
+        background: $subnav-hover-active-background;
+        color: $subnav-hover-active-color;
 
         &:after {
           display: none;
@@ -1922,7 +1931,7 @@ footer {
     position: fixed;
     right: 50px;
     bottom: 50px;
-    background: $primaryColor;
+    background: $oddColor3;
     padding: 9px 10px;
     line-height: 1em;
     opacity: 0;
@@ -1930,7 +1939,7 @@ footer {
     z-index: 1000;
 
     svg {
-      color: $grey;
+      color: $oddColor6;
       font-size: 1.5rem;
     }
 
@@ -2014,6 +2023,10 @@ footer {
       border: $newsletter-button-border-hover;
     }
   }
+}
+
+#footer a:hover {
+  color: $footer-links-hover-color;
 }
 
 /* ======================== */

@@ -14,6 +14,16 @@
 /*     ODD Theme Variables       */
 /* ============================= */
 
+$primaryColor: $oddColor2;
+$page_background: $oddColor7;
+
+/* Buttons Colors */
+
+$button-background: $oddColor4;
+$button-color: $oddColor6;
+$button-background-hover: $oddColor3;
+$button-color-hover: $oddColor6;
+
 /* Fonts */
 
 $mainFont: 'Muli', sans-serif;
@@ -28,15 +38,15 @@ $h4-font-size: 1.3rem;
 $h5-font-size: 1.1rem;
 $h6-font-size: 0.9rem;
 
+$h1-color: $oddColor4;
+$h2-color: $oddColor2;
+$h3-color: $oddColor2;
+$h4-color: $oddColor2;
+$h5-color: $oddColor2;
+$h6-color: $oddColor2;
+
 $header-image-background: rgba(25, 25, 25, 0.8);
 $header-image-color: rgba(255, 255, 255, 0.9);
-
-/* Gradient */
-
-$gradientPrimaryColor1: #1e5380;
-$gradientPrimaryColor2: #2898aa;
-$gradientSecondaryColor1: #efefef;
-$gradientSecondaryColor2: #ebebeb;
 
 /* Styling */
 
@@ -44,94 +54,103 @@ $borderRadius: 0px;
 
 /* Content Slider */
 
-$slider-background:                   rgba(21, 21, 21, 0.8);
-$slider-headline-color:               #fff;
-$slider-subheadline-color:            #fff;
-$slider-text-color:                   #fff;
-$slider-button-background:            #f2f2f2;
-$slider-button-color:                 $black;
-$slider-button-background-hover:      #3e71b6;
-$slider-button-color-hover:           $grey;
-$slider-control-color:                $black;
-$slider-control-color-active:         $primaryColor;
+$slider-background:                   rgba($oddColor6, 0.8);
+$slider-headline-color:               $oddColor5;
+$slider-subheadline-color:            $oddColor2;
+$slider-text-color:                   $oddColor5;
+$slider-button-background:            $oddColor2;
+$slider-button-color:                 $oddColor6;
+$slider-button-background-hover:      $button-background-hover;
+$slider-button-color-hover:           $button-color-hover;
+$slider-control-color:                $oddColor5;
+$slider-control-color-active:         $oddColor2;
 
 /* Header and Navigation */
 
-$navbar-top-background:               $primaryColor;
-$navbar-top-color:                    #fff;
-$navbar-background:                   #f2f2f2;
+$navbar-top-background1:              $gradientPrimaryColor1;
+$navbar-top-background2:              $gradientPrimaryColor2;
+$navbar-top-color:                    $oddColor6;
 
-$nav-color:                           #333;
-$nav-active-color:                    $primaryColor;
-$nav-hover-color:                     $primaryColor;
+$navbar-background:                   $oddColor6;
+$nav-color:                           $oddColor5;
+$nav-active-color:                    $oddColor2;
+$nav-hover-color:                     $oddColor2;
 
-$nav-dropdown-background:             $primaryColor;
-$nav-dropdown-color:                  #fff;
-$nav-dropdown-hover-background:       #3e71b6;
-$nav-dropdown-hover-color:            #fff;
+$nav-dropdown-background:             $oddColor2;
+$nav-dropdown-color:                  $oddColor6;
+$nav-dropdown-hover-background:       $oddColor6;
+$nav-dropdown-hover-color:            $oddColor2;
 
-$navbar-toggler-background:           $primaryColor;
-$navbar-toggler-color:                #fff;
-$navbar-mobile-background:            #fff;
-$navbar-mobile-border-color:          $primaryColor;
-$navbar-mobile-dropdown-toggle-color: #f2f2f2;
-$navbar-mobile-dropdown-background  : #f2f2f2;
+$navbar-toggler-background:           $oddColor2;
+$navbar-toggler-color:                $oddColor6;
+$navbar-mobile-background:            $oddColor6;
+$navbar-mobile-border-color:          $oddColor2;
+$navbar-mobile-dropdown-toggle-color: $oddColor5;
+$navbar-mobile-dropdown-background  : $oddColor7;
 
-$subnav-background:                   #333;
-$subnav-color:                        #fff;
+$subnav-background:                   $oddColor6;
+$subnav-color:                        $oddColor2;
+$subnav-hover-active-color:           $oddColor6;
+$subnav-hover-active-background:      $oddColor2;
+$subnav-border-color:                 $oddColor2;
 
 /* Newsletter */
 
-$newsletter-background:               #efefef;
-$newsletter-color:                    $black;
-$newsletter-input-background:         $black;
-$newsletter-input-color:              #fff;
+$newsletter-background:               $oddColor1;
+$newsletter-color:                    $oddColor5;
+$newsletter-input-background:         $oddColor5;
+$newsletter-input-color:              $oddColor6;
 $newsletter-button-background:        none;
-$newsletter-button-color:             $black;
-$newsletter-button-background-hover:  $black;
-$newsletter-button-color-hover:       #fff;
-$newsletter-button-border:            3px solid $black;
-$newsletter-button-border-hover:      3px solid $black;
+$newsletter-button-color:             $oddColor5;
+$newsletter-button-background-hover:  $oddColor5;
+$newsletter-button-color-hover:       $oddColor6;
+$newsletter-button-border:            3px solid $oddColor5;
+$newsletter-button-border-hover:      3px solid $oddColor5;
 
 /* Footer */
 
-$main-footer-background:              $black;
-$main-footer-color:                   #fff;
+$main-footer-background:              $oddColor5;
+$main-footer-color:                   $oddColor6;
 $main-footer-border-color:            #484848;
-$copyright-footer-background:         #1f1f1f;
-$copyright-footer-color:              #fff;
+$copyright-footer-background:         $oddColor4;
+$copyright-footer-color:              $oddColor6;
+$footer-links-hover-color:            $oddColor2;
 
 /* Content Box */
 
-$contentbox-odd-background:               #efefef;
-$contentbox-odd-color:                    $black;
-$contentbox-odd-button-background:        $button-background;
+$contentbox-odd-background:               $oddColor4;
+$contentbox-odd-color:                    $oddColor6;
+$contentbox-odd-button-background:        $oddColor1;
 $contentbox-odd-button-color:             $button-color;
 $contentbox-odd-button-background-hover:  $button-background-hover;
 $contentbox-odd-button-color-hover:       $button-color-hover;
 
-$contentbox-even-background:              #fff;
-$contentbox-even-color:                   $black;
-$contentbox-even-button-background:       $button-background;
-$contentbox-even-button-color:            $button-color;
+$contentbox-even-background:              $oddColor6;
+$contentbox-even-color:                   $oddColor4;
+$contentbox-even-button-background:       $oddColor4;
+$contentbox-even-button-color:            $oddColor6;
 $contentbox-even-button-background-hover: $button-background-hover;
 $contentbox-even-button-color-hover:      $button-color-hover;
 
+/* Teaserbox */
+
+$teaserbox-background:                $oddColor6;
+
 /* Simple Box */
 
-$simplebox_background:                #efefef;
-$simplebox_color:                     $black;
+$simplebox_background:                $oddColor6;
+$simplebox_color:                     $oddColor5;
 
 /* Price Box */
 
-$pricebox_background:                 #fff;
-$pricebox_text_color:                 $black;
+$pricebox_background:                 $oddColor6;
+$pricebox_text_color:                 $oddColor5;
 
-$pricebox_1_color:                    $primaryColor;
-$pricebox_1_button_background_hover:  $button-background-hover;
+$pricebox_1_color:                    $oddColor2;
+$pricebox_1_button_background_hover:  $oddColor5;
 
-$pricebox_2_color:                    #00b8ff;
-$pricebox_2_button_background_hover:  #00a8ff;
+$pricebox_2_color:                    $oddColor3;
+$pricebox_2_button_background_hover:  $oddColor5;
 
-$pricebox_3_color:                    #d74200;
-$pricebox_3_button_background_hover:  #d70009;
+$pricebox_3_color:                    $oddColor1;
+$pricebox_3_button_background_hover:  $oddColor5;

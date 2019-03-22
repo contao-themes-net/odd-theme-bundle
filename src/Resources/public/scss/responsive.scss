@@ -1,6 +1,3 @@
-//@import '../../../../../../../files/odd/scss/_custom_variables';
-//@import "odd_variables";
-
 @media (max-width:1300px) {
   .ce_sliderElement .container {
     padding: 0 70px;
@@ -110,7 +107,7 @@
       position: absolute;
       top: 8px;
       right: 15px;
-      background: $navbar-mobile-dropdown-toggle-color;
+      color: $navbar-mobile-dropdown-toggle-color;
       height: 41px;
       width: 41px;
 

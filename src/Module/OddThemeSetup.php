@@ -49,7 +49,7 @@ class OddThemeSetup extends \BackendModule
                 $folder = $path."/".$dir;
                 $pos = strpos($path,"pdirthemeodd");
                 $filesFolder = "files/odd".str_replace("pdirthemeodd","",substr($path,$pos))."/".$dir;
-                if($dir != "fonts" && $dir != "js" && $dir != "bootstrap" && $dir != "fontawesome") {
+                if($dir != "fonts" && $dir != "js" && $dir != "bootstrap" && $dir != "fontawesome" && $dir != "color_schemes") {
                     if(!file_exists($filesFolder)) {
                         new \Folder($filesFolder);
                     }
