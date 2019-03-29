@@ -80,6 +80,16 @@ $(document).ready(function() {
         $('.navbar .collapse.show').removeClass('show');
     });
 
+    if( $(".nav-container").hasClass("sloping") ) {
+        $("#container").addClass("sloping");
+    }
+
+    $('.dropdown-toggle').on("click", function(e){
+        $(this).next('ul').toggle();
+        e.stopPropagation();
+        e.preventDefault();
+    });
+
     /* ===================== *
      *   Content Slider 	 *
      * ===================== */

@@ -24,20 +24,14 @@
     }
   }
 
+  #container.sloping {
+    margin-top: 0;
+  }
+
   .mod_navigation {
     a, strong {
       font-size: 16px;
       padding: 15px 10px;
-    }
-  }
-
-  .ce_sliderElement {
-    h1, h2, h3, h4, h5, h6 {
-      font-size: 1.2rem;
-    }
-
-    .text .inside {
-      width: 100%;
     }
   }
 
@@ -53,6 +47,36 @@
 
   #wrapper {
     padding-top: 134px;
+  }
+}
+
+@media (max-width: 991px) {
+  .calendar {
+    td a {
+      font-size: 0.7rem;
+      max-width: 100%;
+      word-break: break-word;
+    }
+
+    th, td {
+      font-size: 0.8rem;
+    }
+  }
+
+  .ce_sliderElement {
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 1.2rem;
+    }
+
+    .text .inside {
+      width: 100%;
+    }
+  }
+
+  .layout_teaser, .layout_list {
+    .datetime, .content {
+      margin-top: 20px;
+    }
   }
 
   /* Mobile Navigation Start */
@@ -71,7 +95,6 @@
     .collapse.show {
       width: 100%;
       border-top: 2px solid $navbar-mobile-border-color;
-      border-bottom: 2px solid $navbar-mobile-border-color;
       background: $navbar-mobile-background;
       padding-bottom: 15px;
       top: 0;
@@ -152,24 +175,45 @@
     margin: 0 15px;
   }
   /* Mobile Navigation End */
-}
 
-@media (max-width: 991px) {
-  .calendar {
-    td a {
-      font-size: 0.7rem;
-      max-width: 100%;
-      word-break: break-word;
+  .nav-container.sloping {
+    .navbar-top {
+      padding-right: 30px;
     }
 
-    th, td {
-      font-size: 0.8rem;
-    }
-  }
+    .navbar {
+      .collapse.show {
+        padding-bottom: 50px;
 
-  .layout_teaser, .layout_list {
-    .datetime, .content {
-      margin-top: 20px;
+        .mod_navigation {
+          position: absolute;
+          width: 101vw;
+          height: calc(100vh - 190px);
+          background: #fff;
+          transform: rotate(-3deg);
+          left: 22px;
+          top: 20px;
+          overflow: scroll;
+
+          .dropdown-toggle {
+            right: 30px;
+          }
+        }
+      }
+
+      .collapsing {
+        -webkit-transition: none;
+        transition: none;
+        display: none;
+      }
+
+      .navbar-brand {
+        margin-left: 50px;
+      }
+
+      .navbar-toggler {
+        margin-right: 50px;
+      }
     }
   }
 }
@@ -287,8 +331,18 @@
     }
   }
 
+  #header {
+    .email, .phone {
+      display: none;
+    }
+  }
+
   #main .inside > .mod_article {
     padding: 20px 0;
+  }
+
+  .navbar-top .social-media {
+    border-left: none;
   }
 
   .nl-footer .container {
@@ -316,6 +370,10 @@
         display: none;
       }
     }
+  }
+
+  .sloping .ce_sliderElement .text .inside {
+    margin-top: 0;
   }
 
   .ce_form {

@@ -1561,18 +1561,6 @@ input, button {
   z-index: 100;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-
-  &.stuck {
-    .navbar {
-      height: 60px;
-      transition: all 0.25s ease-in-out;
-    }
-
-    .navbar-brand img {
-      height: 70px;
-      width: auto;
-    }
-  }
 }
 
 #wrapper {
@@ -1749,9 +1737,13 @@ header, footer {
       &.level_1 > li:hover .level_2 {
         display: block;
       }
+
+      &.level_2 > li:hover .level_3 {
+        display: block;
+      }
     }
 
-    .level_2 {
+    .level_2, .level_3 {
       display: none;
       position: absolute;
       top: 57px;
@@ -1767,6 +1759,7 @@ header, footer {
       li {
         display: block;
         text-align: left;
+        overflow: hidden;
 
         a, strong {
           font-weight: 400;
@@ -1775,6 +1768,22 @@ header, footer {
           display: block;
           padding: 10px 15px;
           color: $nav-dropdown-color;
+        }
+
+        a.submenu {
+          padding-right: 50px;
+          position: relative;
+        }
+
+        .dropdown-toggle {
+          color: $nav-dropdown-color;
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          padding: 0 15px;
         }
 
         a:hover {
@@ -1789,12 +1798,35 @@ header, footer {
     }
 
     .level_3 {
-      display: none;
+      position: relative;
+      top: inherit;
+      box-shadow: none;
+      background: rgba(255,255,255,.2);
+
+      li {
+        a, strong {
+          font-size: 14px;
+        }
+      }
     }
   }
 
   .dropdown-toggle {
     display: inline;
+  }
+
+  .nav-container {
+    &.stuck {
+      .navbar {
+        height: 60px;
+        transition: all 0.25s ease-in-out;
+      }
+
+      .navbar-brand img {
+        height: 70px;
+        width: auto;
+      }
+    }
   }
 }
 
@@ -1833,6 +1865,45 @@ header, footer {
       }
     }
   }
+}
+
+/* Sloping Header */
+
+.nav-container.sloping {
+  transform: rotate(3deg);
+  width: calc(100% + 15px);
+  top: -50px;
+  left: -5px;
+
+  .navbar-top {
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+
+    .mod_article .container {
+      text-align: right;
+    }
+  }
+
+  + .mod_article {
+    margin-top: -50px;
+  }
+}
+
+#container.sloping {
+  margin-top: -60px;
+
+  aside .inside {
+    padding-top: 110px;
+  }
+
+  .mod_article.first:not(.slider) {
+    padding-top: 110px;
+  }
+}
+
+.sloping .ce_sliderElement .text .inside {
+  margin-top: 40px;
 }
 
 /* ======================== */
