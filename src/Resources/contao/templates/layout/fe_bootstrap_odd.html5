@@ -17,8 +17,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php
     // add stylesheets
     $combiner = new Combiner();
-    $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/bootstrap/dist/css/bootstrap.min.css');
-    $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/scss/odd.scss');
+    $combiner->add('bundles/pdirthemeodd/bootstrap/dist/css/bootstrap.min.css');
+    $combiner->add('bundles/pdirthemeodd/scss/odd.scss');
     echo $combiner->getCombinedFile(); ?>">
 
     <?= $this->head ?>
@@ -43,10 +43,10 @@
     <script charset="utf-8" src="<?php
     // add javascripts
     $combiner = new Combiner();
-    $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/bootstrap/dist/js/bootstrap.min.js');
-    $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/fontawesome/svg-with-js/js/fontawesome-all.min.js');
-    $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/js/headroom.min.js');
-    $combiner->add('_local_bundle/pdir/theme-odd-bundle/src/Resources/public/js/scripts.js');
+    $combiner->add('bundles/pdirthemeodd/bootstrap/dist/js/bootstrap.min.js');
+    $combiner->add('bundles/pdirthemeodd/fontawesome/js/all.min.js');
+    $combiner->add('bundles/pdirthemeodd/js/headroom.min.js');
+    $combiner->add('bundles/pdirthemeodd/js/scripts.js');
     echo $combiner->getCombinedFile();
     ?>"></script>
 

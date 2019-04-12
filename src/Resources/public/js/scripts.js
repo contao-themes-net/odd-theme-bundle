@@ -80,7 +80,6 @@ jQuery.noConflict(); jQuery(document).ready(function($) {
         $('.navbar .collapse.show').removeClass('show');
     });
 
-    console.log( $("#header .headerImage").length );
     if( $(".nav-container").hasClass("sloping") && $("#header .headerImage").length == 0 ) {
         $("#container").addClass("sloping");
     }

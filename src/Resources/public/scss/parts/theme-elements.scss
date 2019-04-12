@@ -4,6 +4,10 @@
   background: -webkit-linear-gradient(to right, $gradientPrimaryColor1, $gradientPrimaryColor2);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, $gradientPrimaryColor1, $gradientPrimaryColor2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+  .layout_latest p {
+    color: $oddColor4;
+  }
+
   p {
     color: $oddColor6;
   }
@@ -524,7 +528,7 @@ input, button {
   }
 
   &.skw-br .skewed-bg {
-    bottom: 0;
+    bottom: -110px;
   }
 }
 
