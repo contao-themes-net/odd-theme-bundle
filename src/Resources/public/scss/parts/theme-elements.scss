@@ -661,3 +661,21 @@ input, button {
     color: $simplebox_color;
   }
 }
+
+// Social Media Icons bei Kontakt
+
+#container .contact-icons {
+  .ce_ct_featureElement {
+    .icon {
+      width: 30px;
+    }
+
+    svg {
+      border: none;
+      padding: 0;
+      font-size: 1em;
+      color: $oddColor5;
+      width: 15px;
+    }
+  }
+}
