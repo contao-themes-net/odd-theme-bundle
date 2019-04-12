@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery.noConflict(); jQuery(document).ready(function($) {
 
     /* ===================== *
      *   Toplink  			 *
@@ -80,7 +80,8 @@ $(document).ready(function() {
         $('.navbar .collapse.show').removeClass('show');
     });
 
-    if( $(".nav-container").hasClass("sloping") ) {
+    console.log( $("#header .headerImage").length );
+    if( $(".nav-container").hasClass("sloping") && $("#header .headerImage").length == 0 ) {
         $("#container").addClass("sloping");
     }
 
@@ -89,6 +90,12 @@ $(document).ready(function() {
         e.stopPropagation();
         e.preventDefault();
     });
+
+    var myElement = document.querySelector("#header .nav-container");
+    var headroom  = new Headroom(myElement, {
+        "offset": 600
+    });
+    headroom.init();
 
     /* ===================== *
      *   Content Slider 	 *

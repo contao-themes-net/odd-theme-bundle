@@ -20,7 +20,7 @@ class OddThemeSetup extends \BackendModule
                     new \Folder("files/odd");
                 }
                 $this->getFiles($path);
-                //$this->getSqlFiles($path = TL_ROOT . "/vendor/contao-themes-net/mate-theme-bundle/src/templates/mate");
+                $this->getSqlFiles($path = TL_ROOT . "/vendor/pdir/theme-odd-bundle/src/templates");
                 $this->Template->message = true;
                 break;
             case 'truncateTlFiles':
@@ -49,7 +49,7 @@ class OddThemeSetup extends \BackendModule
                 $folder = $path."/".$dir;
                 $pos = strpos($path,"pdirthemeodd");
                 $filesFolder = "files/odd".str_replace("pdirthemeodd","",substr($path,$pos))."/".$dir;
-                if($dir != "fonts" && $dir != "js" && $dir != "bootstrap" && $dir != "fontawesome" && $dir != "color_schemes") {
+                if($dir != "fonts" && $dir != "js" && $dir != "bootstrap" && $dir != "fontawesome" && $dir != "color_schemes" && $dir != "parts") {
                     if(!file_exists($filesFolder)) {
                         new \Folder($filesFolder);
                     }

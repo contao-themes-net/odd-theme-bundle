@@ -1,3 +1,18 @@
+@media (min-width: 992px) and (max-width: 1430px) {
+  .mod_navigation:not(.subnav) {
+    .level_2 {
+      left: inherit;
+      right: 0;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .skewed-bg.skewed-bottom.skewed-right {
+    bottom: -175px;
+  }
+}
+
 @media (max-width:1300px) {
   .ce_sliderElement .container {
     padding: 0 70px;
@@ -43,10 +58,6 @@
     .mod_article .container {
       padding: 0;
     }
-  }
-
-  #wrapper {
-    padding-top: 134px;
   }
 }
 
@@ -123,6 +134,11 @@
     .container {
       max-width: 100%;
     }
+  }
+
+  .container .mod_article .container {
+    max-width: 100%;
+    padding: 0;
   }
 
   .mod_navigation {
@@ -266,6 +282,8 @@
   }
 
   .ce_sliderElement {
+    background: none;
+
     .container {
       padding: 0;
       max-width: 100%;
@@ -278,6 +296,7 @@
 
       .inside {
         padding: 30px 80px;
+        box-shadow: none;
       }
     }
   }
@@ -294,6 +313,24 @@
         font-size: 1rem;
         width: 40px;
         height: 40px;
+      }
+    }
+  }
+
+  .ce_gallery ul {
+    &.cols_2, &.cols_3 {
+      li {
+        max-width: 100%;
+      }
+
+      figure {
+        margin-right: 0 !important;
+      }
+    }
+
+    &.cols_4, &.cols_5, &.cols_6, &.cols_7, &.cols_8, &.cols_9, &.cols_10, &.cols_11, &.cols_12 {
+      li {
+        max-width: 50%;
       }
     }
   }
@@ -335,6 +372,11 @@
     .email, .phone {
       display: none;
     }
+
+    .navbar-brand img {
+      height: 60px;
+      width: auto;
+    }
   }
 
   #main .inside > .mod_article {
@@ -350,15 +392,18 @@
     margin-bottom: -20px;
   }
 
-  /* Mobile Navigation Start */
   #wrapper {
-    padding-top: 100px;
+    padding-top: 108px;
   }
 
   .navbar-top {
-    display: none;
+    padding: 5px 0;
+    height: inherit;
   }
-  /* Mobile Navigation End */
+
+  .nav-container.sloping .navbar-top {
+    height: 90px;
+  }
 
   .skw-tr, .skw-tl, .skw-br, .skw-bl {
     margin-top: 0;
@@ -426,7 +471,25 @@
     }
 
     tbody {
-      display: none;
+      display: block;
+
+      td.active, tr.mobile td, tr {
+        display: block;
+      }
+
+      td {
+        &.active {
+          max-width: 100%;
+        }
+
+        &:not(.active) {
+          display: none;
+        }
+      }
+
+      tr.mobile td {
+        max-width: 100%;
+      }
     }
   }
 

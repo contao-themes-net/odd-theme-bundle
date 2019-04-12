@@ -67,7 +67,7 @@
         </div>
 
         <?php if(strpos($this->class,"skw-b")): ?>
-            <?php if(strpos($this->class,"skw-br")) { $skw = "skewed-right"; } else if(strpos($this->class,"skw-bl")) { $skw = "skewed-left"; } ?>
+            <?php if(strpos($this->class,"skw-br")) { $skw = "skewed-left"; } else if(strpos($this->class,"skw-bl")) { $skw = "skewed-right"; } ?>
             <div class="skewed-bg skewed-bottom <?= $skw ?>"></div>
         <?php endif; ?>
     </div>

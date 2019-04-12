@@ -1,0 +1,35 @@
+.form-control {
+  border-radius: 0;
+
+  &:focus {
+    border: 1px solid $oddColor2;
+    box-shadow: none;
+  }
+}
+
+.widget-select label {
+  display: block;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before,
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
+  background-color: $oddColor2;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: $oddColor6;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.custom-file-label {
+  border-radius: 0;
+}
