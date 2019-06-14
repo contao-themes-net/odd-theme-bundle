@@ -12,7 +12,7 @@
                     <h2>Interessante Links</h2>
                     <ul class="link-list">
                         <li><a href="https://docs.contao-themes.net" target="_blank"
-                               style="text-decoration: underline;">Dokumentation</a> (In Vorbereitung)</li>
+                               style="text-decoration: underline;">Dokumentation</a></li>
                         <li><a href="https://odd.contao-themes.net/" target="_blank"
                                style="text-decoration: underline;">Demo</a></li>
                         <li><a href="https://github.com/contao-themes-net/odd-theme-bundle/issues" target="_blank"
