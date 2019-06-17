@@ -190,3 +190,21 @@ p.confirm {
     font-weight: 400;
   }
 }
+
+/* Modal */
+
+.modal-body {
+  padding: 30px;
+}
+
+.modal-header {
+  padding: 20px 30px;
+}
+
+.modal-title {
+  margin-top: 0;
+}
+
+.modal-header button.close {
+  box-shadow: none;
+}
