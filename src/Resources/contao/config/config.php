@@ -33,7 +33,7 @@ $GLOBALS['tl_config']['theme_tags'] = array(
 /**
  * Backend Modules
  */
-array_insert($GLOBALS['BE_MOD']['oddTheme'], 1, array
+array_insert($GLOBALS['BE_MOD']['contaoThemesNet'], 1, array
 (
     'oddThemeSetup' => array
     (
