@@ -3,17 +3,21 @@
 @font-face {
   font-family: "Cabin";
   src: url("/bundles/pdirthemeodd/fonts/Cabin/Cabin-Regular.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Muli";
   src: url("/bundles/pdirthemeodd/fonts/Muli/Muli-Regular.ttf");
+  font-display: swap;
 }
 
 @import "_odd_colors";
 @import "../../../../../../../files/odd/scss/_custom_colors";
 @import "_odd_variables";
 @import "../../../../../../../files/odd/scss/_custom_variables";
+
+#wrapper { visibility: visible; }
 
 body {
   font-family: $mainFont;
