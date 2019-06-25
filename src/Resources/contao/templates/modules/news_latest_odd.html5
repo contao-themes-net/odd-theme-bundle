@@ -1,0 +1,34 @@
+
+<div class="layout_latest arc_<?= $this->archive->id ?> block<?= $this->class ?> col-xs-12 col-md-6" itemscope itemtype="http://schema.org/Article">
+
+    <div class="image">
+        <?php if ($this->hasText || $this->hasTeaser): ?>
+        <a href="<?= $this->link ?>" title="<?= $this->headline ?>">
+        <?php endif; ?>
+
+        <?php if ($this->addImage): ?>
+            <?php $this->insert('image', $this->arrData); ?>
+        <?php endif; ?>
+
+        <?php if ($this->hasText || $this->hasTeaser): ?>
+        </a>
+        <?php endif; ?>
+    </div>
+
+    <div class="content">
+        <?php if ($this->hasMetaFields): ?>
+            <p class="info"><time datetime="<?= $this->datetime ?>" itemprop="datePublished"><?= $this->date ?></time> <?= $this->author ?> <?= $this->commentCount ?></p>
+        <?php endif; ?>
+
+        <h3 itemprop="name"><?= $this->linkHeadline ?></h3>
+
+        <div class="ce_text block" itemprop="description">
+            <?= $this->teaser ?>
+        </div>
+
+        <?php if ($this->hasText || $this->hasTeaser): ?>
+            <p class="more"><?= $this->more ?></p>
+        <?php endif; ?>
+    </div>
+
+</div>

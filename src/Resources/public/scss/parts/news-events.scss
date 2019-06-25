@@ -1,0 +1,279 @@
+.layout_latest, .layout_short {
+  margin-bottom: 30px;
+
+  .content {
+    background: $oddColor6;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.25);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    text-transform: none;
+  }
+
+  .image_container {
+    margin: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .info {
+    position: absolute;
+    top: -35px;
+
+    time {
+      background: rgba(214, 214, 214, 0.5);
+      color: #000;
+      font-size: 0.7rem;
+      padding: 2px 5px;
+      font-weight: 700;
+    }
+  }
+
+  .more {
+    margin-bottom: 10px;
+
+    a {
+      @extend .btn;
+    }
+  }
+}
+
+.layout_short .info {
+  position: relative;
+  top: 0;
+}
+
+.layout_simple, .layout_upcoming {
+  background: $oddColor6;
+  margin: 5px 0;
+  padding: 5px 15px;
+
+  time {
+    padding-right: 15px;
+  }
+
+  a {
+    font-family: $headingFont;
+    font-weight: 700;
+  }
+}
+
+.layout_simple {
+  time {
+    font-weight: bold;
+    font-size: 0.75rem;
+  }
+}
+
+.layout_full {
+  time {
+    background: $oddColor2;
+    color: $oddColor6;
+    padding: 5px 15px;
+    display: inline-block;
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin-top: 30px;
+  }
+
+  .btn {
+    text-align: left;
+    padding: 0 0 20px;
+  }
+}
+
+.mod_newslist {
+  &.row nav {
+    padding: 0 15px;
+  }
+
+  nav {
+    margin-top: 20px;
+  }
+}
+
+.mod_newslist, .mod_eventlist {
+  nav {
+    margin-top: 30px;
+    width: 100%;
+
+    p {
+      float: right;
+    }
+  }
+}
+
+.pagination {
+  li {
+    strong, a {
+      background: $oddColor2;
+      color: $oddColor6;
+      font-weight: 400;
+
+      &.active {
+        background: $oddColor6;
+        color: $oddColor2;
+      }
+
+      &:hover {
+        background: $oddColor6;
+        color: $oddColor2;
+      }
+    }
+  }
+
+  .page-item:first-child, .page-item:last-child {
+    .page-link {
+      border-radius: 0;
+    }
+  }
+}
+
+.calendar {
+  width: 100%;
+
+  tr.mobile td {
+    display: none;
+  }
+}
+
+.calendar, .minicalendar {
+
+  th, td {
+    padding: 5px;
+    font-weight: 400;
+    text-align: center;
+    border: 2px solid $page_background;
+  }
+
+  th {
+    background: $oddColor2;
+    color: $oddColor6;
+
+    a {
+      color: $oddColor6;
+      font-weight: 700;
+    }
+  }
+
+  td {
+    background: $oddColor6;
+    color: #333;
+    max-width: 100px;
+
+    a {
+      font-size: 0.8rem;
+      padding: 0 10px;
+      display: inline-block;
+    }
+
+    &.active {
+      background: #e4e4e4;
+    }
+
+    &.weekend {
+      color: $oddColor2;
+    }
+  }
+}
+
+.minicalendar {
+  td, th {
+    padding: 5px 15px;
+  }
+
+  td a {
+    font-size: 1rem;
+  }
+}
+
+.layout_teaser, .layout_list {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #dadada;
+
+  &:first-child {
+    padding-top: 30px;
+    border-top: 1px solid #dadada;
+  }
+
+  h3 {
+    margin-top: 0;
+    text-transform: none;
+    margin-bottom: 10px;
+  }
+
+  .month {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+    position: relative;
+    font-family: $headingFont;
+
+    &:after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid #808080;
+      width: 25px;
+    }
+  }
+
+  .day {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: $headingFont;
+  }
+
+  .more {
+    margin: 0;
+
+    a {
+      display: inline-block;
+      color: #333;
+      font-family: $headingFont;
+      font-weight: 700;
+
+      &:after {
+        content: "\f061";
+        font-family: "Font Awesome 5 Solid";
+        display: none;
+      }
+    }
+
+    svg {
+      margin-left: 10px;
+    }
+  }
+
+  .time {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 0.75rem;
+    color: $oddColor3;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .image_container {
+    margin: 0;
+  }
+}
+
+.mod_eventlist {
+  overflow: hidden;
+}
+
+.recurring {
+  font-size: 0.8rem;
+  font-style: italic;
+}

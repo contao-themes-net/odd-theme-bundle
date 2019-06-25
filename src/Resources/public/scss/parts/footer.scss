@@ -1,0 +1,190 @@
+footer {
+  .main-footer {
+    background: $main-footer-background;
+    padding: 50px 0;
+
+    .row > div:not(.last) {
+      position: relative;
+      border-right: 1px solid $main-footer-border-color;
+    }
+
+    h2, h3, h4, h5, h6 {
+      font-size: 1.2rem;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+    }
+  }
+
+  .copyright-footer {
+    background: $copyright-footer-background;
+    padding: 30px 0;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+
+    .container {
+      padding: 0;
+    }
+  }
+
+  .main-footer, .copyright-footer {
+    a, strong, p, h1, h2, h3, h4, h5, h6 {
+      font-weight: 400;
+    }
+  }
+
+  .main-footer {
+    a, strong, p, h1, h2, h3, h4, h5, h6 {
+      color: $main-footer-color;
+    }
+  }
+
+  .copyright-footer {
+    a, strong, p, h1, h2, h3, h4, h5, h6 {
+      color: $copyright-footer-color;
+    }
+  }
+
+  .ce_ct_featureElement {
+    padding: 5px;
+
+    .icon {
+      width: 30px;
+      display: inline-block;
+      float: left;
+    }
+
+    svg {
+      border: none;
+      border-radius: 0;
+      font-size: 1rem;
+      padding: 0;
+    }
+
+    .feature-text {
+      width: calc(100% - 30px);
+      display: inline-block;
+      float: left;
+    }
+
+    &:nth-of-type(1) {
+      padding-top: 0;
+    }
+  }
+
+  ul {
+    padding: 0;
+
+    li {
+      padding-bottom: 10px;
+    }
+  }
+
+  .mod_article .container {
+    max-width: 100%;
+  }
+
+  .toplink {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    background: $oddColor3;
+    padding: 9px 10px;
+    line-height: 1em;
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+    z-index: 1000;
+
+    svg {
+      color: $oddColor6;
+      font-size: 1.5rem;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .skewed-bg {
+    background: $newsletter-background;
+  }
+
+  .mod_subscribe .row > div {
+    z-index: 10;
+  }
+}
+
+#wrapper footer .ce_ct_featureElement svg {
+  width: 16px;
+}
+
+.nl-footer {
+  &, .skewed-bg.skewed-bottom {
+    background: $newsletter-background;
+  }
+
+  .skewed-top {
+    background: $page-background;
+  }
+
+  .container {
+    padding: 150px 0 50px;
+    z-index: 2;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: $newsletter-color;
+    margin: 0;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .widget-text, .widget-submit {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .widget-text {
+    padding-right: 10px;
+  }
+
+  input {
+    height: 50px;
+    font-size: 1.1rem;
+    padding: 0 15px;
+    border: none;
+    background: $newsletter-input-background;
+    border-radius: 0;
+    color: $oddColor6;
+
+    &, &::placeholder {
+      color: $newsletter-input-color;
+    }
+  }
+
+  button {
+    height: 50px;
+    background: $newsletter-button-background;
+    color: $newsletter-button-color;
+    cursor: pointer;
+    box-shadow: none;
+    border: $newsletter-button-border;
+    margin-top: 0;
+
+    &:hover {
+      background: $newsletter-button-background-hover;
+      color: $newsletter-button-color-hover;
+      border: $newsletter-button-border-hover;
+    }
+  }
+}
+
+#footer a:hover {
+  color: $footer-links-hover-color;
+}

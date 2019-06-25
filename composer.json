@@ -1,0 +1,58 @@
+{
+  "name": "contao-themes-net/odd-theme-bundle",
+  "type":"contao-bundle",
+  "description": "theme odd bundle for Contao 4",
+  "keywords":["contao","theme","template"],
+  "homepage": "https://contao-themes.net",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Webdesign für Contao",
+      "homepage": "https://pdir.de",
+      "email" : "develop@pdir.de",
+      "role" : "Developer"
+    },
+    {
+      "name": "Kostenlose Contao Themes",
+      "homepage": "https://contao-themes.net",
+      "email" : "develop@pdir.de",
+      "role" : "Supplier"
+    }
+  ],
+  "support" : {
+    "docs": "https://docs.contao-themes.net/",
+    "forum": "https://community.contao.org",
+    "email" : "support@pdir.de",
+    "issues" : "https://github.com/contao-themes-net/odd-theme-bundle/issues",
+    "source" : "https://github.com/contao-themes-net/odd-theme-bundle"
+  },
+  "require": {
+    "php": ">=7.1.0",
+    "contao/core-bundle": "^4.4",
+    "contao-bootstrap/bundle": "~2.0",
+    "madeyourday/contao-rocksolid-frontend-helper": "~2.0",
+    "terminal42/contao-folderpage": "^2.0",
+    "pdir/contao-theme-helper-bundle": "^1.0",
+    "contao-themes-net/theme-components-bundle": "^1.1"
+  },
+  "conflict": {
+    "contao/core": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pdir\\ThemeOddBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Resources/contao/"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config/",
+      "src/Resources/contao/dca/",
+      "src/Resources/contao/languages/",
+      "src/Resources/contao/templates/"
+    ]
+  },
+  "extra": {
+    "contao-manager-plugin": "Pdir\\ThemeOddBundle\\ContaoManagerPlugin"
+  }
+}

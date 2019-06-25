@@ -1,0 +1,38 @@
+<div class="<?= $this->class ?> block"<?= $this->cssID ?> <?php if ($this->style): ?>style="<?= $this->style ?>"<?php endif; ?>>
+
+    <?php
+    $size = unserialize($this->size)[2];
+    if($size == "") {
+        $size = '18';
+    }
+    ?>
+
+    <div class="image">
+        {{picture::<?= $this->href ?>?size=<?= $size ?>&alt=<?= $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt'] ?>}}
+    </div>
+
+    <div class="text">
+        <div class="container">
+            <div class="inside">
+                <?php if($this->subheadline): ?>
+                <div class="subheadline"><?= $this->subheadline ?></div>
+                <?php endif; ?>
+
+                <?php if ($this->headline): ?>
+                <<?= $this->hl ?>>
+
+                <?php if($this->page != ""): ?><a href="<?= $this->page ?>"><?php endif; ?>
+                    <?= $this->headline ?>
+                        <?php if($this->page != ""): ?></a><?php endif; ?>
+                    </<?= $this->hl ?>>
+                <?php endif; ?>
+
+                <?= $this->text ?>
+
+                <?php if($this->page): ?>
+                    <a href="<?= $this->page ?>" class="readmore"<?= $this->target ?><?= $this->rel ?>><?= $this->linkText ?></a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>

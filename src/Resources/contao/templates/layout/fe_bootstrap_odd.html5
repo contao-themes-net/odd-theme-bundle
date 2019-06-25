@@ -1,0 +1,74 @@
+<?php $this->extend('fe_bootstrap'); ?>
+
+<?php $this->block('head'); ?>
+    <meta charset="<?= $this->charset ?>">
+    <title><?= $this->title ?></title>
+    <base href="<?= $this->base ?>">
+
+    <meta name="robots" content="<?= $this->robots ?>">
+    <meta name="description" content="<?= $this->description ?>">
+    <meta name="generator" content="Contao Open Source CMS">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <style>
+        .nav-container.sloping {
+            transform: rotate(3deg);
+            width: calc(100% + 15px);
+            top: -50px;
+            left: -5px;
+        }
+
+        #wrapper { visibility: hidden; }
+    </style>
+
+    <?= $this->viewport ?>
+
+    <meta name="keywords" content="<?= $this->keywords ?>">
+
+    <!--[if lt IE 9]><script src="<?= TL_ASSETS_URL ?>assets/html5shiv/js/html5shiv-printshiv.min.js"></script><![endif]-->
+<?php $this->endblock(); ?>
+
+<?php $this->block('body'); ?>
+
+    <?php $this->parent(); ?>
+
+    <?= $this->stylesheets ?>
+
+    <link rel="stylesheet" type="text/css" media="all" href="<?php
+    // add stylesheets
+    $combiner = new Combiner();
+    $combiner->add('bundles/pdirthemeodd/bootstrap/dist/css/bootstrap.min.css');
+    $combiner->add('bundles/pdirthemeodd/scss/odd.scss');
+    echo $combiner->getCombinedFile(); ?>">
+
+    <?= $this->head ?>
+
+    <?= $this->framework ?>
+
+    <script>
+        window.FontAwesomeConfig = {
+            searchPseudoElements: true
+        }
+    </script>
+
+    <script charset="utf-8" src="<?php
+    // add javascripts
+    $combiner = new Combiner();
+    $combiner->add('bundles/pdirthemeodd/bootstrap/dist/js/bootstrap.min.js');
+    $combiner->add('bundles/pdirthemeodd/fontawesome/js/all.min.js');
+    $combiner->add('bundles/pdirthemeodd/js/headroom.min.js');
+    $combiner->add('bundles/pdirthemeodd/js/scripts.js');
+    echo $combiner->getCombinedFile();
+    ?>"></script>
+
+    <?= $this->mooScripts ?>
+
+<?php $this->endblock(); ?>
+
+<?php $this->block('footer'); ?>
+<?php if ($this->footer): ?>
+    <footer id="footer" class="">
+        <?= $this->footer ?>
+    </footer>
+<?php endif; ?>
+<?php $this->endblock(); ?>

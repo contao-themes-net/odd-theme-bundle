@@ -1,0 +1,4 @@
+
+<a href="{{link_url::<?php echo $GLOBALS['objPage']->rootId; ?>}}" class="navbar-brand">
+    {{theme::content::ODD01/01}}
+</a>
