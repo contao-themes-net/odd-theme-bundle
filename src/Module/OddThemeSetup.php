@@ -20,7 +20,7 @@ class OddThemeSetup extends \BackendModule
                     new \Folder("files/odd");
                 }
                 $this->getFiles($path);
-                $this->getSqlFiles($path = TL_ROOT . "/vendor/pdir/theme-odd-bundle/src/templates");
+                $this->getSqlFiles($path = TL_ROOT . "/vendor/contao-themes-net/odd-theme-bundle/src/templates");
                 $this->Template->message = true;
                 break;
             case 'truncateTlFiles':
