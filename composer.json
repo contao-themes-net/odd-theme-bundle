@@ -54,5 +54,9 @@
   },
   "extra": {
     "contao-manager-plugin": "Pdir\\ThemeOddBundle\\ContaoManagerPlugin"
+  },
+  "suggest": {
+    "pdir/maklermodul-bundle": "ODD Theme includes all styles for maklermodul bundle. / ODD Theme enthält Stylesheets für das Maklermodul Bundle.",
+    "pdir/social-feed-bundle": "ODD Theme includes all styles for social feed bundle. / ODD Theme enthält Stylesheets für das Social Feed Bundle."
   }
 }
