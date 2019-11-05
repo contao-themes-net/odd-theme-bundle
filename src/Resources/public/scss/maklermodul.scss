@@ -312,8 +312,34 @@ a.show-filter.btn, .hide-filter.btn {
   }
 
   .pagination {
-    display: flex;
-    margin: 0;
+    p {
+      float: right;
+    }
+
+    ul {
+      text-align: left;
+
+      li {
+        margin: 2px;
+        
+        a {
+          background: $oddColor2;
+          color: #fff;
+          padding: .5rem .75rem;
+          line-height: 1.25;
+
+          &:hover {
+            background: #fff;
+            color: $oddColor2;
+          }
+        }
+
+        &.active a {
+          background: #fff;
+          color: $oddColor2;
+        }
+      }
+    }
   }
 }
 

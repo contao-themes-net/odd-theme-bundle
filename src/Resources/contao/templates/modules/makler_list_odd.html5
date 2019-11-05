@@ -126,18 +126,14 @@ $counter = 1;
 <?php if($this->addListPagination): ?>
 <!-- indexer::stop -->
 <?php if($this->paginationUseIsotope): ?>
-<nav class="block" aria-label="Seitenumbruch-Menü">
+<div class="pagination block">
     <p>Seite <span id="pagPage">1</span> von <?= $this->pageCount ?></p>
-    <ul class="pagination">
+    <ul>
         <?php for ($i = 1; $i <= $this->pageCount; $i++): ?>
-        <?php if($i == 1):?>
-            <li class="page-item"><strong class="active link page-link" title="<?= $i ?>" data-filter=".page<?= $i ?>"><?= $i ?></strong></li>
-        <?php else: ?>
-            <li class="page-item"><a href="#" class="link page-link" title="<?= $i ?>" data-filter=".page<?= $i ?>"><?= $i ?></a></li>
-        <?php endif; ?>
+        <li<?php if($i == 1):?> class="active"<?php endif; ?>><a href="#" class="link" title="<?= $i ?>" data-filter=".page<?= $i ?>"><?= $i ?></a></li>
         <?php endfor; ?>
     </ul>
-</nav>
+</div>
 <?php else:
                 // pagination support
                 $this->json = $json;
