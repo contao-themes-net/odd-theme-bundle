@@ -91,10 +91,12 @@ jQuery.noConflict(); jQuery(document).ready(function($) {
     });
 
     var myElement = document.querySelector("#header .nav-container");
-    var headroom  = new Headroom(myElement, {
-        "offset": 600
-    });
-    headroom.init();
+    if( !$("#header .nav-container").hasClass("disable-headroom") ) {
+        var headroom  = new Headroom(myElement, {
+            "offset": 600
+        });
+        headroom.init();
+    }
 
     /* ===================== *
      *   Content Slider 	 *
