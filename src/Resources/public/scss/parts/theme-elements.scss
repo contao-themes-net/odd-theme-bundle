@@ -384,6 +384,10 @@ input, button {
   background: #000;
   height: 100%;
 
+  &.only-image .text {
+    display: none;
+  }
+
   .text {
     position: absolute;
     top: 80px;

@@ -10,6 +10,8 @@
     {{picture::<?= $this->picture['img']['src'] ?>?size=<?= $size ?>&alt=<?= $this->picture['alt'] ?> }}
 
     <div class="caption">
+        <?php if($this->headline): ?>
         <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+        <?php endif; ?>
     </div>
 </div>
