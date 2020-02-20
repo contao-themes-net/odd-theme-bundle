@@ -13,8 +13,8 @@ $GLOBALS['TL_CTE']['themeOdd']['sliderElement'] = SliderElement::class;
 /**
  * If Contao Slick is used
  */
-$GLOBALS['TL_JAVASCRIPT']['google_charts_loader'] = '';
-$GLOBALS['TL_JAVASCRIPT']['google_charts'] = '';
+unset($GLOBALS['TL_JAVASCRIPT']['google_charts_loader']);
+unset($GLOBALS['TL_JAVASCRIPT']['google_charts']);
 
 /**
  * Available tags for MATE theme
