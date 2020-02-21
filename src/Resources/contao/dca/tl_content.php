@@ -18,7 +18,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['odd_page'] = array
     'search' => true,
     'inputType' => 'text',
     'eval' => array('mandatory'=>false, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "TEXT NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['odd_linkText'] = array
@@ -27,7 +27,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['odd_linkText'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "TEXT NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['target'] = array
@@ -45,5 +45,5 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['odd_subHeadline'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "TEXT NULL"
 );
