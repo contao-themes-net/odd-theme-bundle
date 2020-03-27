@@ -90,12 +90,14 @@ jQuery.noConflict(); jQuery(document).ready(function($) {
         e.preventDefault();
     });
 
-    var myElement = document.querySelector("#header .nav-container");
-    if( !$("#header .nav-container").hasClass("disable-headroom") ) {
-        var headroom  = new Headroom(myElement, {
-            "offset": 600
-        });
-        headroom.init();
+    if( $("#header .nav-container").length > 0 ) {
+        var myElement = document.querySelector("#header .nav-container");
+        if( !$("#header .nav-container").hasClass("disable-headroom") ) {
+            var headroom  = new Headroom(myElement, {
+                "offset": 600
+            });
+            headroom.init();
+        }
     }
 
     /* ===================== *
