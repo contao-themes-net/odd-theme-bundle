@@ -4,7 +4,7 @@ namespace Pdir\ThemeOddBundle\Module;
 
 class OddThemeSetup extends \BackendModule
 {
-    const VERSION = '1.2.1';
+    const VERSION = '1.2.2';
 
     protected $strTemplate = 'be_oddtheme_setup';
 
@@ -39,7 +39,7 @@ class OddThemeSetup extends \BackendModule
                 $pos = strpos($path,"pdirthemeodd");
                 $filesFolder = "files/odd".str_replace("pdirthemeodd","",substr($path,$pos))."/".$dir;
 
-                if($dir != "_odd_variables.scss" && $dir != "_odd_colors.scss" && $dir != "backend.css" && $dir != "odd.scss" && $dir != "responsive.scss" && $dir != "maklermodul.scss") {
+                if($dir != "_odd_variables.scss" && $dir != "_odd_colors.scss" && $dir != "backend.css" && $dir != "odd.scss" && $dir != "responsive.scss" && $dir != "maklermodul.scss" && $dir != "odd_win.scss" && $dir != "style.scss") {
                     if(!file_exists(TL_ROOT."/".$filesFolder)) {
                         $objFile = new \File("web/bundles/".substr($path,$pos)."/".$dir, true);
                         $objFile->copyTo($filesFolder);
