@@ -266,6 +266,22 @@ header, footer {
       }
     }
 
+    &.subnav {
+      li.submenu:not(.active):not(.trail):hover ul {
+        display: none;
+      }
+
+      ul.level_2 {
+        display: none;
+      }
+
+      .trail {
+        + ul.level_2 {
+          display: block;
+        }
+      }
+    }
+
     &:not(.subnav) {
       width: 100%;
       text-align: right;
