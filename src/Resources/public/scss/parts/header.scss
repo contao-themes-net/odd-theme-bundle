@@ -275,7 +275,7 @@ header, footer {
         display: none;
       }
 
-      .trail {
+      .trail, .active {
         + ul.level_2 {
           display: block;
         }
