@@ -44,7 +44,7 @@ compatible with Contao >=4.4
 - [contao theme helper bundle](https://github.com/pdir/contao-theme-helper-bundle) by [pdir](https://pdir.de/ "Webdesign für Dresden") | Code copyright by pdir / digital agentur. Code released under LGPL v3.
 - [Headroom.js](http://wicky.nillia.ms/headroom.js/) | [Github](https://github.com/WickyNilliams/headroom.js) | Code copyright 2013 by Nick Williams. Code released under the MIT license.
 
-## Contao Themes
+## Other Contao Themes
 
 | [![MATE Theme](https://contao-themes.net/assets/images/5/mate_theme_green_1-77f20ba3.png)](https://contao-themes.net/theme-detail/mate.html) | [![0.1 Theme](https://contao-themes.net/assets/images/3/0.1_Energy_saving_Contao_Theme_00-1e927a73.jpg)](https://contao-themes.net/theme-detail/zeroone.html) | [![NATURE Theme](https://contao-themes.net/assets/images/6/00_00_naturetheme-605a9391.jpg)](https://contao-themes.net/theme-detail/nature.html) |
 |:---:|:---:|:---:|
