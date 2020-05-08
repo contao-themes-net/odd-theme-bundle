@@ -17,6 +17,9 @@
             top: -50px;
             left: -5px;
         }
+        .nav-container.sloping.top-right {
+            transform: rotate(-3deg);
+        }
 
         #wrapper { visibility: hidden; }
     </style>

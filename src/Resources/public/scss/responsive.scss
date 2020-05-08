@@ -207,6 +207,11 @@
   /* Mobile Navigation End */
 
   .nav-container.sloping {
+    &.top-right .navbar .collapse.show .mod_navigation {
+      transform: rotate(3deg);
+      left: -15px;
+    }
+
     .navbar-top {
       padding-right: 30px;
     }

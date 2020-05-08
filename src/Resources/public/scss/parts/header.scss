@@ -427,10 +427,26 @@ header, footer {
 /* Sloping Header */
 
 .nav-container.sloping {
-  transform: rotate(3deg);
   width: calc(100% + 15px);
   top: -50px;
   left: -5px;
+  transform: rotate(3deg);
+
+  &.top-right {
+    transform: rotate(-3deg);
+
+    .navbar-top {
+      .mod_article .container {
+        text-align: left;
+        justify-content: flex-start;
+        width: inherit;
+      }
+
+      .social-media {
+        float: none;
+      }
+    }
+  }
 
   &.headroom--unpinned {
     transform: translateY(-100%);
