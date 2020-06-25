@@ -46,6 +46,11 @@ compatible with Contao >=4.4
 
 ## Other Contao Themes
 
-| [![MATE Theme](https://contao-themes.net/assets/images/5/mate_theme_green_1-77f20ba3.png)](https://contao-themes.net/theme-detail/mate.html) | [![0.1 Theme](https://contao-themes.net/assets/images/3/0.1_Energy_saving_Contao_Theme_00-1e927a73.jpg)](https://contao-themes.net/theme-detail/zeroone.html) | [![NATURE Theme](https://contao-themes.net/assets/images/6/00_00_naturetheme-605a9391.jpg)](https://contao-themes.net/theme-detail/nature.html) |
+| [![MATE Theme](https://contao-themes.net/files/contao-themes-net/screenshots/mate%20theme/mate_theme_green_670x670.png)](https://contao-themes.net/theme-detail/mate.html) | [![0.1 Theme](https://contao-themes.net/assets/images/3/0.1_Energy_saving_Contao_Theme_00-1e927a73.jpg)](https://contao-themes.net/theme-detail/zeroone.html) | [![NATURE Theme](https://contao-themes.net/assets/images/6/00_00_naturetheme-605a9391.jpg)](https://contao-themes.net/theme-detail/nature.html) |
 |:---:|:---:|:---:|
-| **MATE Theme**  | **0.1 Theme**  | **NATURE Theme**  |
+| [**MATE Theme**](https://contao-themes.net/theme-detail/mate.html) | [**0.1 Theme**](https://contao-themes.net/theme-detail/zeroone.html) | [**NATURE Theme**](https://contao-themes.net/theme-detail/nature.html) |
+
+
+| [![CONVERT Theme](https://contao-themes.net/assets/images/7/Convert_Selling_Contao_Theme_01-9c1306b6.png)](https://contao-themes.net/theme-detail/convert.html) | ![](https://contao-themes.net/files/contao-themes-net/screenshots/platzhalter.jpg) | ![](https://contao-themes.net/files/contao-themes-net/screenshots/platzhalter.jpg) |
+|:---:|:---:|:---:|
+| [**CONVERT Theme**](https://contao-themes.net/theme-detail/convert.html) |  |  |
