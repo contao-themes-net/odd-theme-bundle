@@ -26,7 +26,7 @@
         </div>
 
         <?php if ($this->hasDetails): ?>
-            <p class="more"><a href="<?= $this->href ?>" title="<?= $this->readMore ?>"<?= $this->target ?> itemprop="url">Event-Details ansehen <span class="invisible"> <?= $this->link ?></span></a></p>
+            <p class="more"><a href="<?= $this->href ?>" title="<?= $this->readMore ?>"<?= $this->target ?> itemprop="url"><?= $GLOBALS['TL_LANG']['odd']['event_more_link'] ?> <span class="invisible"> <?= $this->link ?></span></a></p>
         <?php endif; ?>
     </div>
 
