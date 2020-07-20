@@ -66,7 +66,7 @@
     $combiner->add('bundles/pdirthemeodd/bootstrap/dist/js/bootstrap.min.js');
     $combiner->add('bundles/pdirthemeodd/fontawesome/js/all.min.js');
     $combiner->add('bundles/pdirthemeodd/js/headroom.min.js');
-    $combiner->add('bundles/pdirthemeodd/js/scripts.js');
+    $combiner->add('bundles/pdirthemeodd/js/scripts.min.js');
     echo $combiner->getCombinedFile();
     ?>"></script>
 

@@ -90,14 +90,12 @@ jQuery.noConflict(); jQuery(document).ready(function($) {
         e.preventDefault();
     });
 
-    if( $("#header .nav-container").length > 0 ) {
+    if( $("#header .nav-container").length > 0 && $("html").html().indexOf("headroom.min.js") !== -1 ) {
         var myElement = document.querySelector("#header .nav-container");
-        if( !$("#header .nav-container").hasClass("disable-headroom") ) {
-            var headroom  = new Headroom(myElement, {
-                "offset": 600
-            });
-            headroom.init();
-        }
+        var headroom  = new Headroom(myElement, {
+            "offset": 600
+        });
+        headroom.init();
     }
 
     /* ===================== *
