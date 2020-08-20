@@ -57,7 +57,9 @@
 }
 
 /* Newsletter */
-.mod_subscribe:not(.nl-footer), .mod_unsubscribe {
+.mod_subscribe:not(.nl-footer), .mod_unsubscribe,
+.mod_newsletterUnsubscribeNotificationCenter,
+.mod_newsletterSubscribeNotificationCenter:not(.nl-footer) {
   input[type='text'] {
     max-width: 300px;
   }

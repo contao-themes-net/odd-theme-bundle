@@ -11,8 +11,10 @@
                             / digital agentur</a></p>
                     <h2>Interessante Links</h2>
                     <ul class="link-list">
-                        <li><a href="https://docs.contao-themes.net/#/odd_theme/index" target="_blank"
+                        <li><a href="https://pdir.de/docs/de/contao/themes/odd/" target="_blank"
                                style="text-decoration: underline;">Dokumentation</a></li>
+                        <li><a href="https://contao-themes.net/theme-detail/odd.html" target="_blank"
+                               style="text-decoration: underline;">Lizenz kaufen</a></li>
                         <li><a href="https://odd.contao-themes.net/" target="_blank"
                                style="text-decoration: underline;">Demo</a></li>
                         <li><a href="https://github.com/contao-themes-net/odd-theme-bundle/issues" target="_blank"

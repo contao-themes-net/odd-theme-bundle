@@ -107,11 +107,13 @@ footer {
     }
   }
 
-  .mod_subscribe + .main-footer .skewed-bg {
+  .mod_subscribe + .main-footer .skewed-bg,
+  .mod_newsletterSubscribeNotificationCenter + .main-footer .skewed-bg {
     background: $newsletter-background;
   }
 
-  .mod_subscribe .row > div {
+  .mod_subscribe .row > div,
+  .mod_newsletterSubscribeNotificationCenter .row > div {
     z-index: 10;
   }
 
