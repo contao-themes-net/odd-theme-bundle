@@ -54,3 +54,24 @@ compatible with Contao >=4.4
 | [![CONVERT Theme](https://contao-themes.net/assets/images/7/Convert_Selling_Contao_Theme_01-9c1306b6.png)](https://contao-themes.net/theme-detail/convert.html) | ![](https://contao-themes.net/files/contao-themes-net/screenshots/platzhalter.jpg) | ![](https://contao-themes.net/files/contao-themes-net/screenshots/platzhalter.jpg) |
 |:---:|:---:|:---:|
 | [**CONVERT Theme**](https://contao-themes.net/theme-detail/convert.html) |  |  |
+
+## Bildnachweise
+
+* Alte Ziegelei "Rotes Haus" / alte-ziegelei-1.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Alte Ziegelei "Rotes Haus" / alte-ziegelei-3.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* E-Werk Brauhausstraße / e-werk-brauhausstrasse-1.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* E-Werk Brauhausstraße / e-werk-brauhausstrasse-2.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Hamburger Hof / hamburger-hof.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Herrenhaus in der Dresdner Straße / herrenhaus-dresdner-strasse.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Jahnhalle / jahnhalle.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Kaserne Meißen-Bohnitzsch / kaserne-bohnitzsch-1.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Kaserne Meißen-Bohnitzsch / kaserne-bohnitzsch-2.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Keramikfabrik / keramikfabrik.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Landkrankenhaus / landkrankenhaus.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Rittergut Cölln / rittergut-coelln.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Wohnhaus in der Görnischen Gasse / wohnhaus-goernische-gasse.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Wohnhaus in der Rosengasse / wohnhaus-rosengasse-1.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Wohnhaus in der Rosengasse / wohnhaus-rosengasse-2.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Wohnhaus in der Rosengasse / wohnhaus-rosengasse-3.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* Zuckerwarenfabrik Elbdom / zuckerwarenfabrik-elbdom.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
+* ODD Theme Logo / ODD_Logo.png: Eigenaufnahmen@[pdirGmbH](https://pdir.de/)
