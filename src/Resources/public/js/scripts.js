@@ -93,7 +93,6 @@ jQuery.noConflict(); jQuery(document).ready(function($) {
      * Touch Navigation	   *
      * =================== */
     $(".mod_bs_navbar").on("touchstart","a.submenu:not(.is-active), strong.submenu:not(.is-active)", function(e) {
-        console.log("test");
         $(".is-active").removeClass("is-active");
         if($(this).parent().parent().hasClass("level_1")) $(".dropdown-menu:visible").toggle();
         if($(this).parent().parent().hasClass("level_2")) $(".level_2 .dropdown-menu:visible").toggle();
