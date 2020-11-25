@@ -4,7 +4,7 @@ namespace Pdir\ThemeOddBundle\Module;
 
 class OddThemeSetup extends \BackendModule
 {
-    const VERSION = '1.4.4';
+    const VERSION = '1.4.5';
 
     protected $strTemplate = 'be_oddtheme_setup';
 
@@ -23,6 +23,8 @@ class OddThemeSetup extends \BackendModule
                 $this->getSqlFiles($path = TL_ROOT . "/vendor/contao-themes-net/odd-theme-bundle/src/templates");
                 $this->Template->message = true;
                 $this->Template->version = OddThemeSetup::VERSION;
+                $this->import('Automator');
+                $this->Automator->generateInternalCache();
                 break;
             case 'truncateTlFiles':
                 $this->import('Database');
