@@ -24,6 +24,7 @@ class OddThemeSetup extends \BackendModule
                 $this->Template->message = true;
                 $this->Template->version = OddThemeSetup::VERSION;
                 $this->import('Automator');
+                $this->Automator->purgeInternalCache();
                 $this->Automator->generateInternalCache();
                 break;
             case 'truncateTlFiles':
