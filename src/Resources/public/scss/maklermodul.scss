@@ -237,6 +237,8 @@ a.show-filter.btn, .hide-filter.btn {
 
 #estate_list {
   margin-top: 40px;
+  height: 0;
+  overflow: hidden;
 }
 
 .mod_immoListView {
