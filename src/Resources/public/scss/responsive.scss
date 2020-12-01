@@ -133,7 +133,7 @@
       &.level_2 > li > a {
         border-top: 3px solid #fff;
       }
-      &.level_2 > li.first > a {
+      &.level_2 > li:first-child > a {
         border: 0;
       }
       &.level_3 li a {

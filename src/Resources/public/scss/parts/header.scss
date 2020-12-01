@@ -373,7 +373,7 @@ header, footer {
       position: relative;
       font-size: 1rem;
 
-      &:not(.first):after {
+      &:not(:first-child):after {
         position: absolute;
         content: "";
         border-bottom: 1px solid $subnav-border-color;
@@ -482,7 +482,7 @@ header, footer {
     padding-top: 120px;
   }
 
-  .mod_article.first:not(.slider) {
+  .mod_article:first-child:not(.slider) {
     padding-top: 120px;
   }
 }
