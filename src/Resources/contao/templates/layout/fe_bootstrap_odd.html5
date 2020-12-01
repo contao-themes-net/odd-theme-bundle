@@ -28,27 +28,27 @@
 
     <meta name="keywords" content="<?= $this->keywords ?>">
 
+    <?= $this->stylesheets ?>
+
+    <link rel="stylesheet" type="text/css" media="all" href="<?php
+        // add stylesheets
+        $combiner = new Combiner();
+        $combiner->add('bundles/pdirthemeodd/bootstrap/dist/css/bootstrap.min.css');
+
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $combiner->add('bundles/pdirthemeodd/scss/odd_win.scss');
+        } else {
+            $combiner->add('bundles/pdirthemeodd/scss/odd.scss');
+        }
+
+        echo $combiner->getCombinedFile(); ?>">
+
     <!--[if lt IE 9]><script src="<?= TL_ASSETS_URL ?>assets/html5shiv/js/html5shiv-printshiv.min.js"></script><![endif]-->
 <?php $this->endblock(); ?>
 
 <?php $this->block('body'); ?>
 
     <?php $this->parent(); ?>
-
-    <?= $this->stylesheets ?>
-
-    <link rel="stylesheet" type="text/css" media="all" href="<?php
-    // add stylesheets
-    $combiner = new Combiner();
-    $combiner->add('bundles/pdirthemeodd/bootstrap/dist/css/bootstrap.min.css');
-
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        $combiner->add('bundles/pdirthemeodd/scss/odd_win.scss');
-    } else {
-        $combiner->add('bundles/pdirthemeodd/scss/odd.scss');
-    }
-
-    echo $combiner->getCombinedFile(); ?>">
 
     <?= $this->head ?>
 
@@ -60,15 +60,10 @@
         }
     </script>
 
-    <script charset="utf-8" src="<?php
-    // add javascripts
-    $combiner = new Combiner();
-    $combiner->add('bundles/pdirthemeodd/bootstrap/dist/js/bootstrap.min.js');
-    $combiner->add('bundles/pdirthemeodd/fontawesome/js/all.min.js');
-    $combiner->add('bundles/pdirthemeodd/js/headroom.min.js');
-    $combiner->add('bundles/pdirthemeodd/js/scripts.min.js');
-    echo $combiner->getCombinedFile();
-    ?>"></script>
+    <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/bootstrap/dist/js/bootstrap.min.js|static'; ?>
+    <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/fontawesome/js/all.min.js|static'; ?>
+    <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/js/headroom.min.js|static'; ?>
+    <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/js/scripts.js|static'; ?>
 
     <?= $this->mooScripts ?>
 
