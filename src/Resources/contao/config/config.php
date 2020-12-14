@@ -19,14 +19,22 @@ unset($GLOBALS['TL_JAVASCRIPT']['google_charts']);
 /**
  * Available tags for MATE theme
  */
-array_push($GLOBALS['tl_config']['theme_tags'], '-');
-$GLOBALS['tl_config']['theme_tags'][] = 'ODD01/01';
-$GLOBALS['tl_config']['theme_tags'][] = 'ODD01/02';
-$GLOBALS['tl_config']['theme_tags'][] = 'ODD02/01';
-$GLOBALS['tl_config']['theme_tags'][] = 'ODD02/02';
-$GLOBALS['tl_config']['theme_tags'][] = 'ODD02/03';
-$GLOBALS['tl_config']['theme_tags'][] = 'ODD02/04';
-$GLOBALS['tl_config']['theme_tags'][] = 'ODD02/05';
+if (empty($GLOBALS['tl_config']['theme_tags'])) {
+    $GLOBALS['tl_config']['theme_tags'] = [];
+    $GLOBALS['tl_config']['theme_tags'][] = '-';
+}
+
+if (!empty($GLOBALS['tl_config']['theme_tags']) && \is_array($GLOBALS['tl_config']['theme_tags'])) {
+    $GLOBALS['tl_config']['theme_tags'] = array_merge($GLOBALS['tl_config']['theme_tags'], [
+        'ODD01/01',
+        'ODD01/02',
+        'ODD02/01',
+        'ODD02/02',
+        'ODD02/03',
+        'ODD02/04',
+        'ODD02/05',
+    ]);
+}
 
 /**
  * Backend Modules
