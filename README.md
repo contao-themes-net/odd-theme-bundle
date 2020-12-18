@@ -75,3 +75,5 @@ compatible with Contao >=4.4
 * Wohnhaus in der Rosengasse / wohnhaus-rosengasse-3.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
 * Zuckerwarenfabrik Elbdom / zuckerwarenfabrik-elbdom.jpg: [Claus-Dirk Langer](http://www.clausdirklanger.de/)
 * ODD Theme Logo / ODD_Logo.png: Eigenaufnahmen@[pdirGmbH](https://pdir.de/)
+
+Alle Demo-Inhalte dieses Themes, insbesondere Texte, Fotografien und Grafiken, sind urheberrechtlich geschützt. Das Urheberrecht liegt bei der pdir Gmbh bzw. den jeweiligen Urhebern der Werke. Bitte fragen Sie uns, falls Sie die Demo-Inhalte dieses Themes verwenden möchten. Ohne schriftliche Genehmigung seitens der Urheber dürfen diese in keiner Form verwendet, vervielfältigt oder verbreitet werden.
