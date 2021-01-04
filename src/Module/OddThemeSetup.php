@@ -4,7 +4,7 @@ namespace Pdir\ThemeOddBundle\Module;
 
 class OddThemeSetup extends \BackendModule
 {
-    const VERSION = '1.4.7';
+    const VERSION = '1.4.8';
 
     protected $strTemplate = 'be_oddtheme_setup';
 
