@@ -63,7 +63,7 @@
     <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/bootstrap/dist/js/bootstrap.min.js|static'; ?>
     <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/fontawesome/js/all.min.js|static'; ?>
     <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/js/headroom.min.js|static'; ?>
-    <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/js/scripts.js|static'; ?>
+    <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/pdirthemeodd/js/scripts.min.js|static'; ?>
 
     <?= $this->mooScripts ?>
 
