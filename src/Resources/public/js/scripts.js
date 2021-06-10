@@ -1,4 +1,4 @@
-jQuery.noConflict(); jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
 
     /* ===================== *
      *   Toplink  			 *
@@ -81,7 +81,7 @@ jQuery.noConflict(); jQuery(document).ready(function($) {
         e.preventDefault();
     });
 
-    if( $("#header .nav-container").length > 0 && $("html").html().indexOf("headroom.min.js") !== -1 ) {
+    if( $("#header .nav-container").length > 0 && typeof Headroom !== 'undefined' ) {
         var myElement = document.querySelector("#header .nav-container");
         var headroom  = new Headroom(myElement, {
             "offset": 600

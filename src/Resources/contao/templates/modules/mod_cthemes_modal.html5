@@ -1,6 +1,8 @@
 <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $this->id ?>"><?= $this->linkText ?></button>
+    <?php if($this->linkText != ""): ?>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $this->id ?>"><?= $this->linkText ?></button>
+    <?php endif; ?>
 
     <div class="modal fade" id="modal<?= $this->id ?>" tabindex="-1" role="dialog" aria-labelledby="modal<?= $this->id ?>Label" aria-hidden="true">
         <div class="modal-dialog<?= $this->modalClass ?>" role="document">

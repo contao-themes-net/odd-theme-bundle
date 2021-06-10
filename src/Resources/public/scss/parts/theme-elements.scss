@@ -388,16 +388,48 @@ input, button {
     display: none;
   }
 
+  &.top-center, &.center-center, &.bottom-center {
+    .text .inside {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &.top-right, &.center-right, &.bottom-right {
+    .text .inside {
+      margin-left: auto;
+    }
+  }
+
+  &.center-left, &.center-center, &.center-right {
+    .text {
+      align-items: center;
+    }
+  }
+
+  &.bottom-left, &.bottom-center, &.bottom-right {
+    .text {
+      align-items: flex-end;
+    }
+  }
+
+  .container {
+    padding: 0;
+  }
+
   .text {
     position: absolute;
-    top: 80px;
     background: none;
     padding: 0;
     width: 100%;
     left: 0;
+    top: 0;
     box-shadow: none;
     text-align: center;
     border-radius: 0;
+    height: calc(100% - 300px);
+    display: flex;
+    margin: 120px 0 0;
 
     .inside {
       background: $slider-background;
@@ -411,6 +443,7 @@ input, button {
 
     h1, h2, h3, h4, h5, h6 {
       margin-top: 0;
+
       &, a {
         color: $slider-headline-color;
       }
@@ -430,24 +463,6 @@ input, button {
     background-size: cover;
     background-position: center;
     opacity: 0.8;
-  }
-
-  &.top-right .inside {
-    float: right;
-  }
-  &.bottom-left .text {
-    bottom: 80px;
-    top: inherit;
-  }
-  &.bottom-right {
-    .text {
-      bottom: 80px;
-      top: inherit;
-    }
-
-    .inside {
-      float: right;
-    }
   }
 
   img {
@@ -471,6 +486,7 @@ input, button {
     font-size: 12px;
     margin-bottom: 10px;
   }
+
 }
 
 .ce_sliderStart {
@@ -598,6 +614,10 @@ input, button {
       @extend .btn;
       margin-top: 0;
     }
+  }
+
+  p {
+    color: $oddColor5;
   }
 }
 
