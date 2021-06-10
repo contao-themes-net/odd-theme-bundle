@@ -210,3 +210,18 @@ p.confirm {
 .modal-header button.close {
   box-shadow: none;
 }
+
+.modal-left {
+  margin: 0 auto 0 0;
+  max-width: 400px;
+  height: 100%;
+
+  button.close:hover {
+    background: none;
+  }
+
+  .modal-content {
+    height: 100%;
+    border-radius: 0;
+  }
+}
