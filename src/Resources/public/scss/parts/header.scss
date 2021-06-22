@@ -59,8 +59,9 @@
     }
   }
 
-  strong {
+  strong, a.trail {
     color: $nav-active-color;
+    font-weight: 700;
   }
 
   svg {
