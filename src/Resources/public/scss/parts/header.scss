@@ -383,7 +383,7 @@ header, footer {
         top: -1px;
       }
 
-      &.active, &:hover {
+      &.active, &:hover, &.trail:not(.submenu) {
         background: $subnav-hover-active-background;
         color: $subnav-hover-active-color;
 
