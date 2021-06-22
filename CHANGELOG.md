@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.6.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.6.1) – 2021-06-22
+
+- [fix] css fix for active nav items in main navigation and sub navigation
+
 ## [1.6.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.6.0) – 2021-06-10
 
 - [feature] add sidebar modal
