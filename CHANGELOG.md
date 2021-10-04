@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.7.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.7.0) – 2021-10-04
+
+- [feature] add sql files for contao 4.12
+- [fix] sql files for contao 4.11
+
 ## [1.6.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.6.1) – 2021-06-22
 
 - [fix] css fix for active nav items in main navigation and sub navigation
