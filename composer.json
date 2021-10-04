@@ -37,7 +37,8 @@
     "contao-themes-net/theme-components-bundle": "^1.2"
   },
   "conflict": {
-    "contao/core": "*"
+    "contao/core": "*",
+    "symfony/config": ">=5.0"
   },
   "autoload": {
     "psr-4": {
