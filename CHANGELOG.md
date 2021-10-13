@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.7.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.7.1) – 2021-10-13
+
+- [fix] update composer.json to solve problem with bootstrap grid gallery
+
 ## [1.7.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.7.0) – 2021-10-04
 
 - [feature] add sql files for contao 4.12
