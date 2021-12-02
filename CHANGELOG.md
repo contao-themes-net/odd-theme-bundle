@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.7.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.7.1) – 2021-12-02
+- [fix] add newsreader template for header image to hide comments
+
 ## [1.7.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.7.0) – 2021-10-04
 
 - [feature] add sql files for contao 4.12
