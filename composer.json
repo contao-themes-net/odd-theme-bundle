@@ -34,7 +34,8 @@
     "madeyourday/contao-rocksolid-frontend-helper": "~2.0",
     "terminal42/contao-folderpage": "^2.0",
     "pdir/contao-theme-helper-bundle": "^1.0",
-    "contao-themes-net/theme-components-bundle": "^1.2"
+    "contao-themes-net/theme-components-bundle": "^1.2",
+    "contao-bootstrap/grid": "^2.3"
   },
   "conflict": {
     "contao/core": "*",
