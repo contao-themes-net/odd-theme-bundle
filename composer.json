@@ -30,7 +30,7 @@
   "require": {
     "php": ">=7.1.0",
     "contao/core-bundle": "^4.4",
-    "contao-bootstrap/bundle": "~2.0",
+    "contao-bootstrap/bundle": "~2.1",
     "madeyourday/contao-rocksolid-frontend-helper": "~2.0",
     "terminal42/contao-folderpage": "^2.0",
     "pdir/contao-theme-helper-bundle": "^1.0",
