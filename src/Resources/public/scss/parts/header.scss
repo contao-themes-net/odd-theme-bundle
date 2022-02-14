@@ -29,7 +29,7 @@
   }
 }
 
-.mod_navigation {
+.nav-items {
   width: 100%;
   text-align: right;
 
@@ -189,6 +189,24 @@ header, footer {
 
 @media (min-width:992px) {
   .mod_navigation {
+    &.subnav {
+      li.submenu:not(.active):not(.trail):hover ul {
+        display: none;
+      }
+
+      ul.level_2, ul.level_3 {
+        display: none;
+      }
+
+      .trail, .active {
+        + ul.level_2, + ul.level_3 {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .nav-items {
     ul {
       &.level_1 > li:hover .level_2 {
         display: block;
@@ -275,22 +293,6 @@ header, footer {
       }
     }
 
-    &.subnav {
-      li.submenu:not(.active):not(.trail):hover ul {
-        display: none;
-      }
-
-      ul.level_2, ul.level_3 {
-        display: none;
-      }
-
-      .trail, .active {
-        + ul.level_2, + ul.level_3 {
-          display: block;
-        }
-      }
-    }
-
     &:not(.subnav) {
       width: 100%;
       text-align: right;
@@ -348,7 +350,7 @@ header, footer {
     }
   }
 
-  .stuck .mod_navigation:not(.subnav) {
+  .stuck .nav-items:not(.subnav) {
     > ul {
       height: 60px;
     }
@@ -361,6 +363,11 @@ header, footer {
 
 .mod_navigation.subnav {
   background: $subnav-background;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
 
   ul li {
     display: block;
