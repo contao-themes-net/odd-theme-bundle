@@ -1,0 +1,26 @@
+<?php $this->extend('fe_page_odd'); ?>
+
+<?php $this->block('container'); ?>
+    <div id="container" class="container">
+        <div class="row">
+            <div class="col-12 col-lg-9">
+                <div id="main">
+                    <div class="inside">
+                        <?= $this->main ?>
+                    </div>
+                    <?php $this->sections('main'); ?>
+                </div>
+            </div>
+
+            <?php if ($this->right): ?>
+            <div class="col-12 col-lg-3">
+                <aside id="right">
+                    <div class="inside">
+                        <?= $this->right ?>
+                    </div>
+                </aside>
+            </div>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php $this->endblock(); ?>
