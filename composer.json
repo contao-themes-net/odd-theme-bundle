@@ -28,8 +28,8 @@
     "donate": "https://contao-themes.net/sponsoring.html"
   },
   "require": {
-    "php": ">=7.1.0",
-    "contao/core-bundle": "^4.4",
+    "php": "^7.2 || ^8.0",
+    "contao/core-bundle": "^4.9",
     "madeyourday/contao-rocksolid-frontend-helper": "~2.0",
     "terminal42/contao-folderpage": "^2.0",
     "pdir/contao-theme-helper-bundle": "^1.0",
