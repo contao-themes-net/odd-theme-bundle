@@ -1,0 +1,41 @@
+
+<!-- indexer::stop -->
+<nav class="<?= $this->class ?> nav-container block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?> itemscope itemtype="http://schema.org/SiteNavigationElement">
+
+<div class="navbar-top">
+    <div class="container">
+        {{theme::content::ODD01/02}}
+    </div>
+</div>
+
+<div class="navbar navbar-light bg-light navbar-expand-lg">
+    <div class="container">
+        <a href="<?= $this->request ?>#<?= $this->skipId ?>" class="invisible"><?= $this->skipNavigation ?></a>
+
+        <div class="navbar-brand">
+            {{theme::content::ODD01/01}}
+        </div>
+
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar-responsive-<?= $this->id ?>"
+                aria-controls="navbar-responsive-<?= $this->id ?>"
+                aria-expanded="false"
+                aria-label="<?= $this->togglerLabel ?>">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-responsive-<?php echo $this->id; ?>">
+            <div class="nav-items">
+                <?= $this->items ?>
+            </div>
+        </div>
+
+        <a id="<?= $this->skipId ?>" class="invisible">&nbsp;</a>
+    </div>
+</div>
+
+</nav>
+<!-- indexer::continue -->

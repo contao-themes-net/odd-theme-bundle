@@ -1,5 +1,5 @@
 @media (min-width: 992px) and (max-width: 1430px) {
-  .mod_navigation:not(.subnav) {
+  .nav-items:not(.subnav) {
     .level_2 {
       left: inherit;
       right: 0;
@@ -38,7 +38,7 @@
     margin-top: -10px;
   }
 
-  .mod_navigation {
+  .nav-items {
     a, strong {
       font-size: 16px;
       padding: 15px 10px;
@@ -106,7 +106,7 @@
       top: 0;
       position: relative;
 
-      .mod_navigation {
+      .nav-items {
         height: calc(100vh - 80px);
         overflow: scroll;
       }
@@ -146,7 +146,7 @@
     padding: 0;
   }
 
-  .mod_navigation {
+  .nav-items {
     .dropdown-toggle {
       position: absolute;
       top: 8px;
@@ -202,7 +202,7 @@
   /* Mobile Navigation End */
 
   .nav-container.sloping {
-    &.top-right .navbar .collapse.show .mod_navigation {
+    &.top-right .navbar .collapse.show .nav-items {
       transform: rotate(3deg);
       left: -15px;
     }
@@ -215,7 +215,7 @@
       .collapse.show {
         padding-bottom: 50px;
 
-        .mod_navigation {
+        .nav-items {
           position: absolute;
           width: 101vw;
           height: calc(100vh - 190px);

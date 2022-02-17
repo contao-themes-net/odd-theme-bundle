@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.0) – 2022-02-17
+
+- [feature] remove bootstrap bundles and support php8 and contao 4.13
+
 ## [1.7.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/1.7.1) – 2021-12-15
 
 - [fix] update composer.json to solve problem with bootstrap grid gallery
