@@ -107,4 +107,11 @@ jQuery(document).ready(function($) {
     $(".slider-control .slider-prev").html('<i class="fas fa-chevron-left"></i>');
     $(".slider-control .slider-next").html('<i class="fas fa-chevron-right"></i>');
 
+    /* =================== *
+     * File Upload   	   *
+     * =================== */
+    $('input[type="file"]').on("change", function() {
+        $(this).next().text( $(this).val().replace("C:\\fakepath\\","") );
+    });
+
  });

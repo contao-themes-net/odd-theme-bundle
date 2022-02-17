@@ -43,6 +43,16 @@
     &.widget-captcha {
       display: block !important;
     }
+
+    legend {
+      font-size: 1rem;
+      padding: 0;
+      margin-bottom: 0.5rem;
+
+      &:after {
+        display: none;
+      }
+    }
   }
 }
 
