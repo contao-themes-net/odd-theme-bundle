@@ -107,12 +107,21 @@
   }
 }
 
+nav.pagination {
+  display: block;
+}
+
 .pagination {
   li {
     strong, a {
+      font-weight: 400;
+      position: relative;
+      display: block;
+      padding: 0.5rem 0.75rem;
+      margin: 2px;
+      line-height: 1.25;
       background: $oddColor2;
       color: $oddColor6;
-      font-weight: 400;
 
       &.active {
         background: $oddColor6;
@@ -126,7 +135,16 @@
     }
   }
 
-  .page-item:first-child, .page-item:last-child {
+  ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+  }
+
+  li:first-child, li:last-child {
     .page-link {
       border-radius: 0;
     }

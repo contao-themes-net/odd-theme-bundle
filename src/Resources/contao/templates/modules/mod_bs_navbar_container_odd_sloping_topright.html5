@@ -1,7 +1,0 @@
-<?php $this->extend('mod_bs_navbar_odd_sloping_topright'); ?>
-
-<?php $this->block('content'); ?>
-<div class="container">
-    <?php $this->parent(); ?>
-</div>
-<?php $this->endblock();
