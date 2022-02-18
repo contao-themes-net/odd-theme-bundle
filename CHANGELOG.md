@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.1) – 2022-02-18
+
+- [fix] update fe_page template
+
 ## [2.0.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.0) – 2022-02-17
 
 - [feature] remove bootstrap bundles and support php8 and contao 4.13
