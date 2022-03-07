@@ -3,6 +3,7 @@
 ## [2.0.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.1) – 2022-03-08
 
 - [fix] add support for Symfony 5 public entry point
+- [fix] change bundle namespace
 
 ## [2.0.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.0) – 2022-02-17
 
