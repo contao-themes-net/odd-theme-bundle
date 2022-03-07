@@ -1,8 +1,8 @@
 <?php
 
-namespace Pdir\ThemeOddBundle\Module;
+namespace ContaoThemesNet\ThemeOddBundle\Module;
 
-use Pdir\ThemeOddBundle\ThemeUtils;
+use ContaoThemesNet\ThemeOddBundle\ThemeUtils;
 
 class OddThemeSetup extends \BackendModule
 {

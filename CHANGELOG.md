@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.1) – 2022-03-07
+## [2.0.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.1) – 2022-03-08
 
 - [fix] add support for Symfony 5 public entry point
 

@@ -1,6 +1,6 @@
 <?php
 
-use Pdir\ThemeOddBundle\Element\SliderElement;
+use ContaoThemesNet\ThemeOddBundle\Element\SliderElement;
 
 // Insert the mate theme category
 array_insert($GLOBALS['TL_CTE'], 1, array('themeOdd' => array()));
