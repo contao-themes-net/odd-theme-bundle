@@ -6,7 +6,7 @@ use Pdir\ThemeOddBundle\ThemeUtils;
 
 class OddThemeSetup extends \BackendModule
 {
-    const VERSION = '2.0.0';
+    const VERSION = '2.0.1';
 
     protected $strTemplate = 'be_oddtheme_setup';
 
