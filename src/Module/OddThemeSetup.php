@@ -2,6 +2,8 @@
 
 namespace Pdir\ThemeOddBundle\Module;
 
+use Pdir\ThemeOddBundle\ThemeUtils;
+
 class OddThemeSetup extends \BackendModule
 {
     const VERSION = '2.0.0';
@@ -15,12 +17,14 @@ class OddThemeSetup extends \BackendModule
     {
         switch (\Input::get('act')) {
             case 'syncFolder':
-                $path = TL_ROOT . '/web/bundles/pdirthemeodd';
+                $path = sprintf('%s/%s/bundles/pdirthemeodd',
+                    ThemeUtils::getRootDir(),
+                    ThemeUtils::getWebDir());
                 if(!file_exists("files/odd")) {
                     new \Folder("files/odd");
                 }
                 $this->getFiles($path);
-                $this->getSqlFiles($path = TL_ROOT . "/vendor/contao-themes-net/odd-theme-bundle/src/templates");
+                $this->getSqlFiles(ThemeUtils::getRootDir() . "/vendor/contao-themes-net/odd-theme-bundle/src/templates");
                 $this->Template->message = true;
                 $this->Template->version = OddThemeSetup::VERSION;
                 $this->import('Automator');
@@ -45,8 +49,8 @@ class OddThemeSetup extends \BackendModule
                 $filesFolder = "files/odd".str_replace("pdirthemeodd","",substr($path,$pos))."/".$dir;
 
                 if($dir != "_odd_variables.scss" && $dir != "_odd_colors.scss" && $dir != "backend.css" && $dir != "odd.scss" && $dir != "responsive.scss" && $dir != "maklermodul.scss" && $dir != "odd_win.scss" && $dir != "style.scss") {
-                    if(!file_exists(TL_ROOT."/".$filesFolder)) {
-                        $objFile = new \File("web/bundles/".substr($path,$pos)."/".$dir, true);
+                    if(!file_exists(ThemeUtils::getRootDir()."/".$filesFolder)) {
+                        $objFile = new \File(ThemeUtils::getWebDir()."/bundles/".substr($path,$pos)."/".$dir, true);
                         $objFile->copyTo($filesFolder);
                     }
                 }
