@@ -53,7 +53,7 @@
     ]
   },
   "extra": {
-    "contao-manager-plugin": "Pdir\\ThemeOddBundle\\ContaoManagerPlugin"
+    "contao-manager-plugin": "ContaoThemesNet\\ThemeOddBundle\\ContaoManagerPlugin"
   },
   "funding": [
     {
