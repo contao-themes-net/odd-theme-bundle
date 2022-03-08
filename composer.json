@@ -40,7 +40,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Pdir\\ThemeOddBundle\\": "src/"
+      "ContaoThemesNet\\ThemeOddBundle\\": "src/"
     },
     "classmap": [
       "src/Resources/contao/"
