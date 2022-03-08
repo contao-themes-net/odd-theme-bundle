@@ -1,6 +1,6 @@
 <?php
 
-namespace ContaoThemesNet\ThemeOddBundle\ThemeOddBundle;
+namespace ContaoThemesNet\ThemeOddBundle;
 
 use Contao\Combiner;
 use Contao\File;
