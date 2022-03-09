@@ -13,7 +13,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pdir\ThemeOddBundle;
+namespace ContaoThemesNet\ThemeOddBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**

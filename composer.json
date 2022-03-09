@@ -40,7 +40,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Pdir\\ThemeOddBundle\\": "src/"
+      "ContaoThemesNet\\ThemeOddBundle\\": "src/"
     },
     "classmap": [
       "src/Resources/contao/"
@@ -53,7 +53,7 @@
     ]
   },
   "extra": {
-    "contao-manager-plugin": "Pdir\\ThemeOddBundle\\ContaoManagerPlugin"
+    "contao-manager-plugin": "ContaoThemesNet\\ThemeOddBundle\\ContaoManagerPlugin"
   },
   "funding": [
     {

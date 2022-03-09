@@ -13,7 +13,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pdir\ThemeOddBundle;
+namespace ContaoThemesNet\ThemeOddBundle;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pdir\ThemeOddBundle\Element;
+namespace ContaoThemesNet\ThemeOddBundle\Element;
 
 class SliderElement extends \ContentElement
 {
