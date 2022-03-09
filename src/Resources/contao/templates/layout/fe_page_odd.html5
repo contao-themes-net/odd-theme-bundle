@@ -3,35 +3,39 @@
 <head>
 
     <?php $this->block('head'); ?>
-    <meta charset="<?= $this->charset ?>">
-    <title><?= $this->title ?></title>
-    <base href="<?= $this->base ?>">
+        <meta charset="<?= $this->charset ?>">
+        <title><?= $this->title ?></title>
+        <base href="<?= $this->base ?>">
 
-    <?php $this->block('meta'); ?>
-    <meta name="robots" content="<?= $this->robots ?>">
-    <meta name="description" content="<?= $this->description ?>">
-    <meta name="generator" content="Contao Open Source CMS">
-    <?php $this->endblock(); ?>
+        <?php $this->block('meta'); ?>
+            <meta name="robots" content="<?= $this->robots ?>">
+            <meta name="description" content="<?= Contao\StringUtil::substr($this->description, 320) ?>">
+            <meta name="generator" content="Contao Open Source CMS">
+        <?php $this->endblock(); ?>
 
-    <style>
-        .nav-container.sloping {
-            transform: rotate(3deg);
-            width: calc(100% + 15px);
-            top: -50px;
-            left: -5px;
-        }
-        .nav-container.sloping.top-right {
-            transform: rotate(-3deg);
-        }
+        <?php if ($this->canonical): ?>
+            <link rel="canonical" href="<?= $this->canonical ?>">
+        <?php endif; ?>
 
-        #wrapper { visibility: hidden; }
-    </style>
+        <style>
+            .nav-container.sloping {
+                transform: rotate(3deg);
+                width: calc(100% + 15px);
+                top: -50px;
+                left: -5px;
+            }
+            .nav-container.sloping.top-right {
+                transform: rotate(-3deg);
+            }
 
-    <?= $this->viewport ?>
-    <?= $this->framework ?>
-    <?= $this->stylesheets ?>
-    <?= $this->mooScripts ?>
-    <?= $this->head ?>
+            #wrapper { visibility: hidden; }
+        </style>
+
+        <?= $this->viewport ?>
+        <?= $this->framework ?>
+        <?= $this->stylesheets ?>
+        <?= $this->mooScripts ?>
+        <?= $this->head ?>
     <?php $this->endblock(); ?>
 
     <link rel="stylesheet" type="text/css" media="all" href="<?php
@@ -48,78 +52,79 @@
         echo $combiner->getCombinedFile(); ?>">
 
 </head>
-<body id="top"<?php if ($this->class): ?> class="<?= $this->class ?>"<?php endif; ?><?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?> itemscope itemtype="http://schema.org/WebPage">
+<body id="top"<?php if ($this->class): ?> class="<?= $this->class ?>"<?php endif; ?><?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?>>
 
 <?php $this->block('body'); ?>
-<?php $this->sections('top'); ?>
+    <?php $this->sections('top'); ?>
 
-<div id="wrapper">
+    <div id="wrapper">
 
-    <?php $this->block('header'); ?>
-    <?php if ($this->header): ?>
-    <header id="header">
-        <div class="inside">
-            <?= $this->header ?>
-        </div>
-    </header>
-    <?php endif; ?>
-    <?php $this->endblock(); ?>
-
-    <?php $this->sections('before'); ?>
-
-    <?php $this->block('container'); ?>
-    <div id="container">
-
-        <?php $this->block('main'); ?>
-        <main id="main">
-            <div class="inside">
-                <?= $this->main ?>
-            </div>
-            <?php $this->sections('main'); ?>
-        </main>
+        <?php $this->block('header'); ?>
+            <?php if ($this->header): ?>
+                <header id="header">
+                    <div class="inside">
+                        <?= $this->header ?>
+                    </div>
+                </header>
+            <?php endif; ?>
         <?php $this->endblock(); ?>
 
-        <?php $this->block('left'); ?>
-        <?php if ($this->left): ?>
-        <aside id="left">
-            <div class="inside">
-                <?= $this->left ?>
+        <?php $this->sections('before'); ?>
+
+        <?php $this->block('container'); ?>
+            <div id="container">
+
+                <?php $this->block('main'); ?>
+                    <main id="main">
+                        <div class="inside">
+                            <?= $this->main ?>
+                        </div>
+                        <?php $this->sections('main'); ?>
+                    </main>
+                <?php $this->endblock(); ?>
+
+                <?php $this->block('left'); ?>
+                    <?php if ($this->left): ?>
+                        <aside id="left">
+                            <div class="inside">
+                                <?= $this->left ?>
+                            </div>
+                        </aside>
+                    <?php endif; ?>
+                <?php $this->endblock(); ?>
+
+                <?php $this->block('right'); ?>
+                    <?php if ($this->right): ?>
+                        <aside id="right">
+                            <div class="inside">
+                                <?= $this->right ?>
+                            </div>
+                        </aside>
+                    <?php endif; ?>
+                <?php $this->endblock(); ?>
+
             </div>
-        </aside>
-        <?php endif; ?>
         <?php $this->endblock(); ?>
 
-        <?php $this->block('right'); ?>
-        <?php if ($this->right): ?>
-        <aside id="right">
+        <?php $this->sections('after'); ?>
+
+        <?php $this->block('footer'); ?>
+        <?php if ($this->footer): ?>
+        <footer id="footer">
             <div class="inside">
-                <?= $this->right ?>
+                <?= $this->footer ?>
             </div>
-        </aside>
+        </footer>
         <?php endif; ?>
         <?php $this->endblock(); ?>
 
     </div>
-    <?php $this->endblock(); ?>
 
-    <?php $this->sections('after'); ?>
-
-    <?php $this->block('footer'); ?>
-    <?php if ($this->footer): ?>
-    <footer id="footer">
-        <div class="inside">
-            <?= $this->footer ?>
-        </div>
-    </footer>
-    <?php endif; ?>
-    <?php $this->endblock(); ?>
-
-</div>
-
-<?php $this->sections('bottom'); ?>
+    <?php $this->sections('bottom'); ?>
 <?php $this->endblock(); ?>
 
 <?= $this->mootools ?>
+<?= $this->jsonLdScripts ?>
 
 <script>
     window.FontAwesomeConfig = {
