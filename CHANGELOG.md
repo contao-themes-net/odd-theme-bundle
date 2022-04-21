@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.2) – 2022-04-21
+
+- [fix] fix slanted header for large screens
+
 ## [2.0.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.1) – 2022-03-09
 
 - [fix] add support for Symfony 5 public entry point

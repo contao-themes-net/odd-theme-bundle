@@ -445,6 +445,16 @@ header, footer {
   left: -5px;
   transform: rotate(3deg);
 
+  &:before {
+    position: absolute;
+    content: "";
+    top: -100%;
+    left: 0;
+    background: linear-gradient(to right, $navbar-top-background1, $navbar-top-background2);
+    width: 100%;
+    height: 100%;
+  }
+
   &.top-right {
     transform: rotate(-3deg);
 
