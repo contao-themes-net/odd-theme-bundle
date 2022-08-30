@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.2) – 2022-05-12
+## [2.0.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.2) – 2022-08-30
 
 - [fix] fix slanted header for large screens
 - [fix] fix warnings in dev mode and slider meta
