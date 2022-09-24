@@ -1,7 +1,7 @@
 {
   "name": "contao-themes-net/odd-theme-bundle",
   "type":"contao-bundle",
-  "description": "theme odd bundle for Contao 4",
+  "description": "theme odd bundle for Contao 5",
   "keywords":["contao","theme","template"],
   "homepage": "https://contao-themes.net",
   "license": "proprietary",
@@ -28,15 +28,18 @@
     "donate": "https://contao-themes.net/sponsoring.html"
   },
   "require": {
-    "php": "^7.2 || ^8.0",
-    "contao/core-bundle": "^4.9",
-    "madeyourday/contao-rocksolid-frontend-helper": "~2.0",
-    "terminal42/contao-folderpage": "^2.0",
-    "pdir/contao-theme-helper-bundle": "^1.0",
-    "contao-themes-net/theme-components-bundle": "^1.2"
+    "php": "^8.0",
+    "contao/core-bundle": "^5.0",
+    "madeyourday/contao-rocksolid-frontend-helper": "^2.2",
+    "terminal42/contao-folderpage": "^3.0",
+    "pdir/contao-theme-helper-bundle": "^1.5",
+    "contao-themes-net/theme-components-bundle": "^1.4"
   },
-  "conflict": {
-    "contao/core": "*"
+  "require-dev": {
+    "contao/manager-plugin": "^2.0",
+    "contao/easy-coding-standard": "^3.0",
+    "phpunit/phpunit": "^9.5",
+    "symfony/phpunit-bridge": "^6.0"
   },
   "autoload": {
     "psr-4": {
@@ -53,7 +56,7 @@
     ]
   },
   "extra": {
-    "contao-manager-plugin": "ContaoThemesNet\\ThemeOddBundle\\ContaoManagerPlugin"
+    "contao-manager-plugin": "ContaoThemesNet\\ThemeOddBundle\\ContaoManager\\Plugin"
   },
   "funding": [
     {
