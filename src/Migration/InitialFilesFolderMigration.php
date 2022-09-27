@@ -2,15 +2,27 @@
 
 declare(strict_types=1);
 
+/*
+ * pdir theme odd bundle for Contao Open Source CMS
+ *
+ * Copyright (C) 2022 pdir / digital agentur <develop@pdir.de>
+ *
+ * @package    theme odd bundle
+ * @link       https://github.com/contao-themes-net/odd-theme-bundle
+ * @license    pdir contao theme licence
+ * @author     pdir GmbH <develop@pdir.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace ContaoThemesNet\OddThemeBundle\Migration;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\CoreBundle\Migration\AbstractMigration;
 use Contao\CoreBundle\Migration\MigrationResult;
-use Contao\File;
 use Contao\Folder;
 use Contao\System;
-use Doctrine\DBAL\Connection;
 
 class InitialFilesFolderMigration extends AbstractMigration
 {
@@ -26,7 +38,7 @@ class InitialFilesFolderMigration extends AbstractMigration
 
     public function getName(): string
     {
-        return "Initial files folder migration - ODD Theme";
+        return 'Initial files folder migration - ODD Theme';
     }
 
     public function shouldRun(): bool
@@ -36,7 +48,7 @@ class InitialFilesFolderMigration extends AbstractMigration
         $rootDir = System::getContainer()->getParameter('kernel.project_dir');
 
         // If the folder exists we should do nothing
-        if (file_exists($rootDir . \DIRECTORY_SEPARATOR . $this->filesFolder)) {
+        if (file_exists($rootDir.\DIRECTORY_SEPARATOR.$this->filesFolder)) {
             return false;
         }
 
@@ -46,10 +58,9 @@ class InitialFilesFolderMigration extends AbstractMigration
     public function run(): MigrationResult
     {
         // copy files and folders to files
-        $folder = new Folder($this->contaoFolder . \DIRECTORY_SEPARATOR . $this->filesFolder);
+        $folder = new Folder($this->contaoFolder.\DIRECTORY_SEPARATOR.$this->filesFolder);
         $folder->copyTo($this->filesFolder);
 
-
-        return $this->createResult(true, "Initial theme files where copied.");
+        return $this->createResult(true, 'Initial theme files where copied.');
     }
 }

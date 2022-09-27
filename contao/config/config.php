@@ -1,9 +1,10 @@
 <?php
 
+use Contao\ArrayUtil;
 use ContaoThemesNet\ThemeOddBundle\Element\SliderElement;
 
 // Insert the mate theme category
-array_insert($GLOBALS['TL_CTE'], 1, array('themeOdd' => array()));
+ArrayUtil::arrayInsert($GLOBALS['TL_CTE'], 1, array('themeOdd' => array()));
 
 /**
  * Add content element
@@ -39,7 +40,7 @@ if (!empty($GLOBALS['tl_config']['theme_tags']) && \is_array($GLOBALS['tl_config
 /**
  * Backend Modules
  */
-array_insert($GLOBALS['BE_MOD']['contaoThemesNet'], 1, array
+ArrayUtil::arrayInsert($GLOBALS['BE_MOD']['contaoThemesNet'], 1, array
 (
     'oddThemeSetup' => array
     (
