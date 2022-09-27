@@ -28,7 +28,7 @@
     "donate": "https://contao-themes.net/sponsoring.html"
   },
   "require": {
-    "php": "^8.0",
+    "php": "^8.1",
     "contao/core-bundle": "^5.0",
     "madeyourday/contao-rocksolid-frontend-helper": "^2.2",
     "terminal42/contao-folderpage": "^3.0",
@@ -44,16 +44,7 @@
   "autoload": {
     "psr-4": {
       "ContaoThemesNet\\ThemeOddBundle\\": "src/"
-    },
-    "classmap": [
-      "src/Resources/contao/"
-    ],
-    "exclude-from-classmap": [
-      "src/Resources/contao/config/",
-      "src/Resources/contao/dca/",
-      "src/Resources/contao/languages/",
-      "src/Resources/contao/templates/"
-    ]
+    }
   },
   "extra": {
     "contao-manager-plugin": "ContaoThemesNet\\ThemeOddBundle\\ContaoManager\\Plugin"
