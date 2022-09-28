@@ -344,7 +344,7 @@ input, button {
 }
 
 // Kopfbild
-.headerImage {
+.header-image {
   position: relative;
 
   .caption {
@@ -373,7 +373,7 @@ input, button {
 }
 
 .skw-bl, .skw-br, .skw-tl, .skw-tr {
-  .headerImage h1 {
+  .header-image h1 {
     margin-top: -50px;
   }
 }
