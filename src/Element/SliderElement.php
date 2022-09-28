@@ -19,10 +19,12 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeOddBundle\Element;
 
 use Contao\BackendTemplate;
+use Contao\ContentElement;
 use Contao\FilesModel;
 use Contao\StringUtil;
+use Contao\System;
 
-class SliderElement extends \ContentElement
+class SliderElement extends ContentElement
 {
     /**
      * Template.
@@ -38,7 +40,7 @@ class SliderElement extends \ContentElement
      */
     public function generate()
     {
-        if (TL_MODE === 'BE') {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create(''))) {
             /** @var BackendTemplate|object $objTemplate */
             $objTemplate = new BackendTemplate('be_wildcard');
 
