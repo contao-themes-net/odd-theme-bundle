@@ -1,0 +1,12 @@
+{% extends "@Contao/content_element/image.html.twig" %}
+
+{% block wrapper %}
+  {% set attributes = attrs(attributes|default).addClass(['header-image']) %}
+  {{ parent() }}
+{% endblock %}
+
+{% block headline_component %}
+  <div class="caption">
+    {{ parent() }}
+  </div>
+{% endblock %}
