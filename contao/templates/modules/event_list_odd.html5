@@ -2,8 +2,8 @@
 
     <div class="datetime col-12 col-md-2">
         <?php $timestamp = strtotime($this->datetime) ?>
-        <div class="month"><?php echo $this->parseDate("M", $timestamp); ?></div>
-        <div class="day"><?php echo $this->parseDate("d", $timestamp); ?></div>
+        <div class="month">{{format_date::<?= $timestamp ?>::M}}</div>
+        <div class="day">{{format_date::<?= $timestamp ?>::d}}</div>
     </div>
 
     <div class="content col-md-10">
