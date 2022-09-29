@@ -33,6 +33,7 @@
     "madeyourday/contao-rocksolid-frontend-helper": "^2.2",
     "terminal42/contao-folderpage": "^3.0",
     "pdir/contao-theme-helper-bundle": "^1.5",
+    "pdir/contao-webtools": "^1.4",
     "contao-themes-net/theme-components-bundle": "^1.4"
   },
   "require-dev": {

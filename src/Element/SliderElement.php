@@ -47,7 +47,7 @@ class SliderElement extends ContentElement
             $objTemplate->title = $this->headline;
             $objTemplate->id = $this->id;
             $objTemplate->link = $this->name;
-            $objTemplate->text = StringUtil::toHtml5($this->text);
+            $objTemplate->text = StringUtil::encodeEmail($this->text);
 
             return $objTemplate->parse();
         }
