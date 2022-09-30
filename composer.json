@@ -35,7 +35,7 @@
     "pdir/contao-theme-helper-bundle": "^1.5",
     "pdir/contao-webtools": "^1.5",
     "contao-themes-net/theme-components-bundle": "^1.4",
-    "contao-dd/advanced-classes-bundle": "dev-contao5 as 1.5.0"
+    "contao-dd/advanced-classes-bundle": "1.5.0"
   },
   "require-dev": {
     "contao/manager-plugin": "^2.0",
