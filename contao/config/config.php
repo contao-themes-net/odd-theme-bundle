@@ -46,6 +46,6 @@ ArrayUtil::arrayInsert($GLOBALS['BE_MOD']['contaoThemesNet'], 1, array
     (
         'callback'          => 'ContaoThemesNet\\OddThemeBundle\\Module\\OddThemeSetup',
         'tables'            => array(),
-        'stylesheet'		=> 'bundles/pdirthemeodd/scss/backend.css'
+        'stylesheet'		=> 'bundles/contaothemesnetoddtheme/scss/backend.css'
     ),
 ));

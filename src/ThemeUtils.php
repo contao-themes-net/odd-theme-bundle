@@ -38,12 +38,12 @@ class ThemeUtils
     {
         // add stylesheets
         $combiner = new Combiner();
-        $combiner->add('bundles/pdirthemeodd/bootstrap/dist/css/bootstrap.min.css');
+        $combiner->add('bundles/contaothemesnetoddtheme/bootstrap/dist/css/bootstrap.min.css');
 
         if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
-            $combiner->add('bundles/pdirthemeodd/scss/odd_win.scss');
+            $combiner->add('bundles/contaothemesnetoddtheme/scss/odd_win.scss');
         } else {
-            $combiner->add('bundles/pdirthemeodd/scss/odd.scss');
+            $combiner->add('bundles/contaothemesnetoddtheme/scss/odd.scss');
         }
 
         return $combiner->getCombinedFile();
