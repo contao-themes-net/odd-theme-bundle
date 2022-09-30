@@ -16,7 +16,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\OddThemeBundle\DependencyInjection;
+namespace ContaoThemesNet\ThemeOddBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

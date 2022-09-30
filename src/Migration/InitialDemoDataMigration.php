@@ -16,7 +16,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\OddThemeBundle\Migration;
+namespace ContaoThemesNet\ThemeOddBundle\Migration;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\CoreBundle\Migration\AbstractMigration;

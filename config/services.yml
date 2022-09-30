@@ -9,7 +9,7 @@ services:
                 - ["setContainer", ["@service_container"]]
 
     # Migration
-    ContaoThemesNet\OddThemeBundle\Migration\:
+    ContaoThemesNet\ThemeOddBundle\Migration\:
         resource: "../src/Migration/*"
         autoconfigure: true
         autowire: true
