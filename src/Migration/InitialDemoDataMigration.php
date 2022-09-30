@@ -33,7 +33,7 @@ class InitialDemoDataMigration extends AbstractMigration
     private string $contaoFolder = 'vendor'.\DIRECTORY_SEPARATOR.'contao-themes-net'.\DIRECTORY_SEPARATOR.'odd-theme-bundle'.\DIRECTORY_SEPARATOR.'contao';
 
     private array $minTables = [
-        'tl_article', 'tl_content', 'tl_css_style_selector', 'tl_files', 'tl_form', 'tl_form_field', 'tl_image_size',
+        'tl_article', 'tl_content', 'tl_files', 'tl_form', 'tl_form_field', 'tl_image_size',
         'tl_image_size_item', 'tl_layout', 'tl_member', 'tl_module', 'tl_page', 'tl_theme',
     ];
 
