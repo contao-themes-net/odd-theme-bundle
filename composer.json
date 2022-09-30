@@ -44,11 +44,11 @@
   },
   "autoload": {
     "psr-4": {
-      "ContaoThemesNet\\ThemeOddBundle\\": "src/"
+      "ContaoThemesNet\\OddThemeBundle\\": "src/"
     }
   },
   "extra": {
-    "contao-manager-plugin": "ContaoThemesNet\\ThemeOddBundle\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "ContaoThemesNet\\OddThemeBundle\\ContaoManager\\Plugin"
   },
   "funding": [
     {

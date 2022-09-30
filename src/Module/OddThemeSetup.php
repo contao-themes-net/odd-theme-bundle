@@ -16,7 +16,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\ThemeOddBundle\Module;
+namespace ContaoThemesNet\OddThemeBundle\Module;
 
 use Contao\BackendModule;
 

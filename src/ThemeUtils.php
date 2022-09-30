@@ -16,7 +16,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\ThemeOddBundle;
+namespace ContaoThemesNet\OddThemeBundle;
 
 use Contao\Combiner;
 use Contao\StringUtil;

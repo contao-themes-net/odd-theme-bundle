@@ -1,7 +1,7 @@
 <?php
 
 use Contao\ArrayUtil;
-use ContaoThemesNet\ThemeOddBundle\Element\SliderElement;
+use ContaoThemesNet\OddThemeBundle\Element\SliderElement;
 
 // Insert the mate theme category
 ArrayUtil::arrayInsert($GLOBALS['TL_CTE'], 1, array('themeOdd' => array()));
@@ -44,7 +44,7 @@ ArrayUtil::arrayInsert($GLOBALS['BE_MOD']['contaoThemesNet'], 1, array
 (
     'oddThemeSetup' => array
     (
-        'callback'          => 'ContaoThemesNet\\ThemeOddBundle\\Module\\OddThemeSetup',
+        'callback'          => 'ContaoThemesNet\\OddThemeBundle\\Module\\OddThemeSetup',
         'tables'            => array(),
         'stylesheet'		=> 'bundles/pdirthemeodd/scss/backend.css'
     ),

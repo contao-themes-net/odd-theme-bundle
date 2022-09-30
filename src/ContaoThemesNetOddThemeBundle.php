@@ -16,7 +16,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\ThemeOddBundle;
+namespace ContaoThemesNet\OddThemeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -25,7 +25,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @author Philipp Seibt <seibt@pdir.de>
  */
-class PdirThemeOddBundle extends Bundle
+class ContaoThemesNetOddThemeBundle extends Bundle
 {
     public function getPath(): string
     {

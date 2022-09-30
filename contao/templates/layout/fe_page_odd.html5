@@ -38,7 +38,7 @@
         <?= $this->head ?>
     <?php $this->endblock(); ?>
 
-    <link rel="stylesheet" type="text/css" media="all" href="<?= ContaoThemesNet\ThemeOddBundle\ThemeUtils::getCombinedStylesheet(); // odd theme css optimization ?>">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= ContaoThemesNet\OddThemeBundle\ThemeUtils::getCombinedStylesheet(); // odd theme css optimization ?>">
 </head>
 <body id="top"<?php if ($this->class): ?> class="<?= $this->class ?>"<?php endif; ?><?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?>>
 

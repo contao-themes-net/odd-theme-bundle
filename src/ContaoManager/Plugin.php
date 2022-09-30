@@ -16,13 +16,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\ThemeOddBundle\ContaoManager;
+namespace ContaoThemesNet\OddThemeBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use ContaoThemesNet\ThemeOddBundle\PdirThemeOddBundle;
+use ContaoThemesNet\OddThemeBundle\ContaoThemesNetOddThemeBundle;
 use ContaoThemesNet\ThemeComponentsBundle\ThemeComponentsBundle;
 
 class Plugin implements BundlePluginInterface
@@ -33,7 +33,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create(PdirThemeOddBundle::class)
+            BundleConfig::create(ContaoThemesNetOddThemeBundle::class)
                 ->setLoadAfter([
                     ContaoCoreBundle::class,
                     ThemeComponentsBundle::class,
