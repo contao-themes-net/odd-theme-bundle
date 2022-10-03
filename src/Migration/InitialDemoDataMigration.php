@@ -41,7 +41,7 @@ class InitialDemoDataMigration extends AbstractMigration
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|\Doctrine\DBAL\Driver\Exception
      */
     public function shouldRun(): bool
     {
@@ -70,7 +70,7 @@ class InitialDemoDataMigration extends AbstractMigration
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|\Doctrine\DBAL\Driver\Exception
      */
     public function run(): MigrationResult
     {

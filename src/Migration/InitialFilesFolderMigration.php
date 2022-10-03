@@ -42,7 +42,7 @@ class InitialFilesFolderMigration extends AbstractMigration
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|\Doctrine\DBAL\Driver\Exception
      */
     public function shouldRun(): bool
     {
@@ -67,7 +67,7 @@ class InitialFilesFolderMigration extends AbstractMigration
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception|\Doctrine\DBAL\Driver\Exception
      */
     public function run(): MigrationResult
     {
