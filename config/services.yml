@@ -1,4 +1,8 @@
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
     _instanceof:
         Contao\CoreBundle\Framework\FrameworkAwareInterface:
             calls:
@@ -11,5 +15,8 @@ services:
     # Migration
     ContaoThemesNet\OddThemeBundle\Migration\:
         resource: "../src/Migration/*"
-        autoconfigure: true
-        autowire: true
+        arguments:
+            - '@contao.framework'
+            - '@database_connection'
+        tags:
+            - { name: contao.migration, priority: 99 }
