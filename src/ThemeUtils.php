@@ -24,26 +24,36 @@ use Contao\System;
 
 class ThemeUtils
 {
-    public static function getRootDir()
+    public string $themeFolder = 'bundles/contaothemesnetoddtheme/';
+    public string $scssFolder = 'scss/';
+
+    public static function getRootDir(): string
     {
         return System::getContainer()->getParameter('kernel.project_dir');
     }
 
-    public static function getWebDir()
+    public static function getWebDir(): string
     {
         return StringUtil::stripRootDir(System::getContainer()->getParameter('contao.web_dir'));
     }
 
-    public static function getCombinedStylesheet()
+    public static function getCombinedStylesheet($theme = null): string
     {
+        self::$scssFolder = self::$themeFolder . self::$scssFolder;
+
+        // for multi domain setup
+        if (null !== $theme) {
+            self::$scssFolder .= $theme.'/';
+        }
+
         // add stylesheets
         $combiner = new Combiner();
-        $combiner->add('bundles/contaothemesnetoddtheme/bootstrap/dist/css/bootstrap.min.css');
+        $combiner->add(self::$themeFolder.'bootstrap/dist/css/bootstrap.min.css');
 
         if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
-            $combiner->add('bundles/contaothemesnetoddtheme/scss/odd_win.scss');
+            $combiner->add(self::$scssFolder.'odd_win.scss');
         } else {
-            $combiner->add('bundles/contaothemesnetoddtheme/scss/odd.scss');
+            $combiner->add(self::$scssFolder.'odd.scss');
         }
 
         return $combiner->getCombinedFile();
