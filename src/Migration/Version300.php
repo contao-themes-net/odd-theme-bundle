@@ -32,6 +32,11 @@ class Version300 extends AbstractMigration
         $this->connection = $connection;
     }
 
+    public function getName(): string
+    {
+        return 'Version 300 - ODD Theme';
+    }
+
     /**
      * @throws Exception|\Doctrine\DBAL\Driver\Exception
      */
