@@ -66,6 +66,10 @@ class InitialDemoDataMigration extends AbstractMigration
             return false;
         }
 
+        if (!isset($schemaManager->listTableColumns('tl_article')['pdir_th_tag'])) {
+            return false;
+        }
+
         return true;
     }
 
