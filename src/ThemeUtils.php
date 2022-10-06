@@ -24,8 +24,8 @@ use Contao\System;
 
 class ThemeUtils
 {
-    public string $themeFolder = 'bundles/contaothemesnetoddtheme/';
-    public string $scssFolder = 'scss/';
+    static string $themeFolder = 'bundles/contaothemesnetoddtheme/';
+    static string $scssFolder = 'scss/';
 
     public static function getRootDir(): string
     {
@@ -43,7 +43,7 @@ class ThemeUtils
 
         // for multi domain setup
         if (null !== $theme) {
-            self::$scssFolder .= $theme.'/';
+            self::$scssFolder .= 'files/odd/scss/'.$theme.'/';
         }
 
         // add stylesheets
