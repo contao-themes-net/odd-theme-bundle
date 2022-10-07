@@ -2,7 +2,7 @@
 {% use "@Contao/component/_list.html.twig" %}
 {% use "@Contao/component/_figure_reference.html.twig" %}
 
-{% set attributes = attrs(attributes|default).addClass("content-#{type}--cols-#{items_per_row|default(4)} row references") %}
+{% set attributes = attrs(attributes|default).addClass("content-#{type}--cols-#{items_per_row|default(4)} references") %}
 
 {% block content %}
   {% with {items: images} %}{{ block('list_component') }}{% endwith %}

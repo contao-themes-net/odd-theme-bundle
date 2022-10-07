@@ -332,8 +332,8 @@
     }
   }
 
-  .ce_gallery ul {
-    &.cols_2, &.cols_3 {
+  .content-gallery {
+    &[class*="cols-2"], &[class*="cols-3"] {
       li {
         max-width: 100%;
       }
@@ -343,7 +343,7 @@
       }
     }
 
-    &.cols_4, &.cols_5, &.cols_6, &.cols_7, &.cols_8, &.cols_9, &.cols_10, &.cols_11, &.cols_12 {
+    &[class*="cols-4"], &[class*="cols-5"], &[class*="cols-6"], &[class*="cols-7"], &[class*="cols-8"], &[class*="cols-9"], &[class*="cols-10"], &[class*="cols-11"], &[class*="cols-12"] {
       li {
         max-width: 50%;
       }
