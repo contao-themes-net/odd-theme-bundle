@@ -64,6 +64,8 @@ class Version300 extends AbstractMigration
     {
         $this->connection->executeStatement("UPDATE tl_content SET customTpl = 'content_element/image/header_image_odd' WHERE customTpl = 'ce_image_headerimage_odd'");
 
+        $this->connection->executeStatement("UPDATE tl_content SET customTpl = 'content_element/gallery/gallery_references', galleryTpl = '' WHERE galleryTpl = 'gallery_default_references'");
+
         return $this->createResult(true);
     }
 }
