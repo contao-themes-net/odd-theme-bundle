@@ -52,7 +52,7 @@ class Version300 extends AbstractMigration
             return false;
         }
 
-        $test = $this->connection->fetchOne("SELECT id FROM tl_content WHERE customTpl = 'ce_image_headerimage_odd' LIMIT 1");
+        $test = $this->connection->fetchOne("SELECT id FROM tl_content WHERE customTpl = 'ce_image_headerimage_odd' OR galleryTpl = 'gallery_default_references' LIMIT 1");
 
         return false !== $test;
     }
