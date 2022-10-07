@@ -48,7 +48,7 @@ class Version300 extends AbstractMigration
             return false;
         }
 
-        if (!isset($schemaManager->listTableColumns('tl_content')['customtpl'])) {
+        if (!isset($schemaManager->listTableColumns('tl_content')['customtpl']) && !isset($schemaManager->listTableColumns('tl_content')['galleryTpl'])) {
             return false;
         }
 
