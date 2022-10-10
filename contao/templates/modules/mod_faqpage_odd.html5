@@ -3,11 +3,11 @@
 <?php $this->block('content'); ?>
 
 <?php foreach($this->faq as $category): ?>
-    <article class="<?= $category['class'] ?>">
+    <article>
         <h2><?= $category['headline'] ?></h2>
 
         <?php foreach ($category['items'] as $faq): ?>
-            <section class="<?= $faq->class ?> ce_accordionStart  ce_accordion block">
+            <section class="ce_accordionStart  ce_accordion block">
                 <div class="toggler ui-accordion-header ui-corner-top ui-state-default ui-accordion-icons">
                     <h3 id="<?= $faq->alias ?>"><?= $faq->question ?></h3>
                 </div>
@@ -48,3 +48,7 @@
 <?php endforeach; ?>
 
 <?php $this->endblock(); ?>
+
+<?php
+
+$this->addSchemaOrg($this->getSchemaOrgData());
