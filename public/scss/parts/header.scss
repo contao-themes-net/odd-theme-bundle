@@ -14,6 +14,10 @@
   padding-top: 155px;
 }
 
+.cto-toolbar--visible + #wrapper .nav-container {
+  margin-top: 40px;
+}
+
 .navbar {
   height: 100px;
   background: $navbar-background !important;
