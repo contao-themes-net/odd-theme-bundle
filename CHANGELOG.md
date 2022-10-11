@@ -12,7 +12,7 @@ Types of changes
 
 ## [2.0.4](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.4) – 2022-10-11
 
-- [Changed] now require terminal42/contao-folderpage version 3.*
+- [Changed] now require terminal42/contao-folderpage version 2.* or 3.*
 
 ## [2.0.3](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.3) – 2022-09-22
 
