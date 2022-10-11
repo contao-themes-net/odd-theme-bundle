@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [2.0.4](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.4) – 2022-10-11
+
+- [Changed] now require terminal42/contao-folderpage version 3.*
+
 ## [2.0.3](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.3) – 2022-09-22
 
 - [Changed] change templates for maklermodul bundle

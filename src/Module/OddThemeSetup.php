@@ -6,7 +6,7 @@ use ContaoThemesNet\ThemeOddBundle\ThemeUtils;
 
 class OddThemeSetup extends \BackendModule
 {
-    const VERSION = '2.0.3';
+    const VERSION = '2.0.4';
 
     protected $strTemplate = 'be_oddtheme_setup';
 
