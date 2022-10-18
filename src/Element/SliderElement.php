@@ -1,35 +1,53 @@
 <?php
 
-namespace ContaoThemesNet\ThemeOddBundle\Element;
+declare(strict_types=1);
+
+/*
+ * pdir theme odd bundle for Contao Open Source CMS
+ *
+ * Copyright (C) 2022 pdir / digital agentur <develop@pdir.de>
+ *
+ * @package    theme odd bundle
+ * @link       https://github.com/contao-themes-net/odd-theme-bundle
+ * @license    pdir contao theme licence
+ * @author     pdir GmbH <develop@pdir.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace ContaoThemesNet\OddThemeBundle\Element;
 
 use Contao\BackendTemplate;
+use Contao\ContentElement;
 use Contao\FilesModel;
 use Contao\StringUtil;
+use Contao\System;
 
-class SliderElement extends \ContentElement
+class SliderElement extends ContentElement
 {
     /**
-     * Template
+     * Template.
+     *
      * @var string
      */
     protected $strTemplate = 'ce_slider_element';
 
     /**
-     * Display a wildcard in the back end
+     * Display a wildcard in the back end.
      *
      * @return string
      */
     public function generate()
     {
-        if (TL_MODE == 'BE')
-        {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create(''))) {
             /** @var BackendTemplate|object $objTemplate */
             $objTemplate = new BackendTemplate('be_wildcard');
 
             $objTemplate->title = $this->headline;
             $objTemplate->id = $this->id;
             $objTemplate->link = $this->name;
-            $objTemplate->text = StringUtil::toHtml5($this->text);
+            $objTemplate->text = StringUtil::encodeEmail($this->text);
 
             return $objTemplate->parse();
         }
@@ -38,9 +56,9 @@ class SliderElement extends \ContentElement
     }
 
     /**
-     * Generate the content element
+     * Generate the content element.
      */
-    protected function compile()
+    protected function compile(): void
     {
         $this->Template->page = $this->odd_page;
         $this->Template->linkText = $this->odd_linkText;
@@ -62,8 +80,7 @@ class SliderElement extends \ContentElement
         }
 
         // overwrite link target
-        if ($this->target)
-        {
+        if ($this->target) {
             $this->Template->target = ' target="_blank"';
             $this->Template->rel = ' rel="noreferrer noopener"';
         }

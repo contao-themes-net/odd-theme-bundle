@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    ContaoThemesNet\OddThemeBundle\:
+        resource: ../src/
+
+    # Migration
+    ContaoThemesNet\OddThemeBundle\Migration\:
+        resource: "../src/Migration/*"
+        tags:
+            - { name: contao.migration, priority: 99 }

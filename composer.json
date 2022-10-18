@@ -1,7 +1,7 @@
 {
   "name": "contao-themes-net/odd-theme-bundle",
   "type":"contao-bundle",
-  "description": "theme odd bundle for Contao 4",
+  "description": "theme odd bundle for Contao 5",
   "keywords":["contao","theme","template"],
   "homepage": "https://contao-themes.net",
   "license": "proprietary",
@@ -28,32 +28,28 @@
     "donate": "https://contao-themes.net/sponsoring.html"
   },
   "require": {
-    "php": "^7.2 || ^8.0",
-    "contao/core-bundle": "^4.9",
-    "madeyourday/contao-rocksolid-frontend-helper": "~2.0",
-    "terminal42/contao-folderpage": "^2.0 || ^3.0",
-    "pdir/contao-theme-helper-bundle": "^1.0",
-    "contao-themes-net/theme-components-bundle": "^1.2"
+    "php": "^8.1",
+    "contao/core-bundle": "^5.0",
+    "madeyourday/contao-rocksolid-frontend-helper": "^2.2",
+    "terminal42/contao-folderpage": "^3.0",
+    "pdir/contao-theme-helper-bundle": "^1.5",
+    "pdir/contao-webtools": "^1.5",
+    "contao-themes-net/theme-components-bundle": "^1.4",
+    "contao-dd/advanced-classes-bundle": "^1.5"
   },
-  "conflict": {
-    "contao/core": "*"
+  "require-dev": {
+    "contao/manager-plugin": "^2.0",
+    "contao/easy-coding-standard": "^3.0",
+    "phpunit/phpunit": "^9.5",
+    "symfony/phpunit-bridge": "^6.0"
   },
   "autoload": {
     "psr-4": {
-      "ContaoThemesNet\\ThemeOddBundle\\": "src/"
-    },
-    "classmap": [
-      "src/Resources/contao/"
-    ],
-    "exclude-from-classmap": [
-      "src/Resources/contao/config/",
-      "src/Resources/contao/dca/",
-      "src/Resources/contao/languages/",
-      "src/Resources/contao/templates/"
-    ]
+      "ContaoThemesNet\\OddThemeBundle\\": "src/"
+    }
   },
   "extra": {
-    "contao-manager-plugin": "ContaoThemesNet\\ThemeOddBundle\\ContaoManagerPlugin"
+    "contao-manager-plugin": "ContaoThemesNet\\OddThemeBundle\\ContaoManager\\Plugin"
   },
   "funding": [
     {
@@ -69,5 +65,12 @@
     "pdir/maklermodul-bundle": "ODD Theme includes all styles for maklermodul bundle. / ODD Theme enthält Stylesheets für das Maklermodul Bundle.",
     "pdir/social-feed-bundle": "ODD Theme includes all styles for social feed bundle. / ODD Theme enthält Stylesheets für das Social Feed Bundle.",
     "pdir/animated-timeline-bundle": "Render content in a dynamic timeline. / Zeige Inhalte in einem dynamischen Zeitstrahl an."
+  },
+  "config": {
+    "allow-plugins": {
+      "contao-components/installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "contao/manager-plugin": true
+    }
   }
 }

@@ -1,0 +1,27 @@
+<div class="event layout_list<?= $this->classList ?> row" itemscope itemtype="http://schema.org/Event">
+
+    <div class="datetime col-12 col-md-2">
+        <?php $timestamp = strtotime($this->datetime) ?>
+        <div class="month">{{format_date::<?= $timestamp ?>::M}}</div>
+        <div class="day">{{format_date::<?= $timestamp ?>::d}}</div>
+    </div>
+
+    <div class="content col-md-10">
+        <?php if ($this->hasDetails): ?>
+            <h3 itemprop="name"><a href="<?= $this->href ?>" title="<?= $this->title ?> (<?php if ($this->day) echo $this->day . ', '; ?><?= $this->date ?><?php if ($this->time) echo ', ' . $this->time; ?>)"<?= $this->target ?> itemprop="url"><?= $this->link ?></a></h3>
+        <?php else: ?>
+            <h3 itemprop="name"><?= $this->title ?></h3>
+        <?php endif; ?>
+
+        <p class="time"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?= $this->date ?><?php if ($this->time): ?>, <?= $this->time ?><?php endif; ?></time></p>
+
+        <div class="ce_text block" itemprop="description">
+            <?= $this->teaser ?>
+        </div>
+
+        <?php if ($this->hasDetails): ?>
+            <p class="more"><a href="<?= $this->href ?>" title="<?= $this->readMore ?>"<?= $this->target ?> itemprop="url"><?= $GLOBALS['TL_LANG']['odd']['event_more_link'] ?> <span class="invisible"> <?= $this->link ?></span></a></p>
+        <?php endif; ?>
+    </div>
+
+</div>

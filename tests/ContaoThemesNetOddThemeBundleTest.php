@@ -16,21 +16,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\OddThemeBundle\Module;
+namespace ContaoThemesNet\OddThemeBundle\Tests;
 
-use Contao\BackendModule;
+use ContaoThemesNet\OddThemeBundle\DependencyInjection\ContaoThemesNetOddThemeExtension;
+use PHPUnit\Framework\TestCase;
 
-class OddThemeSetup extends BackendModule
+class ContaoThemesNetOddThemeBundleTest extends TestCase
 {
-    public const VERSION = '3.0.0';
-
-    protected $strTemplate = 'be_oddtheme_setup';
-
-    /**
-     * Generate the module.
-     */
-    protected function compile(): void
+    public function testCanBeInstantiated(): void
     {
-        $this->Template->version = self::VERSION;
+        $bundle = new ContaoThemesNetOddThemeExtension();
+
+        $this->assertInstanceOf('ContaoThemesNet\OddThemeBundle\ContaoThemesNetOddThemeExtension', $bundle);
     }
 }

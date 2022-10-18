@@ -16,21 +16,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\OddThemeBundle\Module;
+namespace ContaoThemesNet\OddThemeBundle;
 
-use Contao\BackendModule;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class OddThemeSetup extends BackendModule
+/**
+ * Configures the bundle.
+ *
+ * @author Philipp Seibt <seibt@pdir.de>
+ */
+class ContaoThemesNetOddThemeBundle extends Bundle
 {
-    public const VERSION = '3.0.0';
-
-    protected $strTemplate = 'be_oddtheme_setup';
-
-    /**
-     * Generate the module.
-     */
-    protected function compile(): void
+    public function getPath(): string
     {
-        $this->Template->version = self::VERSION;
+        return \dirname(__DIR__);
     }
 }
