@@ -24,8 +24,8 @@ use Contao\System;
 
 class ThemeUtils
 {
-    static string $themeFolder = 'bundles/contaothemesnetoddtheme/';
-    static string $scssFolder = 'scss/';
+    public static string $themeFolder = 'bundles/contaothemesnetoddtheme/';
+    public static string $scssFolder = 'scss/';
 
     public static function getRootDir(): string
     {
@@ -37,9 +37,9 @@ class ThemeUtils
         return StringUtil::stripRootDir(System::getContainer()->getParameter('contao.web_dir'));
     }
 
-    public static function getCombinedStylesheet($theme = null): string
+    public static function getCombinedStylesheet(null|bool|string $theme = null): string
     {
-        self::$scssFolder = self::$themeFolder . self::$scssFolder;
+        self::$scssFolder = self::$themeFolder.self::$scssFolder;
 
         // for multi domain setup
         if (null !== $theme) {

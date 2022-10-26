@@ -18,15 +18,15 @@ declare(strict_types=1);
 
 namespace ContaoThemesNet\OddThemeBundle\Tests;
 
-use ContaoThemesNet\OddThemeBundle\ContaoThemesNetOddThemeBundle;
+use ContaoThemesNet\OddThemeBundle\DependencyInjection\ContaoThemesNetOddThemeExtension;
 use PHPUnit\Framework\TestCase;
 
-class ContaoThemesNetOddThemeBundleTest extends TestCase
+class ContaoThemesNetOddThemeExtensionTest extends TestCase
 {
     public function testCanBeInstantiated(): void
     {
-        $bundle = new ContaoThemesNetOddThemeBundle();
+        $bundle = new ContaoThemesNetOddThemeExtension();
 
-        $this->assertInstanceOf('ContaoThemesNet\OddThemeBundle\ContaoThemesNetOddThemeBundle', $bundle);
+        $this->assertInstanceOf('ContaoThemesNet\OddThemeBundle\DependencyInjection\ContaoThemesNetOddThemeExtension', $bundle);
     }
 }

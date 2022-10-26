@@ -23,6 +23,7 @@ use Contao\ContentElement;
 use Contao\FilesModel;
 use Contao\StringUtil;
 use Contao\System;
+use Symfony\Component\HttpFoundation\Request;
 
 class SliderElement extends ContentElement
 {
