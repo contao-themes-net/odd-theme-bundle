@@ -23,7 +23,7 @@ use Contao\CoreBundle\Migration\MigrationResult;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 
-class Version200 extends AbstractMigration
+class ChangeLayoutTemplatesMigration extends AbstractMigration
 {
     private Connection $connection;
 
@@ -34,7 +34,7 @@ class Version200 extends AbstractMigration
 
     public function getName(): string
     {
-        return 'Version 200 - ODD Theme';
+        return 'Change Layout Templates - ODD Theme';
     }
 
     /**
