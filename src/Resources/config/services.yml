@@ -1,0 +1,6 @@
+services:
+    # Migration
+    ContaoThemesNet\OddThemeBundle\Migration\:
+        resource: "../src/Migration/*"
+        autoconfigure: true
+        autowire: true
