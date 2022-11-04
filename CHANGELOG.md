@@ -10,7 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [3.0.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.0.0) – 2022-09-25
+# [3.0.1](https://github.com/contao-themes-net/mate-theme-bundle/tree/3.0.1) – 2022-11-04
+
+- [Changed] Change migration order
+
+## [3.0.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.0.0) – 2022-10-18
 
 - [Changed] Increase Contao version to 5 only and PHP 8
 - [Added] Add migrations for demo data import (Setup without further steps, install and run migrations -> Done!)
