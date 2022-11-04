@@ -16,14 +16,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ContaoThemesNet\OddThemeBundle\DependencyInjection;
+namespace ContaoThemesNet\ThemeOddBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class ContaoThemesNetOddThemeExtension extends Extension
+class PdirThemeOddExtension extends Extension
 {
     /**
      * {@inheritdoc}

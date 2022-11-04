@@ -46,9 +46,9 @@ class ChangeLayoutTemplatesMigration extends AbstractMigration
             SELECT 
                 id 
             FROM 
-                tl_layout
+                tl_module
             WHERE 
-                template = 'fe_bootstrap_odd' 
+                type = 'bs_navbar' 
             LIMIT 1
         ");
 
@@ -62,42 +62,11 @@ class ChangeLayoutTemplatesMigration extends AbstractMigration
     {
         $this->connection->executeStatement("
             UPDATE 
-                tl_layout
+                tl_module
             SET 
-                template = 'fe_page_odd' 
+                type = 'navigation' 
             WHERE 
-                template = 'fe_bootstrap_odd'
-                AND cssClass LIKE ''
-        ");
-
-        $this->connection->executeStatement("
-            UPDATE 
-                tl_layout
-            SET 
-                template = 'fe_page_odd_left' 
-            WHERE 
-                template = 'fe_bootstrap_odd'
-                AND cssClass LIKE '%left-col-layout%'
-        ");
-
-        $this->connection->executeStatement("
-            UPDATE 
-                tl_layout
-            SET 
-                template = 'fe_page_odd_right' 
-            WHERE 
-                template = 'fe_bootstrap_odd'
-                AND cssClass LIKE '%right-col-layout%'
-        ");
-
-        $this->connection->executeStatement("
-            UPDATE 
-                tl_layout
-            SET 
-                template = 'fe_page_odd_three_columns' 
-            WHERE 
-                template = 'fe_bootstrap_odd'
-                AND cssClass LIKE '%left-right-col-layout%'
+                type = 'bs_navbar'
         ");
 
         return $this->createResult(true);

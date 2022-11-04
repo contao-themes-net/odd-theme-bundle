@@ -4,7 +4,7 @@ services:
         autowire: true
 
     # Migration
-    ContaoThemesNet\OddThemeBundle\Migration\:
+    ContaoThemesNet\ThemeOddBundle\Migration\:
         resource: "../../Migration/*"
         tags:
             - { name: contao.migration, priority: 99 }
