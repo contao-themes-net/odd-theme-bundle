@@ -23,7 +23,7 @@ use Contao\CoreBundle\Migration\MigrationResult;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 
-class Version300 extends AbstractMigration
+class Version200 extends AbstractMigration
 {
     private Connection $connection;
 
@@ -73,7 +73,7 @@ class Version300 extends AbstractMigration
                 template = 'fe_page_odd' 
             WHERE 
                 template = 'fe_bootstrap_odd'
-                OR cssClass LIKE ''
+                AND cssClass LIKE ''
         ");
 
         $this->connection->executeStatement("
@@ -83,7 +83,7 @@ class Version300 extends AbstractMigration
                 template = 'fe_page_odd_left' 
             WHERE 
                 template = 'fe_bootstrap_odd'
-                OR cssClass LIKE '%left-col-layout%'
+                AND cssClass LIKE '%left-col-layout%'
         ");
 
         $this->connection->executeStatement("
@@ -93,7 +93,7 @@ class Version300 extends AbstractMigration
                 template = 'fe_page_odd_right' 
             WHERE 
                 template = 'fe_bootstrap_odd'
-                OR cssClass LIKE '%right-col-layout%'
+                AND cssClass LIKE '%right-col-layout%'
         ");
 
         $this->connection->executeStatement("
@@ -103,7 +103,7 @@ class Version300 extends AbstractMigration
                 template = 'fe_page_odd_three_columns' 
             WHERE 
                 template = 'fe_bootstrap_odd'
-                OR cssClass LIKE '%left-right-col-layout%'
+                AND cssClass LIKE '%left-right-col-layout%'
         ");
 
         return $this->createResult(true);
