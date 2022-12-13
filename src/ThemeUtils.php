@@ -22,12 +22,7 @@ class ThemeUtils
         // add stylesheets
         $combiner = new Combiner();
         $combiner->add('bundles/pdirthemeodd/bootstrap/dist/css/bootstrap.min.css');
-
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            $combiner->add('bundles/pdirthemeodd/scss/odd_win.scss');
-        } else {
-            $combiner->add('bundles/pdirthemeodd/scss/odd.scss');
-        }
+        $combiner->add('bundles/pdirthemeodd/scss/odd.scss');
 
         return $combiner->getCombinedFile();
     }

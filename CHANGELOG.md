@@ -10,6 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [2.0.5](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.4) – 2022-12-13
+
+- [Fixed] Fix scss path in ThemeUtils.php
+- [Removed] Remove no longer used files (odd_win.scss)
+
 ## [2.0.4](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.4) – 2022-10-11
 
 - [Changed] now require terminal42/contao-folderpage version 2.* or 3.*
