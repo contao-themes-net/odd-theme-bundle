@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * pdir theme odd bundle for Contao Open Source CMS
  *
- * Copyright (C) 2022 pdir / digital agentur <develop@pdir.de>
+ * Copyright (C) 2023 pdir / digital agentur <develop@pdir.de>
  *
  * @package    theme odd bundle
  * @link       https://github.com/contao-themes-net/odd-theme-bundle
@@ -22,7 +22,7 @@ use Contao\BackendModule;
 
 class OddThemeSetup extends BackendModule
 {
-    public const VERSION = '3.0.1';
+    public const VERSION = '3.0.2';
 
     protected $strTemplate = 'be_oddtheme_setup';
 
