@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-# [3.1.0](https://github.com/contao-themes-net/mate-theme-bundle/tree/3.1.0) – 2023-02-13
+# [3.1.0](https://github.com/contao-themes-net/mate-theme-bundle/tree/3.1.0) – 2023-02-15
 
 - [Added] Add sql files for Contao 5.1
 
