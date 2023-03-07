@@ -12,7 +12,7 @@ Types of changes
 
 # [3.1.1](https://github.com/contao-themes-net/mate-theme-bundle/tree/3.1.1) – 2023-03-07
 
-- [fixed] warning in debug mode in sldier template
+- [Fixed] warning in debug mode in sldier template
 
 # [3.1.0](https://github.com/contao-themes-net/mate-theme-bundle/tree/3.1.0) – 2023-02-15
 
