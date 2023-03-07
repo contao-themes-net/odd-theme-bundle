@@ -32,7 +32,7 @@ Types of changes
 - [Added] Add migrations for demo data import (Setup without further steps, install and run migrations -> Done!)
 - [Removed] Cleanup older Contao SQL files
 
-# [2.0.6](https://github.com/contao-themes-net/mate-theme-bundle/tree/2.0.6) – 2023-03-07
+# [2.0.6](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.6) – 2023-03-07
 
 - [Fixed] warning in debug mode in slider template
 
