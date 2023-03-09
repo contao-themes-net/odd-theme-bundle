@@ -1,14 +1,7 @@
+<?php $size = unserialize($this->size)[2]?? '18'; # set default image size for picture if size is not set ?>
 <div class="<?= $this->class ?> block"<?= $this->cssID ?> <?php if ($this->style): ?>style="<?= $this->style ?>"<?php endif; ?>>
-
-    <?php
-    $size = unserialize($this->size)[2];
-    if($size == "") {
-        $size = '18';
-    }
-    ?>
-
     <div class="image">
-        {{picture::<?= $this->href ?>?size=<?= $size ?>&alt=<?= $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt'] ?>}}
+        {{picture::<?= $this->href ?>?size=<?= $size ?>&alt=<?= $this->metaImg ? $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt']: '' ?>}}
     </div>
 
     <div class="text">
