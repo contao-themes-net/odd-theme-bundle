@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-# [2.0.6](https://github.com/contao-themes-net/mate-theme-bundle/tree/2.0.6) – 2023-03-07
+## [2.0.6](https://github.com/contao-themes-net/mate-theme-bundle/tree/2.0.6) – 2023-03-09
 
 - [Fixed] warning in debug mode in slider template
 
