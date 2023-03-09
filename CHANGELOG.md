@@ -10,19 +10,19 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-# [3.1.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.1.1) – 2023-03-07
+## [3.1.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.1.1) – 2023-03-09
 
 - [Fixed] warning in debug mode in slider template
 
-# [3.1.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.1.0) – 2023-02-15
+## [3.1.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.1.0) – 2023-02-15
 
 - [Added] Add sql files for Contao 5.1
 
-# [3.0.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.0.2) – 2023-01-03
+## [3.0.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.0.2) – 2023-01-03
 
 - [Changed] Change favicon
 
-# [3.0.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.0.1) – 2022-12-08
+## [3.0.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.0.1) – 2022-12-08
 
 - [Changed] Change migration order
 
@@ -32,7 +32,7 @@ Types of changes
 - [Added] Add migrations for demo data import (Setup without further steps, install and run migrations -> Done!)
 - [Removed] Cleanup older Contao SQL files
 
-# [2.0.6](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.6) – 2023-03-07
+## [2.0.6](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.6) – 2023-03-09
 
 - [Fixed] warning in debug mode in slider template
 
