@@ -316,7 +316,7 @@ header, footer {
             padding-right: 20px;
           }
 
-          &:not(.last) {
+          &:not(:last-child) {
             margin-right: 30px;
           }
 

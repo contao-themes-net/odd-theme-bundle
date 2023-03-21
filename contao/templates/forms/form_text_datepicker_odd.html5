@@ -1,0 +1,36 @@
+<?php $this->extend('form_row'); ?>
+
+<?php $this->block('label'); ?>
+  <?php if ($this->label): ?>
+    <label for="ctrl_<?= $this->id ?>"<?php if ($this->class): ?> class="<?= $this->class ?>"<?php endif; ?>>
+      <?php if ($this->mandatory): ?>
+        <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?><span class="mandatory">*</span>
+      <?php else: ?>
+        <?= $this->label ?>
+      <?php endif; ?>
+    </label>
+  <?php endif; ?>
+<?php $this->endblock(); ?>
+
+<?php $this->block('field'); ?>
+  <?php if ($this->hasErrors()): ?>
+    <p class="error"><?= $this->getErrorAsString() ?></p>
+  <?php endif; ?>
+
+  <input type="<?= $this->type ?>" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="text datepicker<?php if ($this->hideInput): ?> password<?php endif; ?><?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>" value="<?= Contao\StringUtil::specialchars($this->value) ?>"<?= $this->getAttributes() ?>>
+<?php $this->endblock(); ?>
+
+<?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/contaothemesnetoddtheme/bootstrap-datepicker/bootstrap-datepicker.min.js|static'; ?>
+<?php if('de' === $GLOBALS['TL_LANGUAGE']) $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/contaothemesnetoddtheme/bootstrap-datepicker/bootstrap-datepicker.de.min.js|static'; ?>
+<?php $GLOBALS['TL_CSS'][] = 'bundles/contaothemesnetoddtheme/bootstrap-datepicker/bootstrap-datepicker.standalone.min.css|static'; ?>
+
+<?php $GLOBALS['TL_BODY'][] = "
+<script>
+jQuery(document).ready(function($) {
+  $('input.datepicker').datepicker({
+    language: '".$GLOBALS['TL_LANGUAGE']."',
+    format: 'yyyy-mm-dd'
+  });
+});
+</script>
+"; ?>

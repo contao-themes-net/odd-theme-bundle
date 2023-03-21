@@ -3,7 +3,7 @@ footer {
     background: $main-footer-background;
     padding: 50px 0;
 
-    .row > div:not(.last) {
+    .row > div:not(:last-child) {
       position: relative;
       border-right: 1px solid $main-footer-border-color;
     }
