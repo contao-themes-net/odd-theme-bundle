@@ -13,6 +13,7 @@ Types of changes
 ## [3.2.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.2.0) – 2023-03-15
 
 - [Added] Add datepicker (use template form_text_datepicker_odd.html5)
+- [Changed] Change news and event templates
 
 ## [3.1.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.1.1) – 2023-03-09
 

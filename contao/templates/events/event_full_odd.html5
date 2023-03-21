@@ -1,0 +1,42 @@
+<div class="event layout_full block<?= $this->class ?>">
+
+  <?php if (!$this->addImage): ?><h1><?= $this->title ?></h1><?php endif; ?>
+    <p class="info"><time datetime="<?= $this->datetime ?>"><?= $this->date ?><?php if ($this->time): ?>, <?= $this->time ?><?php endif; ?></time></p>
+
+  <?php if ($this->recurring): ?>
+    <p class="recurring"><?= $this->recurring ?><?php if ($this->until) echo ' ' . $this->until; ?>.</p>
+  <?php endif; ?>
+
+  <?php if ($this->hasDetails): ?>
+    <?= $this->details ?>
+  <?php else: ?>
+    <div class="ce_text block">
+      <?= $this->teaser ?>
+    </div>
+  <?php endif; ?>
+
+  <?php if ($this->location): ?>
+    <p class="location"><?= $this->locationLabel ?>: <?= $this->location ?></p>
+  <?php endif; ?>
+
+  <?php if ($this->enclosure): ?>
+    <ul class="enclosure">
+      <?php foreach ($this->enclosure as $enclosure): ?>
+        <li class="download-element ext-<?= $enclosure['extension'] ?>">
+          <a href="<?= $enclosure['href'] ?>" title="<?= $enclosure['title'] ?>"><?= $enclosure['link'] ?> <span class="size">(<?= $enclosure['filesize'] ?>)</span></a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
+
+</div>
+
+<?php
+
+$schemaOrg = $this->getSchemaOrgData();
+
+if ($this->hasDetails) {
+  $schemaOrg['description'] = $this->rawHtmlToPlainText($this->details);
+}
+
+$this->addSchemaOrg($schemaOrg);
