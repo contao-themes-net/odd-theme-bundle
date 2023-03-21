@@ -368,7 +368,7 @@
       margin: 0 auto;
     }
 
-    .main-footer .row > div:not(.last) {
+    .main-footer .row > div:not(:last-child) {
       border-right: none;
       border-bottom: 1px solid #484848;
       padding-bottom: 20px;
