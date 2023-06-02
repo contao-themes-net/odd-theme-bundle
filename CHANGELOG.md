@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.3.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.3.0) – 2023-06-02
+
+- [Added] Adding French translations (Thanks to [najbo](https://github.com/najbo))
+
 ## [3.2.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.2.0) – 2023-03-15
 
 - [Added] Add datepicker (use template form_text_datepicker_odd.html5)
