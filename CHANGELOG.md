@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.3.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.3.1) – 2023-07-14
+
+- [Fixed] Fix gallery pagination
+
 ## [3.3.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.3.0) – 2023-06-02
 
 - [Added] Adding French translations (Thanks to [najbo](https://github.com/najbo))
