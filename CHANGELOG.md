@@ -10,11 +10,15 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [2.0.7](https://github.com/contao-themes-net/mate-theme-bundle/tree/2.0.7) – 2023-08-01
+# [2.0.8](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.8) – 2023-09-20
+
+- [Fixed] Fix video element
+
+## [2.0.7](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.7) – 2023-08-01
 
 - [Fixed] Fix paths for multi domain setup
 
-## [2.0.6](https://github.com/contao-themes-net/mate-theme-bundle/tree/2.0.6) – 2023-03-09
+## [2.0.6](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.6) – 2023-03-09
 
 - [Fixed] warning in debug mode in slider template
 
