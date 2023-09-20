@@ -13,7 +13,7 @@ Types of changes
 # [2.0.8](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.8) – 2023-09-20
 
 - [Fixed] Fix video element
-- [Fixed] Fix styling for estate header image
+- [Fixed] Fix estate header image height
 
 ## [2.0.7](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.7) – 2023-08-01
 
