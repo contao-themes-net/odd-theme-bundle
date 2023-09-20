@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.3.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.3.2) – 2023-09-20
+
+- [Fixed] Fix youtube and video element
+
 ## [3.3.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.3.1) – 2023-07-14
 
 - [Fixed] Fix gallery pagination
