@@ -224,6 +224,10 @@ a.show-filter.btn, .hide-filter.btn {
   height: calc(100vh - 115px);
   font-family: $mainFont;
 
+  .ce_image {
+    height: 100%;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     background: rgba(25, 25, 25, 0.8);
     padding: 15px 30px;
@@ -232,6 +236,11 @@ a.show-filter.btn, .hide-filter.btn {
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
     text-transform: none;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -323,7 +332,7 @@ a.show-filter.btn, .hide-filter.btn {
 
       li {
         margin: 2px;
-        
+
         a {
           background: $oddColor2;
           color: #fff;
