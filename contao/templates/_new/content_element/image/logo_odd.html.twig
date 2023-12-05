@@ -1,0 +1,22 @@
+{% extends "@Contao/content_element/image.html.twig" %}
+{% use "@Contao/component/_picture.html.twig" %}
+
+{% block image %}
+  {% set img = figure.image.img %}
+  {% set defineProportions = img.width|default(false) and img.height|default(false) %}
+  {% set img_attributes = attrs(img_attributes|default)
+    .set('src', img.src)
+    .set('alt', figure.hasMetadata ? figure.metadata.alt : '')
+    .setIfExists('title', figure.hasMetadata ? (figure.metadata.title ?: null) : null)
+    .setIfExists('srcset', img.srcset is defined and img.srcset != img.src ? img.srcset : null)
+    .setIfExists('sizes', img.sizes|default)
+    .setIfExists('width', defineProportions ? img.width : null)
+    .setIfExists('height', defineProportions ? img.height : null)
+    .set('style', 'height:' ~ img.height ~ 'px;width:auto;')
+    .set('class', 'logo-transition')
+    .setIfExists('loading', img.loading|default)
+    .addClass(img.class|default)
+    .mergeWith(figure.options.img_attr|default)
+  %}
+  <img{{ img_attributes }}>
+{% endblock %}

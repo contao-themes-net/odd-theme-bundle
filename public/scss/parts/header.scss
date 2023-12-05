@@ -340,6 +340,10 @@ header, footer {
   }
 
   .nav-container {
+    .navbar-brand img {
+      transition: height .3s;
+    }
+
     &.stuck {
       .navbar {
         height: 60px;
@@ -350,6 +354,10 @@ header, footer {
         height: 60px;
         padding: 5px 0;
         width: auto;
+
+        &.logo-transition {
+          height: 60px !important;
+        }
       }
     }
   }

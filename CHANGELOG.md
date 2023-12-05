@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.4.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.4.0) – 2023-12-05
+
+- [Added] Add transition for logo (use logo_odd.html.twig template)
+
 ## [3.3.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.3.2) – 2023-09-21
 
 - [Fixed] Fix youtube and video element
