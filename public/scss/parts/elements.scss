@@ -369,3 +369,49 @@ blockquote {
     }
   }
 }
+
+.media.content-text {
+  display: block;
+  overflow: hidden;
+
+  &.hero.media--left figure {
+    float: left;
+  }
+
+  &.hero.media--right figure {
+    float: right;
+  }
+
+  &.hero.media--below .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &.media--left figure {
+    margin: 0 20px 20px 0;
+    float: left;
+  }
+
+  &.media--right figure {
+    margin: 0 0 20px 20px;
+    float: right;
+  }
+
+  &.media--below {
+    display: flex;
+    flex-wrap: wrap;
+
+    figure {
+      order: 2;
+      margin-top: 15px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 10px;
+    }
+
+    .rte {
+      order: 1;
+    }
+  }
+}
