@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.4.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.4.1) – 2024-03-13
+
+- [Fixed] Fix newsletter templates
+
 ## [3.4.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.4.0) – 2024-01-08
 
 - [Added] Add transition for logo (use logo_odd.html.twig template) [#56](https://github.com/contao-themes-net/odd-theme-bundle/issues/56)
