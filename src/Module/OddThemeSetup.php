@@ -22,7 +22,7 @@ use Contao\BackendModule;
 
 class OddThemeSetup extends BackendModule
 {
-    public const VERSION = '3.4.0';
+    public const VERSION = '3.5.0';
 
     protected $strTemplate = 'be_oddtheme_setup';
 
