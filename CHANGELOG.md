@@ -12,6 +12,7 @@ Types of changes
 
 ## [3.4.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.4.1) – 2024-03-13
 
+- [Added] Add same-height teaser boxes (add class `same-height` to teaser box element)
 - [Fixed] Fix newsletter templates
 
 ## [3.4.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.4.0) – 2024-01-08

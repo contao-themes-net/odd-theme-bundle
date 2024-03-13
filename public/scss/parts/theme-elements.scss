@@ -619,6 +619,23 @@ input, button {
   p {
     color: $oddColor5;
   }
+
+  &.same-height {
+    margin-bottom: 30px;
+
+    .inside {
+      height: 100%;
+      position: relative;
+      padding-bottom: 80px;
+    }
+
+    .pageLink {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      max-width: calc(100% - 40px);
+    }
+  }
 }
 
 // Content Box
