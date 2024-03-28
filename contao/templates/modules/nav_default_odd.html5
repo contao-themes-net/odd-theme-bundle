@@ -11,7 +11,7 @@
       </li>
     <?php else: ?>
       <li class="<?php if (!empty($item['subitems'])) echo 'dropdown '; ?><?php if ($item['class']) echo $item['class']; ?>">
-        <a href="<?= $item['href'] ?: './' ?>" title="<?= $item['pageTitle'] ?: $item['title'] ?>" class="<?php if ($item['class']) echo $item['class']; ?>" <?php if ($item['accesskey']) echo ' accesskey="' . $item['accesskey'] . '"'; ?><?= $item['target'] ?><?= $item['rel'] ?? '' ?><?php if (!empty($item['subitems'])) echo ' aria-haspopup="true"'; ?> itemprop="url">
+        <a href="<?= $item['href'] ?: './' ?>" title="<?= $item['pageTitle'] ?: $item['title'] ?>" class="<?php if ($item['class']) echo $item['class']; ?>"<?php if ('' !== $item['accesskey']): ?> accesskey="<?= $item['accesskey'] ?>"<?php endif; ?><?= $item['target'] ?><?= $item['rel'] ?? '' ?><?php if (!empty($item['subitems'])): ?> aria-haspopup="true"<?php endif; ?>>
           <span itemprop="name"><?= $item['link'] ?></span>
         </a>
         <?php if (!empty($item['subitems'])): ?>

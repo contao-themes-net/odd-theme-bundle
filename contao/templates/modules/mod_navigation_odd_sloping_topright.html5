@@ -23,7 +23,7 @@
                 data-target="#navbar-responsive-<?= $this->id ?>"
                 aria-controls="navbar-responsive-<?= $this->id ?>"
                 aria-expanded="false"
-                aria-label="<?= $this->togglerLabel ?>">
+                aria-label="Navigation">
             <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
         </button>
 
