@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+# [2.0.9](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.9) – 2024-xx-xx
+
+- [Fixed] Pagespeed and accessibility optimizations
+
 # [2.0.8](https://github.com/contao-themes-net/odd-theme-bundle/tree/2.0.8) – 2023-09-21
 
 - [Fixed] Fix video element
