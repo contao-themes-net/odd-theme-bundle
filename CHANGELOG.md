@@ -12,7 +12,7 @@ Types of changes
 
 ## [3.5.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.5.1) – 2024-xx-xx
 
-- [Fixed] Pagespeed optimizations
+- [Fixed] Pagespeed and accessibility optimizations
 
 ## [3.5.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.5.0) – 2024-03-13
 
