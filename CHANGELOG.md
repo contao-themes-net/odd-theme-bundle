@@ -10,9 +10,9 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [3.5.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.5.1) – 2024-xx-xx
+## [3.5.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.5.1) – 2024-06-18
 
-- [Fixed] Pagespeed and accessibility optimizations
+- [Changed] Update sql files (remove TMG from imprint)
 
 ## [3.5.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.5.0) – 2024-03-13
 
