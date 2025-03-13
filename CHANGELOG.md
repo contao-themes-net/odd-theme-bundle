@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.6.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.6.0) – 2025-03-xx
+
+- [Added] Add news slider (use news_slider_odd and mod_newslist_slider templates and place the news module within the content slider elements)
+
 ## [3.5.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.5.1) – 2024-06-18
 
 - [Changed] Update sql files (remove TMG from imprint)
