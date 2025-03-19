@@ -35,7 +35,8 @@
     "pdir/contao-theme-helper-bundle": "^1.5",
     "pdir/contao-webtools": "^1.5",
     "contao-themes-net/theme-components-bundle": "^1.4",
-    "contao-dd/advanced-classes-bundle": "^1.5"
+    "contao-dd/advanced-classes-bundle": "^1.5",
+    "scssphp/scssphp": "^1.0"
   },
   "require-dev": {
     "bamarni/composer-bin-plugin": "^1.5",
