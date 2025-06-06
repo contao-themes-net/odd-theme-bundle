@@ -10,10 +10,11 @@ body, .skewed-bg {
 }
 
 a {
-  color: var(--oddColor2);
+  color: var(--link-color);
+  transition: all .3s;
 
-  &:hover {
-    color: var(--oddColor3);
+  &:hover, &:focus {
+    color: var(--link-color-hover);
     text-decoration: none;
   }
 
@@ -34,6 +35,7 @@ a {
   margin: 10px 0 0;
   cursor: pointer;
   border-radius: 0;
+  transition: all .3s;
 
   &:hover {
     background: var(--button-background-hover);

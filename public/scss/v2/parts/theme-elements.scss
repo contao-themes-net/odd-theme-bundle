@@ -124,7 +124,7 @@
   margin: 50px 0;
 
   .inside {
-    background: var(--pricebox_background);
+    background: var(--pricebox-background);
     padding: 30px;
     border-radius: var(--borderRadius);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
@@ -133,81 +133,97 @@
   }
 
   &:nth-of-type(1) .inside {
-    border-top: 8px solid var(--pricebox_1_color);
+    border-top: var(--pricebox-1-border-top);
 
     .amount {
-      color: var(--pricebox_1_color);
+      color: var(--pricebox-1-color);
     }
 
     .first-link a {
       @extend .btn;
       margin: 15px 0;
-      background: var(--pricebox_1_color);
+      background: var(--pricebox-1-button-background);
+      color: var(--pricebox-1-button-color);
 
-      &:hover {
-        background: var(--pricebox_1_button_background_hover);
+      &:hover, &:focus {
+        background: var(--pricebox-1-button-background-hover);
+        color: var(--pricebox-1-button-color-hover);
       }
     }
 
     .second-link a {
-      color: var(--pricebox_1_color);
+      color: var(--pricebox-1-link-color);
+
+      &:hover, &:focus {
+        color: var(--link-color-hover);
+      }
     }
 
     .popular-label {
-      background: var(--pricebox_1_color);
-      color: var(--oddColor6);
+      background: var(--pricebox-1-button-background);
+      color: var(--pricebox-1-button-color);
     }
   }
 
   &:nth-of-type(2) .inside {
-    border-top: 8px solid var(--pricebox_2_color);
+    border-top: var(--pricebox-2-border-top);
 
     .amount {
-      color: var(--pricebox_2_color);
+      color: var(--pricebox-2-color);
     }
 
     .first-link a {
-      background: var(--pricebox_2_color);
-      color: var(--oddColor6);
+      background: var(--pricebox-2-button-background);
+      color: var(--pricebox-2-button-color);
 
-      &:hover {
-        background: var(--pricebox_2_button_background_hover);
+      &:hover, &:focus {
+        background: var(--pricebox-2-button-background-hover);
+        color: var(--pricebox-2-button-color-hover);
       }
     }
 
     .second-link a {
-      color: var(--pricebox_2_color);
+      color: var(--pricebox-2-link-color);
+
+      &:hover, &:focus {
+        color: var(--link-color-hover);
+      }
     }
 
     .popular-label {
-      background: var(--pricebox_2_color);
-      color: var(--oddColor6);
+      background: var(--pricebox-2-button-background);
+      color: var(--pricebox-2-button-color);
     }
   }
 
   &:nth-of-type(3) .inside {
-    border-top: 8px solid var(--pricebox_3_color);
+    border-top: var(--pricebox-3-border-top);
 
     .amount {
-      color: var(--pricebox_3_color);
+      color: var(--pricebox-3-color);
     }
 
     .first-link a {
-      background: var(--pricebox_3_color);
-      color: var(--oddColor6);
+      background: var(--pricebox-3-button-background);
+      color: var(--pricebox-3-button-color);
 
-      &:hover {
-        background: var(--pricebox_3_button_background_hover);
+      &:hover, &:focus {
+        background: var(--pricebox-3-button-background-hover);
+        color: var(--pricebox-3-button-color-hover);
       }
     }
 
     .second-link a {
-      color: var(--pricebox_3_color);
+      color: var(--pricebox-3-link-color);
+
+      &:hover, &:focus {
+        color: var(--link-color-hover);
+      }
     }
 
     .popular-label {
-      background: var(--pricebox_3_color);
-      color: var(--oddColor6);
+      background: var(--pricebox-3-button-background);
+      color: var(--pricebox-3-button-color);
     }
   }
 
@@ -219,7 +235,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    color: var(--pricebox_text_color);
+    color: var(--pricebox-text-color);
   }
 
   .price {
@@ -232,7 +248,7 @@
     }
 
     .label {
-      color: #808080;
+      color: var(--oddGrey);
     }
   }
 
@@ -243,7 +259,7 @@
       border-bottom: 2px solid var(--oddColor6);
       padding: 0 0 5px;
       margin: 0 0 5px;
-      color: var(--pricebox_text_color);
+      color: var(--pricebox-text-color);
     }
   }
 
@@ -265,11 +281,12 @@
     display: inline-block;
     padding: 5px 10px;
     margin-bottom: 15px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     font-family: var(--headingFont);
     border-radius: var(--borderRadius);
+    line-height: 1.2;
   }
 
   &.popular-box {

@@ -51,7 +51,7 @@ class ThemeUtils
         $combiner->add(self::$themeFolder.'bootstrap/dist/css/bootstrap.min.css');
 
         // Check for v2 or use old stylesheets
-        if ($isV2 = file_exists(self::getRootDir().'/files/mate/.v2') && null === $theme) {
+        if ($isV2 = file_exists(self::getRootDir().'/files/odd/.v2') && null === $theme) {
             if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
                 $combiner->add(self::$scssFolder.'v2/odd_win.scss');
             } else {

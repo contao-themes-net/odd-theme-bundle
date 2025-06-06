@@ -30,7 +30,7 @@
   .field.verwaltung_techn-objektnr_extern {
     display: inline-block;
     background: #fff;
-    color: var(--oddColor2);
+    color: var(--oddTextColor2);
     padding: 5px 15px;
     border: 1px solid var(--oddColor2);
     font-size: 1rem;
@@ -179,7 +179,7 @@
 #estate_filter_list {
   button {
     background: none;
-    color: var(--oddColor2);
+    color: var(--oddTextColor2);
     border: 1px solid var(--oddColor2);
     box-shadow: none;
     font-weight: 400;
@@ -251,7 +251,7 @@ a.show-filter.btn, .hide-filter.btn {
 
   .estate {
     h2 {
-      color: var(--oddColor2);
+      color: var(--oddTextColor2);
       border: none;
       height: inherit;
     }
@@ -332,13 +332,13 @@ a.show-filter.btn, .hide-filter.btn {
 
           &:hover {
             background: #fff;
-            color: var(--oddColor2);
+            color: var(--oddTextColor2);
           }
         }
 
         &.active a {
           background: #fff;
-          color: var(--oddColor2);
+          color: var(--oddTextColor2);
         }
       }
     }
@@ -388,7 +388,7 @@ a.show-filter.btn, .hide-filter.btn {
 
     svg {
       font-size: 2rem;
-      color: var(--oddColor2);
+      color: var(--oddTextColor2);
     }
   }
 

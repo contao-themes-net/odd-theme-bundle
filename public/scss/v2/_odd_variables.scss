@@ -23,6 +23,11 @@
   --oddColor5: #333333;
   --oddColor6: #FFFFFF;
   --oddColor7: #F8F8F8;
+  --oddGrey: #808080;
+
+  --oddTextColor1: var(--oddColor1);
+  --oddTextColor2: var(--oddColor2);
+  --oddTextColor3: var(--oddColor3);
 
   /* Primary + Page */
   --primaryColor: var(--oddColor2);
@@ -32,11 +37,13 @@
   --gradientPrimaryColor1: var(--oddColor3);
   --gradientPrimaryColor2: var(--oddColor1);
 
-  /* Buttons */
+  /* Buttons + Links */
   --button-background: var(--oddColor4);
   --button-color: var(--oddColor6);
   --button-background-hover: var(--oddColor3);
   --button-color-hover: var(--oddColor6);
+  --link-color: var(--oddTextColor2);
+  --link-color-hover: var(--oddTextColor3);
 
   /* Fonts */
   --mainFont: 'Muli', sans-serif;
@@ -51,11 +58,11 @@
   --h6-font-size: 0.9rem;
 
   --h1-color: var(--oddColor4);
-  --h2-color: var(--oddColor2);
-  --h3-color: var(--oddColor2);
-  --h4-color: var(--oddColor2);
-  --h5-color: var(--oddColor2);
-  --h6-color: var(--oddColor2);
+  --h2-color: var(--oddTextColor2);
+  --h3-color: var(--oddTextColor2);
+  --h4-color: var(--oddTextColor2);
+  --h5-color: var(--oddTextColor2);
+  --h6-color: var(--oddTextColor2);
 
   --header-image-background: rgba(25, 25, 25, 0.8);
   --header-image-color: rgba(255, 255, 255, 0.9);
@@ -66,14 +73,14 @@
   /* Content Slider */
   --slider-background: rgba(255, 255, 255, 0.8);
   --slider-headline-color: var(--oddColor5);
-  --slider-subheadline-color: var(--oddColor2);
+  --slider-subheadline-color: var(--oddTextColor2);
   --slider-text-color: var(--oddColor5);
   --slider-button-background: var(--oddColor2);
   --slider-button-color: var(--oddColor6);
   --slider-button-background-hover: var(--button-background-hover);
   --slider-button-color-hover: var(--button-color-hover);
   --slider-control-color: var(--oddColor5);
-  --slider-control-color-active: var(--oddColor2);
+  --slider-control-color-active: var(--oddTextColor2);
 
   /* Header and Navigation */
   --navbar-top-background1: var(--gradientPrimaryColor1);
@@ -82,8 +89,8 @@
 
   --navbar-background: var(--oddColor6);
   --nav-color: var(--oddColor5);
-  --nav-active-color: var(--oddColor2);
-  --nav-hover-color: var(--oddColor2);
+  --nav-active-color: var(--oddTextColor2);
+  --nav-hover-color: var(--oddTextColor2);
 
   --nav-dropdown-background: var(--oddColor2);
   --nav-dropdown-color: var(--oddColor6);
@@ -147,15 +154,30 @@
   --simplebox_color: var(--oddColor5);
 
   /* Price Box */
-  --pricebox_background: var(--oddColor6);
-  --pricebox_text_color: var(--oddColor5);
+  --pricebox-background: var(--oddColor6);
+  --pricebox-text-color: var(--oddColor5);
 
-  --pricebox_1_color: var(--oddColor2);
-  --pricebox_1_button_background_hover: var(--oddColor5);
+  --pricebox-1-color: var(--oddTextColor2);
+  --pricebox-1-button-background: var(--oddColor2);
+  --pricebox-1-button-color: #fff;
+  --pricebox-1-button-background-hover: var(--oddColor5);
+  --pricebox-1-button-color-hover: #fff;
+  --pricebox-1-link-color: var(--pricebox-1-color);
+  --pricebox-1-border-top: 8px solid var(--oddColor2);
 
-  --pricebox_2_color: var(--oddColor3);
-  --pricebox_2_button_background_hover: var(--oddColor5);
+  --pricebox-2-color: var(--oddTextColor3);
+  --pricebox-2-button-background: var(--oddColor3);
+  --pricebox-2-button-color: #fff;
+  --pricebox-2-button-background-hover: var(--oddColor5);
+  --pricebox-2-button-color-hover: #fff;
+  --pricebox-2-link-color: var(--pricebox-2-color);
+  --pricebox-2-border-top: 8px solid var(--oddColor3);
 
-  --pricebox_3_color: var(--oddColor1);
-  --pricebox_3_button_background_hover: var(--oddColor5);
+  --pricebox-3-color: var(--oddTextColor1);
+  --pricebox-3-button-background: var(--oddColor1);
+  --pricebox-3-button-color: #fff;
+  --pricebox-3-button-background-hover: var(--oddColor5);
+  --pricebox-3-button-color-hover: #fff;
+  --pricebox-3-link-color: var(--pricebox-3-color);
+  --pricebox-3-border-top: 8px solid var(--oddColor1);
 }

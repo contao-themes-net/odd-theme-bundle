@@ -5,7 +5,7 @@
  */
 
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['sliderElement'] = '{type_legend},type,headline,odd_subHeadline;{text_legend},text,odd_page,target,odd_linkText;{image_legend},addImage;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['sliderElement'] = '{type_legend},type,headline,odd_subHeadline;{text_legend},text,odd_page,target,odd_linkText;{image_legend},addImage;{template_legend:hide},customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 
 /**
  * Add fields to tl_content
