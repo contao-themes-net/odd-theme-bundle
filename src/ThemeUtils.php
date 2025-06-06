@@ -50,10 +50,19 @@ class ThemeUtils
         $combiner = new Combiner();
         $combiner->add(self::$themeFolder.'bootstrap/dist/css/bootstrap.min.css');
 
-        if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
-            $combiner->add(self::$scssFolder.'odd_win.scss');
+        // Check for v2 or use old stylesheets
+        if ($isV2 = file_exists(self::getRootDir().'/files/mate/.v2') && null === $theme) {
+            if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
+                $combiner->add(self::$scssFolder.'v2/odd_win.scss');
+            } else {
+                $combiner->add(self::$scssFolder.'v2/odd.scss');
+            }
         } else {
-            $combiner->add(self::$scssFolder.'odd.scss');
+            if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
+                $combiner->add(self::$scssFolder.'odd_win.scss');
+            } else {
+                $combiner->add(self::$scssFolder.'odd.scss');
+            }
         }
 
         return $combiner->getCombinedFile();
