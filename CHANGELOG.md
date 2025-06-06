@@ -10,8 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [3.5.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.5.2) – 2024-11-05
+## [3.6.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.6.0) – 2025-03-21
 
+- [Added] Add news slider (use news_slider_odd and mod_newslist_slider_odd templates and place the news module within the content slider elements)
+- [Fixed] Updated scssphp dependency to 1.0 for Contao 5.5 compatibility
 - [Fixed] Pagespeed optimizations
 
 ## [3.5.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.5.1) – 2024-06-18

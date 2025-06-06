@@ -1,0 +1,41 @@
+
+<div class="layout_latest ce_sliderElement arc_<?= $this->archive->id ?> block<?= $this->class ?>">
+
+  <div class="image">
+    <?php if ($this->hasText || $this->hasTeaser): ?>
+    <a href="<?= $this->link ?>" title="<?= $this->headline ?>">
+    <?php endif; ?>
+
+    <?php if ($this->addImage): ?>
+      <?php $this->insert('image', $this->arrData); ?>
+    <?php endif; ?>
+
+    <?php if ($this->hasText || $this->hasTeaser): ?>
+    </a>
+    <?php endif; ?>
+  </div>
+
+  <div class="text">
+    <div class="container">
+      <div class="inside">
+        <div class="subheadline"><time datetime="<?= $this->datetime ?>"><?= $this->date ?></time></div>
+        <h2><?= $this->linkHeadline ?></h2>
+
+        <?= $this->teaser ?>
+
+        <?php if ($this->hasText || $this->hasTeaser): ?>
+          <a class="readmore" href="<?= $this->link ?>"><?= $GLOBALS['TL_LANG']['MSC']['more'] ?></a>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<?php
+
+// This template is used as a news list template by default, so we only add
+// JSON-LD data in case this is a news article without a reader
+if (!$this->hasReader) {
+  $this->addSchemaOrg($this->getSchemaOrgData());
+}

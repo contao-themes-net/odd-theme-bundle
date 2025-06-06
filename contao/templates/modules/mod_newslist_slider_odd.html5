@@ -1,0 +1,1 @@
+<?= implode('', $this->articles) ?>
