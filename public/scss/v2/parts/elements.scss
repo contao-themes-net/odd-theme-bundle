@@ -18,14 +18,14 @@
 .mod_article.primary-bg {
   h1, h2, h3, h4, h5, h6 {
     &.ce_headline:after {
-      border-color: var(--oddColor6);
+      border-color: var(--primary-background-text-color);
     }
   }
 
   .ce_text {
     h1&, h2&, h3&, h4&, h5&, h6& {
       &:after {
-        border-color: var(--oddColor6);
+        border-color: var(--primary-background-text-color);
       }
     }
   }
@@ -91,13 +91,13 @@ h6 {
 .mod_article.primary-bg {
   h1, h2, h3, h4, h5, h6 {
     &.content-headline{
-      color: var(--oddColor6);
+      color: var(--primary-background-text-color);
     }
   }
 
   .ce_text {
     h1, h2, h3, h4, h5, h6 {
-      color: var(--oddColor6);
+      color: var(--primary-background-text-color);
     }
   }
 }
@@ -261,7 +261,7 @@ hr {
 
   th {
     background: var(--oddColor2);
-    color: var(--oddColor6);
+    color: var(--primary-background-text-color);
   }
 
   td {
@@ -295,7 +295,7 @@ blockquote {
     font-weight: 700;
     padding: 10px 15px;
 
-    &:hover {
+    &:hover, &:focus {
       background: var(--oddColor5);
       color: var(--oddColor6);
 

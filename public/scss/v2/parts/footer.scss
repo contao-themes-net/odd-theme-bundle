@@ -98,7 +98,7 @@ footer {
     z-index: 1000;
 
     svg {
-      color: var(--oddColor6);
+      color: var(--primary-background-text-color);
       font-size: 1.5rem;
     }
 
@@ -169,6 +169,10 @@ footer {
     border-radius: 0;
     color: var(--oddColor6);
 
+    &:focus-visible {
+      outline: 2px solid var(--oddColor6);
+    }
+
     &, &::placeholder {
       color: var(--newsletter-input-color);
     }
@@ -183,10 +187,14 @@ footer {
     border: var(--newsletter-button-border);
     margin-top: 0;
 
-    &:hover {
+    &:hover, &:focus {
       background: var(--newsletter-button-background-hover);
       color: var(--newsletter-button-color-hover);
       border: var(--newsletter-button-border-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--oddColor6);
     }
   }
 }

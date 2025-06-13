@@ -1,11 +1,5 @@
 
-<div class="layout_latest arc_<?= $this->archive->id ?> block<?= $this->class ?> col-xs-12 col-md-6">
-
-  <div class="image">
-    <?php if ($this->addImage): ?>
-        <?php $this->insert('picture_default', $this->picture); ?>
-    <?php endif; ?>
-  </div>
+<div class="layout_short arc_<?= $this->archive->id ?> block<?= $this->class ?> col-xs-12 col-md-6">
 
   <div class="content">
     <p class="info"><time datetime="<?= $this->datetime ?>"><?= $this->date ?></time> <?= $this->author ?></p>
@@ -20,7 +14,6 @@
       <p class="more"><?= $this->more ?></p>
     <?php endif; ?>
   </div>
-
 </div>
 
 <?php

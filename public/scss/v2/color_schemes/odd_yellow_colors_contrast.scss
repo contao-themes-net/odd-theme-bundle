@@ -15,18 +15,18 @@
 /* ============================= */
 
 :root {
-  --oddColor1: #A3CC00;
-  --oddColor2: #69BF44;
-  --oddColor3: #36B3A5;
+  --oddColor1: #FFDC2E;
+  --oddColor2: #FBBC0E;
+  --oddColor3: #FEA239;
   --oddColor4: #1F1F1F;
   --oddColor5: #333333;
   --oddColor6: #FFFFFF;
   --oddColor7: #F8F8F8;
   --oddGrey: #595959;
 
-  --oddTextColor1: #495C00;
-  --oddTextColor2: #326222;
-  --oddTextColor3: #1D635B;
+  --oddTextColor1: var(--oddColor5);
+  --oddTextColor2: var(--oddColor5);
+  --oddTextColor3: var(--oddColor5);
   --primary-background-text-color: #000;
 
   --button-background: var(--oddColor2);

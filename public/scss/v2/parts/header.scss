@@ -54,7 +54,7 @@
     color: var(--nav-color);
     display: inline-block;
 
-    &:hover {
+    &:hover, &:focus {
       color: var(--nav-hover-color);
 
       & + .dropdown-toggle {
@@ -182,7 +182,7 @@ header, footer {
     display: none;
   }
 
-  a:hover {
+  a:hover, &:focus {
     text-decoration: underline;
 
     svg {
@@ -194,7 +194,7 @@ header, footer {
 @media (min-width:992px) {
   .mod_navigation {
     &.subnav {
-      li.submenu:not(.active):not(.trail):hover ul {
+      li.submenu:not(.active):not(.trail):hover ul, li.submenu:not(.active):not(.trail):focus ul {
         display: none;
       }
 
@@ -203,8 +203,9 @@ header, footer {
       }
 
       .trail, .active {
-        + ul.level_2, + ul.level_3 {
+        ul.level_2, ul.level_3 {
           display: block;
+          border: none;
         }
       }
     }
@@ -212,15 +213,15 @@ header, footer {
 
   .nav-items {
     ul {
-      &.level_1 > li:hover .level_2 {
+      &.level_1 > li:hover .level_2, &.level_1 > li:focus-within .level_2 {
         display: block;
       }
 
-      &.level_2 > li:hover .level_3 {
+      &.level_2 > li:hover .level_3, &.level_2 > li:focus-within .level_3 {
         display: block;
       }
 
-      &.level_3 > li:hover .level_4 {
+      &.level_3 > li:hover .level_4, &.level_3 > li:focus-within .level_4 {
         display: block;
       }
     }
@@ -272,14 +273,13 @@ header, footer {
           padding: 0 15px;
         }
 
-        a:hover {
+        a:hover, &:focus {
           color: var(--nav-dropdown-hover-color);
           background: var(--nav-dropdown-hover-background);
         }
 
         strong {
           font-weight: 700;
-          color: #000;
         }
       }
     }
@@ -376,6 +376,10 @@ header, footer {
 .mod_navigation.subnav {
   background: var(--subnav-background);
 
+  .dropdown-toggle {
+    display: none;
+  }
+
   ul {
     padding: 0;
     margin: 0;
@@ -383,6 +387,7 @@ header, footer {
 
   ul li {
     display: block;
+    overflow: hidden;
 
     a, strong {
       color: var(--subnav-color);
@@ -403,7 +408,7 @@ header, footer {
         top: -1px;
       }
 
-      &.active, &:hover, &.trail:not(.submenu) {
+      &.active, &:hover, &:focus, &.trail:not(.submenu) {
         background: var(--subnav-hover-active-background);
         color: var(--subnav-hover-active-color);
 

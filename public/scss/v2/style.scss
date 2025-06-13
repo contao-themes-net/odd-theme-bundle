@@ -17,10 +17,6 @@ a {
     color: var(--link-color-hover);
     text-decoration: none;
   }
-
-  &:focus {
-    outline: 0;
-  }
 }
 
 .readmore, a.btn, .btn a, button, .btn-primary {
@@ -37,7 +33,7 @@ a {
   border-radius: 0;
   transition: all .3s;
 
-  &:hover {
+  &:hover, &:focus {
     background: var(--button-background-hover);
     color: var(--button-color-hover);
   }

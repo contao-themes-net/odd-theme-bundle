@@ -91,6 +91,18 @@ p.confirm {
     font-size: 1rem;
     padding: 5px 0;
   }
+
+  .toggler, .toggler h3 {
+    transition: all .3s;
+  }
+
+  .toggler:hover, .toggler:focus {
+    background: var(--oddColor5);
+
+    h3 {
+      color: var(--oddColor6);
+    }
+  }
 }
 
 .mod_faqlist {
@@ -114,7 +126,7 @@ p.confirm {
         font-weight: 400;
         padding: 10px;
 
-        &:hover {
+        &:hover, &:focus {
           background: var(--oddColor5);
           color: var(--oddColor6);
         }
@@ -143,7 +155,7 @@ p.confirm {
       padding: 5px 15px;
       display: block;
 
-      &:hover {
+      &:hover, &:focus {
         background: var(--oddColor5);
         color: var(--oddColor6);
 
@@ -224,7 +236,7 @@ p.confirm {
   max-width: 400px;
   height: 100%;
 
-  button.close:hover {
+  button.close:hover, button.close:focus {
     background: none;
   }
 
@@ -250,14 +262,9 @@ nav.pagination {
       margin: 2px;
       line-height: 1.25;
       background: var(--oddColor2);
-      color: var(--oddColor6);
+      color: var(--button-color);
 
-      &.active {
-        background: var(--oddColor6);
-        color: var(--oddTextColor2);
-      }
-
-      &:hover {
+      &.active, &:hover, &:focus {
         background: var(--oddColor6);
         color: var(--oddTextColor2);
       }

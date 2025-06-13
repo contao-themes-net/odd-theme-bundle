@@ -71,7 +71,7 @@
 .layout_full {
   time {
     background: var(--oddColor2);
-    color: var(--oddColor6);
+    color: var(--primary-background-text-color);
     padding: 5px 15px;
     display: inline-block;
   }
@@ -126,10 +126,10 @@
 
   th {
     background: var(--oddColor2);
-    color: var(--oddColor6);
+    color: var(--primary-background-text-color);
 
     a {
-      color: var(--oddColor6);
+      color: var(--primary-background-text-color);
       font-weight: 700;
     }
   }
@@ -230,7 +230,7 @@
     margin-bottom: 10px;
     margin-top: 15px;
     font-size: 0.75rem;
-    color: var(--oddColor3);
+    color: var(--oddTextColor3);
     font-weight: bold;
   }
 

@@ -32,6 +32,7 @@
   /* Primary + Page */
   --primaryColor: var(--oddColor2);
   --page_background: var(--oddColor7);
+  --primary-background-text-color: var(--oddColor6);
 
   /* Gradient */
   --gradientPrimaryColor1: var(--oddColor3);
@@ -105,8 +106,8 @@
   --navbar-mobile-dropdown-background: var(--oddColor7);
 
   --subnav-background: var(--oddColor6);
-  --subnav-color: var(--oddColor2);
-  --subnav-hover-active-color: var(--oddColor6);
+  --subnav-color: var(--oddTextColor2);
+  --subnav-hover-active-color: var(--primary-background-text-color);
   --subnav-hover-active-background: var(--oddColor2);
   --subnav-border-color: var(--oddColor2);
   --subnav-lvl2-color: var(--oddColor5);

@@ -1,0 +1,110 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+{% use "@Contao/component/_stylesheet.html.twig" %}
+
+{% block content %}
+  {% set slider_attributes = attrs()
+    .addClass('swiper')
+    .set('data-delay', delay)
+    .set('data-speed', speed)
+    .set('data-offset', offset)
+    .set('data-loop', loop)
+    .mergeWith(slider_attributes|default)
+  %}
+  <div{{ slider_attributes }}>
+    {% set slider_wrapper_attributes = attrs()
+      .addClass('swiper-wrapper')
+      .mergeWith(slider_wrapper_attributes|default)
+    %}
+    <div{{ slider_wrapper_attributes }}>
+      {% block slides %}
+        {% for element in nested_fragments %}
+          {% block slide %}
+            {% set slide_attributes = attrs()
+              .addClass('swiper-slide')
+              .mergeWith(slide_attributes|default)
+            %}
+            <div{{ slide_attributes }}>
+              {% block slide_inner %}
+                {{ content_element(element) }}
+              {% endblock %}
+            </div>
+          {% endblock %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+    {% block controls %}
+      {% if not as_editor_view %}
+        {% set button_prev_attributes = attrs()
+          .set('type', 'button')
+          .addClass('swiper-button-prev')
+          .mergeWith(button_prev_attributes|default)
+        %}
+        <button{{ button_prev_attributes }}></button>
+        {% set button_next_attributes = attrs()
+          .set('type', 'button')
+          .addClass('swiper-button-next')
+          .mergeWith(button_next_attributes|default)
+        %}
+        <button{{ button_next_attributes }}></button>
+
+      {% endif %}
+    {% endblock %}
+  </div>
+  {% set pagination_attributes = attrs()
+    .addClass('swiper-pagination')
+    .mergeWith(pagination_attributes|default)
+  %}
+  <div{{ pagination_attributes }}></div>
+{% endblock %}
+
+{% block script %}
+  {% add "swiper_js" to body %}
+    {% set script_attributes = attrs()
+      .setIfExists('nonce', csp_nonce('script-src'))
+      .mergeWith(script_attributes|default)
+    %}
+    <script src="{{ asset('js/swiper-bundle.min.js', 'contao-components/swiper') }}"></script>
+    <script{{ script_attributes }}>
+        (function() {
+            const swiper = document.querySelectorAll('.swiper');
+            swiper.forEach (el => {
+                let opts = {
+                    speed: el.getAttribute('data-speed'),
+                    initialSlide: el.getAttribute('data-offset'),
+                    loop: el.hasAttribute('data-loop'),
+                };
+
+                let delay = el.getAttribute('data-delay');
+                if (delay > 0) {
+                    opts['autoplay'] = {
+                        delay: delay,
+                        pauseOnMouseEnter: true,
+                    };
+                }
+
+                new Swiper(el, Object.assign({
+                  {% block init_options %}
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        prevEl: '.swiper-button-prev',
+                        nextEl: '.swiper-button-next',
+                    },
+                  {# Put custom options here #}
+                  {% endblock %}
+                }, opts));
+            });
+        })();
+    </script>
+  {% endadd %}
+{% endblock %}
+
+{% block style %}
+  {% add "swiper_css" to stylesheets %}
+    {% with {file: swiper_css_file|default(asset('css/swiper-bundle.min.css', 'contao-components/swiper'))} %}
+      {{ block('stylesheet_component') }}
+    {% endwith %}
+  {% endadd %}
+{% endblock %}

@@ -407,6 +407,12 @@
     margin-bottom: -20px;
   }
 
+  .swiper~.swiper-pagination {
+    bottom: inherit;
+    position: relative;
+    margin: -15px 0 20px;
+  }
+
   #wrapper {
     padding-top: 108px;
   }

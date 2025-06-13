@@ -15,38 +15,43 @@
 /* ============================= */
 
 :root {
-  --oddColor1: #A3CC00;
-  --oddColor2: #69BF44;
-  --oddColor3: #36B3A5;
+  --oddColor1: #DB3939;
+  --oddColor2: #B30000;
+  --oddColor3: #800000;
   --oddColor4: #1F1F1F;
   --oddColor5: #333333;
   --oddColor6: #FFFFFF;
   --oddColor7: #F8F8F8;
   --oddGrey: #595959;
+  --gradientPrimaryColor1: var(--oddColor3);
+  --gradientPrimaryColor2: var(--oddColor1);
 
-  --oddTextColor1: #495C00;
-  --oddTextColor2: #326222;
-  --oddTextColor3: #1D635B;
-  --primary-background-text-color: #000;
+  --oddTextColor1: var(--oddColor1);
+  --oddTextColor2: var(--oddColor2);
+  --oddTextColor3: var(--oddColor3);
+  --primary-background-text-color: #fff;
 
   --button-background: var(--oddColor2);
-  --button-color: #000;
-  --button-color-hover: #000;
+  --button-color: #fff;
+  --button-color-hover: #fff;
 
-  --navbar-top-color: #000;
-  --nav-dropdown-background: var(--oddColor2);
-  --nav-dropdown-color: #000;
+  --navbar-top-color: #fff;
 
-  --newsletter-button-border: 1px solid var(--oddColor5);
+
+  --newsletter-color: #fff;
+  --newsletter-input-background: #fff;
+  --newsletter-input-color: #000;
+  --newsletter-button-border: 1px solid #fff;
+  --newsletter-button-color: #fff;
   --newsletter-button-border-hover: 1px solid var(--oddColor5);
 
   --slider-button-color: var(--button-color);
   --slider-button-color-hover: var(--button-color-hover);
 
   --pricebox-1-color: #000;
-  --pricebox-1-button-color: #000;
+  --pricebox-1-button-color: #fff;
   --pricebox-2-color: #000;
-  --pricebox-2-button-color: #000;
+  --pricebox-2-button-color: #fff;
   --pricebox-3-color: #000;
-  --pricebox-3-button-color: #000;
+  --pricebox-3-button-color: #fff;
 }
