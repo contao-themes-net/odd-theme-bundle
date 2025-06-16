@@ -1,30 +1,45 @@
--- phpMyAdmin SQL Dump
--- version 4.9.11
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Erstellungszeit: 16. Jun 2025 um 17:13
--- Server-Version: 10.11.13-MariaDB-0ubuntu0.24.04.1-log
--- PHP-Version: 7.4.33-nmm7
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Datenbank: `d02e217d`
---
 
---
--- Daten für Tabelle `tl_article`
---
+CREATE TABLE `rememberme_token` (
+  `series` varchar(88) NOT NULL,
+  `value` varchar(88) NOT NULL,
+  `lastUsed` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `class` varchar(100) NOT NULL,
+  `username` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+CREATE TABLE `tl_article` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `sorting` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `author` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `inColumn` varchar(32) NOT NULL DEFAULT 'main',
+  `showTeaser` tinyint(1) NOT NULL DEFAULT 0,
+  `teaserCssID` varchar(255) NOT NULL DEFAULT '',
+  `teaser` text DEFAULT NULL,
+  `printable` varchar(255) NOT NULL DEFAULT '',
+  `customTpl` varchar(64) NOT NULL DEFAULT '',
+  `protected` tinyint(1) NOT NULL DEFAULT 0,
+  `groups` blob DEFAULT NULL,
+  `cssID` varchar(255) NOT NULL DEFAULT '',
+  `published` tinyint(1) NOT NULL DEFAULT 0,
+  `start` varchar(10) NOT NULL DEFAULT '',
+  `stop` varchar(10) NOT NULL DEFAULT '',
+  `pdir_th_domain` varchar(64) NOT NULL DEFAULT '',
+  `pdir_th_tag` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_article` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `author`, `inColumn`, `showTeaser`, `teaserCssID`, `teaser`, `printable`, `customTpl`, `protected`, `groups`, `cssID`, `published`, `start`, `stop`, `pdir_th_domain`, `pdir_th_tag`) VALUES(117, 91, 384, 1560848068, 'Slider', 'slider', 1, 'main', 0, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', NULL, '', 'mod_article_fullwidth', 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:23:\"slider fullwidth skw-br\";}', 1, '', '', '', '-');
 INSERT INTO `tl_article` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `author`, `inColumn`, `showTeaser`, `teaserCssID`, `teaser`, `printable`, `customTpl`, `protected`, `groups`, `cssID`, `published`, `start`, `stop`, `pdir_th_domain`, `pdir_th_tag`) VALUES(118, 120, 64, 1554459150, 'Header', 'article-header', 1, 'header', 0, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', NULL, '', 'mod_article_fullwidth', 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:6:\"skw-bl\";}', 1, '', '', '', '-');
@@ -108,16 +123,76 @@ INSERT INTO `tl_article` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `a
 INSERT INTO `tl_article` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `author`, `inColumn`, `showTeaser`, `teaserCssID`, `teaser`, `printable`, `customTpl`, `protected`, `groups`, `cssID`, `published`, `start`, `stop`, `pdir_th_domain`, `pdir_th_tag`) VALUES(257, 156, 128, 1749736048, 'Headerbild Layouts', 'headerbild-layouts', 1, 'main', 0, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', NULL, '', '', 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 1, '', '', '', '-');
 INSERT INTO `tl_article` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `author`, `inColumn`, `showTeaser`, `teaserCssID`, `teaser`, `printable`, `customTpl`, `protected`, `groups`, `cssID`, `published`, `start`, `stop`, `pdir_th_domain`, `pdir_th_tag`) VALUES(258, 159, 128, 1749736188, 'Zweispaltiges Layout', 'zweispaltiges-layout', 1, 'main', 0, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', NULL, '', '', 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 1, '', '', '', '-');
 INSERT INTO `tl_article` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `author`, `inColumn`, `showTeaser`, `teaserCssID`, `teaser`, `printable`, `customTpl`, `protected`, `groups`, `cssID`, `published`, `start`, `stop`, `pdir_th_domain`, `pdir_th_tag`) VALUES(259, 115, 384, 1749807509, 'Content Slider', 'content-slider', 1, 'main', 0, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', NULL, '', '', 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 1, '', '', '', '-');
+INSERT INTO `tl_article` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `author`, `inColumn`, `showTeaser`, `teaserCssID`, `teaser`, `printable`, `customTpl`, `protected`, `groups`, `cssID`, `published`, `start`, `stop`, `pdir_th_domain`, `pdir_th_tag`) VALUES(260, 165, 128, 1750088115, 'Datenschutz', 'datenschutz', 1, 'main', 0, '', NULL, '', '', 0, NULL, '', 1, '', '', '', '');
+INSERT INTO `tl_article` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `author`, `inColumn`, `showTeaser`, `teaserCssID`, `teaser`, `printable`, `customTpl`, `protected`, `groups`, `cssID`, `published`, `start`, `stop`, `pdir_th_domain`, `pdir_th_tag`) VALUES(261, 166, 128, 1750088447, 'Zugänglichkeit', 'barrierefreiheit', 1, 'main', 0, '', NULL, '', '', 0, NULL, '', 1, '', '', '', '');
 
---
--- Daten für Tabelle `tl_calendar`
---
+CREATE TABLE `tl_calendar` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `protected` tinyint(1) NOT NULL DEFAULT 0,
+  `allowComments` tinyint(1) NOT NULL DEFAULT 0,
+  `moderate` tinyint(1) NOT NULL DEFAULT 0,
+  `bbcode` tinyint(1) NOT NULL DEFAULT 0,
+  `requireLogin` tinyint(1) NOT NULL DEFAULT 0,
+  `disableCaptcha` tinyint(1) NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `groups` blob DEFAULT NULL,
+  `notify` varchar(32) NOT NULL DEFAULT 'notify_admin',
+  `sortOrder` varchar(32) NOT NULL DEFAULT 'ascending',
+  `perPage` smallint(5) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_calendar` (`id`, `protected`, `allowComments`, `moderate`, `bbcode`, `requireLogin`, `disableCaptcha`, `tstamp`, `title`, `jumpTo`, `groups`, `notify`, `sortOrder`, `perPage`) VALUES(4, 0, 0, 0, 0, 0, 0, 1539184097, 'Odd / Events', 110, NULL, 'notify_admin', 'ascending', 0);
 
---
--- Daten für Tabelle `tl_calendar_events`
---
+CREATE TABLE `tl_calendar_events` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `featured` tinyint(1) NOT NULL DEFAULT 0,
+  `addTime` tinyint(1) NOT NULL DEFAULT 0,
+  `addImage` tinyint(1) NOT NULL DEFAULT 0,
+  `overwriteMeta` tinyint(1) NOT NULL DEFAULT 0,
+  `fullsize` tinyint(1) NOT NULL DEFAULT 0,
+  `recurring` tinyint(1) NOT NULL DEFAULT 0,
+  `addEnclosure` tinyint(1) NOT NULL DEFAULT 0,
+  `target` tinyint(1) NOT NULL DEFAULT 0,
+  `published` tinyint(1) NOT NULL DEFAULT 0,
+  `noComments` tinyint(1) NOT NULL DEFAULT 0,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `author` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `startTime` bigint(20) DEFAULT NULL,
+  `endTime` bigint(20) DEFAULT NULL,
+  `startDate` bigint(20) DEFAULT NULL,
+  `endDate` bigint(20) DEFAULT NULL,
+  `pageTitle` varchar(255) NOT NULL DEFAULT '',
+  `robots` varchar(32) NOT NULL DEFAULT '',
+  `description` text DEFAULT NULL,
+  `canonicalLink` varchar(2048) NOT NULL DEFAULT '',
+  `location` varchar(255) NOT NULL DEFAULT '',
+  `address` varchar(255) NOT NULL DEFAULT '',
+  `teaser` text DEFAULT NULL,
+  `singleSRC` binary(16) DEFAULT NULL,
+  `alt` varchar(255) NOT NULL DEFAULT '',
+  `imageTitle` varchar(255) NOT NULL DEFAULT '',
+  `size` varchar(64) NOT NULL DEFAULT '',
+  `imageUrl` varchar(2048) NOT NULL DEFAULT '',
+  `caption` varchar(255) NOT NULL DEFAULT '',
+  `floating` varchar(32) NOT NULL DEFAULT 'above',
+  `repeatEach` varchar(64) NOT NULL DEFAULT '',
+  `repeatEnd` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `recurrences` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `enclosure` blob DEFAULT NULL,
+  `source` varchar(32) NOT NULL DEFAULT 'default',
+  `linkText` varchar(255) NOT NULL DEFAULT '',
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `articleId` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `url` varchar(2048) NOT NULL DEFAULT '',
+  `cssClass` varchar(255) NOT NULL DEFAULT '',
+  `start` varchar(10) NOT NULL DEFAULT '',
+  `stop` varchar(10) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_calendar_events` (`id`, `featured`, `addTime`, `addImage`, `overwriteMeta`, `fullsize`, `recurring`, `addEnclosure`, `target`, `published`, `noComments`, `pid`, `tstamp`, `title`, `alias`, `author`, `startTime`, `endTime`, `startDate`, `endDate`, `pageTitle`, `robots`, `description`, `canonicalLink`, `location`, `address`, `teaser`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `repeatEach`, `repeatEnd`, `recurrences`, `enclosure`, `source`, `linkText`, `jumpTo`, `articleId`, `url`, `cssClass`, `start`, `stop`) VALUES(22, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 4, 1552653016, 'Wohnhaus in der Rosengasse II', 'wohnhaus-in-der-rosengasse-ii', 1, 1520668800, 1520683200, 1520636400, NULL, '', '', NULL, '', '', '', '<p>Die volkstümliche Deutung, in der Gasse hätten die \"Rosen der Stadt\", also die leichten Mädchen, gewohnt, lässt sich nicht belegen. Das hier besuchte Haus scheint auch eher eine Wohnstätte von Kobolden und Hexenmeistern gewesen zu sein ...</p>', 0xb2d63e05467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', '', '', '', 'a:2:{s:4:\"unit\";s:5:\"years\";s:5:\"value\";s:1:\"2\";}', 2530526400, 16, '', 'default', '', 0, 0, '', '', '', '');
 INSERT INTO `tl_calendar_events` (`id`, `featured`, `addTime`, `addImage`, `overwriteMeta`, `fullsize`, `recurring`, `addEnclosure`, `target`, `published`, `noComments`, `pid`, `tstamp`, `title`, `alias`, `author`, `startTime`, `endTime`, `startDate`, `endDate`, `pageTitle`, `robots`, `description`, `canonicalLink`, `location`, `address`, `teaser`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `repeatEach`, `repeatEnd`, `recurrences`, `enclosure`, `source`, `linkText`, `jumpTo`, `articleId`, `url`, `cssClass`, `start`, `stop`) VALUES(23, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 4, 1552650339, 'Wohnhaus in der Rosengasse', 'wohnhaus-in-der-rosengasse', 1, 1538085600, 1538344799, 1538085600, 1538258400, '', '', NULL, '', '', '', '<p>Das hier besuchte Haus scheint auch eher eine Wohnstätte von Kobolden und Hexenmeistern gewesen zu sein ...</p>', 0xb0b560c5467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', '', '', '', 'a:2:{s:4:\"unit\";s:5:\"years\";s:5:\"value\";s:1:\"1\";}', 2145913200, 0, '', 'default', '', 0, 0, '', '', '', '');
@@ -126,15 +201,186 @@ INSERT INTO `tl_calendar_events` (`id`, `featured`, `addTime`, `addImage`, `over
 INSERT INTO `tl_calendar_events` (`id`, `featured`, `addTime`, `addImage`, `overwriteMeta`, `fullsize`, `recurring`, `addEnclosure`, `target`, `published`, `noComments`, `pid`, `tstamp`, `title`, `alias`, `author`, `startTime`, `endTime`, `startDate`, `endDate`, `pageTitle`, `robots`, `description`, `canonicalLink`, `location`, `address`, `teaser`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `repeatEach`, `repeatEnd`, `recurrences`, `enclosure`, `source`, `linkText`, `jumpTo`, `articleId`, `url`, `cssClass`, `start`, `stop`) VALUES(27, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 4, 1552653008, 'Jahnhalle', 'jahnhalle', 1, 1514156400, 1514847599, 1514156400, 1514761200, '', '', NULL, '', '', '', '<p>Die Turnhalle wurde 1893/95 im Auftrag des Turnvereins \"Frisch Auf\" errichtet.</p>', 0xc416cb81467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', '', '', 'above', 'a:2:{s:4:\"unit\";s:5:\"years\";s:5:\"value\";s:1:\"1\";}', 1767308399, 8, NULL, 'default', '', 0, 0, '', '', '', '');
 INSERT INTO `tl_calendar_events` (`id`, `featured`, `addTime`, `addImage`, `overwriteMeta`, `fullsize`, `recurring`, `addEnclosure`, `target`, `published`, `noComments`, `pid`, `tstamp`, `title`, `alias`, `author`, `startTime`, `endTime`, `startDate`, `endDate`, `pageTitle`, `robots`, `description`, `canonicalLink`, `location`, `address`, `teaser`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `repeatEach`, `repeatEnd`, `recurrences`, `enclosure`, `source`, `linkText`, `jumpTo`, `articleId`, `url`, `cssClass`, `start`, `stop`) VALUES(28, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 4, 1552652995, 'Zuckerwarenfabrik Elbdom', 'zuckerwarenfabrik-elbdom', 1, 1517659200, 1517659200, 1517612400, NULL, '', '', NULL, '', '', '', '<p>Das Hamburger Unternehmen \"Langelütje\" stellte hier neben verschiedenen Sorten Bonbons vorrangig Kunsthonig her.</p>', 0xb0ad636c467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', '', '', 'above', 'a:2:{s:4:\"unit\";s:5:\"years\";s:5:\"value\";s:1:\"1\";}', 1770120000, 8, NULL, 'default', '', 0, 0, '', '', '', '');
 
---
--- Daten für Tabelle `tl_comments`
---
+CREATE TABLE `tl_calendar_feed` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `language` varchar(32) NOT NULL DEFAULT '',
+  `calendars` blob DEFAULT NULL,
+  `format` varchar(32) NOT NULL DEFAULT 'rss',
+  `source` varchar(32) NOT NULL DEFAULT 'source_teaser',
+  `maxItems` smallint(5) UNSIGNED NOT NULL DEFAULT 25,
+  `feedBase` varchar(255) NOT NULL DEFAULT '',
+  `description` text DEFAULT NULL,
+  `imgSize` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tl_comments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `addReply` tinyint(1) NOT NULL DEFAULT 0,
+  `published` tinyint(1) NOT NULL DEFAULT 0,
+  `notified` tinyint(1) NOT NULL DEFAULT 0,
+  `notifiedReply` tinyint(1) NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `source` varchar(32) NOT NULL DEFAULT '',
+  `parent` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `date` varchar(64) NOT NULL DEFAULT '',
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `website` varchar(128) NOT NULL DEFAULT '',
+  `member` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `comment` text DEFAULT NULL,
+  `author` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `reply` text DEFAULT NULL,
+  `ip` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_comments` (`id`, `addReply`, `published`, `notified`, `notifiedReply`, `tstamp`, `source`, `parent`, `date`, `name`, `email`, `website`, `member`, `comment`, `author`, `reply`, `ip`) VALUES(1, 0, 1, 1, 0, 1638439654, 'tl_news', 11, '1638439654', 'Max Mustermann', 'seibt@pdir.de', 'https://www.pdir.de', 0, '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>', 0, NULL, '88.76.172.192');
 
---
--- Daten für Tabelle `tl_content`
---
+CREATE TABLE `tl_comments_notify` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `source` varchar(32) NOT NULL DEFAULT '',
+  `parent` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(128) NOT NULL DEFAULT '',
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `url` varchar(2048) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `addedOn` varchar(10) NOT NULL DEFAULT '',
+  `tokenRemove` varchar(32) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tl_content` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `ptable` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'tl_article',
+  `sorting` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `type` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'text',
+  `headline` varchar(255) NOT NULL DEFAULT 'a:2:{s:5:"value";s:0:"";s:4:"unit";s:2:"h2";}',
+  `text` mediumtext DEFAULT NULL,
+  `addImage` tinyint(1) NOT NULL DEFAULT 0,
+  `overwriteMeta` tinyint(1) NOT NULL DEFAULT 0,
+  `singleSRC` binary(16) DEFAULT NULL,
+  `alt` varchar(255) NOT NULL DEFAULT '',
+  `imageTitle` varchar(255) NOT NULL DEFAULT '',
+  `size` varchar(128) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `imageUrl` text DEFAULT NULL,
+  `fullsize` tinyint(1) NOT NULL DEFAULT 0,
+  `caption` varchar(255) NOT NULL DEFAULT '',
+  `floating` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'above',
+  `html` mediumtext DEFAULT NULL,
+  `listtype` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `listitems` blob DEFAULT NULL,
+  `tableitems` mediumblob DEFAULT NULL,
+  `summary` varchar(255) NOT NULL DEFAULT '',
+  `thead` tinyint(1) NOT NULL DEFAULT 0,
+  `tfoot` tinyint(1) NOT NULL DEFAULT 0,
+  `tleft` tinyint(1) NOT NULL DEFAULT 0,
+  `sortable` tinyint(1) NOT NULL DEFAULT 0,
+  `sortIndex` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `sortOrder` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'ascending',
+  `mooHeadline` varchar(255) NOT NULL DEFAULT '',
+  `mooStyle` varchar(255) NOT NULL DEFAULT '',
+  `mooClasses` varchar(255) NOT NULL DEFAULT '',
+  `highlight` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `code` text DEFAULT NULL,
+  `url` text DEFAULT NULL,
+  `target` char(1) NOT NULL DEFAULT '',
+  `titleText` varchar(255) NOT NULL DEFAULT '',
+  `linkTitle` varchar(255) NOT NULL DEFAULT '',
+  `embed` varchar(255) NOT NULL DEFAULT '',
+  `rel` varchar(64) NOT NULL DEFAULT '',
+  `useImage` tinyint(1) NOT NULL DEFAULT 0,
+  `multiSRC` blob DEFAULT NULL,
+  `useHomeDir` tinyint(1) NOT NULL DEFAULT 0,
+  `perRow` smallint(5) UNSIGNED NOT NULL DEFAULT 4,
+  `perPage` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `numberOfItems` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `sortBy` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `metaIgnore` tinyint(1) NOT NULL DEFAULT 0,
+  `galleryTpl` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `customTpl` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `playerSRC` blob DEFAULT NULL,
+  `youtube` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `vimeo` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `posterSRC` binary(16) DEFAULT NULL,
+  `playerSize` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `sliderDelay` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `sliderSpeed` int(10) UNSIGNED NOT NULL DEFAULT 300,
+  `sliderStartSlide` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `sliderContinuous` tinyint(1) NOT NULL DEFAULT 0,
+  `cteAlias` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `articleAlias` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `article` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `form` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `module` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `protected` tinyint(1) NOT NULL DEFAULT 0,
+  `groups` blob DEFAULT NULL,
+  `cssID` varchar(255) NOT NULL DEFAULT '',
+  `invisible` tinyint(1) NOT NULL DEFAULT 0,
+  `start` varchar(10) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `stop` varchar(10) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `playerAspect` varchar(8) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `inline` tinyint(1) NOT NULL DEFAULT 0,
+  `youtubeOptions` text DEFAULT NULL,
+  `overwriteLink` tinyint(1) NOT NULL DEFAULT 0,
+  `playerOptions` text DEFAULT NULL,
+  `vimeoOptions` text DEFAULT NULL,
+  `playerStart` varchar(16) NOT NULL DEFAULT '',
+  `playerStop` varchar(16) NOT NULL DEFAULT '',
+  `playerColor` varchar(6) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `playerPreload` varchar(8) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `splashImage` tinyint(1) NOT NULL DEFAULT 0,
+  `playerCaption` varchar(255) NOT NULL DEFAULT '',
+  `ct_sliderElement_playerSRC` blob DEFAULT NULL,
+  `ct_sliderElement_subHeadline` varchar(255) NOT NULL DEFAULT '',
+  `ct_sliderElement_target` char(1) NOT NULL DEFAULT '',
+  `ct_sliderElement_linkText` varchar(255) NOT NULL DEFAULT '',
+  `ct_sliderElement_page` varchar(255) NOT NULL DEFAULT '',
+  `ct_wrapper_name` text DEFAULT NULL,
+  `ct_teaserBox_customTpl` varchar(64) NOT NULL DEFAULT '',
+  `ct_teaserBox_pageTitle` text DEFAULT NULL,
+  `ct_teaserBox_pageText` text DEFAULT NULL,
+  `ct_teaserBox_page` text DEFAULT NULL,
+  `ct_priceBox_customTpl` varchar(64) NOT NULL DEFAULT '',
+  `ct_popularPriceBox` varchar(50) NOT NULL DEFAULT '',
+  `ct_priceBox_linkText2` text DEFAULT NULL,
+  `ct_priceBox_link2` text DEFAULT NULL,
+  `ct_priceBox_linkText1` text DEFAULT NULL,
+  `ct_priceBox_link1` text DEFAULT NULL,
+  `ct_priceLabel` varchar(50) NOT NULL DEFAULT '',
+  `ct_price` varchar(20) NOT NULL DEFAULT '',
+  `ct_featureElement_customTpl` varchar(64) NOT NULL DEFAULT '',
+  `ct_iconLink` text DEFAULT NULL,
+  `ct_featureIcon` varchar(64) NOT NULL DEFAULT '',
+  `ct_contentBox_customTpl` varchar(64) NOT NULL DEFAULT '',
+  `ct_contentBox_pageTitle` text DEFAULT NULL,
+  `ct_contentBox_pageText` text DEFAULT NULL,
+  `ct_contentBox_page` text DEFAULT NULL,
+  `advancedCss` varchar(255) NOT NULL DEFAULT '',
+  `odd_subHeadline` text DEFAULT NULL,
+  `odd_linkText` text DEFAULT NULL,
+  `odd_page` text DEFAULT NULL,
+  `data` text DEFAULT NULL,
+  `markdownSource` varchar(12) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'sourceText',
+  `showPreview` tinyint(1) NOT NULL DEFAULT 0,
+  `unfilteredHtml` mediumtext DEFAULT NULL,
+  `closeSections` tinyint(1) NOT NULL DEFAULT 0,
+  `sectionHeadline` varchar(255) NOT NULL DEFAULT 'a:2:{s:5:"value";s:0:"";s:4:"unit";s:2:"h2";}',
+  `subline` text DEFAULT NULL,
+  `headline_inline` char(1) NOT NULL DEFAULT '',
+  `subheadline` char(1) NOT NULL DEFAULT '',
+  `com_moderate` tinyint(1) NOT NULL DEFAULT 0,
+  `com_bbcode` tinyint(1) NOT NULL DEFAULT 0,
+  `com_disableCaptcha` tinyint(1) NOT NULL DEFAULT 0,
+  `com_requireLogin` tinyint(1) NOT NULL DEFAULT 0,
+  `com_order` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'ascending',
+  `com_perPage` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `com_template` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `odd_linkTitle` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(382, 153, 'tl_article', 384, 1511280898, 'text', 'a:2:{s:4:\"unit\";s:2:\"h1\";s:5:\"value\";s:0:\"\";}', '<h1>h1-Überschrift</h1>\n<h2>h2-Überschrift</h2>\n<h3>h3-Überschrift</h3>\n<h4>h4-Überschrift</h4>\n<h5>h5-Überschrift</h5>\n<h6>h6-Überschrift</h6>', 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(399, 12, 'tl_news', 128, 1552650130, 'text', 'a:2:{s:4:\"unit\";s:2:\"h1\";s:5:\"value\";s:0:\"\";}', '<p>Das Kasernengelände in Meißen-Bohnitzsch wurde 1936 angelegt und wurde ab Mai 1945 von der Sowjetunion genutzt. Unter anderem war das 7. Garde-Panzerregiment der GSSD hier untergebracht.</p>', 0, 0, 0x6c880b87002611e88700408d5c22fa41, '', '', 'a:3:{i:0;s:3:\"300\";i:1;s:0:\"\";i:2;s:12:\"proportional\";}', '', 0, '', 'left', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
@@ -192,7 +438,7 @@ INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `h
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(596, 173, 'tl_article', 312, 1539335038, 'module', '', NULL, 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 405, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(597, 173, 'tl_article', 316, 1539335046, 'module', '', NULL, 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 406, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(599, 173, 'tl_article', 192, 1749742921, 'text', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:17:\"Test-Zugangsdaten\";}', '<p><strong>Username:</strong> j.smith<br><strong>Password:</strong> johnsmith</p>\n<p><strong>Username:</strong> d.evans<br><strong>Password:</strong> donnaevans</p>', 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
-INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(600, 177, 'tl_article', 128, 1525853618, 'text', 'a:2:{s:4:\"unit\";s:2:\"h1\";s:5:\"value\";s:9:\"Impressum\";}', '<p>Inhaber der Domain www.example-domain.de</p>\n<p><strong>Firma</strong><br>Musterstraße 12<br>00000 Musterhausen</p>\n<p>Telefon: +49 (0)1234 / 5678910<br>E-Mail: <a href=\"mailto:info@example.de\">info@example.de</a></p>\n<p>&nbsp;</p>', 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:13:\"bordered-left\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(600, 177, 'tl_article', 128, 1750089849, 'text', 'a:2:{s:4:\"unit\";s:2:\"h1\";s:5:\"value\";s:9:\"Impressum\";}', '<p>Verantwortlicher Diensteanbieter,</p>\n<p>Inhaber der Domain {{env::host}}</p>\n<p><strong>Firma</strong><br>Musterstraße 12<br>00000 Musterhausen</p>\n<p>Telefon: +49 (0)1234 / 5678910<br>E-Mail: <a href=\"mailto:info@example.de\">info@example.de</a></p>\n<p>&nbsp;</p>', 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:13:\"bordered-left\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(601, 176, 'tl_article', 128, 1553877228, 'headline', 'a:2:{s:4:\"unit\";s:2:\"h1\";s:5:\"value\";s:11:\"Anwendungen\";}', '<p>Für das, wie in den folgenden Formularen, dargestellte Upload-Feld, muss das Template <strong>form_mate_upload</strong> im Formulargenerator bei dem jeweiligen Element ausgewählt werden.</p>', 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:16:\"bordered-heading\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(602, 176, 'tl_article', 256, 1539346665, 'form', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:30:\"Formular &#40;tabellenlos&#41;\";}', NULL, 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 6, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(604, 178, 'tl_article', 128, 1511778265, 'text', 'a:2:{s:4:\"unit\";s:2:\"h1\";s:5:\"value\";s:30:\"Ihre Anfrage wurde übertragen\";}', '<p>Ihre Anfrage wurde erfolgreich versendet und wir werden uns in Kürze mit Ihnen in Verbindung setzen.</p>', 0, 0, NULL, '', '', '', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:13:\"bordered-left\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
@@ -494,42 +740,113 @@ INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `h
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1184, 1180, 'tl_content', 512, 1749828695, 'sliderElement', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:13:\"Keramikfabrik\";}', '<p>Bei der Produktion von Kachelöfen, Wandplatten, Porzellanen und Schamotte war Meißen um 1900 führend in Deutschland. Die für Kachelöfen entwickelte Meißner Patentkachel war wohl in den meisten deutschen Wohnzimmern zu finden.</p>', 1, 0, 0xae24b6cc467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:2:\"24\";}', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', 'ce_slider_element_bf', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', 'Industrie', 'Mehr dazu', '{{link_url::120|urlattr}}', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1185, 1180, 'tl_content', 640, 1749828695, 'sliderElement', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:29:\"E-Werk in der Brauhausstraße\";}', '<p>Das ehemalige Elektrizitätswerk an der Brauhausstraße ging 1911 in Betrieb und lieferte Strom für die Meißner Innenstadt. Nach 1990 wurde das E-Werk stillgelegt und 2004 wurde das Kesselhaus im hinteren Grundstücksbereich abgerissen.</p>', 1, 0, 0xb92fb24e467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:2:\"24\";}', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', 'ce_slider_element_bf', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', 'Industrie', 'Weiterlesen', '{{link_url::121|urlattr}}', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
 INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1186, 1180, 'tl_content', 768, 1749828695, 'sliderElement', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:25:\"VEB Ziegelwerk Rotes Haus\";}', '<p>Die Ziegelei am Roten Haus war die letzte ihrer Art in Meißen, sie war nach fast 140 Jahren Produktion 1993 geschlossen worden.</p>', 1, 0, 0xc09740c7467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:2:\"24\";}', '', 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, '', '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', 'ce_slider_element_bf', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '0', '0', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', 'Industrie', 'Weiterlesen', '{{news_url::23|urlattr}}', NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, 'com_default', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1187, 260, 'tl_article', 128, 1750088251, 'text', 'a:2:{s:4:\"unit\";s:2:\"h1\";s:5:\"value\";s:21:\"Datenschutzerklärung\";}', '<p>Hier die Datenschutzerklärung einfügen ...</p>', 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1188, 261, 'tl_article', 128, 1750088492, 'text', 'a:2:{s:4:\"unit\";s:2:\"h1\";s:5:\"value\";s:46:\"Zugänglichkeitserklärung für diese Webseite\";}', '<p>Diese Zugänglichkeitserklärung gilt für die Domain {{env::host}}.</p>\n<p><strong>Zusammenfassung</strong></p>\n<p>Die Inhalte dieser Webseite erfüllen die Zugänglichkeitsrichtlinien für Webinhalte (WCAG) 2.1 auf Stufe AA. Teile des Inhalts erfüllen die Stufe AAA.</p>\n<p>Wir ergreifen die folgenden Maßnahmen, um die Zugänglichkeit dieser Webseite zu gewährleisten:</p>', 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1189, 261, 'tl_article', 256, 1750088528, 'text', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:97:\"Wir ergreifen die folgenden Maßnahmen, um die Zugänglichkeit dieser Webseite zu gewährleisten:\";}', '<ul>\n<li>Aufnahme der Zugänglichkeit als Anforderung für alle Webinhalte. Der Inhalt muss WCAG 2.1 AA erfüllen und sollte nach Möglichkeit AAA erfüllen.</li>\n<li>Zuweisung klarer Zugänglichkeitsziele und Verantwortlichkeiten.</li>\n<li>Sicherstellen, dass die Autoren von Inhalten über Kenntnisse und Fähigkeiten im Bereich der Zugänglichkeit verfügen.</li>\n<li>Verankerung der Barrierefreiheit als Teil unseres Auftrags.</li>\n<li>Verankerung der Barrierefreiheit in unseren internen Richtlinien.</li>\n<li>Usability-Tests mit Teilnehmern mit Behinderungen.</li>\n</ul>', 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', 'content_element/text/simplebox', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1190, 261, 'tl_article', 384, 1750088631, 'text', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:19:\"Konformitätsstatus\";}', '<p>Der Standard Web Content Accessibility Guidelines (WCAG) definiert Anforderungen zur Verbesserung der Zugänglichkeit für Menschen mit Behinderungen. Er definiert drei Konformitätsstufen: Stufe A, Stufe AA und Stufe AAA. „Vollständig konform“ bedeutet, dass der Inhalt alle WCAG-Anforderungen der angegebenen Stufe ohne Ausnahmen erfüllt.</p>\n<p>Die Webseiteninhalte entsprechen vollständig der WCAG 2.1 Stufe AA. Sie entsprechen teilweise der Stufe AAA.</p>\n<h2>Rückmeldung</h2>\n<p>Wir freuen uns über Ihr Feedback zur Zugänglichkeit unserer Webseite. Bitte lassen Sie uns wissen, wenn Sie auf Barrieren stoßen.</p>\n<p>Eine E-Mail, Telefonnummer und Anschrift finden Sie im Bereich <a href=\"{{link_url::139|urlattr}}\">Kontakt</a>.</p>\n<h2>Kompatibilität mit Browsern und unterstützenden Technologien</h2>\n<p>Unsere Webseite ist so konzipiert, dass sie mit unterstützenden Technologien und den letzten beiden Versionen der wichtigsten Browser kompatibel ist.</p>\n<p>In Internet Explorer 10, 11 und älteren Browsern werden einige Aspekte der Website möglicherweise nicht optimal dargestellt. Die Website ist nicht für den Internet Explorer 9 und frühere Versionen konzipiert.</p>\n<p>Des Weiteren werden die neuesten Versionen von JAWS, NVDA, VoiceOver und TalkBack unterstützt.</p>\n<h3>Technische Spezifikationen</h3>\n<p>Die Website stützt sich auf die folgenden Technologien, um die WCAG 2.1 zu erfüllen:</p>\n<ul>\n<li>HTML</li>\n<li>WAI-ARIA</li>\n<li>CSS</li>\n<li>SVG</li>\n</ul>\n<p>Die folgenden Technologien werden verwendet, um die Zugänglichkeit und das Benutzererlebnis für alle zu verbessern:</p>\n<ul>\n<li>JavaScript</li>\n<li>Beschränkungen und Alternativen</li>\n</ul>\n<p>Mehrere Videos auf dieser Website verwenden YouTube. Als Alternative werden die Videos teilweise als MP4-Dateien auf einem unserer Server bereitgestellt.</p>\n<h2>Schriftgröße und die Kontrastverhältnisse</h2>\n<p>Wir möchten darauf hinweisen, dass man mit bestimmten Tastenkombinationen die Schriftgröße und die Kontrastverhältnisse selbst anpassen kann:</p>\n<ul>\n<li>Schrift vergrößern: <em><strong>Strg und +</strong></em></li>\n<li>Schrift verkleinern: <em><strong>Strg und -</strong></em></li>\n<li>Kontrast: <em><strong>ALT, Umschalt und Druck</strong></em></li>\n</ul>\n<p>Auf unserer Seite entfällt die Schriftvergrößerungsfunktion, da die Funktion mittlerweile in allen gängigen Browsern implementiert ist, und somit mehr oder weniger überflüssig wurde. Hier soll nun kurz erläutert werden, wie man die interne Funktion eines Browsers zur Schriftvergrößerung benutzt.</p>\n<p>Das Gute vorweg: Es ist ganz einfach und bei allen Browsern gleich – wir haben folgende Browser dabei berücksichtigt:</p>\n<ul>\n<li>Mozilla Firefox 3.6.6 und später</li>\n<li>Opera 10.60 und später</li>\n<li>Apple Safari 5.0 und später</li>\n<li>Google Chrome 5.0 und später</li>\n<li>Microsoft Internet Explorer 8 und später</li>\n</ul>\n<p>Wenn Sie diese Funktion <em><strong>Strg und +</strong></em> oder <strong><em>Strg und -</em></strong> ausprobieren, werden Sie mitunter feststellen, dass die Grafiken und Bilder auf der Webseite mit vergrößert werden und dadurch unter Umständen pixelig wirken. Wenn Sie Mozilla Firefox benutzen, finden Sie unter &#39;Ansicht&#39; - &#39;Zoom&#39; die Option &#39;Nur Text zoomen&#39;. Wenn Sie diese Option aktivieren, werden die Bilder in Originalgröße beibehalten und nur die Schriftgröße wird verändert.</p>\n<h2>Bewertungsansatz</h2>\n<p>Wir haben die Zugänglichkeit dieser Website durch eine Selbstevaluierung und den <strong><a href=\"https://pdir.de/website-check.html\" target=\"_blank\" rel=\"noopener\">pdir Website Check</a></strong> bewertet.</p>', 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1191, 177, 'tl_article', 256, 1750089820, 'text', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', '<p><strong>Unsere Empfehlung für ein rechtssicheres Impressum: <a href=\"http://partner.e-recht24.de/go.cgi?pid=654&amp;subid=&amp;wmid=6&amp;cpid=1&amp;prid=1&amp;target=default\" rel=\"index follow\">eRecht24 Premium</a> </strong>und<strong> <a href=\"https://extensions.contao.org/?q=Erexht&amp;pages=1&amp;p=fenepedia%2Fcontao-er24-rechtstexte\" rel=\"index follow\">eRecht24-Erweiterung für Contao</a></strong></p>', 1, 1, 0x0a757ecf4acb11f0bfeae0d55e59bff3, 'Unsere Empfehlung für eine rechtssichere Datenschutzerklärung: eRecht24 Premium und eRecht24-Erweiterung für Contao', '', 'a:3:{i:0;s:3:\"728\";i:1;s:0:\"\";i:2;s:12:\"proportional\";}', 'http://partner.e-recht24.de/go.cgi?pid=654&subid=&wmid=6&cpid=1&prid=1&target=default', 1, '', 'below', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1193, 177, 'tl_article', 192, 1750089870, 'headline', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:33:\"Unsere Services für Ihre Website\";}', NULL, 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1194, 177, 'tl_article', 224, 1750090465, 'element_group', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', NULL, 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:13:\"row no-margin\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1195, 1194, 'tl_content', 128, 1750090049, 'ct_priceBox', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:69:\"Strategische Beratung Datenschutz & IT-Sicherheit für Ihr Webprojekt\";}', '<p>Individuelle Risikoanalyse: Identifikation und Bewertung von Datenschutz- und Sicherheitsrisiken in Ihrem Webprojekt.</p>\n<p>Beratung zur Reduzierung von Risiken im Bereich Datenschutz, IT-Sicherheit, Aufzeigen von Lösungen und deren Risiken</p>\n<p>Expertise &amp; Erfahrung: TÜV-zertifizierter Berater für IT-Sicherheit und Datenschutz mit umfangreicher Erfahrung im Bereich der Prozessoptimierung</p>\n<p>Keine rechtliche Beratung im Sinne des Rechtsdienstleistungsgesetzes.</p>\n<p><strong>Nachhaltige Sicherheit: Frühzeitige Integration von IT-Sicherheit und Datenschutz spart Kosten und vermeidet aufwendige Nachbesserungen sowie unnötige Kompromisse.</strong></p>', 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, 'ce_cthemes_pricebox', 'Beliebt', 'Mehr erfahren', 'https://pdir.de/datenschutz-und-it-sicherheitsberatung-fuer-webseiten.html', 'Jetzt bestellen', 'https://pdir.de/datenschutz-und-it-sicherheitsberatung-fuer-webseiten.html#bestellen', 'zzgl. MwSt.', '450,00 €', '', NULL, '', '', NULL, NULL, NULL, 'col-12 col-md-6', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1196, 1194, 'tl_content', 256, 1750090089, 'ct_priceBox', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:23:\"Manueller Website-Check\";}', '<p>Individuelle Prüfung: Kombination aus manueller Analyse und spezialisierten Website-Scannern – abgestimmt auf die zu prüfende Website.</p>\n<p>Expertise &amp; Erfahrung: TÜV-zertifizierter Berater für IT-Sicherheit und Datenschutz mit umfangreicher Erfahrung mit dem Prüfen von Webseiten</p>\n<p>Umfassende Analyse: Identifikation offensichtlicher Datenschutz-, IT-Sicherheits- und Compliance-Mängel.</p>\n<p>Detaillierte Auswertung: Präsentation der Ergebnisse in einer Videokonferenz mit konkreten Handlungsempfehlungen.</p>\n<p>Die Erstellung oder Generierung von Rechtstexten ist nicht Bestandteil dieses Angebots. Keine Prüfung im Sinne des Rechtsdienstleistungsgesetzes.</p>\n<p><strong>Sollten keine Mängel gefunden werden, erhalten Sie Ihr Geld zurück – Sie können also nur profitieren!</strong></p>', 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, 'ce_cthemes_pricebox', '', 'Mehr erfahren', 'https://pdir.de/manueller-website-check-vom-fachmann.html', 'Jetzt bestellen', 'https://pdir.de/datenschutz-und-it-sicherheitsberatung-fuer-webseiten.html#bestellen', 'zzgl. MwSt.', '300,00 €', '', NULL, '', '', NULL, NULL, NULL, 'col-12 col-md-6', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1197, 260, 'tl_article', 256, 1750090406, 'headline', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:33:\"Unsere Services für Ihre Website\";}', NULL, 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1198, 260, 'tl_article', 384, 1750090453, 'element_group', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', NULL, 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:13:\"row no-margin\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1199, 1198, 'tl_content', 128, 1750090406, 'ct_priceBox', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:69:\"Strategische Beratung Datenschutz & IT-Sicherheit für Ihr Webprojekt\";}', '<p>Individuelle Risikoanalyse: Identifikation und Bewertung von Datenschutz- und Sicherheitsrisiken in Ihrem Webprojekt.</p>\n<p>Beratung zur Reduzierung von Risiken im Bereich Datenschutz, IT-Sicherheit, Aufzeigen von Lösungen und deren Risiken</p>\n<p>Expertise &amp; Erfahrung: TÜV-zertifizierter Berater für IT-Sicherheit und Datenschutz mit umfangreicher Erfahrung im Bereich der Prozessoptimierung</p>\n<p>Keine rechtliche Beratung im Sinne des Rechtsdienstleistungsgesetzes.</p>\n<p><strong>Nachhaltige Sicherheit: Frühzeitige Integration von IT-Sicherheit und Datenschutz spart Kosten und vermeidet aufwendige Nachbesserungen sowie unnötige Kompromisse.</strong></p>', 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, 'ce_cthemes_pricebox', 'Beliebt', 'Mehr erfahren', 'https://pdir.de/datenschutz-und-it-sicherheitsberatung-fuer-webseiten.html', 'Jetzt bestellen', 'https://pdir.de/datenschutz-und-it-sicherheitsberatung-fuer-webseiten.html#bestellen', 'zzgl. MwSt.', '450,00 €', '', NULL, '', '', NULL, NULL, NULL, 'col-12 col-md-6', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1200, 1198, 'tl_content', 256, 1750090406, 'ct_priceBox', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:23:\"Manueller Website-Check\";}', '<p>Individuelle Prüfung: Kombination aus manueller Analyse und spezialisierten Website-Scannern – abgestimmt auf die zu prüfende Website.</p>\n<p>Expertise &amp; Erfahrung: TÜV-zertifizierter Berater für IT-Sicherheit und Datenschutz mit umfangreicher Erfahrung mit dem Prüfen von Webseiten</p>\n<p>Umfassende Analyse: Identifikation offensichtlicher Datenschutz-, IT-Sicherheits- und Compliance-Mängel.</p>\n<p>Detaillierte Auswertung: Präsentation der Ergebnisse in einer Videokonferenz mit konkreten Handlungsempfehlungen.</p>\n<p>Die Erstellung oder Generierung von Rechtstexten ist nicht Bestandteil dieses Angebots. Keine Prüfung im Sinne des Rechtsdienstleistungsgesetzes.</p>\n<p><strong>Sollten keine Mängel gefunden werden, erhalten Sie Ihr Geld zurück – Sie können also nur profitieren!</strong></p>', 0, 0, NULL, '', '', '', NULL, 0, '', 'above', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, 'ce_cthemes_pricebox', '', 'Mehr erfahren', 'https://pdir.de/manueller-website-check-vom-fachmann.html', 'Jetzt bestellen', 'https://pdir.de/datenschutz-und-it-sicherheitsberatung-fuer-webseiten.html#bestellen', 'zzgl. MwSt.', '300,00 €', '', NULL, '', '', NULL, NULL, NULL, 'col-12 col-md-6', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
+INSERT INTO `tl_content` (`id`, `pid`, `ptable`, `sorting`, `tstamp`, `type`, `headline`, `text`, `addImage`, `overwriteMeta`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `fullsize`, `caption`, `floating`, `html`, `listtype`, `listitems`, `tableitems`, `summary`, `thead`, `tfoot`, `tleft`, `sortable`, `sortIndex`, `sortOrder`, `mooHeadline`, `mooStyle`, `mooClasses`, `highlight`, `code`, `url`, `target`, `titleText`, `linkTitle`, `embed`, `rel`, `useImage`, `multiSRC`, `useHomeDir`, `perRow`, `perPage`, `numberOfItems`, `sortBy`, `metaIgnore`, `galleryTpl`, `customTpl`, `playerSRC`, `youtube`, `vimeo`, `posterSRC`, `playerSize`, `sliderDelay`, `sliderSpeed`, `sliderStartSlide`, `sliderContinuous`, `cteAlias`, `articleAlias`, `article`, `form`, `module`, `protected`, `groups`, `cssID`, `invisible`, `start`, `stop`, `playerAspect`, `inline`, `youtubeOptions`, `overwriteLink`, `playerOptions`, `vimeoOptions`, `playerStart`, `playerStop`, `playerColor`, `playerPreload`, `splashImage`, `playerCaption`, `ct_sliderElement_playerSRC`, `ct_sliderElement_subHeadline`, `ct_sliderElement_target`, `ct_sliderElement_linkText`, `ct_sliderElement_page`, `ct_wrapper_name`, `ct_teaserBox_customTpl`, `ct_teaserBox_pageTitle`, `ct_teaserBox_pageText`, `ct_teaserBox_page`, `ct_priceBox_customTpl`, `ct_popularPriceBox`, `ct_priceBox_linkText2`, `ct_priceBox_link2`, `ct_priceBox_linkText1`, `ct_priceBox_link1`, `ct_priceLabel`, `ct_price`, `ct_featureElement_customTpl`, `ct_iconLink`, `ct_featureIcon`, `ct_contentBox_customTpl`, `ct_contentBox_pageTitle`, `ct_contentBox_pageText`, `ct_contentBox_page`, `advancedCss`, `odd_subHeadline`, `odd_linkText`, `odd_page`, `data`, `markdownSource`, `showPreview`, `unfilteredHtml`, `closeSections`, `sectionHeadline`, `subline`, `headline_inline`, `subheadline`, `com_moderate`, `com_bbcode`, `com_disableCaptcha`, `com_requireLogin`, `com_order`, `com_perPage`, `com_template`, `odd_linkTitle`) VALUES(1201, 260, 'tl_article', 512, 1750090406, 'text', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', '<p><strong>Unsere Empfehlung für ein rechtssicheres Impressum: <a href=\"http://partner.e-recht24.de/go.cgi?pid=654&amp;subid=&amp;wmid=6&amp;cpid=1&amp;prid=1&amp;target=default\" rel=\"index follow\">eRecht24 Premium</a> </strong>und<strong> <a href=\"https://extensions.contao.org/?q=Erexht&amp;pages=1&amp;p=fenepedia%2Fcontao-er24-rechtstexte\" rel=\"index follow\">eRecht24-Erweiterung für Contao</a></strong></p>', 1, 1, 0x0a757ecf4acb11f0bfeae0d55e59bff3, 'Unsere Empfehlung für eine rechtssichere Datenschutzerklärung: eRecht24 Premium und eRecht24-Erweiterung für Contao', '', 'a:3:{i:0;s:3:\"728\";i:1;s:0:\"\";i:2;s:12:\"proportional\";}', 'http://partner.e-recht24.de/go.cgi?pid=654&subid=&wmid=6&cpid=1&prid=1&target=default', 1, '', 'below', NULL, '', NULL, NULL, '', 0, 0, 0, 0, 0, 'ascending', '', '', '', '', NULL, NULL, '', '', '', '', '', 0, NULL, 0, 4, 0, 0, '', 0, '', '', NULL, '', '', NULL, '', 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 0, '', '', '', 0, NULL, 0, NULL, NULL, '', '', '', '', 0, '', NULL, '', '', '', '', NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', NULL, '', '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 'sourceText', 0, NULL, 0, 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', NULL, '', '', 0, 0, 0, 0, 'ascending', 0, '', NULL);
 
---
--- Daten für Tabelle `tl_cron_job`
---
+CREATE TABLE `tl_crawl_queue` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `job_id` char(128) NOT NULL,
+  `uri` longtext NOT NULL,
+  `uri_hash` char(40) NOT NULL,
+  `found_on` longtext DEFAULT NULL,
+  `level` smallint(6) NOT NULL,
+  `processed` tinyint(1) NOT NULL,
+  `tags` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(1, 'Contao\\CoreBundle\\Cron\\Cron::updateMinutelyCliCron', '2025-06-06 14:40:11');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(2, 'contao.cron.supervise_workers', '2025-06-06 14:40:11');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(3, 'contao.cron.purge_expired_data::onHourly', '2025-06-16 17:00:03');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(4, 'contao.cron.purge_opt_in_tokens', '2025-06-16 00:54:17');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(5, 'contao.cron.purge_preview_links', '2025-06-16 00:54:17');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(6, 'contao.cron.purge_registrations', '2025-06-16 00:54:17');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(7, 'contao.cron.purge_temp_folder', '2025-06-16 00:54:17');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(8, 'contao_calendar.cron.generate_feeds', '2025-06-16 00:54:17');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(9, 'contao_newsletter.cron.purge_subscriptions', '2025-06-16 00:54:17');
-INSERT INTO `tl_cron_job` (`id`, `name`, `lastRun`) VALUES(10, 'contao_comments.cron.purge_subscriptions', '2025-06-16 00:54:17');
-
---
--- Daten für Tabelle `tl_faq`
---
+CREATE TABLE `tl_faq` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `addImage` tinyint(1) NOT NULL DEFAULT 0,
+  `overwriteMeta` tinyint(1) NOT NULL DEFAULT 0,
+  `fullsize` tinyint(1) NOT NULL DEFAULT 0,
+  `addEnclosure` tinyint(1) NOT NULL DEFAULT 0,
+  `published` tinyint(1) NOT NULL DEFAULT 0,
+  `noComments` tinyint(1) NOT NULL DEFAULT 0,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `sorting` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `question` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `author` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `answer` text DEFAULT NULL,
+  `pageTitle` varchar(255) NOT NULL DEFAULT '',
+  `robots` varchar(32) NOT NULL DEFAULT '',
+  `description` text DEFAULT NULL,
+  `singleSRC` binary(16) DEFAULT NULL,
+  `alt` varchar(255) NOT NULL DEFAULT '',
+  `imageTitle` varchar(255) NOT NULL DEFAULT '',
+  `size` varchar(64) NOT NULL DEFAULT '',
+  `imageUrl` varchar(2048) NOT NULL DEFAULT '',
+  `caption` varchar(255) NOT NULL DEFAULT '',
+  `floating` varchar(12) NOT NULL DEFAULT 'above',
+  `enclosure` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_faq` (`id`, `addImage`, `overwriteMeta`, `fullsize`, `addEnclosure`, `published`, `noComments`, `pid`, `sorting`, `tstamp`, `question`, `alias`, `author`, `answer`, `pageTitle`, `robots`, `description`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `enclosure`) VALUES(8, 0, 0, 0, 0, 1, 0, 5, 32, 1511950486, 'Do your users have any questions?', '', 1, '<p>To display the FAQ on your website you can choose from three modules in the Contao back-end. Those offer the possibility to configure the output of your frequently asked questions in various ways.</p>\n<ul>\n<li>FAQ - List</li>\n<li>FAQ - Reader</li>\n<li>FAQ - Page</li>\n</ul>\n<p>The FAQ - List is a frontend module that lets you&nbsp;list your questions and answers from chosen categories. Only the title question and a link to the FAQ - Reader (which needs to be placed on a secondary site) are&nbsp;displayed. It might be a good option to choose this ouput if you have a longer list of questions.</p>\n<p>Another way to display information to the visitors is the FAQ - Page module. This module lists all your questions and answers on one page. Linking to another site is not necessary and therefore it is recommanded if you want to show just a few questions and keep all the information on one site. With a little additional code in the mod_faqpage.html5 template you can easily integrate a&nbsp;javascript&nbsp;accordion which will improve the usability of your FAQ greatly for your visitors.</p>', '', '', NULL, 0x00000000000000000000000000000000, '', '', '', '', '', '', NULL);
 INSERT INTO `tl_faq` (`id`, `addImage`, `overwriteMeta`, `fullsize`, `addEnclosure`, `published`, `noComments`, `pid`, `sorting`, `tstamp`, `question`, `alias`, `author`, `answer`, `pageTitle`, `robots`, `description`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `enclosure`) VALUES(9, 0, 0, 0, 0, 1, 0, 5, 64, 1511950487, 'You have to answer the same over and over?', '', 1, '<p>Every single question and answer allows you to display a title question and a text (of course). You can also add an image and/or an enclosure next to your FAQ item. The predefined fields allow you to set an author of the item and lets you choose if you want to publish the item right away or keep it unpublished for the time being.</p>', '', '', NULL, 0x00000000000000000000000000000000, '', '', '', '', '', '', NULL);
 INSERT INTO `tl_faq` (`id`, `addImage`, `overwriteMeta`, `fullsize`, `addEnclosure`, `published`, `noComments`, `pid`, `sorting`, `tstamp`, `question`, `alias`, `author`, `answer`, `pageTitle`, `robots`, `description`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `enclosure`) VALUES(10, 0, 0, 0, 0, 1, 0, 5, 256, 1511950488, 'You want to hear the opinions of the website members?', '', 1, '<p>The FAQ also enable you to manage comments. With the tick on the checkbox \"Enable comments\"in your FAQ category configuration you allow your visitors to leave comments on your FAQs. Different options are integrated to fit your needs regarding the workflow of submitted comments.</p>\n<ul>\n<li>Moderate comments</li>\n<li>Get notified when a comment is posted (you can notify the System administrator, the author of the FAQ or both)</li>\n<li>Set the ordering and the \"Comments per page\", which automatically creates a pagination</li>\n<li>Allow your visitors to use BBCode within the comment field</li>\n</ul>', '', '', NULL, 0x00000000000000000000000000000000, '', '', '', '', '', '', NULL);
 
---
--- Daten für Tabelle `tl_faq_category`
---
+CREATE TABLE `tl_faq_category` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `allowComments` tinyint(1) NOT NULL DEFAULT 0,
+  `moderate` tinyint(1) NOT NULL DEFAULT 0,
+  `bbcode` tinyint(1) NOT NULL DEFAULT 0,
+  `requireLogin` tinyint(1) NOT NULL DEFAULT 0,
+  `disableCaptcha` tinyint(1) NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `headline` varchar(255) NOT NULL DEFAULT '',
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `notify` varchar(32) NOT NULL DEFAULT 'notify_admin',
+  `sortOrder` varchar(32) NOT NULL DEFAULT 'ascending',
+  `perPage` smallint(5) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_faq_category` (`id`, `allowComments`, `moderate`, `bbcode`, `requireLogin`, `disableCaptcha`, `tstamp`, `title`, `headline`, `jumpTo`, `notify`, `sortOrder`, `perPage`) VALUES(5, 1, 0, 0, 0, 0, 1539344484, 'Odd / FAQ', 'FAQ', 137, 'notify_admin', 'ascending', 0);
 
---
--- Daten für Tabelle `tl_files`
---
+CREATE TABLE `tl_favorites` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `sorting` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `user` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `url` varchar(1022) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
-INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(718, NULL, 1538489608, 0x5556381bc64d11e88ff2408d5c22fa41, 'folder', 'files/odd', '', 'c62b1ec4b5c5a4e2a186bce08cb64b48', 1, 'odd', 0, 0, 0, 0, 0x613a313a7b733a323a226465223b613a343a7b733a353a227469746c65223b733a303a22223b733a333a22616c74223b733a303a22223b733a343a226c696e6b223b733a303a22223b733a373a2263617074696f6e223b733a303a22223b7d7d, NULL);
-INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(720, 0x5556381bc64d11e88ff2408d5c22fa41, 1538489691, 0x86ee99abc64d11e88ff2408d5c22fa41, 'folder', 'files/odd/img', '', '079c14b1399536cf8514e64cb93453ed', 1, 'img', 0, 0, 0, 0, 0x613a313a7b733a323a226465223b613a343a7b733a353a227469746c65223b733a303a22223b733a333a22616c74223b733a303a22223b733a343a226c696e6b223b733a303a22223b733a373a2263617074696f6e223b733a303a22223b7d7d, NULL);
+CREATE TABLE `tl_files` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` binary(16) DEFAULT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `uuid` binary(16) DEFAULT NULL,
+  `type` varchar(16) NOT NULL DEFAULT '',
+  `path` varchar(1022) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `extension` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `hash` varchar(32) NOT NULL DEFAULT '',
+  `found` tinyint(1) NOT NULL DEFAULT 1,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `importantPartX` double UNSIGNED NOT NULL DEFAULT 0,
+  `importantPartY` double UNSIGNED NOT NULL DEFAULT 0,
+  `importantPartWidth` double UNSIGNED NOT NULL DEFAULT 0,
+  `importantPartHeight` double UNSIGNED NOT NULL DEFAULT 0,
+  `meta` blob DEFAULT NULL,
+  `lastModified` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(718, NULL, 1538489608, 0x5556381bc64d11e88ff2408d5c22fa41, 'folder', 'files/odd', '', 'bffde46f4951f4e1f6e02fec1e940819', 1, 'odd', 0, 0, 0, 0, 0x613a313a7b733a323a226465223b613a343a7b733a353a227469746c65223b733a303a22223b733a333a22616c74223b733a303a22223b733a343a226c696e6b223b733a303a22223b733a373a2263617074696f6e223b733a303a22223b7d7d, NULL);
+INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(720, 0x5556381bc64d11e88ff2408d5c22fa41, 1538489691, 0x86ee99abc64d11e88ff2408d5c22fa41, 'folder', 'files/odd/img', '', 'aa4e64ffbe32efc12859877ca1703225', 1, 'img', 0, 0, 0, 0, 0x613a313a7b733a323a226465223b613a343a7b733a353a227469746c65223b733a303a22223b733a333a22616c74223b733a303a22223b733a343a226c696e6b223b733a303a22223b733a373a2263617074696f6e223b733a303a22223b7d7d, NULL);
 INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(755, 0x86ee99abc64d11e88ff2408d5c22fa41, 1552579599, 0x267f1df5467311e9a91c408d5c22fa41, 'folder', 'files/odd/img/verlassene-orte-meissen', '', '5652813e47ef238e3e5e167a24da3428', 1, 'verlassene-orte-meissen', 0, 0, 0, 0, 0x613a313a7b733a323a226465223b613a343a7b733a353a227469746c65223b733a303a22223b733a333a22616c74223b733a303a22223b733a343a226c696e6b223b733a303a22223b733a373a2263617074696f6e223b733a303a22223b7d7d, NULL);
 INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(796, 0x267f1df5467311e9a91c408d5c22fa41, 1749734395, 0xae24b6cc467611e9a91c408d5c22fa41, 'file', 'files/odd/img/verlassene-orte-meissen/keramikfabrik.jpg', 'jpg', 'b477fb4521e9dea4d4ccf8cddc88bdb5', 1, 'keramikfabrik.jpg', 0.00048828125, 0.243401759531, 0.99951171875, 0.593108504399, 0x613a313a7b733a323a226465223b613a353a7b733a353a227469746c65223b733a303a22223b733a333a22616c74223b733a34373a224c616765727261756d206d6974207669656c656e20486f6c7a66c3a4737365726e20756e642046656e737465726e2e223b733a343a226c696e6b223b733a303a22223b733a373a2263617074696f6e223b733a303a22223b733a373a226c6963656e7365223b733a303a22223b7d7d, NULL);
 INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(797, 0x267f1df5467311e9a91c408d5c22fa41, 1749734395, 0xb0ad636c467611e9a91c408d5c22fa41, 'file', 'files/odd/img/verlassene-orte-meissen/zuckerwarenfabrik-elbdom.jpg', 'jpg', '01b19ac855e4dc1edf18a048cfaa8100', 1, 'zuckerwarenfabrik-elbdom.jpg', 0, 0, 0, 0, 0x613a313a7b733a323a226465223b613a353a7b733a353a227469746c65223b733a303a22223b733a333a22616c74223b733a34333a225665726d617565727465732046656e7374657220696e20616c746572204261636b737465696e77616e642e223b733a343a226c696e6b223b733a303a22223b733a373a2263617074696f6e223b733a303a22223b733a373a226c6963656e7365223b733a303a22223b7d7d, NULL);
@@ -567,17 +884,80 @@ INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extensio
 INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(866, 0x03978b04541d11ec8ee0e0d55e59bff3, 1638524415, 0x03978ac8541d11ec8ee0e0d55e59bff3, 'file', 'files/social-feed/70570732/6806161831481159680.jpg', 'jpg', 'b4fad794ccfcf56f75617f9614f7c243', 1, '6806161831481159680.jpg', 0, 0, 0, 0, NULL, NULL);
 INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(867, 0x03978b04541d11ec8ee0e0d55e59bff3, 1638524420, 0x03978a95541d11ec8ee0e0d55e59bff3, 'file', 'files/social-feed/70570732/6802949577843453952.jpg', 'jpg', '76ea90aba86bbf728e9a407154bbbc11', 1, '6802949577843453952.jpg', 0, 0, 0, 0, NULL, NULL);
 INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(868, 0x03978b04541d11ec8ee0e0d55e59bff3, 1638524420, 0x08043c64541d11ec8ee0e0d55e59bff3, 'file', 'files/social-feed/70570732/6800429967206359041.jpg', 'jpg', 'ffeafff60a8a39c0ae7f6ebe37e4baa0', 1, '6800429967206359041.jpg', 0, 0, 0, 0, NULL, NULL);
+INSERT INTO `tl_files` (`id`, `pid`, `tstamp`, `uuid`, `type`, `path`, `extension`, `hash`, `found`, `name`, `importantPartX`, `importantPartY`, `importantPartWidth`, `importantPartHeight`, `meta`, `lastModified`) VALUES(869, 0x86ee99abc64d11e88ff2408d5c22fa41, 1750089636, 0x0a757ecf4acb11f0bfeae0d55e59bff3, 'file', 'files/odd/img/erecht24-premium-leader-board-default-qc-light.png', 'png', '1129960ccd7ba07cd338f97a1e6d0f02', 1, 'erecht24-premium-leader-board-default-qc-light.png', 0, 0, 0, 0, NULL, NULL);
 
---
--- Daten für Tabelle `tl_form`
---
+CREATE TABLE `tl_form` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `sendViaEmail` tinyint(1) NOT NULL DEFAULT 0,
+  `recipient` varchar(1022) NOT NULL DEFAULT '',
+  `subject` varchar(255) NOT NULL DEFAULT '',
+  `format` varchar(12) NOT NULL DEFAULT 'raw',
+  `skipEmpty` tinyint(1) NOT NULL DEFAULT 0,
+  `storeValues` tinyint(1) NOT NULL DEFAULT 0,
+  `targetTable` varchar(64) NOT NULL DEFAULT '',
+  `customTpl` varchar(64) NOT NULL DEFAULT '',
+  `method` varchar(12) NOT NULL DEFAULT 'POST',
+  `novalidate` tinyint(1) NOT NULL DEFAULT 0,
+  `attributes` varchar(255) NOT NULL DEFAULT '',
+  `formID` varchar(64) NOT NULL DEFAULT '',
+  `allowTags` tinyint(1) NOT NULL DEFAULT 0,
+  `mailerTransport` varchar(255) NOT NULL DEFAULT '',
+  `ac_defaultColumnWidth` tinyint(1) NOT NULL DEFAULT 0,
+  `ac_disableCSS` tinyint(1) NOT NULL DEFAULT 0,
+  `ac_set` varchar(255) NOT NULL DEFAULT '',
+  `ajax` tinyint(1) NOT NULL DEFAULT 0,
+  `confirmation` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_form` (`id`, `tstamp`, `title`, `alias`, `jumpTo`, `sendViaEmail`, `recipient`, `subject`, `format`, `skipEmpty`, `storeValues`, `targetTable`, `customTpl`, `method`, `novalidate`, `attributes`, `formID`, `allowTags`, `mailerTransport`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `ajax`, `confirmation`) VALUES(6, 1664481495, 'Odd / Beispielformular', 'mate-beispielformular', 135, 1, 'info@example.de', 'Formular-Anfrage mate.contao-themes.net', 'raw', 0, 0, '', '', 'POST', 0, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', '', 0, '', 0, 0, '', 0, NULL);
 INSERT INTO `tl_form` (`id`, `tstamp`, `title`, `alias`, `jumpTo`, `sendViaEmail`, `recipient`, `subject`, `format`, `skipEmpty`, `storeValues`, `targetTable`, `customTpl`, `method`, `novalidate`, `attributes`, `formID`, `allowTags`, `mailerTransport`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `ajax`, `confirmation`) VALUES(8, 1664481503, 'Odd / Kontaktformular', 'mate-kontaktformular', 135, 1, 'info@example.de', 'Anfrage Kontaktformular bei Mate Theme', 'raw', 0, 0, '', '', 'POST', 0, 'a:2:{i:0;s:0:\"\";i:1;s:4:\"test\";}', '', 0, '', 0, 0, '', 0, NULL);
 
---
--- Daten für Tabelle `tl_form_field`
---
+CREATE TABLE `tl_form_field` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `sorting` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `type` varchar(64) NOT NULL DEFAULT 'text',
+  `label` varchar(255) NOT NULL DEFAULT '',
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `text` text DEFAULT NULL,
+  `html` text DEFAULT NULL,
+  `options` blob DEFAULT NULL,
+  `mandatory` tinyint(1) NOT NULL DEFAULT 0,
+  `rgxp` varchar(32) NOT NULL DEFAULT '',
+  `placeholder` varchar(255) NOT NULL DEFAULT '',
+  `minlength` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `maxlength` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `size` varchar(255) NOT NULL DEFAULT 'a:2:{i:0;i:4;i:1;i:40;}',
+  `multiple` tinyint(1) NOT NULL DEFAULT 0,
+  `mSize` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `extensions` varchar(255) NOT NULL DEFAULT 'jpg,jpeg,gif,png,pdf,doc,docx,xls,xlsx,ppt,pptx',
+  `storeFile` tinyint(1) NOT NULL DEFAULT 0,
+  `uploadFolder` binary(16) DEFAULT NULL,
+  `useHomeDir` tinyint(1) NOT NULL DEFAULT 0,
+  `doNotOverwrite` tinyint(1) NOT NULL DEFAULT 0,
+  `class` varchar(255) NOT NULL DEFAULT '',
+  `value` varchar(255) NOT NULL DEFAULT '',
+  `accesskey` char(1) NOT NULL DEFAULT '',
+  `fSize` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `customTpl` varchar(64) NOT NULL DEFAULT '',
+  `slabel` varchar(255) NOT NULL DEFAULT '',
+  `imageSubmit` tinyint(1) NOT NULL DEFAULT 0,
+  `singleSRC` binary(16) DEFAULT NULL,
+  `invisible` tinyint(1) NOT NULL DEFAULT 0,
+  `maxval` varchar(10) NOT NULL DEFAULT '',
+  `minval` varchar(10) NOT NULL DEFAULT '',
+  `step` varchar(10) NOT NULL DEFAULT '',
+  `maxImageHeight` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `maxImageWidth` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `errorMsg` varchar(255) NOT NULL DEFAULT '',
+  `customRgxp` varchar(255) NOT NULL DEFAULT '',
+  `advancedCss` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_form_field` (`id`, `pid`, `sorting`, `tstamp`, `type`, `label`, `name`, `text`, `html`, `options`, `mandatory`, `rgxp`, `placeholder`, `minlength`, `maxlength`, `size`, `multiple`, `mSize`, `extensions`, `storeFile`, `uploadFolder`, `useHomeDir`, `doNotOverwrite`, `class`, `value`, `accesskey`, `fSize`, `customTpl`, `slabel`, `imageSubmit`, `singleSRC`, `invisible`, `maxval`, `minval`, `step`, `maxImageHeight`, `maxImageWidth`, `errorMsg`, `customRgxp`, `advancedCss`) VALUES(22, 6, 128, 1749743444, 'text', 'Name', 'name', NULL, NULL, NULL, 1, '', '', 0, 0, 'a:2:{i:0;i:4;i:1;i:40;}', 0, 0, 'jpg,jpeg,gif,png,pdf,doc,xls,ppt', 0, NULL, 0, 0, '', '', '', 0, '', '', 0, NULL, 0, '0', '0', '', 0, 0, '', '', '');
 INSERT INTO `tl_form_field` (`id`, `pid`, `sorting`, `tstamp`, `type`, `label`, `name`, `text`, `html`, `options`, `mandatory`, `rgxp`, `placeholder`, `minlength`, `maxlength`, `size`, `multiple`, `mSize`, `extensions`, `storeFile`, `uploadFolder`, `useHomeDir`, `doNotOverwrite`, `class`, `value`, `accesskey`, `fSize`, `customTpl`, `slabel`, `imageSubmit`, `singleSRC`, `invisible`, `maxval`, `minval`, `step`, `maxImageHeight`, `maxImageWidth`, `errorMsg`, `customRgxp`, `advancedCss`) VALUES(23, 6, 64, 1749743444, 'text', 'Vorname', 'vorname', NULL, NULL, NULL, 0, '', '', 0, 0, 'a:2:{i:0;i:4;i:1;i:40;}', 0, 0, 'jpg,jpeg,gif,png,pdf,doc,xls,ppt', 0, NULL, 0, 0, '', '', '', 0, '', '', 0, NULL, 0, '0', '0', '', 0, 0, '', '', '');
@@ -599,9 +979,25 @@ INSERT INTO `tl_form_field` (`id`, `pid`, `sorting`, `tstamp`, `type`, `label`, 
 INSERT INTO `tl_form_field` (`id`, `pid`, `sorting`, `tstamp`, `type`, `label`, `name`, `text`, `html`, `options`, `mandatory`, `rgxp`, `placeholder`, `minlength`, `maxlength`, `size`, `multiple`, `mSize`, `extensions`, `storeFile`, `uploadFolder`, `useHomeDir`, `doNotOverwrite`, `class`, `value`, `accesskey`, `fSize`, `customTpl`, `slabel`, `imageSubmit`, `singleSRC`, `invisible`, `maxval`, `minval`, `step`, `maxImageHeight`, `maxImageWidth`, `errorMsg`, `customRgxp`, `advancedCss`) VALUES(60, 8, 768, 1749743691, 'explanation', '', '', '<p>&nbsp;</p>\n<p>* Pflichtfelder</p>', NULL, NULL, 0, '', '', 0, 0, 'a:2:{i:0;i:4;i:1;i:40;}', 0, 0, 'jpg,jpeg,gif,png,pdf,doc,docx,xls,xlsx,ppt,pptx', 0, NULL, 0, 0, '', '', '', 0, '', '', 0, NULL, 0, '0', '0', '', 0, 0, '', '', '');
 INSERT INTO `tl_form_field` (`id`, `pid`, `sorting`, `tstamp`, `type`, `label`, `name`, `text`, `html`, `options`, `mandatory`, `rgxp`, `placeholder`, `minlength`, `maxlength`, `size`, `multiple`, `mSize`, `extensions`, `storeFile`, `uploadFolder`, `useHomeDir`, `doNotOverwrite`, `class`, `value`, `accesskey`, `fSize`, `customTpl`, `slabel`, `imageSubmit`, `singleSRC`, `invisible`, `maxval`, `minval`, `step`, `maxImageHeight`, `maxImageWidth`, `errorMsg`, `customRgxp`, `advancedCss`) VALUES(61, 6, 960, 1749743736, 'captcha', 'Sicherheitsfrage', '', NULL, NULL, NULL, 0, '', '', 0, 0, 'a:2:{i:0;i:4;i:1;i:40;}', 0, 0, 'jpg,jpeg,gif,png,pdf,doc,docx,xls,xlsx,ppt,pptx', 0, NULL, 0, 0, '', '', '', 0, '', '', 0, NULL, 0, '0', '0', '', 0, 0, '', '', '');
 
---
--- Daten für Tabelle `tl_image_size`
---
+CREATE TABLE `tl_image_size` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(64) DEFAULT NULL,
+  `cssClass` varchar(255) NOT NULL DEFAULT '',
+  `densities` varchar(255) NOT NULL DEFAULT '',
+  `sizes` varchar(255) NOT NULL DEFAULT '',
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `resizeMode` varchar(255) NOT NULL DEFAULT '',
+  `zoom` int(11) DEFAULT NULL,
+  `skipIfDimensionsMatch` tinyint(1) NOT NULL DEFAULT 0,
+  `formats` varchar(1024) NOT NULL DEFAULT '',
+  `lazyLoading` tinyint(1) NOT NULL DEFAULT 0,
+  `imageQuality` int(11) DEFAULT NULL,
+  `preserveMetadata` varchar(12) NOT NULL DEFAULT 'default',
+  `preserveMetadataFields` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_image_size` (`id`, `pid`, `tstamp`, `name`, `cssClass`, `densities`, `sizes`, `width`, `height`, `resizeMode`, `zoom`, `skipIfDimensionsMatch`, `formats`, `lazyLoading`, `imageQuality`, `preserveMetadata`, `preserveMetadataFields`) VALUES(16, 17, 1555080617, 'Headerbild', '', '', '', 1920, 400, 'crop', 0, 1, '', 0, NULL, 'default', NULL);
 INSERT INTO `tl_image_size` (`id`, `pid`, `tstamp`, `name`, `cssClass`, `densities`, `sizes`, `width`, `height`, `resizeMode`, `zoom`, `skipIfDimensionsMatch`, `formats`, `lazyLoading`, `imageQuality`, `preserveMetadata`, `preserveMetadataFields`) VALUES(17, 17, 1560847552, 'Headerbild mit Schräge', '', '1x, 1.5x, 2x', '', 1920, 650, 'crop', 0, 1, '', 0, NULL, 'default', NULL);
@@ -613,9 +1009,20 @@ INSERT INTO `tl_image_size` (`id`, `pid`, `tstamp`, `name`, `cssClass`, `densiti
 INSERT INTO `tl_image_size` (`id`, `pid`, `tstamp`, `name`, `cssClass`, `densities`, `sizes`, `width`, `height`, `resizeMode`, `zoom`, `skipIfDimensionsMatch`, `formats`, `lazyLoading`, `imageQuality`, `preserveMetadata`, `preserveMetadataFields`) VALUES(25, 17, 1552657717, 'Logo', '', '1x, 1.5x, 2x', '', NULL, 90, 'box', NULL, 1, '', 0, NULL, 'default', NULL);
 INSERT INTO `tl_image_size` (`id`, `pid`, `tstamp`, `name`, `cssClass`, `densities`, `sizes`, `width`, `height`, `resizeMode`, `zoom`, `skipIfDimensionsMatch`, `formats`, `lazyLoading`, `imageQuality`, `preserveMetadata`, `preserveMetadataFields`) VALUES(26, 17, 1572884258, 'Maklermodul / Listenansicht', '', '', '', 357, 200, 'crop', 0, 0, '', 0, NULL, 'default', NULL);
 
---
--- Daten für Tabelle `tl_image_size_item`
---
+CREATE TABLE `tl_image_size_item` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `sorting` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `media` varchar(255) NOT NULL DEFAULT '',
+  `densities` varchar(255) NOT NULL DEFAULT '',
+  `sizes` varchar(255) NOT NULL DEFAULT '',
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `resizeMode` varchar(255) NOT NULL DEFAULT '',
+  `zoom` int(11) DEFAULT NULL,
+  `invisible` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_image_size_item` (`id`, `pid`, `sorting`, `tstamp`, `media`, `densities`, `sizes`, `width`, `height`, `resizeMode`, `zoom`, `invisible`) VALUES(6, 16, 128, 1555080029, '(max-width: 991px)', '1x, 1.5x, 2x', '', 991, 350, 'crop', NULL, 0);
 INSERT INTO `tl_image_size_item` (`id`, `pid`, `sorting`, `tstamp`, `media`, `densities`, `sizes`, `width`, `height`, `resizeMode`, `zoom`, `invisible`) VALUES(7, 17, 128, 1555080183, '(max-width: 767px)', '1x, 1.5x, 2x', '', 767, 450, 'crop', NULL, 0);
@@ -641,9 +1048,45 @@ INSERT INTO `tl_image_size_item` (`id`, `pid`, `sorting`, `tstamp`, `media`, `de
 INSERT INTO `tl_image_size_item` (`id`, `pid`, `sorting`, `tstamp`, `media`, `densities`, `sizes`, `width`, `height`, `resizeMode`, `zoom`, `invisible`) VALUES(34, 26, 128, 1572884653, '(max-width:991px)', '', '', 417, 233, 'crop', 0, 0);
 INSERT INTO `tl_image_size_item` (`id`, `pid`, `sorting`, `tstamp`, `media`, `densities`, `sizes`, `width`, `height`, `resizeMode`, `zoom`, `invisible`) VALUES(35, 26, 64, 1572884651, '(max-width:767px)', '', '', 511, 286, 'crop', 0, 0);
 
---
--- Daten für Tabelle `tl_layout`
---
+CREATE TABLE `tl_layout` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `rows` varchar(8) NOT NULL DEFAULT '2rwh',
+  `headerHeight` varchar(255) NOT NULL DEFAULT '',
+  `footerHeight` varchar(255) NOT NULL DEFAULT '',
+  `cols` varchar(8) NOT NULL DEFAULT '2cll',
+  `widthLeft` varchar(255) NOT NULL DEFAULT '',
+  `widthRight` varchar(255) NOT NULL DEFAULT '',
+  `sections` blob DEFAULT NULL,
+  `framework` varchar(255) NOT NULL DEFAULT 'a:2:{i:0;s:10:"layout.css";i:1;s:14:"responsive.css";}',
+  `external` blob DEFAULT NULL,
+  `combineScripts` tinyint(1) NOT NULL DEFAULT 1,
+  `modules` blob DEFAULT NULL,
+  `template` varchar(64) NOT NULL DEFAULT '',
+  `viewport` varchar(255) NOT NULL DEFAULT 'width=device-width,initial-scale=1.0,shrink-to-fit=no',
+  `titleTag` varchar(255) NOT NULL DEFAULT '',
+  `cssClass` varchar(255) NOT NULL DEFAULT '',
+  `onload` varchar(255) NOT NULL DEFAULT '',
+  `head` text DEFAULT NULL,
+  `addJQuery` tinyint(1) NOT NULL DEFAULT 0,
+  `jquery` text DEFAULT NULL,
+  `addMooTools` tinyint(1) NOT NULL DEFAULT 0,
+  `mootools` text DEFAULT NULL,
+  `analytics` text DEFAULT NULL,
+  `scripts` text DEFAULT NULL,
+  `script` text DEFAULT NULL,
+  `static` tinyint(1) NOT NULL DEFAULT 0,
+  `width` varchar(255) NOT NULL DEFAULT '',
+  `align` varchar(32) NOT NULL DEFAULT 'center',
+  `externalJs` blob DEFAULT NULL,
+  `minifyMarkup` tinyint(1) NOT NULL DEFAULT 1,
+  `defaultImageDensities` varchar(255) NOT NULL DEFAULT '',
+  `lightboxSize` varchar(255) NOT NULL DEFAULT '',
+  `newsfeeds` blob DEFAULT NULL,
+  `calendarfeeds` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_layout` (`id`, `pid`, `tstamp`, `name`, `rows`, `headerHeight`, `footerHeight`, `cols`, `widthLeft`, `widthRight`, `sections`, `framework`, `external`, `combineScripts`, `modules`, `template`, `viewport`, `titleTag`, `cssClass`, `onload`, `head`, `addJQuery`, `jquery`, `addMooTools`, `mootools`, `analytics`, `scripts`, `script`, `static`, `width`, `align`, `externalJs`, `minifyMarkup`, `defaultImageDensities`, `lightboxSize`, `newsfeeds`, `calendarfeeds`) VALUES(55, 17, 1643298800, 'Einspaltiges Layout / Schräger Header', '3rw', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', '1cl', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', '', 0x613a313a7b693a303b613a343a7b733a353a227469746c65223b733a303a22223b733a323a226964223b733a303a22223b733a383a2274656d706c617465223b733a31333a22626c6f636b5f73656374696f6e223b733a383a22706f736974696f6e223b733a333a22746f70223b7d7d, '', NULL, 1, 0x613a363a7b693a303b613a333a7b733a333a226d6f64223b733a333a22333832223b733a333a22636f6c223b733a363a22686561646572223b733a363a22656e61626c65223b733a313a2231223b7d693a313b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a363a22686561646572223b733a363a22656e61626c65223b733a313a2231223b7d693a323b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a343a226d61696e223b733a363a22656e61626c65223b733a313a2231223b7d693a333b613a333a7b733a333a226d6f64223b733a333a22333932223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d693a343b613a333a7b733a333a226d6f64223b733a333a22333732223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d693a353b613a333a7b733a333a226d6f64223b733a333a22333731223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d7d, 'fe_page_odd', 'width=device-width, initial-scale=1, shrink-to-fit=no', '', '', '', NULL, 1, 'a:2:{i:0;s:11:\"j_accordion\";i:1;s:10:\"j_colorbox\";}', 0, NULL, NULL, 'a:1:{i:0;s:9:\"js_slider\";}', NULL, 0, '', 'center', NULL, 1, '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', NULL, NULL);
 INSERT INTO `tl_layout` (`id`, `pid`, `tstamp`, `name`, `rows`, `headerHeight`, `footerHeight`, `cols`, `widthLeft`, `widthRight`, `sections`, `framework`, `external`, `combineScripts`, `modules`, `template`, `viewport`, `titleTag`, `cssClass`, `onload`, `head`, `addJQuery`, `jquery`, `addMooTools`, `mootools`, `analytics`, `scripts`, `script`, `static`, `width`, `align`, `externalJs`, `minifyMarkup`, `defaultImageDensities`, `lightboxSize`, `newsfeeds`, `calendarfeeds`) VALUES(56, 17, 1644832868, 'Zweispaltiges Layout / Linke Spalte / Schräger Header', '3rw', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', '2cll', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', '', 0x613a313a7b693a303b613a343a7b733a353a227469746c65223b733a303a22223b733a323a226964223b733a303a22223b733a383a2274656d706c617465223b733a31333a22626c6f636b5f73656374696f6e223b733a383a22706f736974696f6e223b733a333a22746f70223b7d7d, '', NULL, 1, 0x613a383a7b693a303b613a333a7b733a333a226d6f64223b733a333a22333832223b733a333a22636f6c223b733a363a22686561646572223b733a363a22656e61626c65223b733a313a2231223b7d693a313b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a363a22686561646572223b733a363a22656e61626c65223b733a313a2231223b7d693a323b613a333a7b733a333a226d6f64223b733a333a22333834223b733a333a22636f6c223b733a343a226c656674223b733a363a22656e61626c65223b733a313a2231223b7d693a333b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a343a226c656674223b733a363a22656e61626c65223b733a313a2231223b7d693a343b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a343a226d61696e223b733a363a22656e61626c65223b733a313a2231223b7d693a353b613a333a7b733a333a226d6f64223b733a333a22333932223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d693a363b613a333a7b733a333a226d6f64223b733a333a22333732223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d693a373b613a333a7b733a333a226d6f64223b733a333a22333731223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d7d, 'fe_page_odd_left', 'width=device-width, initial-scale=1, shrink-to-fit=no', '', 'left-col-layout', '', NULL, 1, 'a:2:{i:0;s:11:\"j_accordion\";i:1;s:10:\"j_colorbox\";}', 0, NULL, NULL, 'a:1:{i:0;s:9:\"js_slider\";}', NULL, 0, '', 'center', NULL, 1, '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', NULL, NULL);
@@ -651,29 +1094,197 @@ INSERT INTO `tl_layout` (`id`, `pid`, `tstamp`, `name`, `rows`, `headerHeight`, 
 INSERT INTO `tl_layout` (`id`, `pid`, `tstamp`, `name`, `rows`, `headerHeight`, `footerHeight`, `cols`, `widthLeft`, `widthRight`, `sections`, `framework`, `external`, `combineScripts`, `modules`, `template`, `viewport`, `titleTag`, `cssClass`, `onload`, `head`, `addJQuery`, `jquery`, `addMooTools`, `mootools`, `analytics`, `scripts`, `script`, `static`, `width`, `align`, `externalJs`, `minifyMarkup`, `defaultImageDensities`, `lightboxSize`, `newsfeeds`, `calendarfeeds`) VALUES(58, 17, 1644834189, 'Dreispaltiges Layout / Linke und rechte Spalte / Schräger Header', '3rw', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', '3cl', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', 0x613a313a7b693a303b613a343a7b733a353a227469746c65223b733a303a22223b733a323a226964223b733a303a22223b733a383a2274656d706c617465223b733a31333a22626c6f636b5f73656374696f6e223b733a383a22706f736974696f6e223b733a333a22746f70223b7d7d, '', NULL, 1, 0x613a393a7b693a303b613a333a7b733a333a226d6f64223b733a333a22333832223b733a333a22636f6c223b733a363a22686561646572223b733a363a22656e61626c65223b733a313a2231223b7d693a313b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a363a22686561646572223b733a363a22656e61626c65223b733a313a2231223b7d693a323b613a333a7b733a333a226d6f64223b733a333a22333834223b733a333a22636f6c223b733a343a226c656674223b733a363a22656e61626c65223b733a313a2231223b7d693a333b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a343a226c656674223b733a363a22656e61626c65223b733a313a2231223b7d693a343b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a353a227269676874223b733a363a22656e61626c65223b733a313a2231223b7d693a353b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a343a226d61696e223b733a363a22656e61626c65223b733a313a2231223b7d693a363b613a333a7b733a333a226d6f64223b733a333a22333932223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d693a373b613a333a7b733a333a226d6f64223b733a333a22333732223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d693a383b613a333a7b733a333a226d6f64223b733a333a22333731223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d7d, 'fe_page_odd_three_columns', 'width=device-width, initial-scale=1, shrink-to-fit=no', '', 'left-right-col-layout', '', NULL, 1, 'a:2:{i:0;s:11:\"j_accordion\";i:1;s:10:\"j_colorbox\";}', 0, NULL, NULL, 'a:1:{i:0;s:9:\"js_slider\";}', NULL, 0, '', 'center', NULL, 1, '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', NULL, NULL);
 INSERT INTO `tl_layout` (`id`, `pid`, `tstamp`, `name`, `rows`, `headerHeight`, `footerHeight`, `cols`, `widthLeft`, `widthRight`, `sections`, `framework`, `external`, `combineScripts`, `modules`, `template`, `viewport`, `titleTag`, `cssClass`, `onload`, `head`, `addJQuery`, `jquery`, `addMooTools`, `mootools`, `analytics`, `scripts`, `script`, `static`, `width`, `align`, `externalJs`, `minifyMarkup`, `defaultImageDensities`, `lightboxSize`, `newsfeeds`, `calendarfeeds`) VALUES(59, 17, 1643298853, 'Einspaltiges Layout / Gerader Header', '3rw', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', '1cl', 'a:2:{s:4:\"unit\";s:0:\"\";s:5:\"value\";s:0:\"\";}', '', 0x613a313a7b693a303b613a343a7b733a353a227469746c65223b733a303a22223b733a323a226964223b733a303a22223b733a383a2274656d706c617465223b733a31333a22626c6f636b5f73656374696f6e223b733a383a22706f736974696f6e223b733a333a22746f70223b7d7d, '', NULL, 1, 0x613a363a7b693a303b613a333a7b733a333a226d6f64223b733a333a22343137223b733a333a22636f6c223b733a363a22686561646572223b733a363a22656e61626c65223b733a313a2231223b7d693a313b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a363a22686561646572223b733a363a22656e61626c65223b733a313a2231223b7d693a323b613a333a7b733a333a226d6f64223b733a313a2230223b733a333a22636f6c223b733a343a226d61696e223b733a363a22656e61626c65223b733a313a2231223b7d693a333b613a333a7b733a333a226d6f64223b733a333a22333932223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d693a343b613a333a7b733a333a226d6f64223b733a333a22333732223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d693a353b613a333a7b733a333a226d6f64223b733a333a22333731223b733a333a22636f6c223b733a363a22666f6f746572223b733a363a22656e61626c65223b733a313a2231223b7d7d, 'fe_page_odd', 'width=device-width, initial-scale=1, shrink-to-fit=no', '', '', '', NULL, 1, 'a:2:{i:0;s:11:\"j_accordion\";i:1;s:10:\"j_colorbox\";}', 0, NULL, NULL, 'a:1:{i:0;s:9:\"js_slider\";}', NULL, 0, '', 'center', NULL, 1, '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', NULL, NULL);
 
---
--- Daten für Tabelle `tl_member`
---
+CREATE TABLE `tl_member` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `firstname` varchar(255) NOT NULL DEFAULT '',
+  `lastname` varchar(255) NOT NULL DEFAULT '',
+  `dateOfBirth` varchar(11) NOT NULL DEFAULT '',
+  `gender` varchar(32) NOT NULL DEFAULT '',
+  `company` varchar(255) NOT NULL DEFAULT '',
+  `street` varchar(255) NOT NULL DEFAULT '',
+  `postal` varchar(32) NOT NULL DEFAULT '',
+  `city` varchar(255) NOT NULL DEFAULT '',
+  `state` varchar(64) NOT NULL DEFAULT '',
+  `country` varchar(2) NOT NULL DEFAULT '',
+  `phone` varchar(64) NOT NULL DEFAULT '',
+  `mobile` varchar(64) NOT NULL DEFAULT '',
+  `fax` varchar(64) NOT NULL DEFAULT '',
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `website` varchar(255) NOT NULL DEFAULT '',
+  `language` varchar(64) NOT NULL DEFAULT '',
+  `groups` blob DEFAULT NULL,
+  `login` tinyint(1) NOT NULL DEFAULT 0,
+  `username` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `assignDir` tinyint(1) NOT NULL DEFAULT 0,
+  `homeDir` binary(16) DEFAULT NULL,
+  `disable` tinyint(1) NOT NULL DEFAULT 0,
+  `start` varchar(10) NOT NULL DEFAULT '',
+  `stop` varchar(10) NOT NULL DEFAULT '',
+  `dateAdded` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `lastLogin` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `currentLogin` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `session` blob DEFAULT NULL,
+  `useTwoFactor` tinyint(1) NOT NULL DEFAULT 0,
+  `secret` binary(128) DEFAULT NULL,
+  `trustedTokenVersion` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `backupCodes` text DEFAULT NULL,
+  `newsletter` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_member` (`id`, `tstamp`, `firstname`, `lastname`, `dateOfBirth`, `gender`, `company`, `street`, `postal`, `city`, `state`, `country`, `phone`, `mobile`, `fax`, `email`, `website`, `language`, `groups`, `login`, `username`, `password`, `assignDir`, `homeDir`, `disable`, `start`, `stop`, `dateAdded`, `lastLogin`, `currentLogin`, `session`, `useTwoFactor`, `secret`, `trustedTokenVersion`, `backupCodes`, `newsletter`) VALUES(1, 1259754224, 'John', 'Smith', '238201200', 'male', '', '', '', '', '', '', '', '', '', 'j.smith@example.com', '', 'en', 0x613a313a7b693a303b733a313a2232223b7d, 1, 'j.smith', '$2y$10$r//Ke.SkjhB5W8PLFKMmweY5Bv2d4CbSm3f3sH8Q4UMp8QknQPe0y', 0, 0x00000000000000000000000000000000, 0, '', '', 1259754224, 1539337506, 1539337760, 0x613a363a7b733a373a2272656665726572223b613a323a7b733a343a226c617374223b733a31373a226d656d626572732d617265612e68746d6c223b733a373a2263757272656e74223b733a393a22757365722e68746d6c223b7d733a31303a22636170746368615f3230223b613a333a7b733a333a2273756d223b693a383b733a333a226b6579223b733a33333a22636562373937343262653137306630303832363537373732373734376261306437223b733a343a2274696d65223b693a313439373134373934303b7d733a31353a22636170746368615f63617074636861223b613a333a7b733a333a2273756d223b693a31313b733a333a226b6579223b733a33333a22633431623637396665326338366161333063316130316230613034336234366237223b733a343a2274696d65223b693a313439373134373934303b7d733a32313a22636170746368615f6c6f73745f70617373776f7264223b613a333a7b733a333a2273756d223b693a363b733a333a226b6579223b733a33333a22636239353765633334376531353338336466313963636562623232346465386133223b733a343a2274696d65223b693a313531313533303338333b7d733a32313a22726f636b736f6c69645f616e74697370616d5f3335223b613a333a7b733a353a226e616d6573223b613a333a7b693a303b733a373a22656d61696c2d32223b693a313b733a333a2275726c223b693a323b733a32323a225f4b704b4b622d4c456d49616f463971443064387851223b7d733a363a2276616c756573223b613a333a7b693a303b733a303a22223b693a313b733a303a22223b693a323b733a32323a2251336a376a50586f6b6b5434466e30686a455a796651223b7d733a343a2274696d65223b693a313532343930393935363b7d733a32313a22726f636b736f6c69645f616e74697370616d5f3535223b613a333a7b733a353a226e616d6573223b613a333a7b693a303b733a373a22656d61696c2d32223b693a313b733a333a2275726c223b693a323b733a32323a22525a584d38423675684b6f436575556d314c45437167223b7d733a363a2276616c756573223b613a333a7b693a303b733a303a22223b693a313b733a303a22223b693a323b733a32323a222d65696d7a627975674d4d487647366635454f4f6d51223b7d733a343a2274696d65223b693a313532343931303738353b7d7d, 0, NULL, 0, NULL, '');
 INSERT INTO `tl_member` (`id`, `tstamp`, `firstname`, `lastname`, `dateOfBirth`, `gender`, `company`, `street`, `postal`, `city`, `state`, `country`, `phone`, `mobile`, `fax`, `email`, `website`, `language`, `groups`, `login`, `username`, `password`, `assignDir`, `homeDir`, `disable`, `start`, `stop`, `dateAdded`, `lastLogin`, `currentLogin`, `session`, `useTwoFactor`, `secret`, `trustedTokenVersion`, `backupCodes`, `newsletter`) VALUES(2, 1259754224, 'Donna', 'Evans', '191635200', 'female', '', '', '', '', '', '', '', '', '', 'd.evans@example.com', '', 'en', 0x613a313a7b693a303b733a313a2231223b7d, 1, 'd.evans', '$2y$10$3.ghpkaeW/ATUeSrhA8sgedbs4AdboKczBPV7IqyweXS6eCQ749pS', 0, 0x00000000000000000000000000000000, 0, '', '', 1259754224, 1516703824, 1553272691, 0x613a333a7b733a373a2272656665726572223b613a323a7b733a343a226c617374223b733a33343a226d792d6163636f756e742e68746d6c3f7468656d653d63746f2d626f6f7374726170223b733a373a2263757272656e74223b733a33303a226c6f676f75742e68746d6c3f7468656d653d63746f2d626f6f7374726170223b7d733a31303a22636170746368615f3230223b613a333a7b733a333a2273756d223b693a31313b733a333a226b6579223b733a33333a22633036623236313465326335613031643137636532333039656434383562336533223b733a343a2274696d65223b693a313339303134323031313b7d733a32313a22636170746368615f6c6f73745f70617373776f7264223b613a333a7b733a333a2273756d223b693a363b733a333a226b6579223b733a33333a22633634346635353637323565353066653262636138316537653035613731373139223b733a343a2274696d65223b693a313430313236303637373b7d7d, 0, NULL, 0, NULL, '');
 INSERT INTO `tl_member` (`id`, `tstamp`, `firstname`, `lastname`, `dateOfBirth`, `gender`, `company`, `street`, `postal`, `city`, `state`, `country`, `phone`, `mobile`, `fax`, `email`, `website`, `language`, `groups`, `login`, `username`, `password`, `assignDir`, `homeDir`, `disable`, `start`, `stop`, `dateAdded`, `lastLogin`, `currentLogin`, `session`, `useTwoFactor`, `secret`, `trustedTokenVersion`, `backupCodes`, `newsletter`) VALUES(3, 1259754224, 'John', 'Doe', '0', '', '', '', '', '', '', '', '', '', '', 'j.doe@example.com', '', 'en', 0x613a323a7b693a303b733a313a2232223b693a313b733a313a2231223b7d, 1, 'j.doe', '7a86a8cf9d7510cc4661b217133f2eed37981b75', 0, 0x00000000000000000000000000000000, 0, '', '', 1259754224, 0, 0, 0x613a313a7b733a373a2272656665726572223b613a323a7b733a343a226c617374223b733a31353a222f686973746f72792d312e68746d6c223b733a373a2263757272656e74223b733a313a222f223b7d7d, 0, NULL, 0, NULL, '');
 
---
--- Daten für Tabelle `tl_member_group`
---
+CREATE TABLE `tl_member_group` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `redirect` tinyint(1) NOT NULL DEFAULT 0,
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `disable` tinyint(1) NOT NULL DEFAULT 0,
+  `start` varchar(10) NOT NULL DEFAULT '',
+  `stop` varchar(10) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_member_group` (`id`, `tstamp`, `name`, `redirect`, `jumpTo`, `disable`, `start`, `stop`) VALUES(1, 1172600419, 'Violin Students', 1, 6, 0, '', '');
 INSERT INTO `tl_member_group` (`id`, `tstamp`, `name`, `redirect`, `jumpTo`, `disable`, `start`, `stop`) VALUES(2, 1172600394, 'Piano Students', 1, 7, 0, '', '');
 INSERT INTO `tl_member_group` (`id`, `tstamp`, `name`, `redirect`, `jumpTo`, `disable`, `start`, `stop`) VALUES(3, 1367401146, 'general Members', 1, 67, 0, '', '');
 
---
--- Daten für Tabelle `tl_module`
---
+CREATE TABLE `tl_message_queue` (
+  `id` bigint(20) NOT NULL,
+  `body` longtext NOT NULL,
+  `headers` longtext NOT NULL,
+  `queue_name` varchar(190) NOT NULL,
+  `created_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `available_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `delivered_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tl_module` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `headline` varchar(255) NOT NULL DEFAULT 'a:2:{s:5:"value";s:0:"";s:4:"unit";s:2:"h2";}',
+  `type` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'navigation',
+  `levelOffset` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `showLevel` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `hardLimit` tinyint(1) NOT NULL DEFAULT 0,
+  `showProtected` tinyint(1) NOT NULL DEFAULT 0,
+  `defineRoot` tinyint(1) NOT NULL DEFAULT 0,
+  `rootPage` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `navigationTpl` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `customTpl` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `pages` blob DEFAULT NULL,
+  `showHidden` tinyint(1) NOT NULL DEFAULT 0,
+  `customLabel` varchar(64) NOT NULL DEFAULT '',
+  `autologin` tinyint(1) NOT NULL DEFAULT 0,
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `redirectBack` tinyint(1) NOT NULL DEFAULT 0,
+  `editable` blob DEFAULT NULL,
+  `memberTpl` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `form` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `queryType` varchar(8) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'and',
+  `fuzzy` tinyint(1) NOT NULL DEFAULT 0,
+  `contextLength` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `minKeywordLength` smallint(5) UNSIGNED NOT NULL DEFAULT 4,
+  `perPage` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `searchType` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'simple',
+  `searchTpl` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `inColumn` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'main',
+  `skipFirst` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `loadFirst` tinyint(1) NOT NULL DEFAULT 0,
+  `singleSRC` binary(16) DEFAULT NULL,
+  `imgSize` varchar(128) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `useCaption` tinyint(1) NOT NULL DEFAULT 0,
+  `fullsize` tinyint(1) NOT NULL DEFAULT 0,
+  `multiSRC` blob DEFAULT NULL,
+  `html` text DEFAULT NULL,
+  `rss_cache` int(10) UNSIGNED NOT NULL DEFAULT 3600,
+  `rss_feed` text DEFAULT NULL,
+  `rss_template` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `numberOfItems` smallint(5) UNSIGNED NOT NULL DEFAULT 3,
+  `disableCaptcha` tinyint(1) NOT NULL DEFAULT 0,
+  `reg_groups` blob DEFAULT NULL,
+  `reg_allowLogin` tinyint(1) NOT NULL DEFAULT 0,
+  `reg_skipName` tinyint(1) NOT NULL DEFAULT 0,
+  `reg_close` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `reg_assignDir` tinyint(1) NOT NULL DEFAULT 0,
+  `reg_homeDir` binary(16) DEFAULT NULL,
+  `reg_activate` tinyint(1) NOT NULL DEFAULT 0,
+  `reg_jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `reg_text` text DEFAULT NULL,
+  `reg_password` text DEFAULT NULL,
+  `protected` tinyint(1) NOT NULL DEFAULT 0,
+  `groups` blob DEFAULT NULL,
+  `cssID` varchar(255) NOT NULL DEFAULT '',
+  `modal_class` varchar(255) NOT NULL DEFAULT '',
+  `modal_customTpl` varchar(64) NOT NULL DEFAULT '',
+  `modal_text` text DEFAULT NULL,
+  `modal_linkClass` varchar(255) NOT NULL DEFAULT '',
+  `modal_linkText` varchar(255) NOT NULL DEFAULT '',
+  `rootPageDependentModules` blob DEFAULT NULL,
+  `data` text DEFAULT NULL,
+  `reg_deleteDir` tinyint(1) NOT NULL DEFAULT 0,
+  `overviewPage` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `unfilteredHtml` mediumtext DEFAULT NULL,
+  `pwResetPage` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `reqFullAuth` tinyint(1) NOT NULL DEFAULT 0,
+  `news_showQuantity` tinyint(1) NOT NULL DEFAULT 0,
+  `news_keepCanonical` tinyint(1) NOT NULL DEFAULT 0,
+  `cal_noSpan` tinyint(1) NOT NULL DEFAULT 0,
+  `cal_hideRunning` tinyint(1) NOT NULL DEFAULT 0,
+  `cal_ignoreDynamic` tinyint(1) NOT NULL DEFAULT 0,
+  `cal_showQuantity` tinyint(1) NOT NULL DEFAULT 0,
+  `cal_keepCanonical` tinyint(1) NOT NULL DEFAULT 0,
+  `nl_hideChannels` tinyint(1) NOT NULL DEFAULT 0,
+  `com_moderate` tinyint(1) NOT NULL DEFAULT 0,
+  `com_bbcode` tinyint(1) NOT NULL DEFAULT 0,
+  `com_requireLogin` tinyint(1) NOT NULL DEFAULT 0,
+  `com_disableCaptcha` tinyint(1) NOT NULL DEFAULT 0,
+  `faq_categories` blob DEFAULT NULL,
+  `faq_readerModule` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `news_archives` blob DEFAULT NULL,
+  `news_featured` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'all_items',
+  `news_jumpToCurrent` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `news_readerModule` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `news_template` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `news_format` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'news_month',
+  `news_startDay` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `news_order` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'order_date_desc',
+  `list_table` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `list_fields` tinytext DEFAULT NULL,
+  `list_where` tinytext DEFAULT NULL,
+  `list_search` tinytext DEFAULT NULL,
+  `list_sort` tinytext DEFAULT NULL,
+  `list_info` tinytext DEFAULT NULL,
+  `list_info_where` tinytext DEFAULT NULL,
+  `list_layout` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `list_info_layout` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `cal_calendar` blob DEFAULT NULL,
+  `cal_startDay` smallint(5) UNSIGNED NOT NULL DEFAULT 1,
+  `cal_format` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'cal_month',
+  `cal_order` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'ascending',
+  `cal_readerModule` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `cal_limit` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `cal_template` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `cal_ctemplate` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `cal_featured` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'all_items',
+  `newsletters` blob DEFAULT NULL,
+  `nl_channels` blob DEFAULT NULL,
+  `nl_text` text DEFAULT NULL,
+  `nl_subscribe` text DEFAULT NULL,
+  `nl_unsubscribe` text DEFAULT NULL,
+  `nl_template` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+  `com_order` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'ascending',
+  `com_template` varchar(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(371, 17, 1523542648, 'Footer / Copyright', 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', 'html', 0, 0, 0, 0, 0, 0, '', '', NULL, 0, '', 0, 0, 0, NULL, '', 0, 'and', 0, '48', 4, 0, 'simple', '', 'main', 0, 0, NULL, 'a:0:{}', 0, 0, NULL, '<div class=\"copyright-footer\">\n	<div class=\"container\">\n		{{theme::content::ODD02/05}}\n	</div>\n</div>', 3600, NULL, 'rss_default', 3, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', '', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 'all_items', '', 0, 'news_latest', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', 'list_default', 'info_default', NULL, 1, 'cal_month', 'ascending', 0, 0, 'event_full', 'cal_default', 'all_items', NULL, NULL, NULL, NULL, NULL, 'nl_simple', 'ascending', 'com_default');
 INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(372, 17, 1749222922, 'Footer / Main', 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}', 'html', 0, 0, 0, 0, 0, 0, '', '', NULL, 0, '', 0, 0, 0, NULL, '', 0, 'and', 0, '48', 4, 0, 'simple', '', 'main', 0, 0, NULL, 'a:0:{}', 0, 0, NULL, '<div class=\"main-footer skw-tr\">\n	<div class=\"skewed-bg skewed-top skewed-right\"></div>\n	<div class=\"container\">\n		<div class=\"row\">\n			<div class=\"col-sm-12 col-md-3 first\">{{theme::content::ODD02/01}}</div>\n			<div class=\"col-sm-12 col-md-3\">{{theme::content::ODD02/02}}</div>\n			<div class=\"col-sm-12 col-md-3\">{{theme::content::ODD02/03}}</div>\n			<div class=\"col-sm-12 col-md-3 last\">{{theme::content::ODD02/04}}</div>\n		</div>\n	</div>\n</div>\n<a href=\"{{env::request|urlattr}}#top\" class=\"toplink btn\" title=\"{{iflng::de|attr}}Zurück zum Seitenanfang{{iflng::en|attr}}Back to top{{iflng|attr}}\"><i class=\"fas fa-chevron-up\"></i></a>', 3600, NULL, 'rss_default', 3, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', '', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 'all_items', '', 0, 'news_latest', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', 'list_default', 'info_default', NULL, 1, 'cal_month', 'ascending', 0, 0, 'event_full', 'cal_default', 'all_items', NULL, NULL, NULL, NULL, NULL, 'nl_simple', 'ascending', 'com_default');
-INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(373, 17, 1749734433, 'Footer / Navigation', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', 'customnav', 0, 0, 0, 0, 0, 0, 'nav_default_odd', '', 0x613a353a7b693a303b693a39323b693a313b693a3131383b693a323b693a3130313b693a333b693a3133343b693a343b693a3133393b7d, 0, '', 0, 0, 0, NULL, '', 0, 'and', 0, '48', 4, 0, 'simple', '', 'main', 0, 0, NULL, 'a:0:{}', 0, 0, NULL, NULL, 3600, NULL, 'rss_default', 3, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', '', '', NULL, '', '', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 'all_items', '', 0, 'news_latest', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', 'list_default', 'info_default', NULL, 1, 'cal_month', 'ascending', 0, 0, 'event_full', 'cal_default', 'all_items', NULL, NULL, NULL, NULL, NULL, 'nl_simple', 'ascending', 'com_default');
+INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(373, 17, 1750088465, 'Footer / Navigation', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', 'customnav', 0, 0, 0, 0, 0, 0, 'nav_default_odd', '', 0x613a343a7b693a303b693a3133393b693a313b693a3133343b693a323b693a3136353b693a333b693a3136363b7d, 0, '', 0, 0, 0, NULL, '', 0, 'and', 0, '48', 4, 0, 'simple', '', 'main', 0, 0, NULL, 'a:0:{}', 0, 0, NULL, NULL, 3600, NULL, 'rss_default', 3, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', '', '', NULL, '', '', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 'all_items', '', 0, 'news_latest', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', 'list_default', 'info_default', NULL, 1, 'cal_month', 'ascending', 0, 0, 'event_full', 'cal_default', 'all_items', NULL, NULL, NULL, NULL, NULL, 'nl_simple', 'ascending', 'com_default');
 INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(375, 17, 1528378451, 'Kontaktformular', 'a:2:{s:4:\"unit\";s:2:\"h3\";s:5:\"value\";s:12:\"Ihre Anfrage\";}', 'form', 0, 0, 0, 0, 0, 0, '', '', NULL, 0, '', 0, 0, 0, NULL, '', 6, 'and', 0, '48', 4, 0, 'simple', '', 'main', 0, 0, NULL, 'a:0:{}', 0, 0, NULL, NULL, 3600, NULL, 'rss_default', 3, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', '', '', NULL, '', '', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 'all_items', '', 0, 'news_latest', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', 'list_default', 'info_default', NULL, 1, 'cal_month', 'ascending', 0, 0, 'event_full', 'cal_default', 'all_items', NULL, NULL, NULL, NULL, NULL, 'nl_simple', 'ascending', 'com_default');
 INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(382, 17, 1644931859, 'Navigationsleiste mit Schräge', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', 'navigation', 0, 0, 0, 0, 0, 0, 'nav_default_odd', 'mod_navigation_odd_sloping', NULL, 0, '', 0, 0, 0, NULL, '', 0, 'and', 0, '48', 4, 0, 'simple', '', 'main', 0, 0, NULL, 'a:0:{}', 0, 0, NULL, NULL, 3600, NULL, 'rss_default', 3, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', '', '', NULL, '', '', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 'all_items', '', 0, 'news_latest', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', 'list_default', 'info_default', NULL, 1, 'cal_month', 'ascending', 0, 0, 'event_full', 'cal_default', 'all_items', NULL, NULL, NULL, NULL, NULL, 'nl_simple', 'ascending', 'com_default');
 INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(383, 17, 1538393056, 'Sitemap', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', 'sitemap', 0, 0, 0, 0, 0, 0, 'nav_makler_sitemap', '', NULL, 0, '', 0, 0, 0, NULL, '', 0, 'and', 0, '48', 4, 0, 'simple', '', 'main', 0, 0, NULL, 'a:0:{}', 0, 0, NULL, NULL, 3600, NULL, 'rss_default', 3, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', '', '', NULL, '', '', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 'all_items', '', 0, 'news_latest', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', 'list_default', 'info_default', NULL, 1, 'cal_month', 'ascending', 0, 0, 'event_full', 'cal_default', 'all_items', NULL, NULL, NULL, NULL, NULL, 'nl_simple', 'ascending', 'com_default');
@@ -713,9 +1324,46 @@ INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `lev
 INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(422, 17, 1560846353, 'Modaler Dialog / Text / vertikal zentriert und breiter', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:12:\"Überschrift\";}', 'ct_modal', 0, 0, 0, 0, 0, 0, '', '', NULL, 0, '', 0, 0, 0, NULL, '', 0, 'and', 0, '48', 4, 0, 'simple', '', 'main', 0, 0, NULL, '', 0, 0, NULL, NULL, 3600, NULL, 'rss_default', 3, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', 'modal-dialog-centered modal-lg', '', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>', '', 'Modaler Dialog mit Text, vertikal zentriert und breiter', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 'all_items', '', 0, 'news_latest', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', 'list_default', 'info_default', NULL, 1, 'cal_month', 'ascending', 0, 0, 'event_full', 'cal_default', 'all_items', NULL, NULL, NULL, NULL, NULL, 'nl_simple', 'ascending', 'com_default');
 INSERT INTO `tl_module` (`id`, `pid`, `tstamp`, `name`, `headline`, `type`, `levelOffset`, `showLevel`, `hardLimit`, `showProtected`, `defineRoot`, `rootPage`, `navigationTpl`, `customTpl`, `pages`, `showHidden`, `customLabel`, `autologin`, `jumpTo`, `redirectBack`, `editable`, `memberTpl`, `form`, `queryType`, `fuzzy`, `contextLength`, `minKeywordLength`, `perPage`, `searchType`, `searchTpl`, `inColumn`, `skipFirst`, `loadFirst`, `singleSRC`, `imgSize`, `useCaption`, `fullsize`, `multiSRC`, `html`, `rss_cache`, `rss_feed`, `rss_template`, `numberOfItems`, `disableCaptcha`, `reg_groups`, `reg_allowLogin`, `reg_skipName`, `reg_close`, `reg_assignDir`, `reg_homeDir`, `reg_activate`, `reg_jumpTo`, `reg_text`, `reg_password`, `protected`, `groups`, `cssID`, `modal_class`, `modal_customTpl`, `modal_text`, `modal_linkClass`, `modal_linkText`, `rootPageDependentModules`, `data`, `reg_deleteDir`, `overviewPage`, `unfilteredHtml`, `pwResetPage`, `reqFullAuth`, `news_showQuantity`, `news_keepCanonical`, `cal_noSpan`, `cal_hideRunning`, `cal_ignoreDynamic`, `cal_showQuantity`, `cal_keepCanonical`, `nl_hideChannels`, `com_moderate`, `com_bbcode`, `com_requireLogin`, `com_disableCaptcha`, `faq_categories`, `faq_readerModule`, `news_archives`, `news_featured`, `news_jumpToCurrent`, `news_readerModule`, `news_template`, `news_format`, `news_startDay`, `news_order`, `list_table`, `list_fields`, `list_where`, `list_search`, `list_sort`, `list_info`, `list_info_where`, `list_layout`, `list_info_layout`, `cal_calendar`, `cal_startDay`, `cal_format`, `cal_order`, `cal_readerModule`, `cal_limit`, `cal_template`, `cal_ctemplate`, `cal_featured`, `newsletters`, `nl_channels`, `nl_text`, `nl_subscribe`, `nl_unsubscribe`, `nl_template`, `com_order`, `com_template`) VALUES(423, 17, 1638526626, 'Social Feed', 'a:2:{s:4:\"unit\";s:2:\"h2\";s:5:\"value\";s:0:\"\";}', 'newslist', 0, 0, 0, 0, 0, 0, '', 'mod_newslist_social_feed', NULL, 0, '', 0, 0, 0, NULL, '', 0, 'and', 0, '', 4, 0, 'simple', '', 'main', 0, 0, NULL, 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', 0, 0, NULL, NULL, 3600, NULL, '', 15, 0, NULL, 0, 0, '', 0, NULL, 0, 0, NULL, NULL, 0, NULL, 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', '', '', NULL, '', '', NULL, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0x613a313a7b693a303b733a313a2233223b7d, 'all_items', '', 0, 'news_social_feed_odd', 'news_month', 0, 'order_date_desc', '', '', '', '', '', '', '', '', '', NULL, 1, 'cal_month', 'ascending', 0, 0, '', '', 'all_items', NULL, NULL, NULL, NULL, NULL, '', 'ascending', '');
 
---
--- Daten für Tabelle `tl_news`
---
+CREATE TABLE `tl_news` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `featured` tinyint(1) NOT NULL DEFAULT 0,
+  `addImage` tinyint(1) NOT NULL DEFAULT 0,
+  `overwriteMeta` tinyint(1) NOT NULL DEFAULT 0,
+  `fullsize` tinyint(1) NOT NULL DEFAULT 0,
+  `addEnclosure` tinyint(1) NOT NULL DEFAULT 0,
+  `target` tinyint(1) NOT NULL DEFAULT 0,
+  `published` tinyint(1) NOT NULL DEFAULT 0,
+  `noComments` tinyint(1) NOT NULL DEFAULT 0,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `headline` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `author` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `date` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `time` int(11) NOT NULL DEFAULT 0,
+  `pageTitle` varchar(255) NOT NULL DEFAULT '',
+  `robots` varchar(32) NOT NULL DEFAULT '',
+  `description` text DEFAULT NULL,
+  `canonicalLink` varchar(2048) NOT NULL DEFAULT '',
+  `subheadline` varchar(255) NOT NULL DEFAULT '',
+  `teaser` text DEFAULT NULL,
+  `singleSRC` binary(16) DEFAULT NULL,
+  `alt` varchar(255) NOT NULL DEFAULT '',
+  `imageTitle` varchar(255) NOT NULL DEFAULT '',
+  `size` varchar(64) NOT NULL DEFAULT '',
+  `imageUrl` varchar(2048) NOT NULL DEFAULT '',
+  `caption` varchar(255) NOT NULL DEFAULT '',
+  `floating` varchar(12) NOT NULL DEFAULT 'above',
+  `enclosure` blob DEFAULT NULL,
+  `source` varchar(12) NOT NULL DEFAULT 'default',
+  `linkText` varchar(255) NOT NULL DEFAULT '',
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `articleId` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `url` varchar(2048) NOT NULL DEFAULT '',
+  `cssClass` varchar(255) NOT NULL DEFAULT '',
+  `start` varchar(10) NOT NULL DEFAULT '',
+  `stop` varchar(10) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_news` (`id`, `featured`, `addImage`, `overwriteMeta`, `fullsize`, `addEnclosure`, `target`, `published`, `noComments`, `pid`, `tstamp`, `headline`, `alias`, `author`, `date`, `time`, `pageTitle`, `robots`, `description`, `canonicalLink`, `subheadline`, `teaser`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `enclosure`, `source`, `linkText`, `jumpTo`, `articleId`, `url`, `cssClass`, `start`, `stop`) VALUES(10, 0, 1, 0, 0, 0, 0, 1, 0, 2, 1552644617, 'Wohnhaus in der Görnischen Gasse', 'wohnhaus-in-der-görnischen-gasse', 1, 1517047500, 1517047500, '', '', NULL, '', 'Tourismus', '<p>Dieses Wohnhaus im Stil der Renaissance entstand um 1580. Noch heute sind aus dieser Zeit zahlreiche Schmuckelemente am Haus erhalten: Tür- und Fenstergewände, Konsolsteine und Deckengewölbe.</p>', 0xb525bf9c467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', '', '', 'above', NULL, 'default', '', 0, 0, '', '', '', '');
 INSERT INTO `tl_news` (`id`, `featured`, `addImage`, `overwriteMeta`, `fullsize`, `addEnclosure`, `target`, `published`, `noComments`, `pid`, `tstamp`, `headline`, `alias`, `author`, `date`, `time`, `pageTitle`, `robots`, `description`, `canonicalLink`, `subheadline`, `teaser`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `enclosure`, `source`, `linkText`, `jumpTo`, `articleId`, `url`, `cssClass`, `start`, `stop`) VALUES(11, 0, 1, 0, 0, 0, 0, 1, 0, 2, 1552644500, 'Wohnhaus in der Rosengasse', 'wohnhaus-in-der-rosengasse', 1, 1517058300, 1517058300, '', '', NULL, '', 'Wohnen', '<p>Die volkstümliche Deutung, in der Gasse hätten die \"Rosen der Stadt\", also die leichten Mädchen, gewohnt, lässt sich nicht belegen. Das hier besuchte Haus scheint auch eher eine Wohnstätte von Kobolden und Hexenmeistern gewesen zu sein ...</p>', 0xb81fbc97467611e9a91c408d5c22fa41, '', '', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', '', '', 'above', NULL, 'default', '', 0, 0, '', '', '', '');
@@ -735,29 +1383,183 @@ INSERT INTO `tl_news` (`id`, `featured`, `addImage`, `overwriteMeta`, `fullsize`
 INSERT INTO `tl_news` (`id`, `featured`, `addImage`, `overwriteMeta`, `fullsize`, `addEnclosure`, `target`, `published`, `noComments`, `pid`, `tstamp`, `headline`, `alias`, `author`, `date`, `time`, `pageTitle`, `robots`, `description`, `canonicalLink`, `subheadline`, `teaser`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `enclosure`, `source`, `linkText`, `jumpTo`, `articleId`, `url`, `cssClass`, `start`, `stop`) VALUES(35, 0, 1, 0, 0, 0, 1, 1, 0, 3, 1638524420, '3 Jahre DSGVO 😱 und was haben wir daraus gelernt?! ...', '', 0, 1621949572, 1621949572, '', '', NULL, '', '', '3 Jahre DSGVO 😱 und was haben wir daraus gelernt?!<br><br>Regeln zum Datenschutz gab es auch bereits zu genüge vor Einführung der DSGVO im Mai 2018, aber in diesem Zuge bekam das Thema Datenschutz in Deutschland nochmal eine ganz andere Aufmerksamkeit und es herrschte fortan viel Unsicherheit und Verwirrung. Im Nachhinein lässt sich sagen, dass die ganze Aufregung wohl etwas übertrieben war, die Abmahnwellen bleiben aus, Klarheit über die nun geltenden Regeln allerdings ebenfalls, denn viele sind immer noch schwammig und werden von verschiedenen Experten unterschiedlich ausgelegt.<br><br>Was wir davon halten, daraus gelernt haben und uns die Erfahrung gezeigt hat, haben wir dir mal in einem Blogbeitrag festgehalten: <br><br>👉 https://lnkd.in/dvsWhzp<br><br>#DSGVO #datenschutz #datenschutzrecht #pdir #checkliste #freebie', 0x03978a95541d11ec8ee0e0d55e59bff3, '', '', '', '', '', 'above', NULL, 'external', '', 0, 0, 'https://www.linkedin.com/feed/update/urn:li:activity:6802949578397118464', '', '', '');
 INSERT INTO `tl_news` (`id`, `featured`, `addImage`, `overwriteMeta`, `fullsize`, `addEnclosure`, `target`, `published`, `noComments`, `pid`, `tstamp`, `headline`, `alias`, `author`, `date`, `time`, `pageTitle`, `robots`, `description`, `canonicalLink`, `subheadline`, `teaser`, `singleSRC`, `alt`, `imageTitle`, `size`, `imageUrl`, `caption`, `floating`, `enclosure`, `source`, `linkText`, `jumpTo`, `articleId`, `url`, `cssClass`, `start`, `stop`) VALUES(36, 0, 1, 0, 0, 0, 1, 1, 0, 3, 1638524420, 'Vom GEBEN und NEHMEN\n\nEs ist nicht immer einfach a ...', '', 0, 1621348850, 1621348850, '', '', NULL, '', '', 'Vom GEBEN und NEHMEN<br><br>Es ist nicht immer einfach als Webentwickler & Dienstleister neben der Entwicklungsarbeit guten Support für die eigenen Produkte zu liefern - aber wir geben stets unser Bestes... und freuen uns wie Schnitzel, wenn unsere Kunden es uns danken.<br>Deshalb heute ein DANKE an alle Kunden zurück, die uns in letzter Zeit so fleißg positiv bei Google Business bewertet haben!!! <br><br>Wenn auch du in dieser Liste erscheinen willt, lass uns gern eine Bewertung da ;)<br> > https://lnkd.in/eaVbArw<br>Danke!<br><br>#googlerezension #testimonial #businessbewertung #kundenfeedback', 0x08043c64541d11ec8ee0e0d55e59bff3, '', '', '', '', '', 'above', NULL, 'external', '', 0, 0, 'https://www.linkedin.com/feed/update/urn:li:activity:6800429967768391681', '', '', '');
 
---
--- Daten für Tabelle `tl_newsletter`
---
+CREATE TABLE `tl_newsletter` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `addFile` tinyint(1) NOT NULL DEFAULT 0,
+  `sendText` tinyint(1) NOT NULL DEFAULT 0,
+  `externalImages` tinyint(1) NOT NULL DEFAULT 0,
+  `sent` tinyint(1) NOT NULL DEFAULT 0,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `subject` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `preheader` varchar(255) NOT NULL DEFAULT '',
+  `content` mediumtext DEFAULT NULL,
+  `text` mediumtext DEFAULT NULL,
+  `files` blob DEFAULT NULL,
+  `template` varchar(64) NOT NULL DEFAULT '',
+  `mailerTransport` varchar(255) NOT NULL DEFAULT '',
+  `sender` varchar(255) NOT NULL DEFAULT '',
+  `senderName` varchar(128) NOT NULL DEFAULT '',
+  `date` varchar(10) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_newsletter` (`id`, `addFile`, `sendText`, `externalImages`, `sent`, `pid`, `tstamp`, `subject`, `alias`, `preheader`, `content`, `text`, `files`, `template`, `mailerTransport`, `sender`, `senderName`, `date`) VALUES(4, 0, 0, 0, 1, 4, 1511793022, 'Keeping everyone up to date', '', '', '<p><b>Keeping everyone up to date</b></p>\n<p>Contao has a built in Newsletter administration system. It offers some features to create newsletters on a regular basis. Your are able to set up an HTML template, create your newsletters just as plain text or use both functionalities. Even attachments or external images can optionally be integrated.<b><br><br></b>SATURDAY<br>December 24<sup>th</sup>, 2013<br>7:30 pm</p>\n<p>SUNDAY<br>December 26<sup>th</sup>, 2013<br>3:00 pm</p>\n<p><b>Tickets $20[nbsp]to[nbsp]$40</b></p>\n<p>Call (416) 872-4255</p>', '', 0x613a313a7b693a303b4e3b7d, 'mail_default', '', '', '', '1511949450');
 INSERT INTO `tl_newsletter` (`id`, `addFile`, `sendText`, `externalImages`, `sent`, `pid`, `tstamp`, `subject`, `alias`, `preheader`, `content`, `text`, `files`, `template`, `mailerTransport`, `sender`, `senderName`, `date`) VALUES(5, 0, 0, 0, 0, 4, 1511948990, 'The right newsletter for everyone', 'the-right-newsletter-for-everyone', '', '<p><b>The right newsletter for everyone</b></p>\n<p>The newsletter functionalities of Contao allows you to create different \"Channels\". So it\'s possible to adress visitors or regular users of your site with their specific interests. Before you send a newsletter to a list of subscribers you can make the use of the option to send a preview. Better check your newsletters on all mail clients. Some of you might know that a lot of mail servers just allow a certain amount of Emails sent within a time-amount: The \"Mails per cycle\" function will help here with larger lists.<b><br><br></b>SATURDAY<br>December 24<sup>th</sup>, 2013<br>7:30 pm</p>\n<p>SUNDAY<br>December 26<sup>th</sup>, 2013<br>3:00 pm</p>\n<p><b>Tickets $20[nbsp]to[nbsp]$40</b></p>\n<p>Call (416) 872-4255</p>', 'TEXT Content', 0x613a313a7b693a303b4e3b7d, 'mail_default', '', '', '', '1360273849');
 
---
--- Daten für Tabelle `tl_newsletter_channel`
---
+CREATE TABLE `tl_newsletter_channel` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `template` varchar(32) NOT NULL DEFAULT '',
+  `mailerTransport` varchar(255) NOT NULL DEFAULT '',
+  `sender` varchar(255) NOT NULL DEFAULT '',
+  `senderName` varchar(128) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_newsletter_channel` (`id`, `tstamp`, `title`, `jumpTo`, `template`, `mailerTransport`, `sender`, `senderName`) VALUES(4, 1539339319, 'Odd / Newsletter', 136, 'mail_default', '', 'info@example.de', 'Contao Themes');
 
---
--- Daten für Tabelle `tl_news_archive`
---
+CREATE TABLE `tl_newsletter_deny_list` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `hash` varchar(32) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tl_newsletter_recipients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 0,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `email` varchar(255) DEFAULT NULL,
+  `addedOn` varchar(10) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tl_news_archive` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `protected` tinyint(1) NOT NULL DEFAULT 0,
+  `allowComments` tinyint(1) NOT NULL DEFAULT 0,
+  `moderate` tinyint(1) NOT NULL DEFAULT 0,
+  `bbcode` tinyint(1) NOT NULL DEFAULT 0,
+  `requireLogin` tinyint(1) NOT NULL DEFAULT 0,
+  `disableCaptcha` tinyint(1) NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `groups` blob DEFAULT NULL,
+  `notify` varchar(32) NOT NULL DEFAULT 'notify_admin',
+  `sortOrder` varchar(32) NOT NULL DEFAULT 'ascending',
+  `perPage` smallint(5) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_news_archive` (`id`, `protected`, `allowComments`, `moderate`, `bbcode`, `requireLogin`, `disableCaptcha`, `tstamp`, `title`, `jumpTo`, `groups`, `notify`, `sortOrder`, `perPage`) VALUES(2, 0, 1, 0, 0, 0, 0, 1638374553, 'Odd / Blog', 108, NULL, 'notify_admin', 'ascending', 0);
 INSERT INTO `tl_news_archive` (`id`, `protected`, `allowComments`, `moderate`, `bbcode`, `requireLogin`, `disableCaptcha`, `tstamp`, `title`, `jumpTo`, `groups`, `notify`, `sortOrder`, `perPage`) VALUES(3, 0, 0, 0, 0, 0, 0, 1638523142, 'LinkedIn', 90, NULL, 'notify_admin', 'ascending', 0);
 
---
--- Daten für Tabelle `tl_page`
---
+CREATE TABLE `tl_opt_in` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `token` varchar(24) NOT NULL DEFAULT '',
+  `createdOn` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `confirmedOn` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `removeOn` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `invalidatedThrough` varchar(24) NOT NULL DEFAULT '',
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `emailSubject` varchar(255) NOT NULL DEFAULT '',
+  `emailText` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tl_opt_in_related` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `relTable` varchar(64) DEFAULT NULL,
+  `relId` int(10) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tl_page` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `sorting` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `type` varchar(64) NOT NULL DEFAULT 'regular',
+  `pageTitle` varchar(255) NOT NULL DEFAULT '',
+  `language` varchar(64) NOT NULL DEFAULT '',
+  `robots` varchar(32) NOT NULL DEFAULT '',
+  `description` text DEFAULT NULL,
+  `redirect` varchar(32) NOT NULL DEFAULT 'permanent',
+  `jumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `redirectBack` tinyint(1) NOT NULL DEFAULT 0,
+  `url` varchar(2048) NOT NULL DEFAULT '',
+  `target` tinyint(1) NOT NULL DEFAULT 0,
+  `dns` varchar(255) NOT NULL DEFAULT '',
+  `staticFiles` varchar(255) NOT NULL DEFAULT '',
+  `staticPlugins` varchar(255) NOT NULL DEFAULT '',
+  `fallback` tinyint(1) NOT NULL DEFAULT 0,
+  `adminEmail` varchar(255) NOT NULL DEFAULT '',
+  `dateFormat` varchar(32) NOT NULL DEFAULT '',
+  `timeFormat` varchar(32) NOT NULL DEFAULT '',
+  `datimFormat` varchar(32) NOT NULL DEFAULT '',
+  `useSSL` tinyint(1) NOT NULL DEFAULT 1,
+  `autoforward` tinyint(1) NOT NULL DEFAULT 0,
+  `protected` tinyint(1) NOT NULL DEFAULT 0,
+  `groups` blob DEFAULT NULL,
+  `includeLayout` tinyint(1) NOT NULL DEFAULT 0,
+  `layout` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `twoFactorJumpTo` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `includeCache` tinyint(1) NOT NULL DEFAULT 0,
+  `cache` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `clientCache` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `includeChmod` tinyint(1) NOT NULL DEFAULT 0,
+  `cuser` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `cgroup` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `chmod` varchar(255) NOT NULL DEFAULT '',
+  `noSearch` tinyint(1) NOT NULL DEFAULT 0,
+  `cssClass` varchar(64) NOT NULL DEFAULT '',
+  `sitemap` varchar(32) NOT NULL DEFAULT '',
+  `hide` tinyint(1) NOT NULL DEFAULT 0,
+  `accesskey` char(1) NOT NULL DEFAULT '',
+  `published` tinyint(1) NOT NULL DEFAULT 0,
+  `start` varchar(10) NOT NULL DEFAULT '',
+  `stop` varchar(10) NOT NULL DEFAULT '',
+  `enforceTwoFactor` tinyint(1) NOT NULL DEFAULT 0,
+  `requireItem` tinyint(1) NOT NULL DEFAULT 0,
+  `alwaysLoadFromCache` tinyint(1) NOT NULL DEFAULT 0,
+  `validAliasCharacters` varchar(255) NOT NULL DEFAULT '',
+  `robotsTxt` text DEFAULT NULL,
+  `favicon` binary(16) DEFAULT NULL,
+  `urlPrefix` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `urlSuffix` varchar(16) NOT NULL DEFAULT '',
+  `useFolderUrl` tinyint(1) NOT NULL DEFAULT 0,
+  `subpageLayout` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `canonicalKeepParams` varchar(255) NOT NULL DEFAULT '',
+  `canonicalLink` varchar(2048) NOT NULL DEFAULT '',
+  `enableCanonical` tinyint(1) NOT NULL DEFAULT 0,
+  `mailerTransport` varchar(255) NOT NULL DEFAULT '',
+  `maintenanceMode` tinyint(1) NOT NULL DEFAULT 0,
+  `routePriority` int(11) NOT NULL DEFAULT 0,
+  `disableLanguageRedirect` tinyint(1) NOT NULL DEFAULT 0,
+  `ac_defaultColumnWidth` tinyint(1) NOT NULL DEFAULT 0,
+  `ac_disableCSS` tinyint(1) NOT NULL DEFAULT 0,
+  `ac_set` varchar(255) NOT NULL DEFAULT '',
+  `enable_high_contrast` tinyint(1) NOT NULL DEFAULT 1,
+  `enable_font_size` tinyint(1) NOT NULL DEFAULT 1,
+  `enable_font_size_switcher` tinyint(1) NOT NULL DEFAULT 1,
+  `font_size_comment_page` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `alwaysForward` tinyint(1) NOT NULL DEFAULT 0,
+  `enableCsp` tinyint(1) NOT NULL DEFAULT 0,
+  `csp` longtext DEFAULT NULL,
+  `cspReportOnly` tinyint(1) NOT NULL DEFAULT 0,
+  `cspReportLog` tinyint(1) NOT NULL DEFAULT 0,
+  `newsArchives` blob DEFAULT NULL,
+  `feedFormat` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'rss',
+  `feedSource` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'source_teaser',
+  `maxFeedItems` smallint(5) UNSIGNED NOT NULL DEFAULT 25,
+  `feedFeatured` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT 'all_items',
+  `feedDescription` text DEFAULT NULL,
+  `imgSize` varchar(255) NOT NULL DEFAULT '',
+  `guests` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_page` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `type`, `pageTitle`, `language`, `robots`, `description`, `redirect`, `jumpTo`, `redirectBack`, `url`, `target`, `dns`, `staticFiles`, `staticPlugins`, `fallback`, `adminEmail`, `dateFormat`, `timeFormat`, `datimFormat`, `useSSL`, `autoforward`, `protected`, `groups`, `includeLayout`, `layout`, `twoFactorJumpTo`, `includeCache`, `cache`, `clientCache`, `includeChmod`, `cuser`, `cgroup`, `chmod`, `noSearch`, `cssClass`, `sitemap`, `hide`, `accesskey`, `published`, `start`, `stop`, `enforceTwoFactor`, `requireItem`, `alwaysLoadFromCache`, `validAliasCharacters`, `robotsTxt`, `favicon`, `urlPrefix`, `urlSuffix`, `useFolderUrl`, `subpageLayout`, `canonicalKeepParams`, `canonicalLink`, `enableCanonical`, `mailerTransport`, `maintenanceMode`, `routePriority`, `disableLanguageRedirect`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `enable_high_contrast`, `enable_font_size`, `enable_font_size_switcher`, `font_size_comment_page`, `alwaysForward`, `enableCsp`, `csp`, `cspReportOnly`, `cspReportLog`, `newsArchives`, `feedFormat`, `feedSource`, `maxFeedItems`, `feedFeatured`, `feedDescription`, `imgSize`, `guests`) VALUES(90, 0, 384, 1749221617, 'odd - contao theme', 'odd', 'root', 'odd - contao theme', 'de', '', NULL, 'permanent', 0, 0, '', 0, '', '', '', 1, '', 'd.m.Y', 'H:i', 'd.m.Y H:i', 1, 0, 0, NULL, 1, 55, 0, 0, 604800, 604800, 0, 0, 0, 'a:9:{i:0;s:2:\"u1\";i:1;s:2:\"u2\";i:2;s:2:\"u3\";i:3;s:2:\"u4\";i:4;s:2:\"u5\";i:5;s:2:\"u6\";i:6;s:2:\"g4\";i:7;s:2:\"g5\";i:8;s:2:\"g6\";}', 0, '', '', 0, '', 1, '', '', 0, 0, 0, '', NULL, 0xd163d7285f5611e989ece0d55edd9ad9, '', '.html', 1, 0, '', '', 0, '', 0, 0, 0, 0, 0, 'bundles/contaoddadvancedclasses/sets/bootstrap4.json', 1, 1, 1, 0, 0, 0, NULL, 0, 0, NULL, 'rss', 'source_teaser', 25, 'all_items', NULL, '', 0);
 INSERT INTO `tl_page` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `type`, `pageTitle`, `language`, `robots`, `description`, `redirect`, `jumpTo`, `redirectBack`, `url`, `target`, `dns`, `staticFiles`, `staticPlugins`, `fallback`, `adminEmail`, `dateFormat`, `timeFormat`, `datimFormat`, `useSSL`, `autoforward`, `protected`, `groups`, `includeLayout`, `layout`, `twoFactorJumpTo`, `includeCache`, `cache`, `clientCache`, `includeChmod`, `cuser`, `cgroup`, `chmod`, `noSearch`, `cssClass`, `sitemap`, `hide`, `accesskey`, `published`, `start`, `stop`, `enforceTwoFactor`, `requireItem`, `alwaysLoadFromCache`, `validAliasCharacters`, `robotsTxt`, `favicon`, `urlPrefix`, `urlSuffix`, `useFolderUrl`, `subpageLayout`, `canonicalKeepParams`, `canonicalLink`, `enableCanonical`, `mailerTransport`, `maintenanceMode`, `routePriority`, `disableLanguageRedirect`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `enable_high_contrast`, `enable_font_size`, `enable_font_size_switcher`, `font_size_comment_page`, `alwaysForward`, `enableCsp`, `csp`, `cspReportOnly`, `cspReportLog`, `newsArchives`, `feedFormat`, `feedSource`, `maxFeedItems`, `feedFeatured`, `feedDescription`, `imgSize`, `guests`) VALUES(91, 90, 128, 1749221617, 'Start', 'index', 'regular', 'Odd Theme Demo', '', 'index,follow', 'Auf dieser Seite finden Sie Demo-Inhalte des Odd Themes für das Content-Management-System Contao.', 'permanent', 0, 0, '', 0, '', '', '', 0, '', '', '', '', 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'a:9:{i:0;s:2:\"u1\";i:1;s:2:\"u2\";i:2;s:2:\"u3\";i:3;s:2:\"u4\";i:4;s:2:\"u5\";i:5;s:2:\"u6\";i:6;s:2:\"g4\";i:7;s:2:\"g5\";i:8;s:2:\"g6\";}', 0, '', 'map_default', 0, '', 1, '', '', 0, 0, 0, '', NULL, NULL, '', '.html', 0, 0, '', '', 0, '', 0, 0, 0, 0, 0, '', 1, 1, 1, 0, 0, 0, NULL, 0, 0, NULL, 'rss', 'source_teaser', 25, 'all_items', NULL, '', 0);
@@ -805,12 +1607,347 @@ INSERT INTO `tl_page` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `type
 INSERT INTO `tl_page` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `type`, `pageTitle`, `language`, `robots`, `description`, `redirect`, `jumpTo`, `redirectBack`, `url`, `target`, `dns`, `staticFiles`, `staticPlugins`, `fallback`, `adminEmail`, `dateFormat`, `timeFormat`, `datimFormat`, `useSSL`, `autoforward`, `protected`, `groups`, `includeLayout`, `layout`, `twoFactorJumpTo`, `includeCache`, `cache`, `clientCache`, `includeChmod`, `cuser`, `cgroup`, `chmod`, `noSearch`, `cssClass`, `sitemap`, `hide`, `accesskey`, `published`, `start`, `stop`, `enforceTwoFactor`, `requireItem`, `alwaysLoadFromCache`, `validAliasCharacters`, `robotsTxt`, `favicon`, `urlPrefix`, `urlSuffix`, `useFolderUrl`, `subpageLayout`, `canonicalKeepParams`, `canonicalLink`, `enableCanonical`, `mailerTransport`, `maintenanceMode`, `routePriority`, `disableLanguageRedirect`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `enable_high_contrast`, `enable_font_size`, `enable_font_size_switcher`, `font_size_comment_page`, `alwaysForward`, `enableCsp`, `csp`, `cspReportOnly`, `cspReportLog`, `newsArchives`, `feedFormat`, `feedSource`, `maxFeedItems`, `feedFeatured`, `feedDescription`, `imgSize`, `guests`) VALUES(161, 118, 16, 1749221617, 'Layout mit geradem Header', 'layouts/layout-mit-geradem-header', 'regular', '', '', 'noindex,nofollow', NULL, 'permanent', 0, 0, '', 0, '', '', '', 0, '', '', '', '', 0, 0, 0, NULL, 1, 59, 0, 0, 0, 0, 0, 0, 0, 'a:9:{i:0;s:2:\"u1\";i:1;s:2:\"u2\";i:2;s:2:\"u3\";i:3;s:2:\"u4\";i:4;s:2:\"u5\";i:5;s:2:\"u6\";i:6;s:2:\"g4\";i:7;s:2:\"g5\";i:8;s:2:\"g6\";}', 0, '', 'map_never', 0, '', 1, '', '', 0, 0, 0, '', NULL, NULL, '', '.html', 0, 0, '', '', 0, '', 0, 0, 0, 0, 0, '', 1, 1, 1, 0, 0, 0, NULL, 0, 0, NULL, 'rss', 'source_teaser', 25, 'all_items', NULL, '', 0);
 INSERT INTO `tl_page` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `type`, `pageTitle`, `language`, `robots`, `description`, `redirect`, `jumpTo`, `redirectBack`, `url`, `target`, `dns`, `staticFiles`, `staticPlugins`, `fallback`, `adminEmail`, `dateFormat`, `timeFormat`, `datimFormat`, `useSSL`, `autoforward`, `protected`, `groups`, `includeLayout`, `layout`, `twoFactorJumpTo`, `includeCache`, `cache`, `clientCache`, `includeChmod`, `cuser`, `cgroup`, `chmod`, `noSearch`, `cssClass`, `sitemap`, `hide`, `accesskey`, `published`, `start`, `stop`, `enforceTwoFactor`, `requireItem`, `alwaysLoadFromCache`, `validAliasCharacters`, `robotsTxt`, `favicon`, `urlPrefix`, `urlSuffix`, `useFolderUrl`, `subpageLayout`, `canonicalKeepParams`, `canonicalLink`, `enableCanonical`, `mailerTransport`, `maintenanceMode`, `routePriority`, `disableLanguageRedirect`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `enable_high_contrast`, `enable_font_size`, `enable_font_size_switcher`, `font_size_comment_page`, `alwaysForward`, `enableCsp`, `csp`, `cspReportOnly`, `cspReportLog`, `newsArchives`, `feedFormat`, `feedSource`, `maxFeedItems`, `feedFeatured`, `feedDescription`, `imgSize`, `guests`) VALUES(162, 118, 256, 1749221617, 'Elemente mit Schrägen', 'layouts/elemente-mit-schrägen', 'regular', '', '', 'noindex,nofollow', NULL, 'permanent', 0, 0, '', 0, '', '', '', 0, '', '', '', '', 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'a:9:{i:0;s:2:\"u1\";i:1;s:2:\"u2\";i:2;s:2:\"u3\";i:3;s:2:\"u4\";i:4;s:2:\"u5\";i:5;s:2:\"u6\";i:6;s:2:\"g4\";i:7;s:2:\"g5\";i:8;s:2:\"g6\";}', 0, '', 'map_never', 0, '', 1, '', '', 0, 0, 0, '', NULL, NULL, '', '.html', 0, 0, '', '', 0, '', 0, 0, 0, 0, 0, '', 1, 1, 1, 0, 0, 0, NULL, 0, 0, NULL, 'rss', 'source_teaser', 25, 'all_items', NULL, '', 0);
 INSERT INTO `tl_page` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `type`, `pageTitle`, `language`, `robots`, `description`, `redirect`, `jumpTo`, `redirectBack`, `url`, `target`, `dns`, `staticFiles`, `staticPlugins`, `fallback`, `adminEmail`, `dateFormat`, `timeFormat`, `datimFormat`, `useSSL`, `autoforward`, `protected`, `groups`, `includeLayout`, `layout`, `twoFactorJumpTo`, `includeCache`, `cache`, `clientCache`, `includeChmod`, `cuser`, `cgroup`, `chmod`, `noSearch`, `cssClass`, `sitemap`, `hide`, `accesskey`, `published`, `start`, `stop`, `enforceTwoFactor`, `requireItem`, `alwaysLoadFromCache`, `validAliasCharacters`, `robotsTxt`, `favicon`, `urlPrefix`, `urlSuffix`, `useFolderUrl`, `subpageLayout`, `canonicalKeepParams`, `canonicalLink`, `enableCanonical`, `mailerTransport`, `maintenanceMode`, `routePriority`, `disableLanguageRedirect`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `enable_high_contrast`, `enable_font_size`, `enable_font_size_switcher`, `font_size_comment_page`, `alwaysForward`, `enableCsp`, `csp`, `cspReportOnly`, `cspReportLog`, `newsArchives`, `feedFormat`, `feedSource`, `maxFeedItems`, `feedFeatured`, `feedDescription`, `imgSize`, `guests`) VALUES(164, 92, 1152, 1749738702, 'Modale Dialoge', 'module/modale-dialoge', 'regular', '', '', 'index,follow', NULL, 'permanent', 0, 0, '', 0, '', '', '', 0, '', '', '', '', 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'a:9:{i:0;s:2:\"u1\";i:1;s:2:\"u2\";i:2;s:2:\"u3\";i:3;s:2:\"u4\";i:4;s:2:\"u5\";i:5;s:2:\"u6\";i:6;s:2:\"g4\";i:7;s:2:\"g5\";i:8;s:2:\"g6\";}', 0, '', 'map_default', 0, '', 1, '', '', 0, 0, 0, '', NULL, NULL, '', '.html', 0, 0, '', '', 0, '', 0, 0, 0, 0, 0, '', 1, 1, 1, 0, 0, 0, NULL, 0, 0, NULL, 'rss', 'source_teaser', 25, 'all_items', NULL, '', 0);
+INSERT INTO `tl_page` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `type`, `pageTitle`, `language`, `robots`, `description`, `redirect`, `jumpTo`, `redirectBack`, `url`, `target`, `dns`, `staticFiles`, `staticPlugins`, `fallback`, `adminEmail`, `dateFormat`, `timeFormat`, `datimFormat`, `useSSL`, `autoforward`, `protected`, `groups`, `includeLayout`, `layout`, `twoFactorJumpTo`, `includeCache`, `cache`, `clientCache`, `includeChmod`, `cuser`, `cgroup`, `chmod`, `noSearch`, `cssClass`, `sitemap`, `hide`, `accesskey`, `published`, `start`, `stop`, `enforceTwoFactor`, `requireItem`, `alwaysLoadFromCache`, `validAliasCharacters`, `robotsTxt`, `favicon`, `urlPrefix`, `urlSuffix`, `useFolderUrl`, `subpageLayout`, `canonicalKeepParams`, `canonicalLink`, `enableCanonical`, `mailerTransport`, `maintenanceMode`, `routePriority`, `disableLanguageRedirect`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `enable_high_contrast`, `enable_font_size`, `enable_font_size_switcher`, `font_size_comment_page`, `alwaysForward`, `enableCsp`, `csp`, `cspReportOnly`, `cspReportLog`, `newsArchives`, `feedFormat`, `feedSource`, `maxFeedItems`, `feedFeatured`, `feedDescription`, `imgSize`, `guests`) VALUES(165, 90, 752, 1750088115, 'Datenschutz', 'datenschutz', 'regular', '', '', 'noindex,nofollow', NULL, 'permanent', 0, 0, '', 0, '', '', '', 0, '', '', '', '', 1, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'a:9:{i:0;s:2:\"u1\";i:1;s:2:\"u2\";i:2;s:2:\"u3\";i:3;s:2:\"u4\";i:4;s:2:\"u5\";i:5;s:2:\"u6\";i:6;s:2:\"g4\";i:7;s:2:\"g5\";i:8;s:2:\"g6\";}', 0, '', 'map_never', 1, '', 1, '', '', 0, 0, 0, '', NULL, NULL, '', '', 0, 0, '', '', 1, '', 0, 0, 0, 0, 0, '', 1, 1, 1, 0, 0, 0, 'default-src \'self\'', 0, 0, NULL, 'rss', 'source_teaser', 25, 'all_items', NULL, '', 0);
+INSERT INTO `tl_page` (`id`, `pid`, `sorting`, `tstamp`, `title`, `alias`, `type`, `pageTitle`, `language`, `robots`, `description`, `redirect`, `jumpTo`, `redirectBack`, `url`, `target`, `dns`, `staticFiles`, `staticPlugins`, `fallback`, `adminEmail`, `dateFormat`, `timeFormat`, `datimFormat`, `useSSL`, `autoforward`, `protected`, `groups`, `includeLayout`, `layout`, `twoFactorJumpTo`, `includeCache`, `cache`, `clientCache`, `includeChmod`, `cuser`, `cgroup`, `chmod`, `noSearch`, `cssClass`, `sitemap`, `hide`, `accesskey`, `published`, `start`, `stop`, `enforceTwoFactor`, `requireItem`, `alwaysLoadFromCache`, `validAliasCharacters`, `robotsTxt`, `favicon`, `urlPrefix`, `urlSuffix`, `useFolderUrl`, `subpageLayout`, `canonicalKeepParams`, `canonicalLink`, `enableCanonical`, `mailerTransport`, `maintenanceMode`, `routePriority`, `disableLanguageRedirect`, `ac_defaultColumnWidth`, `ac_disableCSS`, `ac_set`, `enable_high_contrast`, `enable_font_size`, `enable_font_size_switcher`, `font_size_comment_page`, `alwaysForward`, `enableCsp`, `csp`, `cspReportOnly`, `cspReportLog`, `newsArchives`, `feedFormat`, `feedSource`, `maxFeedItems`, `feedFeatured`, `feedDescription`, `imgSize`, `guests`) VALUES(166, 90, 776, 1750088447, 'Zugänglichkeit', 'barrierefreiheit', 'regular', '', '', 'noindex,nofollow', NULL, 'permanent', 0, 0, '', 0, '', '', '', 0, '', '', '', '', 1, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'a:9:{i:0;s:2:\"u1\";i:1;s:2:\"u2\";i:2;s:2:\"u3\";i:3;s:2:\"u4\";i:4;s:2:\"u5\";i:5;s:2:\"u6\";i:6;s:2:\"g4\";i:7;s:2:\"g5\";i:8;s:2:\"g6\";}', 0, '', 'map_never', 1, '', 1, '', '', 0, 0, 0, '', NULL, NULL, '', '', 0, 0, '', '', 1, '', 0, 0, 0, 0, 0, '', 1, 1, 1, 0, 0, 0, 'default-src \'self\'', 0, 0, NULL, 'rss', 'source_teaser', 25, 'all_items', NULL, '', 0);
 
---
--- Daten für Tabelle `tl_theme`
---
+CREATE TABLE `tl_theme` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(128) NOT NULL DEFAULT '',
+  `author` varchar(128) NOT NULL DEFAULT '',
+  `folders` blob DEFAULT NULL,
+  `screenshot` binary(16) DEFAULT NULL,
+  `templates` varchar(255) NOT NULL DEFAULT '',
+  `pdir_th_short_code` varchar(32) NOT NULL DEFAULT '',
+  `pdir_th_license_domain` varchar(128) NOT NULL DEFAULT '',
+  `pdir_th_description` mediumtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `tl_theme` (`id`, `tstamp`, `name`, `author`, `folders`, `screenshot`, `templates`, `pdir_th_short_code`, `pdir_th_license_domain`, `pdir_th_description`) VALUES(17, 1566205456, 'Odd Theme', 'pdir digital agentur // pdir GmbH / Juliane Langer, Philipp Seibt, Mathias Arzberger', NULL, NULL, '', 'odd', '', '&lt;b&#62;pdir contao theme licence&lt;/b&#62;&lt;br&#62;\nMit dieser &lt;b&#62;Lizenz&lt;/b&#62; gekennzeichnete Themes dürfen sowohl privat als auch kommerziell eingesetzt werden. Der Copyright-Link bzw. die Copyright-Links \"&lt;i&#62;ODD Theme by montequesto&lt;/i&#62;\" dürfen nicht entfernt oder verändert werden. Das gilt auch wenn Sie das Theme\nnur als Basis für eine Website einsetzen und es verändern.\nMöchten Sie diesen Theme ohne Copyright-Link einsetzen, müssen Sie eine kostenpflichtige Lizenz erwerben.');
+
+CREATE TABLE `tl_trusted_device` (
+  `id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `userClass` varchar(255) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `user_agent` longtext DEFAULT NULL,
+  `ua_family` varchar(255) DEFAULT NULL,
+  `os_family` varchar(255) DEFAULT NULL,
+  `device_family` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tl_user_group` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tstamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `modules` blob DEFAULT NULL,
+  `themes` blob DEFAULT NULL,
+  `pagemounts` blob DEFAULT NULL,
+  `alpty` blob DEFAULT NULL,
+  `filemounts` blob DEFAULT NULL,
+  `fop` blob DEFAULT NULL,
+  `imageSizes` blob DEFAULT NULL,
+  `forms` blob DEFAULT NULL,
+  `formp` blob DEFAULT NULL,
+  `amg` blob DEFAULT NULL,
+  `alexf` blob DEFAULT NULL,
+  `disable` tinyint(1) NOT NULL DEFAULT 0,
+  `start` varchar(10) NOT NULL DEFAULT '',
+  `stop` varchar(10) NOT NULL DEFAULT '',
+  `elements` blob DEFAULT NULL,
+  `fields` blob DEFAULT NULL,
+  `rocksolidFrontendHelperContentElements` blob DEFAULT NULL,
+  `rocksolidFrontendHelperOperations` blob DEFAULT NULL,
+  `frontendModules` blob DEFAULT NULL,
+  `faqs` blob DEFAULT NULL,
+  `faqp` blob DEFAULT NULL,
+  `news` blob DEFAULT NULL,
+  `newp` blob DEFAULT NULL,
+  `calendars` blob DEFAULT NULL,
+  `calendarp` blob DEFAULT NULL,
+  `calendarfeeds` blob DEFAULT NULL,
+  `calendarfeedp` blob DEFAULT NULL,
+  `newsletters` blob DEFAULT NULL,
+  `newsletterp` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+
+ALTER TABLE `rememberme_token`
+  ADD PRIMARY KEY (`series`);
+
+ALTER TABLE `tl_article`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `alias` (`alias`),
+  ADD KEY `pid_published_incolumn_start_stop` (`pid`,`published`,`inColumn`,`start`,`stop`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_calendar`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_calendar_events`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `alias` (`alias`),
+  ADD KEY `pid_published_featured_start_stop` (`pid`,`published`,`featured`,`start`,`stop`);
+
+ALTER TABLE `tl_calendar_feed`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `alias` (`alias`);
+
+ALTER TABLE `tl_comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `published` (`published`),
+  ADD KEY `source_parent_published` (`source`,`parent`,`published`);
+
+ALTER TABLE `tl_comments_notify`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `source_parent_active_email` (`source`,`parent`,`active`,`email`),
+  ADD KEY `tokenremove` (`tokenRemove`);
+
+ALTER TABLE `tl_content`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `type` (`type`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `ptable_pid_invisible_start_stop` (`ptable`,`pid`,`invisible`,`start`,`stop`);
+
+ALTER TABLE `tl_crawl_queue`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `job_id` (`job_id`),
+  ADD KEY `uri_hash` (`uri_hash`),
+  ADD KEY `processed` (`processed`);
+
+ALTER TABLE `tl_faq`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pid_published` (`pid`,`published`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_faq_category`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `jumpto` (`jumpTo`);
+
+ALTER TABLE `tl_favorites`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pid_user` (`pid`,`user`),
+  ADD KEY `url` (`url`(768)),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_files`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uuid` (`uuid`),
+  ADD KEY `pid` (`pid`),
+  ADD KEY `extension` (`extension`),
+  ADD KEY `path` (`path`(768)),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_form`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `alias` (`alias`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_form_field`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pid_invisible` (`pid`,`invisible`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_image_size`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pid` (`pid`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_image_size_item`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pid` (`pid`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_layout`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_member`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `email` (`email`),
+  ADD KEY `login_disable_start_stop` (`login`,`disable`,`start`,`stop`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_member_group`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `disable_start_stop` (`disable`,`start`,`stop`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_message_queue`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_1E97E1ADFB7336F0` (`queue_name`),
+  ADD KEY `IDX_1E97E1ADE3BD61CE` (`available_at`),
+  ADD KEY `IDX_1E97E1AD16BA31DB` (`delivered_at`);
+
+ALTER TABLE `tl_module`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_news`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `alias` (`alias`),
+  ADD KEY `pid_published_featured_start_stop` (`pid`,`published`,`featured`,`start`,`stop`);
+
+ALTER TABLE `tl_newsletter`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pid` (`pid`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_newsletter_channel`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_newsletter_deny_list`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `pid_hash` (`pid`,`hash`);
+
+ALTER TABLE `tl_newsletter_recipients`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `pid_email` (`pid`,`email`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `email` (`email`),
+  ADD KEY `active` (`active`);
+
+ALTER TABLE `tl_news_archive`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `jumpto` (`jumpTo`);
+
+ALTER TABLE `tl_opt_in`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `token` (`token`),
+  ADD KEY `removeon` (`removeOn`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_opt_in_related`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reltable_relid` (`relTable`,`relId`),
+  ADD KEY `pid` (`pid`);
+
+ALTER TABLE `tl_page`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `alias` (`alias`),
+  ADD KEY `pid_published_type_start_stop` (`pid`,`published`,`type`,`start`,`stop`),
+  ADD KEY `tstamp` (`tstamp`),
+  ADD KEY `type_dns_fallback_published_start_stop` (`type`,`dns`,`fallback`,`published`,`start`,`stop`);
+
+ALTER TABLE `tl_theme`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`);
+
+ALTER TABLE `tl_trusted_device`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `tl_user_group`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tstamp` (`tstamp`);
+
+
+ALTER TABLE `tl_article`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
+
+ALTER TABLE `tl_calendar`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+ALTER TABLE `tl_calendar_events`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+ALTER TABLE `tl_calendar_feed`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_comments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+ALTER TABLE `tl_comments_notify`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_content`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1202;
+
+ALTER TABLE `tl_crawl_queue`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_faq`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+ALTER TABLE `tl_faq_category`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+ALTER TABLE `tl_favorites`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_files`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=870;
+
+ALTER TABLE `tl_form`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+ALTER TABLE `tl_form_field`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+ALTER TABLE `tl_image_size`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+ALTER TABLE `tl_image_size_item`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+ALTER TABLE `tl_layout`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
+ALTER TABLE `tl_member`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+ALTER TABLE `tl_member_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+ALTER TABLE `tl_message_queue`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58510;
+
+ALTER TABLE `tl_module`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=424;
+
+ALTER TABLE `tl_news`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+ALTER TABLE `tl_newsletter`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+ALTER TABLE `tl_newsletter_channel`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+ALTER TABLE `tl_newsletter_deny_list`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_newsletter_recipients`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_news_archive`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+ALTER TABLE `tl_opt_in`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_opt_in_related`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_page`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+
+ALTER TABLE `tl_theme`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+ALTER TABLE `tl_trusted_device`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tl_user_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
