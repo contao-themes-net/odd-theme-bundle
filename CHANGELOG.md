@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [3.7.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.0) – 2025-xx-xx
+## [3.7.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.0) – 2025-06-17
 - [Added] Add contrast color schemes (only in v2) and accessbility changes
 - [Fixed] Pagespeed optimizations
 

@@ -58,7 +58,7 @@ class ThemeUtils
 
         // for multi domain setup
         if (null !== $theme) {
-            self::$scssFolder .= 'files/odd/scss/'.$theme.'/';
+            self::$scssFolder = '/files/odd/scss/'.$theme.'/';
         }
 
         // Get session for theme switcher
