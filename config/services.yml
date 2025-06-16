@@ -11,3 +11,12 @@ services:
         resource: "../src/Migration/*"
         tags:
             - { name: contao.migration, priority: 99 }
+
+    ctn.odd_theme.listener.preview_toolbar:
+        class: ContaoThemesNet\OddThemeBundle\EventListener\PreviewToolbarListener
+        arguments:
+            - '@contao.routing.scope_matcher'
+            - '@contao.security.token_checker'
+            - '@twig'
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: __invoke }

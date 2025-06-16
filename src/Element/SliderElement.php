@@ -63,6 +63,7 @@ class SliderElement extends ContentElement
     {
         $this->Template->page = $this->odd_page;
         $this->Template->linkText = $this->odd_linkText;
+        $this->Template->linkTitle = $this->odd_linkTitle;
         $this->Template->picture = $this->singleSRC;
         $this->Template->subheadline = $this->odd_subHeadline;
         $this->Template->target = '';

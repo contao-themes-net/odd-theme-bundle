@@ -18,7 +18,7 @@
           <div class="<?php if (!empty($item['subitems'])) echo 'dropdown-toggle'; ?>" <?php if (!empty($item['subitems'])) echo 'data-toggle="dropdown"'; ?>></div>
         <?php endif; ?>
 
-        <?= $item['subitems'] ?></li>
+        <?php if (!empty($item['subitems'])): ?><?= $item['subitems'] ?><?php endif; ?></li>
     <?php endif; ?>
   <?php endforeach; ?>
 </ul>

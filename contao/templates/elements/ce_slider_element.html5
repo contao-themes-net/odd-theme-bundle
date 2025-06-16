@@ -23,7 +23,7 @@
                 <?= $this->text ?>
 
                 <?php if($this->page): ?>
-                    <a href="<?= $this->page ?>" class="readmore"<?= $this->target ?><?= $this->rel ?>><?= $this->linkText ?></a>
+                    <a href="<?= $this->page ?>" class="readmore"<?= $this->target ?><?= $this->rel ?><?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<? endif; ?>><?= $this->linkText ?></a>
                 <?php endif; ?>
             </div>
         </div>

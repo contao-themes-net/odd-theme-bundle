@@ -15,3 +15,4 @@ $GLOBALS['TL_LANG']['MOD']['oddTheme'][0] = "pdir themes";
 $GLOBALS['TL_LANG']['MOD']['oddThemeSetup'][0] = "ODD Theme Setup";
 
 $GLOBALS['TL_LANG']['odd']['event_more_link'] = "Show event details";
+
