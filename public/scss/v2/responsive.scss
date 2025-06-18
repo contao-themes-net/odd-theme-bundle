@@ -402,9 +402,12 @@
     border-left: none;
   }
 
+  .nl-footer .skewed-bg ~ .container {
+    padding: 180px 0 0;
+  }
+
   .nl-footer .container {
-    padding: 150px 0 0;
-    margin-bottom: -20px;
+    padding: 50px 0;
   }
 
   .swiper~.swiper-pagination {
@@ -477,13 +480,6 @@
   }
 }
 
-@media (max-width: 600px) {
-  .nl-footer .container {
-    padding: 110px 0 0;
-    margin-bottom: -25px;
-  }
-}
-
 @media (max-width: 575px) {
   .calendar {
     thead {
@@ -538,6 +534,10 @@
     nav p {
       float: none;
     }
+  }
+
+  .nl-footer .container {
+    padding: 30px 0;
   }
 }
 

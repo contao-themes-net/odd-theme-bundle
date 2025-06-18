@@ -135,11 +135,13 @@ footer {
     background: var(--page_background);
   }
 
+  .skewed-bg ~ .container {
+    padding: 180px 0 70px;
+  }
+
   .container {
-    padding: 150px 0 50px;
+    padding: 80px 0;
     z-index: 2;
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
 
   h2, h3, h4, h5, h6 {
@@ -149,6 +151,10 @@ footer {
 
   .row {
     margin: 0;
+
+    >div:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .widget-text, .widget-submit {

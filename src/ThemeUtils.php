@@ -40,6 +40,8 @@ class ThemeUtils
         'green_colors_contrast',
         'yellow_colors_contrast',
         'red_colors_contrast',
+        'purple_colors_contrast',
+        'pastel_colors_contrast',
     ];
 
     public static function getRootDir(): string

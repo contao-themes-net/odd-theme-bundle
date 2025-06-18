@@ -3,13 +3,48 @@
   background: var(--gradientPrimaryColor2);  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, var(--gradientPrimaryColor1), var(--gradientPrimaryColor2));  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, var(--gradientPrimaryColor1), var(--gradientPrimaryColor2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: var(--primary-background-text-color);
 
-  .layout_latest p {
-    color: var(--oddColor4);
+  .ce_ct_featureElement svg {
+    border-color: var(--primary-background-text-color);
+    color: var(--primary-background-text-color);
   }
 
-  p {
+  .ce_ct_teaserBox {
+    h1 { color: var(--h1-color); }
+    h2 { color: var(--h2-color); }
+    h3 { color: var(--h3-color); }
+    h4 { color: var(--h4-color); }
+    h5 { color: var(--h5-color); }
+    h6 { color: var(--h6-color); }
+  }
+
+  .layout_latest {
+    h1 { color: var(--h1-color); }
+    h2 { color: var(--h2-color); }
+    h3 { color: var(--h3-color); }
+    h4 { color: var(--h4-color); }
+    h5 { color: var(--h5-color); }
+    h6 { color: var(--h6-color); }
+
+    p {
+      color: var(--oddColor4);
+    }
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
     color: var(--primary-background-text-color);
+  }
+}
+
+.secondary-bg {
+  background: var(--gradientSecondaryColor2);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, var(--gradientSecondaryColor1), var(--gradientSecondaryColor2));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, var(--gradientSecondaryColor1), var(--gradientSecondaryColor2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: var(--secondary-background-text-color);
+
+  p {
+    color: var(--secondary-background-text-color);
   }
 }
 
@@ -83,8 +118,10 @@
 // Feature-Element
 .ce_ct_featureElement {
   clear: both;
-  display: table;
-  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
   .icon {
     width: 55px;
@@ -132,6 +169,7 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     text-align: center;
+    width: 100%;
   }
 
   &:nth-of-type(1) .inside {

@@ -82,6 +82,38 @@
       </a>
     </li>
 
+    <li{% if 'purple_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=purple_colors_contrast"
+        class="color-scheme purple-colors-contrast"
+        data-id="purple_colors_contrast"
+      >
+        <span class="title">PURPLE <span>CONTRAST</span></span>
+        <span class="colors">
+          <span style="background:#7D5A94"></span>
+          <span style="background:#5C3A61"></span>
+          <span style="background:#7A496B"></span>
+          <span style="background:#fff"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'pastel_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=pastel_colors_contrast"
+        class="color-scheme pastel-colors-contrast"
+        data-id="pastel_colors_contrast"
+      >
+        <span class="title">PASTEL <span>CONTRAST</span></span>
+        <span class="colors">
+          <span style="background:#C9D6E3"></span>
+          <span style="background:#E3B6B4"></span>
+          <span style="background:#CFE9DC"></span>
+          <span style="background:#000"></span>
+        </span>
+      </a>
+    </li>
+
     <li{% if 'green_colors' == oddColor %} class="active"{% endif %}>
       <a
         href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=green_colors"

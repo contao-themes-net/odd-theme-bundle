@@ -88,16 +88,10 @@ h6 {
   color: var(--h6-color);
 }
 
-.mod_article.primary-bg {
+.mod_article > .container > {
   h1, h2, h3, h4, h5, h6 {
-    &.content-headline{
-      color: var(--primary-background-text-color);
-    }
-  }
-
-  .ce_text {
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--primary-background-text-color);
+    &:first-child {
+      margin-top: 0;
     }
   }
 }
@@ -246,6 +240,10 @@ hr {
 .page-link {
   border: 0;
   margin: 2px;
+}
+
+ul, ol {
+  padding-left: 20px;
 }
 
 /* Textelemente */

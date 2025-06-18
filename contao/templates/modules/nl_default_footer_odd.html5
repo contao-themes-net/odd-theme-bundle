@@ -1,8 +1,8 @@
-<?php $this->extend('block_unsearchable'); ?>
+<div class="<?= $this->class ?> block"<?= $this->cssID ?> <?php if ($this->style): ?>style="<?= $this->style ?>"<?php endif; ?>>
 
-<?php $this->block('content'); ?>
-
+<?php if (false !== strpos($this->class, 'skw-')): ?>
 <div class="skewed-bg skewed-top skewed-left"></div>
+<?php endif; ?>
 
 <div class="container">
     <div class="row">
@@ -55,4 +55,4 @@
     </div>
 </div>
 
-<?php $this->endblock(); ?>
+</div>
