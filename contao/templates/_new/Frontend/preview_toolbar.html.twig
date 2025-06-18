@@ -1,0 +1,381 @@
+<div id="oddPreviewToolbar">
+  <ul id="slide-out" class="sidenav">
+    <li class="close-icon" title="Toolbar schließen">✕</li>
+
+    <li class="subheader">ODD color schemes</li>
+
+    <li{% if 'green_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=green_colors_contrast"
+        class="color-scheme green-colors-contrast"
+        data-id="green_colors_contrast"
+      >
+        <span class="title">GREEN <span>CONTRAST</span></span>
+        <span class="colors">
+          <span style="background:#A3CC00"></span>
+          <span style="background:#69BF44"></span>
+          <span style="background:#36B3A5"></span>
+          <span style="background:#000"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'blue_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=blue_colors_contrast"
+        class="color-scheme blue-colors-contrast"
+        data-id="blue_colors_contrast"
+      >
+        <span class="title">BLUE <span>CONTRAST</span></span>
+        <span class="colors">
+          <span style="background:#217E8C"></span>
+          <span style="background:#1D617C"></span>
+          <span style="background:#184267"></span>
+          <span style="background:#fff"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'grey_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=grey_colors_contrast"
+        class="color-scheme grey-colors-contrast"
+        data-id="grey_colors_contrast">
+        <span class="title">GREY <span>CONTRAST / GREY MODE</span></span>
+        <span class="colors">
+          <span style="background:#737373"></span>
+          <span style="background:#575757"></span>
+          <span style="background:#3D3D3D"></span>
+          <span style="background:#fff"></span>
+        </span>
+      </a></li>
+
+    <li{% if 'yellow_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=yellow_colors_contrast"
+        class="color-scheme yellow-colors-contrast"
+        data-id="yellow_colors_contrast"
+      >
+        <span class="title">YELLOW <span>CONTRAST</span></span>
+        <span class="colors">
+          <span style="background:#FFDC2E"></span>
+          <span style="background:#FBBC0E"></span>
+          <span style="background:#FEA239"></span>
+          <span style="background:#000"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'red_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=red_colors_contrast"
+        class="color-scheme red-colors-contrast"
+        data-id="red_colors_contrast"
+      >
+        <span class="title">RED <span>CONTRAST</span></span>
+        <span class="colors">
+          <span style="background:#DB3939"></span>
+          <span style="background:#B30000"></span>
+          <span style="background:#800000"></span>
+          <span style="background:#fff"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'purple_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=purple_colors_contrast"
+        class="color-scheme purple-colors-contrast"
+        data-id="purple_colors_contrast"
+      >
+        <span class="title">PURPLE <span>CONTRAST</span></span>
+        <span class="colors">
+          <span style="background:#7D5A94"></span>
+          <span style="background:#5C3A61"></span>
+          <span style="background:#7A496B"></span>
+          <span style="background:#fff"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'pastel_colors_contrast' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=pastel_colors_contrast"
+        class="color-scheme pastel-colors-contrast"
+        data-id="pastel_colors_contrast"
+      >
+        <span class="title">PASTEL <span>CONTRAST</span></span>
+        <span class="colors">
+          <span style="background:#C9D6E3"></span>
+          <span style="background:#E3B6B4"></span>
+          <span style="background:#CFE9DC"></span>
+          <span style="background:#000"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'green_colors' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=green_colors"
+        class="color-scheme green-colors"
+        data-id="green_colors"
+      >
+        <span class="title">GREEN</span>
+        <span class="colors">
+          <span style="background:#A3CC00"></span>
+          <span style="background:#69BF44"></span>
+          <span style="background:#36B3A5"></span>
+          <span style="background:#fff"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'blue_colors' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=blue_colors"
+        class="color-scheme blue-colors"
+        data-id="blue_colors"
+      >
+        <span class="title">BLUE</span>
+        <span class="colors">
+          <span style="background:#2898AA"></span>
+          <span style="background:#237595"></span>
+          <span style="background:#1E5380"></span>
+          <span style="background:#fff"></span>
+        </span>
+      </a>
+    </li>
+
+    <li{% if 'grey_colors' == oddColor %} class="active"{% endif %}>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=grey_colors"
+        class="color-scheme grey-colors"
+        data-id="grey_colors">
+        <span class="title">GREY</span>
+        <span class="colors">
+          <span style="background:#666363"></span>
+          <span style="background:#999999"></span>
+          <span style="background:#000000"></span>
+          <span style="background:#fff"></span>
+        </span>
+      </a></li>
+
+    <li>
+      <a
+        href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}?theme-color=reset"
+      >
+        <span class="title">Farbschema-Auswahl zurücksetzen</span>
+      </a>
+    </li>
+
+    <li class="subheader">Links</li>
+
+    <li class="link">
+      <a href="https://contao-themes.net/theme-detail/odd.html"><i class="fas fa-cart-arrow-down"></i> Kostenlos
+        installieren oder Lizenz bestellen</a>
+    </li>
+    <li class="link">
+      <a href="https://pdir.de/docs/de/contao/themes/odd/"><i class="fa fa-book" aria-hidden="true"></i>
+        Dokumentation</a>
+    </li>
+    <li class="link">
+      <a href="https://github.com/contao-themes-net/odd-theme-bundle/issues"><i class="fab fa-github"></i>
+        Fehler melden</a>
+    </li>
+    <li class="link">
+      <a href="https://odd.isotope.contao-themes.net"><i class="fas fa-globe"></i> ODD Isotope Demo</a>
+    </li>
+
+    {#
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Device Size</a></li>
+    <li><i class="oddrial-icons">desktop_windows</i> Desktop</li>
+    <li><i class="oddrial-icons">tablet</i> Tablet</li>
+    <li><i class="oddrial-icons">tablet_android</i> Tablet (Portrait) </li>
+    <li><i class="oddrial-icons">smartphone</i> Mobile</li>
+    #}
+  </ul>
+  <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}#"
+     data-target="slide-out" class="open-settings sidenav-trigger" title="Show settings menu"><i class="fas fa-cog"></i></a>
+</div>
+<script>
+  // Set active color image
+  var activeColor = '{{ oddColor }}';
+
+  jQuery(document).ready(function ($) {
+    if(activeColor) {
+      $('#oddPreviewToolbar li img').removeClass('active');
+      $('#oddPreviewToolbar li img.' + activeColor).addClass('active');
+    }
+
+    $(".open-settings").click( function(e) {
+        $("#slide-out").show();
+        e.preventDefault();
+    });
+
+    $("#slide-out .close-icon").click( function() {
+        $("#slide-out").hide();
+    });
+
+    $("a.colour-scheme").hover( function() {
+        var colourScheme = $(this).data("id");
+        $("li img." + colourScheme).toggleClass("hover");
+        $("li.image").toggleClass("hover");
+    });
+  });
+</script>
+<style>
+  .open-settings {
+    position: fixed;
+    top: 150px;
+    background: #333;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100
+  }
+
+  .open-settings svg {
+    color: #fff
+  }
+
+  #slide-out {
+    background: #333;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  #slide-out.sidenav li {
+    position: static
+  }
+
+  #slide-out {
+    background: #333;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    height: 100%;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  #slide-out ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  #slide-out li {
+    list-style-type: none;
+  }
+
+  #slide-out li > a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.2;
+    height: inherit;
+    padding: 5px 32px;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  #slide-out li:not(.link) > a {
+    flex-wrap: wrap;
+  }
+
+  #slide-out li > a > svg {
+    height: inherit;
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px 0 0;
+    min-width: 25px;
+    line-height: 1;
+  }
+
+  #slide-out li.image {
+    padding: 65px 32px 0;
+  }
+
+  #slide-out li.image img {
+    display: none;
+  }
+
+  #slide-out li.image img.active {
+    display: block
+  }
+
+  #slide-out li.image.hover img.active {
+    display: none
+  }
+
+  #slide-out li.image.hover img.hover {
+    display: block
+  }
+
+  #slide-out li.active, #slide-out li:hover {
+    background: rgba(255, 255, 255, 0.05)
+  }
+
+  #slide-out li.active.subheader, #slide-out li.active.image, #slide-out li:hover.subheader, #slide-out li:hover.image {
+    background: none
+  }
+
+  #slide-out .close-icon {
+    text-align: right;
+    color: #fff;
+    font-size: 1.8rem;
+    display: inline-block;
+    float: right;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  #slide-out .title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  #slide-out .title span {
+    font-weight: 400;
+  }
+
+  #slide-out .subheader {
+    font-size: 18px;
+    padding: 0;
+    margin: 20px 32px 15px;
+    border-bottom: 1px solid #565656;
+    color: #fff;
+  }
+
+  span.colors {
+    display: flex;
+    height: 5px;
+    width: 100%;
+  }
+
+  span.colors span {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 992px) {
+    #slide-out.sidenav {
+      padding: 0 0 100px
+    }
+  }
+
+  @media (max-width: 600px) {
+    #slide-out {
+      width: 100%
+    }
+  }
+</style>

@@ -5,7 +5,7 @@
  */
 
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['sliderElement'] = '{type_legend},type,headline,odd_subHeadline;{text_legend},text,odd_page,target,odd_linkText;{image_legend},addImage;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['sliderElement'] = '{type_legend},type,headline,odd_subHeadline;{text_legend},text,odd_page,target,odd_linkText,odd_linkTitle;{image_legend},addImage;{template_legend:hide},customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 
 /**
  * Add fields to tl_content
@@ -27,6 +27,13 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['odd_page'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['odd_linkText'] = [
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => ['tl_class' => 'w50'],
+    'sql' => "TEXT NULL"
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['odd_linkTitle'] = [
     'exclude' => true,
     'inputType' => 'text',
     'eval' => ['tl_class' => 'w50'],

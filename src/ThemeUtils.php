@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace ContaoThemesNet\OddThemeBundle;
 
 use Contao\Combiner;
+use Contao\Input;
 use Contao\StringUtil;
 use Contao\System;
 
@@ -26,6 +27,22 @@ class ThemeUtils
 {
     public static string $themeFolder = 'bundles/contaothemesnetoddtheme/';
     public static string $scssFolder = 'scss/';
+
+    /**
+     * @var array<string>
+     */
+    public static array $colors = [
+        'blue_colors',
+        'blue_colors_contrast',
+        'grey_colors',
+        'grey_colors_contrast',
+        'green_colors',
+        'green_colors_contrast',
+        'yellow_colors_contrast',
+        'red_colors_contrast',
+        'purple_colors_contrast',
+        'pastel_colors_contrast',
+    ];
 
     public static function getRootDir(): string
     {
@@ -46,14 +63,44 @@ class ThemeUtils
             self::$scssFolder = '/files/odd/scss/'.$theme.'/';
         }
 
+        // Get session for theme switcher
+        $session = System::getContainer()->get('request_stack')->getSession();
+
         // add stylesheets
         $combiner = new Combiner();
         $combiner->add(self::$themeFolder.'bootstrap/dist/css/bootstrap.min.css');
 
-        if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
-            $combiner->add(self::$scssFolder.'odd_win.scss');
+        // Check for v2 or use old stylesheets
+        if ($isV2 = file_exists(self::getRootDir().'/files/odd/.v2') && null === $theme) {
+            if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
+                $combiner->add(self::$scssFolder.'v2/odd_win.scss');
+            } else {
+                $combiner->add(self::$scssFolder.'v2/odd.scss');
+            }
         } else {
-            $combiner->add(self::$scssFolder.'odd.scss');
+            if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
+                $combiner->add(self::$scssFolder.'odd_win.scss');
+            } else {
+                $combiner->add(self::$scssFolder.'odd.scss');
+            }
+        }
+
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
+
+        // Execute code only in preview mode
+        if ($request->attributes->get('_preview')) {
+            if ('reset' === Input::get('theme-color')) {
+                $session->set('odd_color', null);
+            }
+
+            if (Input::get('theme-color') && \in_array(Input::get('theme-color'), self::$colors, true)) {
+                $session->set('odd_color', Input::get('theme-color'));
+            }
+
+            if ($isV2 && $session->get('odd_color') && null !== $session->get('odd_color')) {
+                $combiner->add(self::$scssFolder.'v2/_odd_variables.scss');
+                $combiner->add(self::$scssFolder.'v2/color_schemes/odd_'.$session->get('odd_color').'.scss');
+            }
         }
 
         return $combiner->getCombinedFile();

@@ -17,7 +17,7 @@
         <p class="error"><?= $this->getErrorAsString() ?></p>
     <?php endif; ?>
 
-    <label class="custom-file d-block">
+    <label class="custom-file d-block" aria-label="<?= $this->label ?>">
         <input type="file" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="upload custom-file-input upload<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>"<?= $this->getAttributes() ?>>
         <span class="custom-file-label"></span>
     </label>

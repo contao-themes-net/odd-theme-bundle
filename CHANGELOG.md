@@ -10,6 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.7.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.0) – 2025-06-18
+- [Added] Add contrast color schemes (only in v2) and accessibility changes
+- [Fixed] Pagespeed optimizations
+- [Fixed] Fix path for own theme folder - thanks to [zonky2](https://github.com/zonky2) [#67](https://github.com/contao-themes-net/odd-theme-bundle/issues/67)
+
 ## [3.6.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.6.0) – 2025-03-21
 
 - [Added] Add news slider (use news_slider_odd and mod_newslist_slider_odd templates and place the news module within the content slider elements)

@@ -1,5 +1,5 @@
 /****
- **** odd theme files / odd_variables
+ **** v2 odd theme files / odd_variables
  ****
  */
 
@@ -7,153 +7,190 @@
  * uncomment lines to override odd variables
  */
 
+/* ============================= */
+/*        Colour Schemes         */
+/* ============================= */
+
+@import 'color_schemes/odd_green_colors_contrast';
+//@import 'color_schemes/odd_blue_colors_contrast';
+//@import 'color_schemes/odd_grey_colors_contrast';
+//@import 'color_schemes/odd_red_colors_contrast';
+//@import 'color_schemes/odd_yellow_colors_contrast';
+//@import 'color_schemes/odd_purple_colors_contrast';
+//@import 'color_schemes/odd_pastel_colors_contrast';
+
+//@import 'color_schemes/odd_grey_colors';
+//@import 'color_schemes/odd_blue_colors';
 
 /* ============================= */
 /*     ODD Theme Variables       */
 /* ============================= */
 
-//$primaryColor: $oddColor2;
-//$page_background: $oddColor7;
+:root {
+  /* Odd Colors */
+  //--oddColor1: #A3CC00;
+  //--oddColor2: #69BF44;
+  //--oddColor3: #36B3A5;
+  //--oddColor4: #1F1F1F;
+  //--oddColor5: #333333;
+  //--oddColor6: #FFFFFF;
+  //--oddColor7: #F8F8F8;
+  //--oddGrey: #808080;
 
-/* Gradient */
+  //--oddTextColor1: var(--oddColor1);
+  //--oddTextColor2: var(--oddColor2);
+  //--oddTextColor3: var(--oddColor3);
 
-//$gradientPrimaryColor1: $oddColor3;
-//$gradientPrimaryColor2: $oddColor1;
+  /* Primary + Page */
+  //--primaryColor: var(--oddColor2);
+  //--page_background: var(--oddColor7);
+  //--primary-background-text-color: var(--oddColor6);
 
-/* Buttons Colors */
+  /* Gradient */
+  //--gradientPrimaryColor1: var(--oddColor3);
+  //--gradientPrimaryColor2: var(--oddColor1);
 
-//$button-background: $oddColor4;
-//$button-color: $oddColor6;
-//$button-background-hover: $oddColor3;
-//$button-color-hover: $oddColor6;
+  /* Buttons + Links */
+  //--button-background: var(--oddColor4);
+  //--button-color: var(--oddColor6);
+  //--button-background-hover: var(--oddColor3);
+  //--button-color-hover: var(--oddColor6);
+  //--link-color: var(--oddTextColor2);
+  //--link-color-hover: var(--oddTextColor3);
 
-/* Fonts */
+  /* Fonts */
+  //--mainFont: 'Muli', sans-serif;
+  //--headingFont: 'Cabin', sans-serif;
 
-//$mainFont: 'Muli', sans-serif;
-//$headingFont: 'Cabin', sans-serif;
+  /* Headlines */
+  //--h1-font-size: 2rem;
+  //--h2-font-size: 1.7rem;
+  //--h3-font-size: 1.5rem;
+  //--h4-font-size: 1.3rem;
+  //--h5-font-size: 1.1rem;
+  //--h6-font-size: 0.9rem;
 
-/* Headlines */
+  //--h1-color: var(--oddColor4);
+  //--h2-color: var(--oddTextColor2);
+  //--h3-color: var(--oddTextColor2);
+  //--h4-color: var(--oddTextColor2);
+  //--h5-color: var(--oddTextColor2);
+  //--h6-color: var(--oddTextColor2);
 
-//$h1-font-size: 2rem;
-//$h2-font-size: 1.7rem;
-//$h3-font-size: 1.5rem;
-//$h4-font-size: 1.3rem;
-//$h5-font-size: 1.1rem;
-//$h6-font-size: 0.9rem;
+  //--header-image-background: rgba(25, 25, 25, 0.8);
+  //--header-image-color: rgba(255, 255, 255, 0.9);
 
-//$h1-color: $oddColor4;
-//$h2-color: $oddColor2;
-//$h3-color: $oddColor2;
-//$h4-color: $oddColor2;
-//$h5-color: $oddColor2;
-//$h6-color: $oddColor2;
+  /* Styling */
+  //--borderRadius: 0px;
 
-//$header-image-background: rgba(25, 25, 25, 0.8);
-//$header-image-color: rgba(255, 255, 255, 0.9);
+  /* Content Slider */
+  //--slider-background: rgba(255, 255, 255, 0.8);
+  //--slider-headline-color: var(--oddColor5);
+  //--slider-subheadline-color: var(--oddTextColor2);
+  //--slider-text-color: var(--oddColor5);
+  //--slider-button-background: var(--oddColor2);
+  //--slider-button-color: var(--oddColor6);
+  //--slider-button-background-hover: var(--button-background-hover);
+  //--slider-button-color-hover: var(--button-color-hover);
+  //--slider-control-color: var(--oddColor5);
+  //--slider-control-color-active: var(--oddTextColor2);
 
-/* Styling */
+  /* Header and Navigation */
+  //--navbar-top-background1: var(--gradientPrimaryColor1);
+  //--navbar-top-background2: var(--gradientPrimaryColor2);
+  //--navbar-top-color: var(--oddColor6);
 
-//$borderRadius: 0px;
+  //--navbar-background: var(--oddColor6);
+  //--nav-color: var(--oddColor5);
+  //--nav-active-color: var(--oddTextColor2);
+  //--nav-hover-color: var(--oddTextColor2);
 
-/* Content Slider */
+  //--nav-dropdown-background: var(--oddColor2);
+  //--nav-dropdown-color: var(--oddColor6);
+  //--nav-dropdown-hover-background: var(--oddColor5);
+  //--nav-dropdown-hover-color: var(--oddColor6);
 
-//$slider-background:                   rgba($oddColor6, 0.8);
-//$slider-headline-color:               $oddColor5;
-//$slider-subheadline-color:            $oddColor2;
-//$slider-text-color:                   $oddColor5;
-//$slider-button-background:            $oddColor2;
-//$slider-button-color:                 $oddColor6;
-//$slider-button-background-hover:      $button-background-hover;
-//$slider-button-color-hover:           $button-color-hover;
-//$slider-control-color:                $oddColor5;
-//$slider-control-color-active:         $oddColor2;
+  //--navbar-toggler-background: var(--oddColor2);
+  //--navbar-toggler-color: var(--oddColor6);
+  //--navbar-mobile-background: var(--oddColor6);
+  //--navbar-mobile-border-color: var(--oddColor2);
+  //--navbar-mobile-dropdown-toggle-color: var(--oddColor5);
+  //--navbar-mobile-dropdown-background: var(--oddColor7);
 
-/* Header and Navigation */
+  //--subnav-background: var(--oddColor6);
+  //--subnav-color: var(--oddTextColor2);
+  //--subnav-hover-active-color: var(--primary-background-text-color);
+  //--subnav-hover-active-background: var(--oddColor2);
+  //--subnav-border-color: var(--oddColor2);
+  //--subnav-lvl2-color: var(--oddColor5);
 
-//$navbar-top-background1:              $gradientPrimaryColor1;
-//$navbar-top-background2:              $gradientPrimaryColor2;
-//$navbar-top-color:                    $oddColor6;
+  /* Newsletter */
+  //--newsletter-background: var(--oddColor1);
+  //--newsletter-color: var(--oddColor5);
+  //--newsletter-input-background: var(--oddColor5);
+  //--newsletter-input-color: var(--oddColor6);
+  //--newsletter-button-background: none;
+  //--newsletter-button-color: var(--oddColor5);
+  //--newsletter-button-background-hover: var(--oddColor5);
+  //--newsletter-button-color-hover: var(--oddColor6);
+  //--newsletter-button-border: 3px solid var(--oddColor5);
+  //--newsletter-button-border-hover: 3px solid var(--oddColor5);
 
-//$navbar-background:                   $oddColor6;
-//$nav-color:                           $oddColor5;
-//$nav-active-color:                    $oddColor2;
-//$nav-hover-color:                     $oddColor2;
+  /* Footer */
+  //--main-footer-background: var(--oddColor5);
+  //--main-footer-color: var(--oddColor6);
+  //--main-footer-border-color: #484848;
+  //--copyright-footer-background: var(--oddColor4);
+  //--copyright-footer-color: var(--oddColor6);
+  //--footer-links-hover-color: var(--oddColor2);
 
-//$nav-dropdown-background:             $oddColor2;
-//$nav-dropdown-color:                  $oddColor6;
-//$nav-dropdown-hover-background:       $oddColor5;
-//$nav-dropdown-hover-color:            $oddColor6;
+  /* Content Box */
+  //--contentbox-odd-background: var(--oddColor4);
+  //--contentbox-odd-color: var(--oddColor6);
+  //--contentbox-odd-button-background: var(--oddColor1);
+  //--contentbox-odd-button-color: var(--button-color);
+  //--contentbox-odd-button-background-hover: var(--button-background-hover);
+  //--contentbox-odd-button-color-hover: var(--button-color-hover);
 
-//$navbar-toggler-background:           $oddColor2;
-//$navbar-toggler-color:                $oddColor6;
-//$navbar-mobile-background:            $oddColor6;
-//$navbar-mobile-border-color:          $oddColor2;
-//$navbar-mobile-dropdown-toggle-color: $oddColor5;
-//$navbar-mobile-dropdown-background  : $oddColor7;
+  //--contentbox-even-background: var(--oddColor6);
+  //--contentbox-even-color: var(--oddColor4);
+  //--contentbox-even-button-background: var(--oddColor4);
+  //--contentbox-even-button-color: var(--oddColor6);
+  //--contentbox-even-button-background-hover: var(--button-background-hover);
+  //--contentbox-even-button-color-hover: var(--button-color-hover);
 
-//$subnav-background:                   $oddColor6;
-//$subnav-color:                        $oddColor2;
-//$subnav-hover-active-color:           $oddColor6;
-//$subnav-hover-active-background:      $oddColor2;
-//$subnav-border-color:                 $oddColor2;
+  /* Teaserbox */
+  //--teaserbox-background: var(--oddColor6);
 
-/* Newsletter */
+  /* Simple Box */
+  //--simplebox_background: var(--oddColor6);
+  //--simplebox_color: var(--oddColor5);
 
-//$newsletter-background:               $oddColor1;
-//$newsletter-color:                    $oddColor5;
-//$newsletter-input-background:         $oddColor5;
-//$newsletter-input-color:              $oddColor6;
-//$newsletter-button-background:        none;
-//$newsletter-button-color:             $oddColor5;
-//$newsletter-button-background-hover:  $oddColor5;
-//$newsletter-button-color-hover:       $oddColor6;
-//$newsletter-button-border:            3px solid $oddColor5;
-//$newsletter-button-border-hover:      3px solid $oddColor5;
+  /* Price Box */
+  //--pricebox-background: var(--oddColor6);
+  //--pricebox-text-color: var(--oddColor5);
 
-/* Footer */
+  //--pricebox-1-color: var(--oddTextColor2);
+  //--pricebox-1-button-background: var(--oddColor2);
+  //--pricebox-1-button-color: #fff;
+  //--pricebox-1-button-background-hover: var(--oddColor5);
+  //--pricebox-1-button-color-hover: #fff;
+  //--pricebox-1-link-color: var(--pricebox-1-color);
+  //--pricebox-1-border-top: 8px solid var(--oddColor2);
 
-//$main-footer-background:              $oddColor5;
-//$main-footer-color:                   $oddColor6;
-//$main-footer-border-color:            #484848;
-//$copyright-footer-background:         $oddColor4;
-//$copyright-footer-color:              $oddColor6;
-//$footer-links-hover-color:            $oddColor2;
+  //--pricebox-2-color: var(--oddTextColor3);
+  //--pricebox-2-button-background: var(--oddColor3);
+  //--pricebox-2-button-color: #fff;
+  //--pricebox-2-button-background-hover: var(--oddColor5);
+  //--pricebox-2-button-color-hover: #fff;
+  //--pricebox-2-link-color: var(--pricebox-2-color);
+  //--pricebox-2-border-top: 8px solid var(--oddColor3);
 
-/* Content Box */
-
-//$contentbox-odd-background:               $oddColor4;
-//$contentbox-odd-color:                    $oddColor6;
-//$contentbox-odd-button-background:        $oddColor1;
-//$contentbox-odd-button-color:             $button-color;
-//$contentbox-odd-button-background-hover:  $button-background-hover;
-//$contentbox-odd-button-color-hover:       $button-color-hover;
-
-//$contentbox-even-background:              $oddColor6;
-//$contentbox-even-color:                   $oddColor4;
-//$contentbox-even-button-background:       $oddColor4;
-//$contentbox-even-button-color:            $oddColor6;
-//$contentbox-even-button-background-hover: $button-background-hover;
-//$contentbox-even-button-color-hover:      $button-color-hover;
-
-/* Teaserbox */
-
-//$teaserbox-background:                $oddColor6;
-
-/* Simple Box */
-
-//$simplebox_background:                $oddColor6;
-//$simplebox_color:                     $oddColor5;
-
-/* Price Box */
-
-//$pricebox_background:                 $oddColor6;
-//$pricebox_text_color:                 $oddColor5;
-
-//$pricebox_1_color:                    $oddColor2;
-//$pricebox_1_button_background_hover:  $oddColor5;
-
-//$pricebox_2_color:                    $oddColor3;
-//$pricebox_2_button_background_hover:  $oddColor5;
-
-//$pricebox_3_color:                    $oddColor1;
-//$pricebox_3_button_background_hover:  $oddColor5;
+  //--pricebox-3-color: var(--oddTextColor1);
+  //--pricebox-3-button-background: var(--oddColor1);
+  //--pricebox-3-button-color: #fff;
+  //--pricebox-3-button-background-hover: var(--oddColor5);
+  //--pricebox-3-button-color-hover: #fff;
+  //--pricebox-3-link-color: var(--pricebox-3-color);
+  //--pricebox-3-border-top: 8px solid var(--oddColor1);
+}
