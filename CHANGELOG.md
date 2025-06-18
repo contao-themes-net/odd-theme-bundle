@@ -13,6 +13,7 @@ Types of changes
 ## [3.7.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.0) – 2025-06-18
 - [Added] Add contrast color schemes (only in v2) and accessibility changes
 - [Fixed] Pagespeed optimizations
+- [Fixed] Fix path for own theme folder - thanks to [zonky2](https://github.com/zonky2) [#67](https://github.com/contao-themes-net/odd-theme-bundle/issues/67)
 
 ## [3.6.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.6.0) – 2025-03-21
 
