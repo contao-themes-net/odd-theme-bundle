@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.7.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.1) – 2025-06-19
+
+- [Fixed] Fix SyntaxError / Missing 'php' in template - thanks to [janborg](https://github.com/janborg) [#69](https://github.com/contao-themes-net/odd-theme-bundle/pull/69)
+
 ## [3.7.0](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.0) – 2025-06-18
 - [Added] Add contrast color schemes (only in v2) and accessibility changes
 - [Fixed] Pagespeed optimizations
