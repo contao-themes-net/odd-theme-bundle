@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.7.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.2) – 2025-06-23
+
+- [Fixed] Moved `<?= $this->head ?>` to the top of the `<head>` section in the fe_page template to follow best practices [#71](https://github.com/contao-themes-net/odd-theme-bundle/issues/71)
+
 ## [3.7.1](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.1) – 2025-06-19
 
 - [Fixed] Fix SyntaxError / Missing 'php' in template - thanks to [janborg](https://github.com/janborg) [#69](https://github.com/contao-themes-net/odd-theme-bundle/pull/69)

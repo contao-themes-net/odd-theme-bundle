@@ -33,8 +33,10 @@
 
         <?= $this->viewport ?>
         <?= $this->framework ?>
+        <link rel="stylesheet" type="text/css" media="all" href="<?= ContaoThemesNet\OddThemeBundle\ThemeUtils::getCombinedStylesheet(); // odd theme css optimization ?>">
         <?= $this->stylesheets ?>
         <?= $this->mooScripts ?>
+        <?= $this->head ?>
     <?php $this->endblock(); ?>
 </head>
 <body id="top"<?php if ($this->class): ?> class="<?= $this->class ?>"<?php endif; ?><?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?>>
@@ -108,8 +110,6 @@
     <?php $this->sections('bottom'); ?>
 <?php $this->endblock(); ?>
 
-<?= $this->head ?>
-<link rel="stylesheet" type="text/css" media="all" href="<?= ContaoThemesNet\OddThemeBundle\ThemeUtils::getCombinedStylesheet(); // odd theme css optimization ?>">
 <?= $this->mootools ?>
 <?= $this->jsonLdScripts ?>
 
