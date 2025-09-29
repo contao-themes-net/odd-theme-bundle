@@ -593,7 +593,7 @@ input, button {
 }
 
 .swiper {
-  ~ .swiper-pagination {
+  ~ .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: 100px;
 
     .swiper-pagination-bullet {

@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [3.7.3](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.3) – 2025-09-29
+
+- [Added] Added SQL file to enable demo import in Contao 5.6
+
 ## [3.7.2](https://github.com/contao-themes-net/odd-theme-bundle/tree/3.7.2) – 2025-06-23
 
 - [Fixed] Moved `<?= $this->head ?>` to the top of the `<head>` section in the fe_page template to follow best practices [#71](https://github.com/contao-themes-net/odd-theme-bundle/issues/71)
